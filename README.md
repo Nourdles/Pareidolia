@@ -1,5 +1,5 @@
 
-===DEVELOPMENT SETUP===
+DEVELOPMENT SETUP
 Add these packages using Unity Package Manager:
 
 
