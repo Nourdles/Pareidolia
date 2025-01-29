@@ -15,7 +15,7 @@ public class SanityTracker : MonoBehaviour
     /// 
     /// 
     /// </summary>
-    public Camera camera;
+    public new Camera camera;
 
     //Active stains 
     //Note that this script is responsible for null checking accessed stains
