@@ -3,50 +3,54 @@ using UnityEngine.Video;
 using UnityEngine.UI;
 using System.Collections;
 
+/// <summary>
+/// Script for playing intro video, then switching to title screen video and making title screen buttons fade in.
+/// </summary>
+
 public class TitleScreenManager : MonoBehaviour
 {
-    public VideoPlayer videoPlayer;   // Assign VideoPlayer in Inspector
-    public VideoClip fadeInVideo;     // First video (fade-in)
-    public VideoClip titleScreenVideo; // Second video (looping title screen)
-    public CanvasGroup buttonGroup;   // To handle button fade-in
+    public VideoPlayer firstVideoPlayer; // VideoPlayer for the first video
+    public VideoPlayer secondVideoPlayer; // VideoPlayer for the second video
+    public VideoClip fadeInVideo;
+    public VideoClip titleScreenVideo;
+    public CanvasGroup buttonGroup;
 
-    private bool buttonsFaded = false; // Ensure buttons fade in only once
+    private bool buttonsFaded = false;
 
     void Start()
     {
-        buttonGroup.alpha = 0;  // Ensure buttons are invisible at the start
-        StartCoroutine(PlayFirstVideo());
+        buttonGroup.alpha = 0;
+        firstVideoPlayer.targetCameraAlpha = 1.0f;
+        secondVideoPlayer.targetCameraAlpha = 1.0f;
+
+        StartCoroutine(PlayVideos());
     }
 
-    IEnumerator PlayFirstVideo()
+    IEnumerator PlayVideos()
     {
-        videoPlayer.clip = fadeInVideo;
-        videoPlayer.Prepare();
+        firstVideoPlayer.clip = fadeInVideo;
+        firstVideoPlayer.Prepare();
 
-        // Wait until the first video is fully prepared
-        while (!videoPlayer.isPrepared)
+        while (!firstVideoPlayer.isPrepared)
             yield return null;
 
-        videoPlayer.Play();
-        StartCoroutine(PreloadSecondVideo()); // Start preparing the next video early
-    }
+        firstVideoPlayer.Play();
 
-    IEnumerator PreloadSecondVideo()
-    {
-        yield return new WaitForSeconds((float)fadeInVideo.length - 1f); // Load just before first video ends
+        secondVideoPlayer.clip = titleScreenVideo;
+        secondVideoPlayer.Prepare();
 
-        videoPlayer.clip = titleScreenVideo;
-        videoPlayer.Prepare();
+        yield return new WaitForSeconds((float)fadeInVideo.length - 0.5f);
 
-        while (!videoPlayer.isPrepared)
-            yield return null; // Ensure second video is fully loaded before switching
+        while (!secondVideoPlayer.isPrepared)
+            yield return null;
 
-        videoPlayer.Play(); // Switch instantly
-        videoPlayer.isLooping = true;
+        secondVideoPlayer.Play();
+        secondVideoPlayer.isLooping = true;
+        firstVideoPlayer.Stop();
 
         if (!buttonsFaded)
         {
-            buttonsFaded = true; // Ensure it only fades once
+            buttonsFaded = true;
             StartCoroutine(FadeInButtons());
         }
     }
@@ -63,6 +67,6 @@ public class TitleScreenManager : MonoBehaviour
             yield return null;
         }
 
-        buttonGroup.alpha = 1; // Ensure full opacity
+        buttonGroup.alpha = 1;
     }
 }
