@@ -4,6 +4,7 @@ using FMOD.Studio;
 
 public class CubeController : MonoBehaviour
 {
+    Rigidbody player;
     public float speed = 5f;
 
     // FMOD Audio Event Instance
@@ -12,6 +13,9 @@ public class CubeController : MonoBehaviour
 
     void Start()
     {
+        player = GetComponent<Rigidbody>();
+        player.freezeRotation = true;
+
         // Initialize the footstep sound event instance
         playerFootsteps = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerFootsteps);
     }
