@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3473058427162574221}
   - component: {fileID: 5942513529022063540}
+  - component: {fileID: 8301949016319319256}
   m_Layer: 0
   m_Name: Face Manager
   m_TagString: Untagged
@@ -52,9 +53,26 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2c2f6e5d737659945b36a161e1e0490c, type: 3}
   - {fileID: 21300000, guid: 51bab667ee7894848868e28c45a67d1c, type: 3}
   - {fileID: 21300000, guid: 55aaef8daff176a479b7b478d27ce9ff, type: 3}
+  sanityTracker: {fileID: 8301949016319319256}
   playerCamera: {fileID: 0}
   maxFacesPerSpot: 3
   maxTotalFaces: 7
   fadeInTime: 3
   maxOpacity: 0.25
   fadeOutTime: 3
+--- !u!114 &8301949016319319256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8792261052398437847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7888be8f107809b418759b5cef4a8517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  stains: []
+  stainDamageGracePeriod: 10
+  stainDamageFreq: 100
