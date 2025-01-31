@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public abstract class InteractableObject : MonoBehaviour
+public class InteractionManager : MonoBehaviour
 {
-    private bool canInteract;
+    [SerializeField] private bool canInteract;
 
     private void Start() 
     {
         canInteract = false;
     }
 
-
-    protected abstract void interact();
 
     public void setObjectAsInteractable()
     {
@@ -22,4 +20,8 @@ public abstract class InteractableObject : MonoBehaviour
         canInteract = false;
     }
 
+    public bool checkIfInteractable()
+    {
+        return canInteract;
+    }
 }
