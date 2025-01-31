@@ -17,6 +17,7 @@ public class OpenCloseNote : MonoBehaviour
 
     public void OpenNote()
     {
+        Debug.Log("Opening note");
         noteTextAreaUI.text = text;
         noteCanvas.SetActive(true);
 
@@ -48,6 +49,7 @@ public class OpenCloseNote : MonoBehaviour
 
     private void Update()
     {
+        noteCanvas.SetActive(noteOpen);
         if (noteOpen)
         {
             if (Input.GetKeyDown(closeKey))
@@ -57,5 +59,14 @@ public class OpenCloseNote : MonoBehaviour
         }
     }
 
+    private void OnEnable() 
+    {
+        NoteInteraction.InteractWithNote += OpenNote;    
+    }
+
+    private void OnDisable() 
+    {
+        NoteInteraction.InteractWithNote -= OpenNote;    
+    }
     
 }

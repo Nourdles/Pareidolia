@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class SimpleTask: Task
 {
-    protected void completeTask()
+    protected virtual void completeTask()
     {
         Debug.Log("Completing Task...");
         complete = true;
