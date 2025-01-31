@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 27679395707097304, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1536879389378171975, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -86,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567976822543559569, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
       propertyPath: m_Name
-      value: Clean Bed 1
+      value: Clean Bed
       objectReference: {fileID: 0}
     - target: {fileID: 7186063735090154195, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
       propertyPath: m_LocalScale.x
@@ -128,6 +132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clean_blanket
       objectReference: {fileID: 0}
+    - target: {fileID: 7942735274194158846, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8224126177273049436, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5321098
@@ -151,6 +159,10 @@ PrefabInstance:
     - target: {fileID: 8224126177273049436, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691839058962024904, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
