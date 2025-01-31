@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Highlights : MonoBehaviour {
@@ -18,9 +19,8 @@ public class Highlights : MonoBehaviour {
                 if (gameObject.CompareTag("InteractableObject"))
                 {
                     gameObject.GetComponent<MeshRenderer>().sharedMaterial = highlightMaterial;
-                    //HoveringObject?.Invoke();
+                    gameObject.GetComponent<InteractionManager>().setObjectAsInteractable();
                 }
-                //OffHoveringObject?.Invoke();
                 lastHighlightedObject = gameObject;
             }
         }
@@ -32,6 +32,10 @@ public class Highlights : MonoBehaviour {
         if (lastHighlightedObject != null)
         {
             lastHighlightedObject.GetComponent<MeshRenderer>().sharedMaterial = originalMaterial;
+            if (lastHighlightedObject.CompareTag("InteractableObject"))
+            {
+                lastHighlightedObject.GetComponent<InteractionManager>().setObjectAsUninteractable();
+            }
             lastHighlightedObject = null;
         }
     }
