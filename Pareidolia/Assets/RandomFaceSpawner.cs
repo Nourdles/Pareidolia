@@ -12,6 +12,7 @@ public class RandomFaceSpawner : MonoBehaviour
 {
     public GameObject facePrefab;   
     public Sprite[] faceSprites;
+    public SanityTracker sanityTracker;
     public Camera playerCamera;
     public int maxFacesPerSpot = 3; // max faces in area looked at
     public int maxTotalFaces = 10; // max faces in scene
@@ -103,6 +104,7 @@ public class RandomFaceSpawner : MonoBehaviour
             }
 
             activeFaces.Add(newFace);
+            sanityTracker.registerStain(newFace);
             totalFaceCount++;
             faceCount++;
 
