@@ -13,9 +13,12 @@ GameObject:
   - component: {fileID: 956072972737939752}
   - component: {fileID: 5797313259271817712}
   - component: {fileID: 3952378864650836121}
+  - component: {fileID: 6166167893848667032}
+  - component: {fileID: 2265322159638454985}
+  - component: {fileID: -7782775009001151710}
   m_Layer: 0
   m_Name: Note
-  m_TagString: Untagged
+  m_TagString: InteractableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,3 +129,41 @@ MonoBehaviour:
   noteCanvas: {fileID: 7572656078255715775, guid: e51b021eb9bd65a4687fe964c03209b9, type: 3}
   noteTextAreaUI: {fileID: 0}
   text: 
+--- !u!114 &6166167893848667032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746063292802260170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c2822b094ff61d4cb4bef3236aefa8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteTextAreaUI: {fileID: 0}
+--- !u!114 &2265322159638454985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746063292802260170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393123e3680aab74fa3d02b1144d7560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7782775009001151710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746063292802260170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69039d3a1d6cf54b845bde135d09103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInteract: 0
