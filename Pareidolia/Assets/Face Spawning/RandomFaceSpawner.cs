@@ -123,7 +123,7 @@ public class RandomFaceSpawner : MonoBehaviour
         return (tangent * randomX) + (bitangent * randomY);
     }
 
-    IEnumerator FadeIn(SpriteRenderer sr)
+    public IEnumerator FadeIn(SpriteRenderer sr)
     {
         if (sr == null) yield break;
 
