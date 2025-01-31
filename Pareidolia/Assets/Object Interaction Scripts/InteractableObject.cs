@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class InteractableObject : Object
+public abstract class InteractableObject : MonoBehaviour
 {
     private bool canInteract;
 
