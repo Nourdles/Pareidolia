@@ -19,7 +19,7 @@ public class SanityTracker : MonoBehaviour
 
     //Active stains 
     //Note that this script is responsible for null checking accessed stains
-    public GameObject[] stains;
+    public List<GameObject> stains;
 
     //Sanity percentage
     private float sanity = 100;
@@ -27,6 +27,8 @@ public class SanityTracker : MonoBehaviour
 
     public int stainDamageGracePeriod = 3;
     public int stainDamageFreq = 15;
+
+    private int garbageCollectionPeriod = 20;
 
     class StainInfo
     {
@@ -47,10 +49,11 @@ public class SanityTracker : MonoBehaviour
 
 
 
+
     void Start()
     {
         Assert.IsNotNull(camera);
-        for (int i = 0; i < stains.Length; i++)
+        for (int i = 0; i < stains.Count; i++)
         {
             stainInfo.Add(new StainInfo(stainDamageGracePeriod));
         }
@@ -62,7 +65,7 @@ public class SanityTracker : MonoBehaviour
     {
         var planes = GeometryUtility.CalculateFrustumPlanes(camera);
 
-        for(int i = 0; i < stains.Length; i++)
+        for(int i = 0; i < stains.Count; i++)
         {       
                 //Skip removed stains
                 if (stains[i] == null)
@@ -94,11 +97,31 @@ public class SanityTracker : MonoBehaviour
                     stainInfo[i].active = false;
                 }
         }
-
+        garbageCollectionPeriod--;
+        if(garbageCollectionPeriod == 0)
+        {
+            garbageCollectionPeriod = 20;
+            removeDeletedStains();
+        }
         if(sanity < 0)
         {
             onLoss();
         }
+    }
+
+    private void removeDeletedStains()
+    {
+        List<StainInfo> stainInfoCopy = new List<StainInfo>();
+        List<GameObject> stainCopy = new List<GameObject>();
+
+        for (int i = 0; i < stains.Count; i++)
+        {
+            if (stains[i] == null) continue;
+            stainInfoCopy.Add(stainInfo[i]);
+            stainCopy.Add(stains[i]);
+        }
+        stainInfo = stainInfoCopy;
+        stains = stainCopy;
     }
 
     private void onLoss()
@@ -108,7 +131,6 @@ public class SanityTracker : MonoBehaviour
 
     private void onStainDamage(GameObject stain)
     {
-        Debug.Log("Object Damage " + stain.name);
         sanity--;
     }
 
@@ -142,8 +164,10 @@ public class SanityTracker : MonoBehaviour
     //This function registers a stain with the collector
     public void registerStain(GameObject stain)
     {
-        stains.Append(stain);
+        stains.Add(stain);
+        stainInfo.Add(new StainInfo(stainDamageGracePeriod));
     }
+
 
     public float getSanity()
     {
