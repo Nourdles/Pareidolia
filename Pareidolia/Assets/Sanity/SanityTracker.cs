@@ -1,8 +1,11 @@
 using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class SanityTracker : MonoBehaviour
 {
@@ -29,6 +32,13 @@ public class SanityTracker : MonoBehaviour
     public int stainDamageFreq = 15;
 
     private int garbageCollectionPeriod = 20;
+
+    // post-processing variable below
+    public Volume postProcessingVolume;
+    private Vignette vignette;
+    private FilmGrain filmGrain;
+    private Coroutine filmGrainRoutine; // handle multiple overlapping sanity damage events
+
 
     class StainInfo
     {
@@ -58,6 +68,17 @@ public class SanityTracker : MonoBehaviour
             stainInfo.Add(new StainInfo(stainDamageGracePeriod));
         }
         Debug.Log(stainInfo.ToString());
+
+        // get the vignette effect from the Global Volume
+        if (postProcessingVolume.profile.TryGet<Vignette>(out Vignette v))
+        {
+            vignette = v;
+        }
+        // same for grain effect
+        if (postProcessingVolume.profile.TryGet<FilmGrain>(out FilmGrain fg))
+        {
+            filmGrain = fg;
+        }
     }
 
     // Update is called once per frame
@@ -107,6 +128,12 @@ public class SanityTracker : MonoBehaviour
         {
             onLoss();
         }
+
+        if (vignette != null)
+        {
+            float normalizedSanity = Mathf.Clamp01(sanity / 100f); // map sanity to a range of 0 (low) to 1 (high)
+            vignette.intensity.value = Mathf.Lerp(0.2f, 0.5f, 1 - normalizedSanity); // map normalized sanity to vignette intensity (0 to 0.45)
+        }
     }
 
     private void removeDeletedStains()
@@ -132,6 +159,16 @@ public class SanityTracker : MonoBehaviour
     private void onStainDamage(GameObject stain)
     {
         sanity--;
+
+        // start or restart the Film Grain intensity animation
+        if (filmGrain != null)
+        {
+            if (filmGrainRoutine != null)
+            {
+                StopCoroutine(filmGrainRoutine);
+            }
+            filmGrainRoutine = StartCoroutine(AnimateFilmGrainIntensity());
+        }
     }
 
     //Confirms if the object is visible. Note stain must have a Collider attached
@@ -173,4 +210,27 @@ public class SanityTracker : MonoBehaviour
     {
         return sanity;
     }
+
+    private IEnumerator AnimateFilmGrainIntensity()
+    {
+        float maxIntensity = 1f; // max intensity when sanity damage occurs
+        float minIntensity = 0.2f; // min intensity after the effect
+        float animationDuration = 1f; // duration of the animation
+        float elapsedTime = 0f;
+
+        // spike to max intensity
+        filmGrain.intensity.value = maxIntensity;
+
+        // gradually reduce intensity back to the minimum
+        while (elapsedTime < animationDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / animationDuration;
+            filmGrain.intensity.value = Mathf.Lerp(maxIntensity, minIntensity, t);
+            yield return null;
+        }
+
+        filmGrain.intensity.value = minIntensity;
+    }
+
 }

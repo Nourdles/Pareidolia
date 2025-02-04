@@ -17,7 +17,7 @@ public class RandomFaceSpawner : MonoBehaviour
     public int maxFacesPerSpot = 3; // max faces in area looked at
     public int maxTotalFaces = 10; // max faces in scene
     public float fadeInTime = 2f;
-    public float maxOpacity = 0.5f;
+    public float maxOpacity = 0.2f;
     public float fadeOutTime = 2f;
 
     private int totalFaceCount = 0;

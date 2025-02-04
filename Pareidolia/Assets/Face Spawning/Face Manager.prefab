@@ -58,7 +58,7 @@ MonoBehaviour:
   maxFacesPerSpot: 3
   maxTotalFaces: 7
   fadeInTime: 3
-  maxOpacity: 0.25
+  maxOpacity: 0.1
   fadeOutTime: 3
 --- !u!114 &8301949016319319256
 MonoBehaviour:
@@ -76,3 +76,4 @@ MonoBehaviour:
   stains: []
   stainDamageGracePeriod: 10
   stainDamageFreq: 100
+  postProcessingVolume: {fileID: 0}
