@@ -22,11 +22,39 @@ public class RandomFaceSpawner : MonoBehaviour
 
     private int totalFaceCount = 0;
     private List<GameObject> activeFaces = new List<GameObject>(); // list of active faces
-
-    void Start()
+    
+    private static Coroutine co = null;
+    static bool faceSpawnOn = false;
+   /* void Start()
     {
         if (playerCamera == null) return;
         StartCoroutine(SpawnFacesRandomly());
+    } */
+    public static void EnableFaceSpawning()
+    {
+        faceSpawnOn = true;
+        Debug.Log("Face Spawning Enabled");
+    }
+
+    public static void DisableFaceSpawning()
+    {
+        faceSpawnOn = false;
+        Debug.Log("Face Spawning Disabled");
+    }
+
+    void Update()
+    {
+
+        if (faceSpawnOn && co == null)
+        {
+            co = StartCoroutine(SpawnFacesRandomly());
+        }
+        else if (!faceSpawnOn && co != null)
+        {
+            StopCoroutine(co);
+            co = null;
+        }
+        CheckPlayerView();
     }
 
     IEnumerator SpawnFacesRandomly()
@@ -144,10 +172,10 @@ public class RandomFaceSpawner : MonoBehaviour
         if (sr != null) sr.color = color;
     }
 
-    void Update()
+    /*void Update()
     {
         CheckPlayerView();
-    }
+    } */
 
     void CheckPlayerView()
     {
