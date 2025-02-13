@@ -1,25 +1,32 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Script for opening and closing notes
 /// </summary>
 public class OpenCloseNote : MonoBehaviour
 {   
-    public KeyCode closeKey; // key to press to exit note
+    InputAction tasklistAction;
     public Rigidbody player;
-
     public GameObject noteCanvas;
-    public TMP_Text noteTextAreaUI;
-    public string text; // text to appear on the note
-
     private bool noteOpen = false;
+    private bool notePickedUp = false;
 
-    public void OpenNote()
+    private void Start() 
+    {
+        tasklistAction = InputSystem.actions.FindAction("Tasklist");
+    }
+
+    private void PickUpNotepad()
+    {
+        notePickedUp = true;
+    }
+
+    private void OpenNote()
     {
         Debug.Log("Opening note");
-        noteTextAreaUI.text = text;
-        noteCanvas.SetActive(true);
+        // noteTextAreaUI.text = text; move this to a separate UI manager
 
         // stop player from moving while reading
         DisablePlayer();
@@ -27,46 +34,54 @@ public class OpenCloseNote : MonoBehaviour
         noteOpen = true;
     }
 
-    public void CloseNote()
+    private void CloseNote()
     {
-        noteCanvas.SetActive(false);
-
+        Debug.Log("Closing note");
         // enable player movement
         EnablePlayer();
 
         noteOpen = false;
     }
 
-    public void DisablePlayer()
+    private void DisablePlayer()
     {
         player.constraints = RigidbodyConstraints.FreezePosition;
     }
 
-    public void EnablePlayer()
+    private void EnablePlayer()
     {
         player.constraints = RigidbodyConstraints.None;
     }
 
+
     private void Update()
     {
+        // change to check if open button if being pressed and that note has been picked up
         noteCanvas.SetActive(noteOpen);
-        if (noteOpen)
+        if (notePickedUp)
         {
-            if (Input.GetKeyDown(closeKey))
+            if (tasklistAction.WasPressedThisFrame())
             {
-                CloseNote();
+                if (noteOpen) 
+                {
+                    CloseNote();
+                }
+                else 
+                {
+                    OpenNote();
+                }
             }
         }
     }
 
     private void OnEnable() 
     {
-        NoteInteraction.InteractWithNote += OpenNote;    
+        NoteInteraction.NotepadPickedUp += PickUpNotepad;    
     }
 
     private void OnDisable() 
     {
-        NoteInteraction.InteractWithNote -= OpenNote;    
+        NoteInteraction.NotepadPickedUp -= PickUpNotepad;    
     }
     
 }
