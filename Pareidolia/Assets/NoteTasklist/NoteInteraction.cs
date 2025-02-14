@@ -1,15 +1,19 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class NoteInteraction : MonoBehaviour
 {
+    InputAction keyInteraction;
     private InteractionManager interactionManager;
-    public static event Action InteractWithNote;
+    public static event Action NotepadPickedUp;
+
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         interactionManager = gameObject.GetComponent<InteractionManager>();
+        keyInteraction = InputSystem.actions.FindAction("Interact");
     }
 
     // Update is called once per frame
@@ -17,10 +21,11 @@ public class NoteInteraction : MonoBehaviour
     {
         if (interactionManager.checkIfInteractable())
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (keyInteraction.WasPressedThisFrame())
             {
                 Debug.Log("Invoking interaction event");
-                InteractWithNote?.Invoke();
+                NotepadPickedUp?.Invoke();
+                Destroy(gameObject);
             }
         }
     }
