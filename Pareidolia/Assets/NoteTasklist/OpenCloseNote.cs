@@ -8,13 +8,16 @@ using UnityEngine.InputSystem;
 public class OpenCloseNote : MonoBehaviour
 {   
     InputAction tasklistAction;
-    public GameObject noteCanvas;
+    Renderer tasklist;
+    [SerializeField] private GameObject tasklistcanvas;
+
     private bool noteOpen = false;
     private bool notePickedUp = false;
 
     private void Start() 
     {
         tasklistAction = InputSystem.actions.FindAction("Tasklist");
+        tasklist = gameObject.GetComponent<Renderer>();
     }
 
     private void PickUpNotepad()
@@ -42,7 +45,8 @@ public class OpenCloseNote : MonoBehaviour
     private void Update()
     {
         // change to check if open button if being pressed and that note has been picked up
-        noteCanvas.SetActive(noteOpen);
+        tasklist.enabled = noteOpen;
+        tasklistcanvas.SetActive(noteOpen);
         if (notePickedUp)
         {
             if (tasklistAction.WasPressedThisFrame())
