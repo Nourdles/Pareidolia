@@ -12,7 +12,7 @@ public class UpdateUI: MonoBehaviour
     {
         // set up original text
         notepadText[0] = "Morning To-Do List";
-        notepadText[1] = "Make your bed";
+        notepadText[1] = "Make the bed";
         for (int i = 2; i<notepadText.Length; i++)
         {
             notepadText[i] = "";
