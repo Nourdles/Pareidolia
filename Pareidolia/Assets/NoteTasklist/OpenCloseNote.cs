@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 public class OpenCloseNote : MonoBehaviour
 {   
     InputAction tasklistAction;
-    public Rigidbody player;
     public GameObject noteCanvas;
     private bool noteOpen = false;
     private bool notePickedUp = false;
@@ -26,10 +25,7 @@ public class OpenCloseNote : MonoBehaviour
     private void OpenNote()
     {
         Debug.Log("Opening note");
-        // noteTextAreaUI.text = text; move this to a separate UI manager
-
         // stop player from moving while reading
-        DisablePlayer();
 
         noteOpen = true;
     }
@@ -38,19 +34,8 @@ public class OpenCloseNote : MonoBehaviour
     {
         Debug.Log("Closing note");
         // enable player movement
-        EnablePlayer();
 
         noteOpen = false;
-    }
-
-    private void DisablePlayer()
-    {
-        player.constraints = RigidbodyConstraints.FreezePosition;
-    }
-
-    private void EnablePlayer()
-    {
-        player.constraints = RigidbodyConstraints.None;
     }
 
 

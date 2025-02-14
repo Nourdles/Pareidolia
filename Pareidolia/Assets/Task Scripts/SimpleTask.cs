@@ -4,7 +4,7 @@ public abstract class SimpleTask: Task
 {
     protected virtual void completeTask()
     {
-        Debug.Log("Completing Task...");
+        Debug.Log("Completing Simple Task...");
         complete = true;
     }
 }
