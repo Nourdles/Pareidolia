@@ -8,9 +8,6 @@ public class TutorialManager : MonoBehaviour
 {
     //Message to display on UI
     public TextMeshProUGUI message;
-    public GameObject notepadObject;
-    public GameObject noteObject;
-    public GameObject taskManager;
 
 
     public string InteractHotkey = "[E]";
@@ -28,9 +25,9 @@ public class TutorialManager : MonoBehaviour
     }
     private TutorialState state = TutorialState.INITIAL_STATE;
 
-    private OpenCloseNote OpenCloseNote = null;
-    private InteractionManager InteractionManager = null;
-    private MakeBedTask MakeBedTask = null;
+    public OpenCloseNote OpenCloseNote = null;
+    public InteractionManager InteractionManager = null;
+    public MakeBedTask MakeBedTask = null;
 
     //Config durations.
     private int SEC_TO_CALLS = 50;
@@ -48,18 +45,12 @@ public class TutorialManager : MonoBehaviour
         message.text = "I have a lot to do today. I should grab my to-do list from my dresser";
 
         //To check if note is picked up and opened
-        Debug.Assert(notepadObject != null);
-        OpenCloseNote = notepadObject.GetComponent<OpenCloseNote>();
         Debug.Assert(OpenCloseNote != null);
 
         //To check if note is currently highlighted
-        Debug.Assert(noteObject != null);
-        InteractionManager = noteObject.GetComponent<InteractionManager>();
         Debug.Assert(InteractionManager != null);
 
         //To monitor task completion status
-        Debug.Assert(taskManager != null);
-        MakeBedTask = taskManager.GetComponent<MakeBedTask>();
         Debug.Assert(MakeBedTask != null);
 
 
