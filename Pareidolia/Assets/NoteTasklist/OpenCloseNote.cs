@@ -72,5 +72,13 @@ public class OpenCloseNote : MonoBehaviour
     {
         NoteInteraction.NotepadPickedUp -= PickUpNotepad;    
     }
+
+    public bool isNotePickedUp()
+    {
+        return notePickedUp;
+    }
+
+    public bool isNoteOpen()
+    { return noteOpen; }
     
 }
