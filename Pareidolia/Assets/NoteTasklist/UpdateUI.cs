@@ -37,14 +37,14 @@ public class UpdateUI: MonoBehaviour
     }
 
     // triggered by changelevelevent
-    public void changeTasks(int lvl)
+    public void changeTasks(Levels lvl)
     {
-        if (lvl == 1) // morning lvl
+        if (lvl == Levels.Morning) // morning lvl
         {
             notepadText[2] = "Eat breakfast";
             notepadText[3] = "Put the laundry in the wash";
             notepadText[4] = "Take a shower";
-        } else if (lvl == 2) // afternoon lvl
+        } else if (lvl == Levels.Afternoon) // afternoon lvl
         {
             notepadText[0] = "Afternoon To-Do List";
             notepadText[1] = "Pick the trash up off the floors";
@@ -53,7 +53,7 @@ public class UpdateUI: MonoBehaviour
             notepadText[4] = "Wash the dishes";
             notepadText[5] = "Watch the newest episode of Octopus Competition";
 
-        } else if (lvl == 3) // evening lvl
+        } else if (lvl == Levels.Evening) // evening lvl
         {
             notepadText[0] = "Night To-Do List";
             notepadText[1] = "Feed the fish";
