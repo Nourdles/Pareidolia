@@ -18,4 +18,9 @@ public class MakeBedTask: SimpleTask
         invokeCompleteTaskEvent(tasknum);
     }
 
+    public bool isCompleted()
+    {
+        return base.complete;
+    }
+
 }
