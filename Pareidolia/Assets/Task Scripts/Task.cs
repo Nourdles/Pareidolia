@@ -15,4 +15,9 @@ public abstract class Task : MonoBehaviour
     {
         CompleteTaskEvent?.Invoke(tasknum);
     }
+
+    public bool isCompleted()
+    {
+        return complete;
+    }
 }
