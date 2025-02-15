@@ -6,10 +6,10 @@ public class DoorInteraction : MonoBehaviour
 {
     private InputAction interactKey;
     private InteractionManager interactionManager;
-    public static event Action DoorInteractionEvent;
+    public static event Action DoorFirstOpeningEvent;
     public static event Action DoorUnlockEvent;
     public bool locked = true;
-    public bool firstInteract = true;
+    public bool firstOpen = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,15 +19,16 @@ public class DoorInteraction : MonoBehaviour
     }
 
     // Update is called once per frame
+    
     void Update()
     {
         if (interactionManager.checkIfInteractable() && !locked)
         {
-            if (firstInteract && interactKey.WasPressedThisFrame())
+            if (firstOpen && interactKey.WasPressedThisFrame())
             {
                 // if this is the first time the player is opening the door, trigger event
                 Debug.Log("Invoking interaction event");
-                DoorInteractionEvent?.Invoke();
+                DoorFirstOpeningEvent?.Invoke();
             }
             else if (interactKey.WasPressedThisFrame())
             {
@@ -37,6 +38,17 @@ public class DoorInteraction : MonoBehaviour
         }
     }
 
+
+    private void OnEnable()
+    {
+        BedInteraction.BedInteractionEvent += UnlockDoor;
+
+    }
+
+    private void OnDisable()
+    {
+        BedInteraction.BedInteractionEvent -= UnlockDoor;
+    }
 
     public void UnlockDoor()
     {

@@ -3,13 +3,7 @@ using UnityEngine;
 public static class GameStateManager
 {
     public static RandomFaceSpawner faceSpawner;
-    public enum Levels
-    {
-        Tutorial = 0,
-        Morning = 1,
-        Afternoon = 2,
-        Evening = 3
-    }
+
 
     public static Levels levelState;
     private static bool faceSpawnOn;
@@ -31,6 +25,7 @@ public static class GameStateManager
 
     public static void StartMorning()
     {
+        Debug.Log("Advancing to Morning Level");
         levelState = Levels.Morning;
         // start face spawning
         RandomFaceSpawner.EnableFaceSpawning();

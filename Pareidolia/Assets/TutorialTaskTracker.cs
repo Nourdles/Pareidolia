@@ -6,7 +6,7 @@ using UnityEngine;
 public class TutorialTaskTracker : MonoBehaviour
 {
     int numTasksCompleted = 0;
-    int numTasksGoal = 1;
+    int numTasksGoal = 2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,19 +22,20 @@ public class TutorialTaskTracker : MonoBehaviour
     private void OnEnable()
     {
         BedInteraction.BedInteractionEvent += CountTasksCompleted;
-        DoorInteraction.DoorUnlockEvent += CountTasksCompleted;
+        DoorInteraction.DoorFirstOpeningEvent += CountTasksCompleted;
 
     }
 
     private void OnDisable()
     {
         BedInteraction.BedInteractionEvent -= CountTasksCompleted;
-        DoorInteraction.DoorUnlockEvent -= CountTasksCompleted;
+        DoorInteraction.DoorFirstOpeningEvent -= CountTasksCompleted;
     }
 
-    public void CountTasksCompleted()
+    private void CountTasksCompleted()
     {
         numTasksCompleted++;
+        Debug.Log("A task has been completed");
         if (numTasksCompleted == numTasksGoal)
         {
             GameStateManager.StartMorning();
