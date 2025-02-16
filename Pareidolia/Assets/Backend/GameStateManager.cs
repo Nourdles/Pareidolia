@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 public static class GameStateManager
 {
     public static RandomFaceSpawner faceSpawner;
-
+    public static event Action<Levels> LevelChangeEvent;
 
     public static Levels levelState;
     private static bool faceSpawnOn;
@@ -20,6 +21,7 @@ public static class GameStateManager
         levelState = Levels.Tutorial;
         // turn off face spawn just in case
         RandomFaceSpawner.DisableFaceSpawning();
+        LevelChangeEvent?.Invoke(levelState);
 
     }
 
@@ -29,6 +31,7 @@ public static class GameStateManager
         levelState = Levels.Morning;
         // start face spawning
         RandomFaceSpawner.EnableFaceSpawning();
+        LevelChangeEvent?.Invoke(levelState);
     }
 
     /*
@@ -36,6 +39,7 @@ public static class GameStateManager
     {
         levelState = Levels.Afternoon;
         faceSpawnOn = true;
+        LevelChangeEvent?.Invoke(levelState);
     }
     */
 
@@ -44,6 +48,7 @@ public static class GameStateManager
     {
         levelState = Levels.Evening;
         faceSpawnOn = true;
+        LevelChangeEvent?.Invoke(levelState);
     } 
     */
 
