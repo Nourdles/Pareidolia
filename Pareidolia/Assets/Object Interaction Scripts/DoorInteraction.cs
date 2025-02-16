@@ -2,10 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DoorInteraction : MonoBehaviour
+public class DoorInteraction : ObjectInteraction
 {
-    private InputAction interactKey;
-    private InteractionManager interactionManager;
     public Animator doorAnimator;
 
     public event Action DoorFirstOpeningEvent;
@@ -16,35 +14,33 @@ public class DoorInteraction : MonoBehaviour
     private bool doorOpen = false;
 
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
-        interactionManager = gameObject.GetComponent<InteractionManager>();
-        interactKey = InputSystem.actions.FindAction("Interact");
+        base.Start();
         //doorAnimator = gameObject.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     
-    void Update()
+    protected override void Update()
     {
-        if (interactionManager.checkIfInteractable() && !locked)
+        
+        if (CanInteract() && !locked)
         {
-            if (firstOpen && interactKey.WasPressedThisFrame())
+            if (firstOpen)
             {
-                // if this is the first time the player is opening the door, trigger event
-                Debug.Log("Invoking interaction event");
                 DoorAnimation();
-                DoorFirstOpeningEvent?.Invoke();
-            }
-            else if (interactKey.WasPressedThisFrame())
+                InvokeInteractionEvent();
+            
+            } else
             {
-                // not first time the player has interacted with the door
                 DoorAnimation();
             }
-
         }
+    }
+
+    protected override void InvokeInteractionEvent()
+    {
+        DoorFirstOpeningEvent?.Invoke();
     }
 
 
