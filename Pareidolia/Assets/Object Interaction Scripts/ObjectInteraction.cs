@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,6 +6,7 @@ public abstract class ObjectInteraction : MonoBehaviour
 {
     protected InputAction interactKey;
     protected InteractionManager interactionManager;
+    public static event Action<string> DialoguePromptEvent;
     
     protected virtual void Start()
     {
@@ -24,6 +26,11 @@ public abstract class ObjectInteraction : MonoBehaviour
     protected bool CanInteract()
     {
         return interactionManager.checkIfInteractable() && interactKey.WasPressedThisFrame();
+    }
+
+    protected void InvokeDialoguePromptEvent(string msg)
+    {
+        DialoguePromptEvent?.Invoke(msg);
     }
 
     protected abstract void InvokeInteractionEvent();

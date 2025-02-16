@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using NUnit.Framework;
 using TMPro;
@@ -8,6 +9,8 @@ public class TutorialManager : MonoBehaviour
 {
     //Message to display on UI
     public TextMeshProUGUI message;
+    [SerializeField] TMP_Text dialogueField;
+    public static event Action<string> TutorialDialogueEvent;
 
 
     public string InteractHotkey = "[E]";
@@ -42,7 +45,7 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         state = TutorialState.INITIAL_STATE;
-        message.text = "I have a lot to do today. I should grab my to-do list from my dresser";
+        TutorialDialogueEvent?.Invoke("I have a lot to do today. I should grab my to-do list from my dresser");
 
         //To check if note is picked up and opened
         Debug.Assert(OpenCloseNote != null);

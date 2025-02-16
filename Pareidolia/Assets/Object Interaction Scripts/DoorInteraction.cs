@@ -35,6 +35,9 @@ public class DoorInteraction : ObjectInteraction
             {
                 DoorAnimation();
             }
+        } else if (CanInteract() && locked)
+        {
+            InvokeDialoguePromptEvent("I shouldn't leave till I make my bed");
         }
     }
 
