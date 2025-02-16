@@ -62,4 +62,5 @@ public class Highlights : MonoBehaviour {
     {
         HighlightObjectInCenterOfCam();
     }
+
 }
