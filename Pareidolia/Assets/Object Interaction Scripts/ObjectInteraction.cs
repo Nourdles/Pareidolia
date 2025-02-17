@@ -23,7 +23,7 @@ public abstract class ObjectInteraction : MonoBehaviour
         }
     }
 
-    protected bool CanInteract()
+    protected virtual bool CanInteract()
     {
         return interactionManager.checkIfInteractable() && interactKey.WasPressedThisFrame();
     }
