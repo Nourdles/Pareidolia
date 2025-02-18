@@ -1,28 +1,21 @@
 using System;
 using UnityEngine;
 
-public class HandheldObjectInteraction : ObjectInteraction
+public abstract class HandheldObjectInteraction : ObjectInteraction
 {
-    protected InventoryManager inventoryManager;
     public static event Action<GameObject> PickUpEvent;
-    public static event Action DropEvent;
-
-    // add fxnality to caninteract()
-    // uses base.Update()
-
-    protected override void Start()
-    {
-        base.Start();
-        inventoryManager = GameObject.FindWithTag("Inventory").GetComponent<InventoryManager>();
-    }
+    [SerializeField] protected Handhelds handheld_id;
+    //public static event Action DropEvent;
 
     protected override void InvokeInteractionEvent()
     {
-        if (inventoryManager.isHoldingObject())
+        if (inventoryManager.isHoldingObject()) // hands full
         {
-
+            InvokeDialoguePromptEvent("My hands are full right now");
+        } else // hands empty
+        {
+            PickUpEvent?.Invoke(gameObject);
         }
-
-        throw new System.NotImplementedException();
     }
+    
 }
