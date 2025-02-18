@@ -9,6 +9,6 @@ public class LoadScene : MonoBehaviour
 {
    public void StartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadSceneAsync("MainScene");
     }
 }
