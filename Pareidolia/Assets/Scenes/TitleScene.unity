@@ -580,6 +580,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8887044431897252748, guid: 9cbb83957cb566147b7be78f561da9c5, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.90188676
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887044431897252748, guid: 9cbb83957cb566147b7be78f561da9c5, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.24781078
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887044431897252748, guid: 9cbb83957cb566147b7be78f561da9c5, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.08678531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887044431897252748, guid: 9cbb83957cb566147b7be78f561da9c5, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.90943396
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887044431897252748, guid: 9cbb83957cb566147b7be78f561da9c5, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.19046637
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887044431897252748, guid: 9cbb83957cb566147b7be78f561da9c5, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.7173176
+      objectReference: {fileID: 0}
+    - target: {fileID: 9155190741554058985, guid: 9cbb83957cb566147b7be78f561da9c5, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9155190741554058985, guid: 9cbb83957cb566147b7be78f561da9c5, type: 3}
+      propertyPath: m_IgnoreParentGroups
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -654,9 +686,9 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 2006830197}
   - {fileID: 313853852}
   - {fileID: 7679957136985054199}
   - {fileID: 1660667121}
   - {fileID: 397473738480439696}
   - {fileID: 1351129590234287681}
-  - {fileID: 2006830197}
