@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private GameObject objectInView; // the object the player is looking at
+    [SerializeField] Transform objectHoldPointTransform;
     private InputAction interactKey;
     private InventoryManager playerInventory;
     public static event Action DropItemEvent;
@@ -31,10 +32,17 @@ public class PlayerInteract : MonoBehaviour
             DropItemEvent?.Invoke();
         }
     }
-    
+
     private void SetObjectInView(GameObject gameObject) 
     {
         objectInView = gameObject;
+    }
+
+    private void PickUp(GameObject handheld)
+    {
+        
+        // disable rigidbody
+        // parent to camera at objectholdpoint
     }
 
     public GameObject GetObjectInView()
@@ -45,10 +53,12 @@ public class PlayerInteract : MonoBehaviour
     void OnEnable()
     {
         PlayerView.ViewingObjectEvent += SetObjectInView;
+        HandheldObjectInteraction.PickUpEvent += PickUp;
     }
 
     void OnDisable()
     {
         PlayerView.ViewingObjectEvent -= SetObjectInView;
+        HandheldObjectInteraction.PickUpEvent -= PickUp;
     }
 }
