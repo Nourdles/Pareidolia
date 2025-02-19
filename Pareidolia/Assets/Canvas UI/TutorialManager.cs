@@ -11,6 +11,7 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI message;
     [SerializeField] TMP_Text dialogueField;
     public static event Action<string> TutorialDialogueEvent;
+    [SerializeField] private GameObject player;
 
 
     public string InteractHotkey = "[E]";
@@ -29,7 +30,6 @@ public class TutorialManager : MonoBehaviour
     private TutorialState state = TutorialState.INITIAL_STATE;
 
     public OpenCloseNote OpenCloseNote = null;
-    public InteractionManager InteractionManager = null;
     public MakeBedTask MakeBedTask = null;
 
     //Config durations.
@@ -50,8 +50,7 @@ public class TutorialManager : MonoBehaviour
         //To check if note is picked up and opened
         Debug.Assert(OpenCloseNote != null);
 
-        //To check if note is currently highlighted
-        Debug.Assert(InteractionManager != null);
+        Debug.Assert(player != null);
 
         //To monitor task completion status
         Debug.Assert(MakeBedTask != null);
@@ -87,8 +86,8 @@ public class TutorialManager : MonoBehaviour
         switch (state)
         {
             case TutorialState.INITIAL_STATE:
-                //Check if notepad is lit up at the moment -> Next State
-                if(InteractionManager.checkIfInteractable())
+                //Check if player is looking at an interactable object -> Next State
+                if(player.GetComponent<PlayerInteract>().GetObjectInView() != null)
                 {
                     NextState();
                 }
@@ -146,7 +145,7 @@ public class TutorialManager : MonoBehaviour
                 this.message.text = "Press " + InteractHotkey + " to interact with litup objects";
                 return;
             case TutorialState.NOTEPAD_HOTKEY:
-                this.message.text = "Press " + TasklistHotkey + " to open your task list";
+                this.message.text = "Press " + TasklistHotkey + " to open/close your task list";
                 return;
             case TutorialState.TASK_COMPLETION:
                 this.message.text = "Complete the listed task. Remember, you can press " + InteractHotkey + " to interact with objects";

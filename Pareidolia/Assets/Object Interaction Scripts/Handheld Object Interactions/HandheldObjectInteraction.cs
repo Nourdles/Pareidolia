@@ -7,15 +7,14 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
     [SerializeField] protected Handhelds handheld_id;
     //public static event Action DropEvent;
 
-    protected override void InvokeInteractionEvent()
+    public override void interact(GameObject objectInHand)
     {
-        if (inventoryManager.isHoldingObject()) // hands full
+        if (objectInHand != null)
         {
             InvokeDialoguePromptEvent("My hands are full right now");
-        } else // hands empty
+        } else
         {
             PickUpEvent?.Invoke(gameObject);
         }
     }
-    
 }

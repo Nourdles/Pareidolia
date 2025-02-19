@@ -1,10 +1,11 @@
 using System;
+using UnityEngine;
 
 public class NoteInteraction : ObjectInteraction
 {
     public static event Action NotepadPickedUp;
 
-    protected override void InvokeInteractionEvent()
+    public override void interact(GameObject objectInHand)
     {
         NotepadPickedUp?.Invoke();
         Destroy(gameObject);
