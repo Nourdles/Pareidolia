@@ -1,9 +1,11 @@
 using System;
+using FMODUnity;
 
 public class BedInteraction: ObjectInteraction
 {
     private bool hasNotepad;
     public static event Action BedInteractionEvent;
+    public EventReference bedMakeSound;
 
     protected override void Start()
     {
@@ -30,6 +32,7 @@ public class BedInteraction: ObjectInteraction
         // check if notepad has been picked up
         
         BedInteractionEvent?.Invoke();
+        AudioManager.instance.PlayOneShot(bedMakeSound, this.transform.position);
     }
 
     private void setHasNotepad()

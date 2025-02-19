@@ -171,6 +171,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Note
       objectReference: {fileID: 0}
+    - target: {fileID: 2265322159638454985, guid: 640d2d04027e1f54d8b7984f9760ed17, type: 3}
+      propertyPath: notepadPickupSound.Path
+      value: event:/SFX/NotepadPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265322159638454985, guid: 640d2d04027e1f54d8b7984f9760ed17, type: 3}
+      propertyPath: notepadPickupSound.Guid.Data1
+      value: 2074671206
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265322159638454985, guid: 640d2d04027e1f54d8b7984f9760ed17, type: 3}
+      propertyPath: notepadPickupSound.Guid.Data2
+      value: 1255252543
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265322159638454985, guid: 640d2d04027e1f54d8b7984f9760ed17, type: 3}
+      propertyPath: notepadPickupSound.Guid.Data3
+      value: 264584072
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265322159638454985, guid: 640d2d04027e1f54d8b7984f9760ed17, type: 3}
+      propertyPath: notepadPickupSound.Guid.Data4
+      value: 1834060964
+      objectReference: {fileID: 0}
     - target: {fileID: 3952378864650836121, guid: 640d2d04027e1f54d8b7984f9760ed17, type: 3}
       propertyPath: text
       value: Make Bed
@@ -1960,6 +1980,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4143232183762693406, guid: e5cbc4161f5924442a10fe898e493107, type: 3}
   m_PrefabInstance: {fileID: 6106499354343198801}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &893632034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5646416868563248760, guid: 01bae0ab8f1de7b47ac8004cbbf2a828, type: 3}
+  m_PrefabInstance: {fileID: 826296378}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &893758719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3011660320896057175, guid: 85dde2d9585b4db488682ef2f790517c, type: 3}
@@ -1983,6 +2008,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 309242446}
     m_Modifications:
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Path
+      value: event:/SFX/BedMake
+      objectReference: {fileID: 0}
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Guid.Data1
+      value: -666292581
+      objectReference: {fileID: 0}
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Guid.Data2
+      value: 1172150688
+      objectReference: {fileID: 0}
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Guid.Data3
+      value: 893254278
+      objectReference: {fileID: 0}
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Guid.Data4
+      value: 481362769
+      objectReference: {fileID: 0}
     - target: {fileID: 5048180898682466603, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.73
@@ -3084,7 +3129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
-  attenuationObject: {fileID: 1236141593}
+  attenuationObject: {fileID: 893632034}
 --- !u!1 &1263577028
 GameObject:
   m_ObjectHideFlags: 0

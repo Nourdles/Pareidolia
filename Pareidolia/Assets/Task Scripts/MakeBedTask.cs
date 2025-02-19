@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MakeBedTask: SimpleTask
 {
+
     private int tasknum = 1;
     private void OnEnable() {
         BedInteraction.BedInteractionEvent += completeTask;
@@ -11,6 +12,7 @@ public class MakeBedTask: SimpleTask
     private void OnDisable() {
         BedInteraction.BedInteractionEvent -= completeTask;
     }
+    
 
     protected override void completeTask()
     {
