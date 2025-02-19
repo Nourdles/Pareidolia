@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
 
-public class Highlights : MonoBehaviour {
+public class PlayerView : MonoBehaviour 
+{
 
     public Material highlightMaterial;
     Material originalMaterial;
     GameObject lastHighlightedObject;
+    public static event Action<GameObject> ViewingObjectEvent;
 
     void HighlightObject(GameObject gameObject)
     {
@@ -16,11 +18,8 @@ public class Highlights : MonoBehaviour {
             {
                 ClearHighlighted();
                 originalMaterial = gameObject.GetComponent<MeshRenderer>().sharedMaterial;
-                if (gameObject.CompareTag("InteractableObject"))
-                {
-                    gameObject.GetComponent<MeshRenderer>().sharedMaterial = highlightMaterial;
-                    gameObject.GetComponent<InteractionManager>().setObjectAsInteractable();
-                }
+                gameObject.GetComponent<MeshRenderer>().sharedMaterial = highlightMaterial;
+                ViewingObjectEvent?.Invoke(gameObject);
                 lastHighlightedObject = gameObject;
             }
         }
@@ -32,11 +31,8 @@ public class Highlights : MonoBehaviour {
         if (lastHighlightedObject != null)
         {
             lastHighlightedObject.GetComponent<MeshRenderer>().sharedMaterial = originalMaterial;
-            if (lastHighlightedObject.CompareTag("InteractableObject"))
-            {
-                lastHighlightedObject.GetComponent<InteractionManager>().setObjectAsUninteractable();
-            }
             lastHighlightedObject = null;
+            ViewingObjectEvent?.Invoke(lastHighlightedObject);
         }
     }
 
@@ -50,8 +46,10 @@ public class Highlights : MonoBehaviour {
         if (Physics.Raycast(ray, out rayHit, rayDistance))
         {
             GameObject hitObject = rayHit.collider.gameObject;
-            HighlightObject(hitObject);
-
+            if (hitObject.CompareTag("InteractableObject"))
+            {
+                HighlightObject(hitObject);
+            }
         } else
         {
                 ClearHighlighted();
