@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private GameObject objectInView; // the object the player is looking at
     private InputAction interactKey;
     private InventoryManager playerInventory;
+    public static event Action DropItemEvent;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,10 +28,10 @@ public class PlayerInteract : MonoBehaviour
             objectInView.GetComponent<ObjectInteraction>().interact(objectInHand);
         } else if (interactKey.WasPressedThisFrame() && playerInventory.isHoldingObject())
         {
-            // drop the current item
+            DropItemEvent?.Invoke();
         }
     }
-
+    
     private void SetObjectInView(GameObject gameObject) 
     {
         objectInView = gameObject;

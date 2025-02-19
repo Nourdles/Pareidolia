@@ -9,13 +9,13 @@ public class InventoryManager : MonoBehaviour
     void OnEnable()
     {
         HandheldObjectInteraction.PickUpEvent += pickupObject;
-        // HandheldObjectInteraction.DropEvent += dropObject;
+        PlayerInteract.DropItemEvent += dropObject;
     }
 
     void OnDisable()
     {
         HandheldObjectInteraction.PickUpEvent -= pickupObject;
-        // HandheldObjectInteraction.DropEvent -= dropObject;
+        PlayerInteract.DropItemEvent -= dropObject;
     }
 
     private void pickupObject(GameObject objectToHold)
