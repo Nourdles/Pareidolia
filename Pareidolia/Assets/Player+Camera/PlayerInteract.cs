@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private GameObject objectInView; // the object the player is looking at
-    [SerializeField] Transform objectHoldPointTransform;
+    [SerializeField] private Transform objectHoldPointTransform;
     private InputAction interactKey;
     private InventoryManager playerInventory;
     public static event Action DropItemEvent;
@@ -40,9 +40,8 @@ public class PlayerInteract : MonoBehaviour
 
     private void PickUp(GameObject handheld)
     {
-        
-        // disable rigidbody
-        // parent to camera at objectholdpoint
+        Debug.Log("Picking up an item");
+        //handheld.GetComponent<HandheldObjectInteraction>().HoldObject(objectHoldPointTransform);
     }
 
     public GameObject GetObjectInView()
