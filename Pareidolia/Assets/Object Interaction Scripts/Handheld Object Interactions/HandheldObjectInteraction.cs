@@ -34,6 +34,10 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
         itemRb.transform.parent = objectHoldPointTransform.transform;
         itemRb.isKinematic = true;
         itemRb.detectCollisions = false;
+
+        // set the object tag as untagged so it can't be interacted with
+        gameObject.tag = "Untagged";
+
     }
 
     public void DropObject()
@@ -41,6 +45,8 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
         itemRb.transform.parent = null;
         itemRb.isKinematic = false;
         itemRb.detectCollisions = true;
+        // set as interactable again
+        gameObject.tag = "InteractableObject";
     }
 
     void OnEnable()
