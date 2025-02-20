@@ -1,16 +1,8 @@
-using UnityEngine;
-
-public class SpoonInteraction : MonoBehaviour
+public class SpoonInteraction : HandheldObjectInteraction
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Start();
+        handheld_id = Handhelds.Spoon;
     }
 }
