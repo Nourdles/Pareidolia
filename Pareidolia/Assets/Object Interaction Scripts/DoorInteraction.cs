@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 public class DoorInteraction : ObjectInteraction
 {
@@ -8,6 +9,8 @@ public class DoorInteraction : ObjectInteraction
 
     public event Action DoorFirstOpeningEvent;
     public event Action DoorUnlockEvent;
+    public EventReference doorOpenSound;
+    public EventReference doorCloseSound;
 
     public bool locked = true;
     private bool firstOpen = true;
@@ -53,11 +56,13 @@ public class DoorInteraction : ObjectInteraction
         {
             doorAnimator.Play("DoorClose");
             Debug.Log("Door Closing");
+            AudioManager.instance.PlayOneShot(doorCloseSound, this.transform.position);
         }
         else
         {
             doorAnimator.Play("DoorOpen");
             Debug.Log("Door Opening");
+            AudioManager.instance.PlayOneShot(doorOpenSound, this.transform.position);
         }
         doorOpen = !doorOpen;
     }

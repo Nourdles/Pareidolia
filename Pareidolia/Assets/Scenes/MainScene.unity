@@ -364,6 +364,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 716924518}
     m_Modifications:
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Path
+      value: event:/SFX/DoorOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Path
+      value: event:/SFX/DoorClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data1
+      value: 1354553520
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data2
+      value: 1158808347
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data3
+      value: 957051310
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data4
+      value: -97738646
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data1
+      value: -1944904614
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data2
+      value: 1282215556
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data3
+      value: 360232589
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data4
+      value: 608150863
+      objectReference: {fileID: 0}
     - target: {fileID: 7529838200303142254, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3988,6 +4028,46 @@ PrefabInstance:
     - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: locked
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Path
+      value: event:/SFX/DoorOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Path
+      value: event:/SFX/DoorClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data1
+      value: 1354553520
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data2
+      value: 1158808347
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data3
+      value: 957051310
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data4
+      value: -97738646
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data1
+      value: -1944904614
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data2
+      value: 1282215556
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data3
+      value: 360232589
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data4
+      value: 608150863
       objectReference: {fileID: 0}
     - target: {fileID: 7302344930500411692, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: canInteract
