@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
+using FMODUnity;
 
 public class BedInteraction: ObjectInteraction
 {
     private bool hasNotepad;
     public static event Action BedInteractionEvent;
+    public EventReference bedMakeSound;
 
     protected override void Start()
     {
@@ -17,6 +19,7 @@ public class BedInteraction: ObjectInteraction
         if (hasNotepad)
         {
             BedInteractionEvent?.Invoke();
+            AudioManager.instance.PlayOneShot(bedMakeSound, this.transform.position);
         } else
         {
             InvokeDialoguePromptEvent("I should pick up the notepad first");

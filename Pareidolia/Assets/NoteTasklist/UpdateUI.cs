@@ -43,7 +43,7 @@ public class UpdateUI: MonoBehaviour
     {
         if (lvl == Levels.Morning) // morning lvl
         {
-            notepadText[2] = "Eat breakfast";
+            notepadText[2] = "Make breakfast";
             //notepadText[3] = "Put the laundry in the wash";
             notepadText[3] = "Take a shower";
         } else if (lvl == Levels.Afternoon) // afternoon lvl
