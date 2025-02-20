@@ -42,6 +42,7 @@ public class PlayerInteract : MonoBehaviour
     {
         Debug.Log("Picking up an item");
         handheld.GetComponent<HandheldObjectInteraction>().HoldObject(objectHoldPointTransform);
+        SetObjectInView(null);
     }
 
     public GameObject GetObjectInView()
