@@ -17,7 +17,7 @@ public class RandomFaceSpawner : MonoBehaviour
     public int maxFacesPerSpot = 3; // max faces in area looked at
     public int maxTotalFaces = 10; // max faces in scene
     public float fadeInTime = 2f;
-    public float maxOpacity = 0.2f;
+    public float maxOpacity = 1.5f;
     public float fadeOutTime = 2f;
 
     private int totalFaceCount = 0;
@@ -128,7 +128,8 @@ public class RandomFaceSpawner : MonoBehaviour
             if (sr != null)
             {
                 sr.sprite = faceSprites[Random.Range(0, faceSprites.Length)];
-                sr.color = new Color(1f, 1f, 1f, 0f);
+                ColorUtility.TryParseHtmlString("#C1B89F", out Color yellowTint); // yellow tint to blend with wall
+                sr.color = new Color(yellowTint.r, yellowTint.g, yellowTint.b, 0f);
             }
 
             activeFaces.Add(newFace);
@@ -156,7 +157,8 @@ public class RandomFaceSpawner : MonoBehaviour
         if (sr == null) yield break;
 
         float alpha = 0f;
-        Color color = sr.color;
+        ColorUtility.TryParseHtmlString("#C1B89F", out Color color);
+        color.a = 0f;
 
         while (alpha < maxOpacity)
         {
