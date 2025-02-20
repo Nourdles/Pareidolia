@@ -23,30 +23,23 @@ public class DoorInteraction : ObjectInteraction
         //doorAnimator = gameObject.GetComponent<Animator>();
     }
 
-    
-    protected override void Update()
+    public override void interact(GameObject objectInHand)
     {
-        
-        if (CanInteract() && !locked)
+        if (!locked)
         {
             if (firstOpen)
             {
                 DoorAnimation();
-                InvokeInteractionEvent();
+                DoorFirstOpeningEvent?.Invoke();
             
             } else
             {
                 DoorAnimation();
             }
-        } else if (CanInteract() && locked)
+        } else
         {
             InvokeDialoguePromptEvent("I shouldn't leave till I make my bed");
         }
-    }
-
-    protected override void InvokeInteractionEvent()
-    {
-        DoorFirstOpeningEvent?.Invoke();
     }
 
 

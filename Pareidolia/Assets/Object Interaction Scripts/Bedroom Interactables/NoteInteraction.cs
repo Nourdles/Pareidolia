@@ -1,12 +1,13 @@
 using System;
 using FMODUnity;
+using UnityEngine;
 
 public class NoteInteraction : ObjectInteraction
 {
     public EventReference notepadPickupSound;
     public static event Action NotepadPickedUp;
 
-    protected override void InvokeInteractionEvent()
+    public override void interact(GameObject objectInHand)
     {
         NotepadPickedUp?.Invoke();
         Destroy(gameObject);

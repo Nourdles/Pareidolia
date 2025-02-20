@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using FMODUnity;
 
 public class BedInteraction: ObjectInteraction
@@ -13,26 +14,16 @@ public class BedInteraction: ObjectInteraction
         hasNotepad = false;
     }
 
-    protected override void Update()
+    public override void interact(GameObject objectInHand)
     {
-        if (CanInteract())
+        if (hasNotepad)
         {
-            if (hasNotepad)
-            {
-                InvokeInteractionEvent();
-            } else
-            {
-                // right now this overlaps with the tutorial text
-                InvokeDialoguePromptEvent("I should pick up the notepad first");
-            }
+            BedInteractionEvent?.Invoke();
+            AudioManager.instance.PlayOneShot(bedMakeSound, this.transform.position);
+        } else
+        {
+            InvokeDialoguePromptEvent("I should pick up the notepad first");
         }
-    }
-    protected override void InvokeInteractionEvent()
-    {
-        // check if notepad has been picked up
-        
-        BedInteractionEvent?.Invoke();
-        AudioManager.instance.PlayOneShot(bedMakeSound, this.transform.position);
     }
 
     private void setHasNotepad()
