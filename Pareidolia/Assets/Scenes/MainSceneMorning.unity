@@ -3186,37 +3186,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1461490498407603166, guid: d02e1079d6b1948489a2ad4e41635cdf, type: 3}
   m_PrefabInstance: {fileID: 4353027389118725455}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1421158159
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1421158160}
-  m_Layer: 0
-  m_Name: CupHoldPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1421158160
+--- !u!4 &1421158160 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1075488370103127756, guid: f2f0428e05ba7cb4a8e4f940420802a6, type: 3}
+  m_PrefabInstance: {fileID: 6119935867174592648}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421158159}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0026, y: 0.0079, z: 0.0003}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3393964574589086004}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1459620441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6482,6 +6456,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5cbc4161f5924442a10fe898e493107, type: 3}
+--- !u!1001 &6119935867174592648
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3393964574589086004}
+    m_Modifications:
+    - target: {fileID: 1075488370103127756, guid: f2f0428e05ba7cb4a8e4f940420802a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0026
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075488370103127756, guid: f2f0428e05ba7cb4a8e4f940420802a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0079
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075488370103127756, guid: f2f0428e05ba7cb4a8e4f940420802a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075488370103127756, guid: f2f0428e05ba7cb4a8e4f940420802a6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075488370103127756, guid: f2f0428e05ba7cb4a8e4f940420802a6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075488370103127756, guid: f2f0428e05ba7cb4a8e4f940420802a6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075488370103127756, guid: f2f0428e05ba7cb4a8e4f940420802a6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075488370103127756, guid: f2f0428e05ba7cb4a8e4f940420802a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075488370103127756, guid: f2f0428e05ba7cb4a8e4f940420802a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075488370103127756, guid: f2f0428e05ba7cb4a8e4f940420802a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832413902637927802, guid: f2f0428e05ba7cb4a8e4f940420802a6, type: 3}
+      propertyPath: m_Name
+      value: CupHoldPoint
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f2f0428e05ba7cb4a8e4f940420802a6, type: 3}
 --- !u!1001 &6250100203206058351
 PrefabInstance:
   m_ObjectHideFlags: 0
