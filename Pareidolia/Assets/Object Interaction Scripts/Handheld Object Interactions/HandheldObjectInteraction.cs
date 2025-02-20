@@ -6,7 +6,6 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
     public static event Action<GameObject> PickUpEvent;
     [SerializeField] protected Handhelds handheld_id;
     private Rigidbody itemRb;
-    //public static event Action DropEvent;
 
     protected override void Start() 
     {
@@ -23,6 +22,11 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
         {
             PickUpEvent?.Invoke(gameObject);
         }
+    }
+
+    public Handhelds getHandheld()
+    {
+        return handheld_id;
     }
 
     public void HoldObject(Transform objectHoldPointTransform)

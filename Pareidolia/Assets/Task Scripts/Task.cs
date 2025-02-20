@@ -4,9 +4,10 @@ using System;
 public abstract class Task : MonoBehaviour
 {
     [SerializeField] protected bool complete;
+    protected int tasknum;
     public static event Action<int> CompleteTaskEvent;
     
-    void Start()
+    protected virtual void Start()
     {
         complete = false;
     }
@@ -19,5 +20,11 @@ public abstract class Task : MonoBehaviour
     public bool isCompleted()
     {
         return complete;
+    }
+
+    protected void completeTask()
+    {
+        complete = true;
+        invokeCompleteTaskEvent(tasknum);
     }
 }

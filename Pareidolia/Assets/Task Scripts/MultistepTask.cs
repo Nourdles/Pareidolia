@@ -1,16 +1,25 @@
 using UnityEngine;
 
-public class Multi-stepTask : MonoBehaviour
+public class MultistepTask : Task
 {
+    // reference to subtasks
+    [SerializeField] protected int numTasksRequired;
+    [SerializeField] protected int numTasksCompleted;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
-        
+        base.Start();
+        numTasksCompleted = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    // increment completed tasks by 1 and check if completed all subtasks
+    protected void completeSubTask()
     {
-        
+        numTasksCompleted += 1;
+        if (numTasksCompleted == numTasksRequired)
+        {
+            completeTask();
+        }
     }
 }

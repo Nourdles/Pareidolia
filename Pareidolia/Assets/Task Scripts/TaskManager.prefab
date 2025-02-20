@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2249100408614854772}
   - component: {fileID: 2635595795695625885}
+  - component: {fileID: 2297231978275275625}
+  - component: {fileID: 6458584834686748410}
   m_Layer: 0
   m_Name: TaskManager
   m_TagString: Untagged
@@ -45,3 +47,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   complete: 0
+--- !u!114 &2297231978275275625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2474763767364141009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a76c3432200dd4dac8a633f03833a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complete: 0
+  numTasksRequired: 0
+  numTasksCompleted: 0
+--- !u!114 &6458584834686748410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2474763767364141009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ac4313ee09bd843ab6648504267f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
