@@ -8,7 +8,7 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
     private Rigidbody itemRb;
     //public static event Action DropEvent;
 
-    override void Start() 
+    protected override void Start() 
     {
         base.Start();
         itemRb = gameObject.GetComponent<Rigidbody>();
@@ -28,12 +28,28 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
     public void HoldObject(Transform objectHoldPointTransform)
     {
         gameObject.transform.position = objectHoldPointTransform.position;
+        gameObject.transform.rotation = objectHoldPointTransform.rotation;
+        
+
+        itemRb.transform.parent = objectHoldPointTransform.transform;
         itemRb.isKinematic = true;
         itemRb.detectCollisions = false;
     }
 
     public void DropObject()
     {
-        
+        itemRb.transform.parent = null;
+        itemRb.isKinematic = false;
+        itemRb.detectCollisions = true;
+    }
+
+    void OnEnable()
+    {
+        PlayerInteract.DropItemEvent += DropObject;
+    }
+
+    void OnDisable()
+    {
+        PlayerInteract.DropItemEvent -= DropObject;
     }
 }
