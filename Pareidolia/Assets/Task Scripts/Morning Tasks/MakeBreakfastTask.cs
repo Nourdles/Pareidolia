@@ -13,12 +13,12 @@ public class MakeBreakfastTask : MultistepTask
     void OnEnable()
     {
         KeurigInteraction.CoffeeMadeEvent += completeSubTask;
-        // BowlInteraction.BreakfastMadeEvent += completeSubTask;
+        BowlInteraction.BreakfastMadeEvent += completeSubTask;
     }
 
     void OnDisable()
     {
         KeurigInteraction.CoffeeMadeEvent -= completeSubTask;
-        // BowlInteraction.BreakfastMadeEvent -= completeSubTask;
+        BowlInteraction.BreakfastMadeEvent -= completeSubTask;
     }
 }

@@ -22,6 +22,7 @@ public class BowlInteraction : ObjectInteraction
                     hasMilk = true;
                     // change to full cereal bowl model
                     // invoke subtask completion 
+                    BreakfastMadeEvent?.Invoke();
                 } else // no cereal, no milk
                 {
                     InvokeDialoguePromptEvent("Milk first?? No way!");
@@ -34,8 +35,7 @@ public class BowlInteraction : ObjectInteraction
                 } else
                 {
                     hasCereal = true;
-                    // change texture to have cereal + complete subtask
-                    BreakfastMadeEvent?.Invoke();
+                    // change texture to have cereal
                 }
             } else if (handheld_id == Handhelds.Spoon)
             {
@@ -43,6 +43,10 @@ public class BowlInteraction : ObjectInteraction
                 {
                     // play eating sound + change bowl back to empty vers
                     EatCerealEvent?.Invoke();
+                    gameObject.tag = "Untagged"; // no longer interactable
+                } else 
+                {
+                    MissingRequiredObject();
                 }
             } else
             {
