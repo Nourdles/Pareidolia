@@ -7,9 +7,11 @@ using System;
 public class TutorialTaskTracker : MonoBehaviour
 {
     private int numTasksCompleted = 0;
-    private int numTasksGoal = 2;
+    private int numTasksGoal = 1;
 
+    // Simple tasks
     public MakeBedTask makeBedTask;
+
     public DoorInteraction doorInteraction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,31 +23,36 @@ public class TutorialTaskTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (makeBedTask.isCompleted())
-        {
-            doorInteraction.UnlockDoor();
-        }
+
     }
     private void OnEnable()
     {
-        BedInteraction.BedInteractionEvent += CountTasksCompleted;
-        doorInteraction.DoorFirstOpeningEvent += CountTasksCompleted;
+        MakeBedTask.CompleteTaskEvent += CountSimpleTasksCompleted;
+        doorInteraction.DoorFirstOpeningEvent += BridgeTaskCompleted;
 
     }
 
     private void OnDisable()
     {
-        BedInteraction.BedInteractionEvent -= CountTasksCompleted;
-        doorInteraction.DoorFirstOpeningEvent -= CountTasksCompleted;
+        MakeBedTask.CompleteTaskEvent -= CountSimpleTasksCompleted;
+        //BedInteraction.BedInteractionEvent -= CountTasksCompleted;
+        doorInteraction.DoorFirstOpeningEvent -= BridgeTaskCompleted;
     }
 
-    private void CountTasksCompleted()
+    private void CountSimpleTasksCompleted(int taskNum)
     {
         numTasksCompleted++;
         Debug.Log("A task has been completed");
         if (numTasksCompleted == numTasksGoal)
         {
-            GameStateManager.StartMorning();
+            // let the player do the bridge task once all simple tasks are completed
+            doorInteraction.UnlockDoor();
         }
     }
+
+    private void BridgeTaskCompleted()
+    {
+        GameStateManager.StartMorning();
+    }
+
 }
