@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,8 +8,10 @@ using UnityEngine.InputSystem;
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private GameObject objectInView; // the object the player is looking at
+    [SerializeField] private Transform objectHoldPointTransform;
     private InputAction interactKey;
     private InventoryManager playerInventory;
+    public static event Action DropItemEvent;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,13 +29,19 @@ public class PlayerInteract : MonoBehaviour
             objectInView.GetComponent<ObjectInteraction>().interact(objectInHand);
         } else if (interactKey.WasPressedThisFrame() && playerInventory.isHoldingObject())
         {
-            // drop the current item
+            DropItemEvent?.Invoke();
         }
     }
 
     private void SetObjectInView(GameObject gameObject) 
     {
         objectInView = gameObject;
+    }
+
+    private void PickUp(GameObject handheld)
+    {
+        Debug.Log("Picking up an item");
+        handheld.GetComponent<HandheldObjectInteraction>().HoldObject(objectHoldPointTransform);
     }
 
     public GameObject GetObjectInView()
@@ -43,10 +52,12 @@ public class PlayerInteract : MonoBehaviour
     void OnEnable()
     {
         PlayerView.ViewingObjectEvent += SetObjectInView;
+        HandheldObjectInteraction.PickUpEvent += PickUp;
     }
 
     void OnDisable()
     {
         PlayerView.ViewingObjectEvent -= SetObjectInView;
+        HandheldObjectInteraction.PickUpEvent -= PickUp;
     }
 }
