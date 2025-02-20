@@ -262,6 +262,86 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 716924518}
     m_Modifications:
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Path
+      value: event:/SFX/DoorOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Path
+      value: event:/SFX/DoorClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data1
+      value: 1354553520
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data2
+      value: 1158808347
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data3
+      value: 957051310
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data4
+      value: -97738646
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data1
+      value: -1944904614
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data2
+      value: 1282215556
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data3
+      value: 360232589
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data4
+      value: 608150863
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Path
+      value: event:/SFX/DoorOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Path
+      value: event:/SFX/DoorClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data1
+      value: 1354553520
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data2
+      value: 1158808347
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data3
+      value: 957051310
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data4
+      value: -97738646
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data1
+      value: -1944904614
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data2
+      value: 1282215556
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data3
+      value: 360232589
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data4
+      value: 608150863
+      objectReference: {fileID: 0}
     - target: {fileID: 7529838200303142254, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2042,6 +2122,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 309242446}
     m_Modifications:
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Path
+      value: event:/SFX/BedMake
+      objectReference: {fileID: 0}
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Guid.Data1
+      value: -666292581
+      objectReference: {fileID: 0}
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Guid.Data2
+      value: 1172150688
+      objectReference: {fileID: 0}
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Guid.Data3
+      value: 893254278
+      objectReference: {fileID: 0}
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Guid.Data4
+      value: 481362769
+      objectReference: {fileID: 0}
     - target: {fileID: 5048180898682466603, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.93
@@ -3005,7 +3105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
-  attenuationObject: {fileID: 1236141593}
+  attenuationObject: {fileID: 0}
 --- !u!1 &1263577028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3874,6 +3974,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 716924518}
     m_Modifications:
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Path
+      value: event:/SFX/DoorOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Path
+      value: event:/SFX/DoorClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data1
+      value: 1354553520
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data2
+      value: 1158808347
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data3
+      value: 957051310
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data4
+      value: -97738646
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data1
+      value: -1944904614
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data2
+      value: 1282215556
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data3
+      value: 360232589
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data4
+      value: 608150863
+      objectReference: {fileID: 0}
     - target: {fileID: 2188677128194775487, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.51
@@ -3885,6 +4025,46 @@ PrefabInstance:
     - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: locked
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Path
+      value: event:/SFX/DoorOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Path
+      value: event:/SFX/DoorClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data1
+      value: 1354553520
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data2
+      value: 1158808347
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data3
+      value: 957051310
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data4
+      value: -97738646
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data1
+      value: -1944904614
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data2
+      value: 1282215556
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data3
+      value: 360232589
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data4
+      value: 608150863
       objectReference: {fileID: 0}
     - target: {fileID: 7302344930500411692, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: canInteract
@@ -6428,6 +6608,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1089692151}
     m_Modifications:
+    - target: {fileID: 378469142001825112, guid: f48dc1404f796904ca43dc603200a0fc, type: 3}
+      propertyPath: notepadPickupSound.Path
+      value: event:/SFX/NotepadPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 378469142001825112, guid: f48dc1404f796904ca43dc603200a0fc, type: 3}
+      propertyPath: notepadPickupSound.Guid.Data1
+      value: 2074671206
+      objectReference: {fileID: 0}
+    - target: {fileID: 378469142001825112, guid: f48dc1404f796904ca43dc603200a0fc, type: 3}
+      propertyPath: notepadPickupSound.Guid.Data2
+      value: 1255252543
+      objectReference: {fileID: 0}
+    - target: {fileID: 378469142001825112, guid: f48dc1404f796904ca43dc603200a0fc, type: 3}
+      propertyPath: notepadPickupSound.Guid.Data3
+      value: 264584072
+      objectReference: {fileID: 0}
+    - target: {fileID: 378469142001825112, guid: f48dc1404f796904ca43dc603200a0fc, type: 3}
+      propertyPath: notepadPickupSound.Guid.Data4
+      value: 1834060964
+      objectReference: {fileID: 0}
     - target: {fileID: 2363707919734292610, guid: f48dc1404f796904ca43dc603200a0fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.27
