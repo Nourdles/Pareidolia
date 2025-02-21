@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerView : MonoBehaviour 
 {
 
+    [SerializeField] GameObject objectInView;
     public Material highlightMaterial;
     Material originalMaterial;
     GameObject lastHighlightedObject;
@@ -17,8 +18,8 @@ public class PlayerView : MonoBehaviour
             if (gameObject.GetComponent<MeshRenderer>() != null)
             {
                 ClearHighlighted();
-                originalMaterial = gameObject.GetComponent<MeshRenderer>().sharedMaterial;
-                gameObject.GetComponent<MeshRenderer>().sharedMaterial = highlightMaterial;
+                originalMaterial = gameObject.GetComponent<MeshRenderer>().material;
+                gameObject.GetComponent<MeshRenderer>().material = highlightMaterial;
                 ViewingObjectEvent?.Invoke(gameObject);
                 lastHighlightedObject = gameObject;
             }
@@ -30,7 +31,7 @@ public class PlayerView : MonoBehaviour
     {
         if (lastHighlightedObject != null)
         {
-            lastHighlightedObject.GetComponent<MeshRenderer>().sharedMaterial = originalMaterial;
+            lastHighlightedObject.GetComponent<MeshRenderer>().material = originalMaterial;
             lastHighlightedObject = null;
             ViewingObjectEvent?.Invoke(lastHighlightedObject);
         }
@@ -46,9 +47,14 @@ public class PlayerView : MonoBehaviour
         if (Physics.Raycast(ray, out rayHit, rayDistance))
         {
             GameObject hitObject = rayHit.collider.gameObject;
+            objectInView = hitObject;
+
             if (hitObject.CompareTag("InteractableObject"))
             {
                 HighlightObject(hitObject);
+            } else
+            {
+                ClearHighlighted();
             }
         } else
         {
