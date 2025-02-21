@@ -24,6 +24,20 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
         }
     }
 
+    private GameObject FindObjectCenter()
+{
+   Transform t = gameObject.transform;
+   while (t.parent != null)
+   {
+      if (t.parent.tag == "HandheldCenter")
+      {
+         return t.parent.gameObject;
+      }
+      t = t.parent.transform;
+   }
+   return null; // Could not find a parent with given tag.
+}
+
     public Handhelds getHandheld()
     {
         return handheld_id;
@@ -35,7 +49,7 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
         itemRb.isKinematic = true;
         itemRb.detectCollisions = false;
         
-        GameObject objectCenter = gameObject.transform.parent.gameObject;
+        GameObject objectCenter = FindObjectCenter();
         objectCenter.transform.localPosition = Vector3.zero;
         objectCenter.transform.localRotation = Quaternion.identity;
 
