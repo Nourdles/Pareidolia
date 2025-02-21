@@ -23,8 +23,7 @@ public class PlayerView : MonoBehaviour
                 ViewingObjectEvent?.Invoke(gameObject);
                 lastHighlightedObject = gameObject;
             }
-        }
-
+        } 
     }
 
     void ClearHighlighted()
@@ -65,6 +64,21 @@ public class PlayerView : MonoBehaviour
     void Update()
     {
         HighlightObjectInCenterOfCam();
+    }
+
+    private void UpdateOrigMaterial(Material newMat)
+    {
+        originalMaterial = newMat;
+    }
+
+    void OnEnable()
+    {
+        BowlInteraction.ChangeBowlMat += UpdateOrigMaterial;
+    }
+
+    void OnDisable()
+    {
+        BowlInteraction.ChangeBowlMat -= UpdateOrigMaterial;
     }
 
 }

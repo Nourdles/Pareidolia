@@ -9,6 +9,7 @@ public class BowlInteraction : ObjectInteraction
     [SerializeField] private Material cerealMilkMat;
     public static event Action EatCerealEvent;
     public static event Action BreakfastMadeEvent;
+    public static event Action<Material> ChangeBowlMat;
     public override void interact(GameObject objectInHand)
     {
         if (objectInHand != null)
@@ -23,6 +24,7 @@ public class BowlInteraction : ObjectInteraction
                 {
                     hasMilk = true;
                     gameObject.GetComponent<MeshRenderer>().material = cerealMilkMat;
+                    ChangeBowlMat?.Invoke(cerealMilkMat);
                     // change to full cereal bowl model + complete subtask
                     BreakfastMadeEvent?.Invoke();
                 } else // no cereal, no milk
@@ -38,6 +40,7 @@ public class BowlInteraction : ObjectInteraction
                 {
                     hasCereal = true;
                     gameObject.GetComponent<MeshRenderer>().material = cerealOnlyMaterial;
+                    ChangeBowlMat?.Invoke(cerealOnlyMaterial);
                 }
             } else if (handheld_id == Handhelds.Spoon)
             {
