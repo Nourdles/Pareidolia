@@ -21,7 +21,7 @@ public class MovePlayer : MonoBehaviour
     private EventInstance playerFootsteps;
     private bool isMoving = false;
 
-     void Start()
+    void Start()
     {
         // Initialize the footstep sound event instance
         playerFootsteps = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerFootsteps);
@@ -34,6 +34,11 @@ public class MovePlayer : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
 
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalinput;
+
+        // snap the player to the surface it is currently on (prevents player from accelerating off stair steps/slopes)
+        if (characterController.isGrounded) {
+            moveDirection.y = -characterController.stepOffset / Time.deltaTime;
+        }
 
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
 
