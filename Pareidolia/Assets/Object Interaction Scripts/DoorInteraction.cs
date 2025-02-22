@@ -32,6 +32,7 @@ public class DoorInteraction : ObjectInteraction
             {
                 DoorAnimation();
                 DoorFirstOpeningEvent?.Invoke();
+                firstOpen = false;
             
             } else
             {
