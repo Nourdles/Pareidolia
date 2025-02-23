@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 using System.Collections;
+using FMODUnity;
 
 /// <summary>
 /// Script for playing intro video, then switching to title screen video and making title screen buttons fade in.
@@ -14,8 +15,10 @@ public class TitleScreenManager : MonoBehaviour
     public VideoClip fadeInVideo;
     public VideoClip titleScreenVideo;
     public CanvasGroup buttonGroup;
+    public EventReference titleScreenMusic; 
 
     private bool buttonsFaded = false;
+    private FMOD.Studio.EventInstance titleScreenMusicInstance;
 
     void Start()
     {
@@ -35,6 +38,9 @@ public class TitleScreenManager : MonoBehaviour
             yield return null;
 
         firstVideoPlayer.Play();
+
+        titleScreenMusicInstance = FMODUnity.RuntimeManager.CreateInstance(titleScreenMusic);
+        titleScreenMusicInstance.start();  // Added this to play music on title screen
 
         secondVideoPlayer.clip = titleScreenVideo;
         secondVideoPlayer.Prepare();
@@ -68,5 +74,13 @@ public class TitleScreenManager : MonoBehaviour
         }
 
         buttonGroup.alpha = 1;
+    }
+    private void OnDestroy() // This should stop the music when starting game
+    {
+        if (titleScreenMusicInstance.isValid())
+        {
+            titleScreenMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            titleScreenMusicInstance.release();
+        }
     }
 }
