@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{6e6f5ed9-d867-4904-a0db-ce52c40b84d1}">
+		<property name="assetPath">
+			<value>sfx/sfx_coffeemachine_nl.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>12</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8e2f68a0-73b8-41ea-a8a5-bd42b6c9b027}</destination>
+		</relationship>
+	</object>
+</objects>

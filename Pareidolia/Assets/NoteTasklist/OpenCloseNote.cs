@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 /// <summary>
 /// Script for opening and closing notes
@@ -9,6 +10,7 @@ public class OpenCloseNote : MonoBehaviour
     InputAction tasklistAction;
     Renderer tasklist;
     [SerializeField] private GameObject tasklistcanvas;
+    public EventReference tasklistsfx;
 
     private bool noteOpen = false;
     private bool notePickedUp = false;
@@ -28,6 +30,8 @@ public class OpenCloseNote : MonoBehaviour
     {
         Debug.Log("Opening note");
         // stop player from moving while reading
+        AudioManager.instance.PlayOneShot(tasklistsfx, this.transform.position);
+        // Play sfx whenever the player opens their tasklist
 
         noteOpen = true;
     }
