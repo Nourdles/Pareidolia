@@ -15,11 +15,12 @@ public class PlayerView : MonoBehaviour
         // if we are looking at a new one
         if (lastHighlightedObject != gameObject)
         {
-            if (gameObject.GetComponent<MeshRenderer>() != null)
+            MeshRenderer meshRenderer = gameObject.GetComponentInChildren<MeshRenderer>();
+            if (meshRenderer != null)
             {
                 ClearHighlighted();
-                originalMaterial = gameObject.GetComponent<MeshRenderer>().material;
-                gameObject.GetComponent<MeshRenderer>().material = highlightMaterial;
+                originalMaterial = meshRenderer.material;
+                meshRenderer.material = highlightMaterial;
                 ViewingObjectEvent?.Invoke(gameObject);
                 lastHighlightedObject = gameObject;
             }

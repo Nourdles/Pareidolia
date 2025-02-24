@@ -6073,15 +6073,15 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 557056822}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8908699812797536536, guid: e3deec49d429ce544954b0bacef572c1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3393964574589086008}
     - targetCorrespondingSourceObject: {fileID: 5118959690701409856, guid: e3deec49d429ce544954b0bacef572c1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3393964574589086007}
     - targetCorrespondingSourceObject: {fileID: 5118959690701409856, guid: e3deec49d429ce544954b0bacef572c1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3393964574589086009}
+    - targetCorrespondingSourceObject: {fileID: 8908699812797536536, guid: e3deec49d429ce544954b0bacef572c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3393964574589086008}
   m_SourcePrefab: {fileID: 100100000, guid: e3deec49d429ce544954b0bacef572c1, type: 3}
 --- !u!4 &3393964574589086004 stripped
 Transform:
@@ -6364,7 +6364,7 @@ MonoBehaviour:
   hasMilk: 0
   hasCereal: 0
   cerealOnlyMaterial: {fileID: 2100000, guid: 201ca55236af0584f9e7d57f6116f199, type: 2}
-  cerealMilkMat: {fileID: 2100000, guid: f6bbec32668530f4ebb97adc6f020f60, type: 2}
+  FullCerealPrefab: {fileID: 4400149336721459008, guid: 10a9bb09a61a6df408a704c144d42337, type: 3}
 --- !u!1001 &4096891905470201986
 PrefabInstance:
   m_ObjectHideFlags: 0
