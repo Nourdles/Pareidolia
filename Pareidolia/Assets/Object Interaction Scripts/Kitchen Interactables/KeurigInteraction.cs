@@ -31,13 +31,15 @@ public class KeurigInteraction : ObjectInteraction
 
     private void PutCupInMachine(GameObject cup)
     {
-        cup.transform.position = cupHoldPointTransform.position;
-        cup.transform.rotation = cupHoldPointTransform.rotation;
-        
-        Rigidbody cupRb = cup.GetComponent<Rigidbody>();
+        Rigidbody cupRb = cup.GetComponentInParent<Rigidbody>();
         cupRb.transform.parent = cupHoldPointTransform.transform;
         cupRb.isKinematic = false;
         cupRb.detectCollisions = true;
+
+        GameObject cupCenter = cup.transform.parent.gameObject;
+        cupCenter.transform.position = cupHoldPointTransform.position;
+        cupCenter.transform.rotation = cupHoldPointTransform.rotation;
+        
         // set as interactable again
         cup.tag = "InteractableObject";
         CupPutInMachineEvent?.Invoke();

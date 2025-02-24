@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerView : MonoBehaviour 
 {
 
+    [SerializeField] GameObject objectInView;
     public Material highlightMaterial;
     Material originalMaterial;
     GameObject lastHighlightedObject;
@@ -14,23 +15,23 @@ public class PlayerView : MonoBehaviour
         // if we are looking at a new one
         if (lastHighlightedObject != gameObject)
         {
-            if (gameObject.GetComponent<MeshRenderer>() != null)
+            MeshRenderer meshRenderer = gameObject.GetComponentInChildren<MeshRenderer>();
+            if (meshRenderer != null)
             {
                 ClearHighlighted();
-                originalMaterial = gameObject.GetComponent<MeshRenderer>().sharedMaterial;
-                gameObject.GetComponent<MeshRenderer>().sharedMaterial = highlightMaterial;
+                originalMaterial = meshRenderer.material;
+                meshRenderer.material = highlightMaterial;
                 ViewingObjectEvent?.Invoke(gameObject);
                 lastHighlightedObject = gameObject;
             }
-        }
-
+        } 
     }
 
     void ClearHighlighted()
     {
         if (lastHighlightedObject != null)
         {
-            lastHighlightedObject.GetComponent<MeshRenderer>().sharedMaterial = originalMaterial;
+            lastHighlightedObject.GetComponent<MeshRenderer>().material = originalMaterial;
             lastHighlightedObject = null;
             ViewingObjectEvent?.Invoke(lastHighlightedObject);
         }
@@ -46,9 +47,14 @@ public class PlayerView : MonoBehaviour
         if (Physics.Raycast(ray, out rayHit, rayDistance))
         {
             GameObject hitObject = rayHit.collider.gameObject;
+            objectInView = hitObject;
+
             if (hitObject.CompareTag("InteractableObject"))
             {
                 HighlightObject(hitObject);
+            } else
+            {
+                ClearHighlighted();
             }
         } else
         {
@@ -59,6 +65,21 @@ public class PlayerView : MonoBehaviour
     void Update()
     {
         HighlightObjectInCenterOfCam();
+    }
+
+    private void UpdateOrigMaterial(Material newMat)
+    {
+        originalMaterial = newMat;
+    }
+
+    void OnEnable()
+    {
+        BowlInteraction.ChangeBowlMat += UpdateOrigMaterial;
+    }
+
+    void OnDisable()
+    {
+        BowlInteraction.ChangeBowlMat -= UpdateOrigMaterial;
     }
 
 }
