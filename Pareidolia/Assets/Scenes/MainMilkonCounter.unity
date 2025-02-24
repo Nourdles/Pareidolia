@@ -271,12 +271,36 @@ PrefabInstance:
     m_TransformParent: {fileID: 716924518}
     m_Modifications:
     - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: locked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorOpenSound.Path
       value: event:/SFX/DoorOpen
       objectReference: {fileID: 0}
     - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorCloseSound.Path
       value: event:/SFX/DoorClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data1
+      value: -1837889869
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data2
+      value: 1154181984
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data3
+      value: 581505212
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data4
+      value: 685115745
       objectReference: {fileID: 0}
     - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorOpenSound.Guid.Data1
@@ -310,6 +334,14 @@ PrefabInstance:
       propertyPath: doorCloseSound.Guid.Data4
       value: 608150863
       objectReference: {fileID: 0}
+    - target: {fileID: 1437648360295648711, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: locked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437648360295648711, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorOpenSound.Path
       value: event:/SFX/DoorOpen
@@ -349,6 +381,42 @@ PrefabInstance:
     - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorCloseSound.Guid.Data4
       value: 608150863
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: locked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Path
+      value: event:/SFX/DoorLock
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data1
+      value: -1837889869
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data2
+      value: 1154181984
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data3
+      value: 581505212
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data4
+      value: 685115745
+      objectReference: {fileID: 0}
+    - target: {fileID: 6168225579636809906, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: m_Name
+      value: bedroomdoor_low.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434470783629300490, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7529838200303142254, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -393,6 +461,10 @@ PrefabInstance:
     - target: {fileID: 7560921313975380654, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: m_Name
       value: Bedroom/Hallway Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806134704694986574, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -518,7 +590,7 @@ PrefabInstance:
     - target: {fileID: -4104793087109553581, guid: de6970f17fd9f564884c50aecb7218ea, type: 3}
       propertyPath: doorInteraction
       value: 
-      objectReference: {fileID: 1474388801}
+      objectReference: {fileID: 985677224}
     - target: {fileID: 1817584917954409863, guid: de6970f17fd9f564884c50aecb7218ea, type: 3}
       propertyPath: player
       value: 
@@ -1740,11 +1812,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5893703609527211402, guid: cb83ed1aa5a8d4f4aadbd120cfe04bf2, type: 3}
   m_PrefabInstance: {fileID: 529722268}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &534294775 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6855269995339522116, guid: a0a01878a5b930144adc92dd59ca1bbd, type: 3}
-  m_PrefabInstance: {fileID: 2761294089413651824}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &534532366 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5646416868563248760, guid: 01bae0ab8f1de7b47ac8004cbbf2a828, type: 3}
@@ -2090,12 +2157,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1334703882}
-  - {fileID: 534294775}
+  - {fileID: 1772913854}
   - {fileID: 1383878075}
   - {fileID: 1487218234}
   - {fileID: 44788777}
   - {fileID: 1636853458}
+  - {fileID: 1923419022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &689976674 stripped
@@ -2715,6 +2782,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8066457393820660380, guid: ba421955e92dd624db06748b2177a6f6, type: 3}
   m_PrefabInstance: {fileID: 984787850}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &985677224 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+  m_PrefabInstance: {fileID: 106340708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1004544166
 GameObject:
   m_ObjectHideFlags: 0
@@ -3381,6 +3459,66 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Path
+      value: event:/SFX/DoorLock
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Path
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Path
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data1
+      value: -1837889869
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data2
+      value: 1154181984
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data3
+      value: 581505212
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data4
+      value: 685115745
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data4
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data4
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7529838200303142254, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.557013
@@ -3838,11 +3976,6 @@ Transform:
   - {fileID: 905745624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1334703882 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3301494709765799295, guid: d6e3484cbae37c84984ab2504a2aa994, type: 3}
-  m_PrefabInstance: {fileID: 3737393311567505232}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1373605228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4114,17 +4247,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4924287946158357234, guid: 187897f1a58e7674f82b423f1210cb28, type: 3}
   m_PrefabInstance: {fileID: 1460371789}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1474388801 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
-  m_PrefabInstance: {fileID: 106340708}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1487218234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1850705123206348353, guid: fb22f0e7e127e0c428bc998c6f9ce2d8, type: 3}
@@ -4503,6 +4625,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9060589950039721517, guid: 6705103cf5c9f6b4e86d383195ea320c, type: 3}
   m_PrefabInstance: {fileID: 3993078835649408432}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1772913854 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6236558952472993648, guid: a0a01878a5b930144adc92dd59ca1bbd, type: 3}
+  m_PrefabInstance: {fileID: 2761294089413651824}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1777843804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6143619467286014430, guid: 1a155a417fed62a4e8e3b880d26c8621, type: 3}
@@ -4562,6 +4689,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7529838200303142254, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
   m_PrefabInstance: {fileID: 1951006613}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1923419022 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4649887778511924399, guid: d6e3484cbae37c84984ab2504a2aa994, type: 3}
+  m_PrefabInstance: {fileID: 3737393311567505232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1925367514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6877694842302956089, guid: a30513fc99829a248b75fc0830f688c4, type: 3}
@@ -4581,12 +4713,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 716924518}
     m_Modifications:
     - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Path
+      value: event:/SFX/DoorLock
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorOpenSound.Path
       value: event:/SFX/DoorOpen
       objectReference: {fileID: 0}
     - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorCloseSound.Path
       value: event:/SFX/DoorClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data1
+      value: -1837889869
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data2
+      value: 1154181984
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data3
+      value: 581505212
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data4
+      value: 685115745
       objectReference: {fileID: 0}
     - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorOpenSound.Guid.Data1
@@ -4671,6 +4823,26 @@ PrefabInstance:
     - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorCloseSound.Guid.Data4
       value: 608150863
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Path
+      value: event:/SFX/DoorLock
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data1
+      value: -1837889869
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data2
+      value: 1154181984
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data3
+      value: 581505212
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data4
+      value: 685115745
       objectReference: {fileID: 0}
     - target: {fileID: 7302344930500411692, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: canInteract
@@ -5336,6 +5508,89 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2755021c3c7740445a5bdc378ad11055, type: 3}
+--- !u!1001 &978091261386096761
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1263577029}
+    m_Modifications:
+    - target: {fileID: 538029520675553321, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673497198044269995, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673497198044269995, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673497198044269995, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673497198044269995, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673497198044269995, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.286
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673497198044269995, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673497198044269995, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673497198044269995, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673497198044269995, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673497198044269995, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673497198044269995, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673497198044269995, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673497198044269995, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157159531780118289, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_Name
+      value: Milk Carton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157159531780118289, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      propertyPath: m_TagString
+      value: InteractableObject
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7571261194002018897, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 243178247}
+    - targetCorrespondingSourceObject: {fileID: 7571261194002018897, guid: 58dde53cb62e8774b90855e085627105, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 243178246}
+  m_SourcePrefab: {fileID: 100100000, guid: 58dde53cb62e8774b90855e085627105, type: 3}
 --- !u!1001 &1029974492680327598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7533,6 +7788,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5cbc4161f5924442a10fe898e493107, type: 3}
+--- !u!1001 &6238445892799619215
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1263577029}
+    m_Modifications:
+    - target: {fileID: 313968809374952914, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: m_Name
+      value: Cereal Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 313968809374952914, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: m_TagString
+      value: InteractableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085543824574969704, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.7800007
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085543824574969704, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.788
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085543824574969704, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085543824574969704, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38297418
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085543824574969704, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085543824574969704, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9237591
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085543824574969704, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085543824574969704, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085543824574969704, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 134.964
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085543824574969704, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704166840014881187, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
 --- !u!1001 &6250100203206058351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8133,10 +8453,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fridge
       objectReference: {fileID: 0}
+    - target: {fileID: 4699356054908690721, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699356054908690721, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699356054908690721, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.31
+      objectReference: {fileID: 0}
     - target: {fileID: 5950251298743675201, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 3cd7feb296bb73e4b81d881408e268a9, type: 2}
+    - target: {fileID: 7229449387808472964, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3cd7feb296bb73e4b81d881408e268a9, type: 2}
+    - target: {fileID: 9082327257813836355, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9082327257813836355, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9082327257813836355, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 9082327257813836355, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.15

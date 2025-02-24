@@ -97,12 +97,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 3139928283190442369}
     m_Modifications:
     - target: {fileID: 862642832139277167, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+      propertyPath: locked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862642832139277167, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862642832139277167, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       propertyPath: doorAnimator
       value: 
       objectReference: {fileID: 5699366214366699511}
+    - target: {fileID: 6288385843001495682, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599727246159864634, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+      propertyPath: m_TagString
+      value: InteractableObject
+      objectReference: {fileID: 0}
     - target: {fileID: 8375195943036519622, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       propertyPath: m_Name
       value: door
+      objectReference: {fileID: 0}
+    - target: {fileID: 8375195943036519622, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+      propertyPath: m_TagString
+      value: InteractableObject
       objectReference: {fileID: 0}
     - target: {fileID: 9183258531561496188, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       propertyPath: m_LocalScale.x
@@ -160,16 +180,83 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 862642832139277167, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8375195943036519622, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2693699967240757072}
+    - targetCorrespondingSourceObject: {fileID: 6599727246159864634, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5921577658639838829}
   m_SourcePrefab: {fileID: 100100000, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+--- !u!1 &6168225579636809906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6599727246159864634, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+  m_PrefabInstance: {fileID: 1013029047869473672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5921577658639838829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168225579636809906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnimator: {fileID: 5699366214366699511}
+  doorOpenSound:
+    Guid:
+      Data1: 1354553520
+      Data2: 1158808347
+      Data3: 957051310
+      Data4: -97738646
+    Path: event:/SFX/DoorOpen
+  doorCloseSound:
+    Guid:
+      Data1: -1944904614
+      Data2: 1282215556
+      Data3: 360232589
+      Data4: 608150863
+    Path: event:/SFX/DoorClose
+  locked: 0
 --- !u!4 &8178110828175023604 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9183258531561496188, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
   m_PrefabInstance: {fileID: 1013029047869473672}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8806134704694986574 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8375195943036519622, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+  m_PrefabInstance: {fileID: 1013029047869473672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2693699967240757072
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8806134704694986574}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &3652425942610750716
 PrefabInstance:
   m_ObjectHideFlags: 0
