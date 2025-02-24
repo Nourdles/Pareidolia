@@ -5,13 +5,13 @@ using FMODUnity;
 
 public class DoorInteraction : ObjectInteraction
 {
-    public Animator doorAnimator;
+    [SerializeField] private Animator doorAnimator;
 
     public event Action DoorFirstOpeningEvent;
     public event Action DoorUnlockEvent;
-    public EventReference doorOpenSound;
-    public EventReference doorCloseSound;
-    public EventReference doorLockSound;
+    [SerializeField] EventReference doorOpenSound;
+    [SerializeField] EventReference doorCloseSound;
+    [SerializeField] EventReference doorLockSound;
 
     public bool locked = true;
     private bool firstOpen = true;
