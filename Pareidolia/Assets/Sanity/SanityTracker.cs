@@ -6,9 +6,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using FMODUnity;
 
 public class SanityTracker : MonoBehaviour
 {
+    public EventReference damageSound; // added this line so I could attach the sound to the sanity tracker prefab
+
     /// <summary>
     /// SanityTracker is a prefab that can be used to register the visibility of objects on the camera and impact sanity from there
     /// 
@@ -159,6 +162,8 @@ public class SanityTracker : MonoBehaviour
     private void onStainDamage(GameObject stain)
     {
         sanity--;
+
+        AudioManager.instance.PlayOneShot(damageSound, this.transform.position); // Trigger damage sfx here
 
         // start or restart the Film Grain intensity animation
         if (filmGrain != null)

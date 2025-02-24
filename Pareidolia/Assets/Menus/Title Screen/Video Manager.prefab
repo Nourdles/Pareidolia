@@ -44,7 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acbdaf7ab9079fe41b530ce8cb5cfec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 0}
+  firstVideoPlayer: {fileID: 0}
+  secondVideoPlayer: {fileID: 0}
   fadeInVideo: {fileID: 32900000, guid: f7004d033ffcb824bad79327bd56c866, type: 3}
   titleScreenVideo: {fileID: 32900000, guid: 1611b305fb956e84b94e61c45f11bae1, type: 3}
   buttonGroup: {fileID: 0}
+  titleScreenMusic:
+    Guid:
+      Data1: 1614276644
+      Data2: 1200451454
+      Data3: -962824003
+      Data4: 1044975597
+    Path: event:/Music/Title Screen Music

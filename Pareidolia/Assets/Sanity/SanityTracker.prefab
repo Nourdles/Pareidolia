@@ -44,9 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7888be8f107809b418759b5cef4a8517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageSound:
+    Guid:
+      Data1: 1427502924
+      Data2: 1320588211
+      Data3: -1253543282
+      Data4: 927053695
+    Path: event:/Ambience/PlayerDamage
   camera: {fileID: 0}
   stains:
   - {fileID: 0}
   stainDamageGracePeriod: 10
   stainDamageFreq: 100
-  sanity: 100
+  postProcessingVolume: {fileID: 0}

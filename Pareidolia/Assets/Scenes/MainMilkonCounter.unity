@@ -283,6 +283,22 @@ PrefabInstance:
       value: event:/SFX/DoorClose
       objectReference: {fileID: 0}
     - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data1
+      value: -1837889869
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data2
+      value: 1154181984
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data3
+      value: 581505212
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data4
+      value: 685115745
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorOpenSound.Guid.Data1
       value: 1354553520
       objectReference: {fileID: 0}
@@ -369,6 +385,26 @@ PrefabInstance:
     - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Path
+      value: event:/SFX/DoorLock
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data1
+      value: -1837889869
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data2
+      value: 1154181984
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data3
+      value: 581505212
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data4
+      value: 685115745
       objectReference: {fileID: 0}
     - target: {fileID: 6168225579636809906, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: m_Name
@@ -1811,11 +1847,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5893703609527211402, guid: cb83ed1aa5a8d4f4aadbd120cfe04bf2, type: 3}
   m_PrefabInstance: {fileID: 529722268}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &534294775 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6855269995339522116, guid: a0a01878a5b930144adc92dd59ca1bbd, type: 3}
-  m_PrefabInstance: {fileID: 2761294089413651824}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &534532366 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5646416868563248760, guid: 01bae0ab8f1de7b47ac8004cbbf2a828, type: 3}
@@ -2101,6 +2132,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c4235b32cf4ef941b2612ffc5fbce5c, type: 3}
+--- !u!4 &635320582 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6913891286149355202, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+  m_PrefabInstance: {fileID: 6238445892799619215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &685751953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,12 +2166,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1334703882}
-  - {fileID: 534294775}
+  - {fileID: 1772913854}
   - {fileID: 1383878075}
   - {fileID: 1487218234}
   - {fileID: 44788777}
   - {fileID: 1636853458}
+  - {fileID: 1923419022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &689976674 stripped
@@ -2451,11 +2487,6 @@ MeshCollider:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7159503615437450613, guid: 61d6ce9ed1bba8e4fb78be6643b02bfc, type: 3}
   m_PrefabInstance: {fileID: 5039267664512898022}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &863777245 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 313968809374952914, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
-  m_PrefabInstance: {fileID: 6238445892799619215}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &872180832 stripped
 GameObject:
@@ -3365,6 +3396,66 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Path
+      value: event:/SFX/DoorLock
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Path
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Path
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data1
+      value: -1837889869
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data2
+      value: 1154181984
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data3
+      value: 581505212
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data4
+      value: 685115745
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorOpenSound.Guid.Data4
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCloseSound.Guid.Data4
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7529838200303142254, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.557013
@@ -3727,7 +3818,7 @@ Transform:
   - {fileID: 324585887}
   - {fileID: 3993078835649408433}
   - {fileID: 1650383653}
-  - {fileID: 1716645414}
+  - {fileID: 635320582}
   - {fileID: 4499523909446013972}
   - {fileID: 1785533939}
   m_Father: {fileID: 0}
@@ -3822,11 +3913,6 @@ Transform:
   - {fileID: 905745624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1334703882 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3301494709765799295, guid: d6e3484cbae37c84984ab2504a2aa994, type: 3}
-  m_PrefabInstance: {fileID: 3737393311567505232}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1373605228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4446,51 +4532,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85dde2d9585b4db488682ef2f790517c, type: 3}
---- !u!4 &1716645414 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1085543824574969704, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
-  m_PrefabInstance: {fileID: 6238445892799619215}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1716645418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863777245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 117d53f25ee3cb8498a57ad3b425dd67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handheld_id: 0
---- !u!54 &1716645419
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 863777245}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1764492269 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8201702326710000190, guid: a30513fc99829a248b75fc0830f688c4, type: 3}
@@ -4522,6 +4563,11 @@ MeshCollider:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9060589950039721517, guid: 6705103cf5c9f6b4e86d383195ea320c, type: 3}
   m_PrefabInstance: {fileID: 3993078835649408432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1772913854 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6236558952472993648, guid: a0a01878a5b930144adc92dd59ca1bbd, type: 3}
+  m_PrefabInstance: {fileID: 2761294089413651824}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1777843804 stripped
 Transform:
@@ -4582,6 +4628,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7529838200303142254, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
   m_PrefabInstance: {fileID: 1951006613}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1923419022 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4649887778511924399, guid: d6e3484cbae37c84984ab2504a2aa994, type: 3}
+  m_PrefabInstance: {fileID: 3737393311567505232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1925367514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6877694842302956089, guid: a30513fc99829a248b75fc0830f688c4, type: 3}
@@ -4601,12 +4652,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 716924518}
     m_Modifications:
     - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Path
+      value: event:/SFX/DoorLock
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorOpenSound.Path
       value: event:/SFX/DoorOpen
       objectReference: {fileID: 0}
     - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorCloseSound.Path
       value: event:/SFX/DoorClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data1
+      value: -1837889869
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data2
+      value: 1154181984
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data3
+      value: 581505212
+      objectReference: {fileID: 0}
+    - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data4
+      value: 685115745
       objectReference: {fileID: 0}
     - target: {fileID: 430016354487849191, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorOpenSound.Guid.Data1
@@ -4691,6 +4762,26 @@ PrefabInstance:
     - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorCloseSound.Guid.Data4
       value: 608150863
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Path
+      value: event:/SFX/DoorLock
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data1
+      value: -1837889869
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data2
+      value: 1154181984
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data3
+      value: 581505212
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorLockSound.Guid.Data4
+      value: 685115745
       objectReference: {fileID: 0}
     - target: {fileID: 7302344930500411692, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: canInteract
@@ -7732,13 +7823,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 313968809374952914, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1716645418}
-    - targetCorrespondingSourceObject: {fileID: 313968809374952914, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1716645419}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
 --- !u!1001 &6250100203206058351
 PrefabInstance:

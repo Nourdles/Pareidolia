@@ -11,6 +11,7 @@ public class DoorInteraction : ObjectInteraction
     public event Action DoorUnlockEvent;
     public EventReference doorOpenSound;
     public EventReference doorCloseSound;
+    public EventReference doorLockSound;
 
     public bool locked = true;
     private bool firstOpen = true;
@@ -39,7 +40,8 @@ public class DoorInteraction : ObjectInteraction
             }
         } else
         {
-            InvokeDialoguePromptEvent("I shouldn't leave 'till I make my bed.");
+            InvokeDialoguePromptEvent("I shouldn't leave till I make my bed");
+            AudioManager.instance.PlayOneShot(doorLockSound, this.transform.position);
         }
     }
 
