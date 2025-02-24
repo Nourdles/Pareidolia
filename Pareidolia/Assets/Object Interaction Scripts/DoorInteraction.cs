@@ -39,7 +39,7 @@ public class DoorInteraction : ObjectInteraction
             }
         } else
         {
-            InvokeDialoguePromptEvent("I shouldn't leave till I make my bed");
+            InvokeDialoguePromptEvent("I shouldn't leave 'till I make my bed.");
         }
     }
 
