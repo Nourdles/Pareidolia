@@ -6,11 +6,15 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
     public static event Action<GameObject> PickUpEvent;
     [SerializeField] protected Handhelds handheld_id;
     [SerializeField] private Rigidbody itemRb;
+    private int handheldLayer;
+    private int defaultLayer;
 
     protected override void Start() 
     {
         base.Start();
         itemRb = gameObject.GetComponentInParent<Rigidbody>();
+        handheldLayer = LayerMask.NameToLayer("HandheldObjects");
+        defaultLayer = LayerMask.NameToLayer("Default");
     }
 
     public override void interact(GameObject objectInHand)
@@ -55,6 +59,9 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
         // set the object tag as untagged so it can't be interacted with
         gameObject.tag = "Untagged";
+        // set the objects layer so that it can be rendered by the pickup camera
+        gameObject.layer = handheldLayer;
+        Debug.Log("Layer set");
 
     }
 
@@ -65,6 +72,10 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
         itemRb.detectCollisions = true;
         // set as interactable again
         gameObject.tag = "InteractableObject";
+
+        // set the object's layer back to default
+        gameObject.layer = defaultLayer;
+
     }
 
     void OnEnable()

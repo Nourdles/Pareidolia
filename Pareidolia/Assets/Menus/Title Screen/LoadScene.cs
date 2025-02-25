@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,8 +8,20 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-   public void StartGame()
+    [SerializeField] Animator animator;
+
+    // current scene fades out (called before startGame)
+    public void FadeToLevel()
     {
+        animator.SetTrigger("FadeOut");
+    }
+
+    // once title scene fades out, load the next scene
+    public void LoadNextScene()
+    {
+        //FadeToLevel();
         SceneManager.LoadSceneAsync("MainScene");
     }
+
+
 }
