@@ -10,12 +10,6 @@ public static class GameStateManager
     private static bool faceSpawnOn;
     
 
-
-    public static void PauseGame()
-    {
-        // show pause screen
-    }
-
     public static void StartTutorial()
     {
         levelState = Levels.Tutorial;
@@ -34,6 +28,21 @@ public static class GameStateManager
         LevelChangeEvent?.Invoke(levelState);
     }
 
+
+    public static void Respawn()
+    {
+        // determine which level the player died in, then respawn at the start of that level
+        // reload scene at beginning (restart all tasks, restore sanity)
+        /*
+        switch ((int)levelState)
+        {
+            case 1:
+
+                break;
+            case 2:
+        }*/
+    }
+    
     /*
     public static void StartAfternoon()
     {

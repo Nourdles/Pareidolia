@@ -5,13 +5,12 @@ public class FridgeDoorInteraction : ObjectInteraction
     //public EventReference doorOpenSound;
     //public EventReference doorCloseSound;
     private bool doorOpen = false;
-    public Animator doorAnimator;
+    [SerializeField] Animator doorAnimator;
 
 
     protected override void Start()
     {
         base.Start();
-        //doorAnimator = gameObject.GetComponent<Animator>();
     }
 
     public override void interact(GameObject objectInHand)

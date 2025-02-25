@@ -133,7 +133,7 @@
 			<value>1.7347234759768071e-18</value>
 		</property>
 		<property name="length">
-			<value>0.62</value>
+			<value>0.37</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{5f20c91c-010f-4e32-9aae-839860ff66c2}</destination>
@@ -146,6 +146,7 @@
 		<relationship name="effects">
 			<destination>{2d2c361d-1aeb-42e3-a022-f85db51126eb}</destination>
 			<destination>{5ab966e5-2297-44fb-a06c-44fcee474691}</destination>
+			<destination>{837d3192-5d6d-4a8b-9dd0-045ebe7cde63}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{3641ce2c-2969-4f6f-a68a-660bd441cf58}" />
@@ -210,6 +211,53 @@
 	<object class="MixerBusPanner" id="{0a2dae9e-0133-4518-b4db-2ca325f6a6db}" />
 	<object class="MixerBusFader" id="{2d2c361d-1aeb-42e3-a022-f85db51126eb}" />
 	<object class="SpatialiserEffect" id="{5ab966e5-2297-44fb-a06c-44fcee474691}" />
+	<object class="MultibandEqEffect" id="{837d3192-5d6d-4a8b-9dd0-045ebe7cde63}">
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="filterTypeC">
+			<value>9</value>
+		</property>
+		<property name="filterTypeD">
+			<value>9</value>
+		</property>
+		<property name="filterTypeE">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>21999.9902</value>
+		</property>
+		<property name="frequencyB">
+			<value>55.200367</value>
+		</property>
+		<property name="frequencyC">
+			<value>87.0767899</value>
+		</property>
+		<property name="frequencyD">
+			<value>1948.19666</value>
+		</property>
+		<property name="frequencyE">
+			<value>13105.917</value>
+		</property>
+		<property name="qualityA">
+			<value>0.476758599</value>
+		</property>
+		<property name="qualityE">
+			<value>0.579999983</value>
+		</property>
+		<property name="gainB">
+			<value>11.8965521</value>
+		</property>
+		<property name="gainC">
+			<value>-15.5172415</value>
+		</property>
+		<property name="gainD">
+			<value>-16.034481</value>
+		</property>
+		<property name="gainE">
+			<value>6.72413731</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{cb81cfe5-aff2-416d-9a00-dbbbd7526ff5}">
 		<property name="position">
 			<value>0.080000000000000043</value>
