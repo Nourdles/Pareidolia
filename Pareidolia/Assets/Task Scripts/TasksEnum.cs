@@ -1,10 +1,10 @@
 public enum Tasks
 {
     // Morning Tasks
-    MakeBed,
-    MakeBreakfast,
+    MakeBed = 1,
+    MakeBreakfast = 2,
     //WashLaundry,
-    Shower,
+    Shower = 3,
     // Afternon Tasks
     PickupTrash,
     DryLaundry,

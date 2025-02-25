@@ -6,7 +6,7 @@ public class MakeBreakfastTask : MultistepTask
     protected override void Start()
     {
         base.Start();
-        tasknum = 2;
+        task = Tasks.MakeBreakfast;
         numTasksRequired = 2; // make coffee, cereal
     }
 

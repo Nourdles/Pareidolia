@@ -4,7 +4,7 @@ using System;
 public abstract class Task : MonoBehaviour
 {
     [SerializeField] protected bool complete;
-    protected int tasknum;
+    protected Tasks task;
     public static event Action<int> CompleteTaskEvent;
     
     protected virtual void Start()
@@ -25,6 +25,6 @@ public abstract class Task : MonoBehaviour
     protected void completeTask()
     {
         complete = true;
-        invokeCompleteTaskEvent(tasknum);
+        invokeCompleteTaskEvent((int) task);
     }
 }
