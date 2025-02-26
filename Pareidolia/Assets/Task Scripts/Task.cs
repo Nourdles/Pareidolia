@@ -4,17 +4,19 @@ using System;
 public abstract class Task : MonoBehaviour
 {
     [SerializeField] protected bool complete;
-    protected int tasknum;
-    public static event Action<int> CompleteTaskEvent;
+    protected Tasks task;
+    public static event Action<int> CrossOutTaskEvent;
+    public static event Action CompleteTaskEvent;
     
     protected virtual void Start()
     {
         complete = false;
     }
     
-    protected void invokeCompleteTaskEvent(int tasknum)
+    protected virtual void invokeCompleteTaskEvent(int tasknum)
     {
-        CompleteTaskEvent?.Invoke(tasknum);
+        CrossOutTaskEvent?.Invoke(tasknum);
+        CompleteTaskEvent?.Invoke();
     }
 
     public bool isCompleted()
@@ -25,6 +27,7 @@ public abstract class Task : MonoBehaviour
     protected void completeTask()
     {
         complete = true;
-        invokeCompleteTaskEvent(tasknum);
+        invokeCompleteTaskEvent((int) task);
+        enabled = false; // disable the task
     }
 }

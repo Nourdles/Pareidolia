@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class MakeBedTask: SimpleTask
@@ -6,7 +7,7 @@ public class MakeBedTask: SimpleTask
     protected override void Start()
     {
         base.Start();
-        tasknum = 1;
+        task = Tasks.MakeBed;
     }
     private void OnEnable() {
         BedInteraction.BedInteractionEvent += completeTask;

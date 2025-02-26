@@ -1,16 +1,31 @@
+using System;
 using UnityEngine;
 
-public class ShowerTask : MonoBehaviour
+public class ShowerTask : ProgressTask
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static event Action ShowerComplete;
+
+    protected override void Start()
     {
-        
+        base.Start();
+        task = Tasks.Shower;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void invokeCompleteTaskEvent(int tasknum)
     {
-        
+        base.invokeCompleteTaskEvent(tasknum);
+        ShowerComplete?.Invoke();
+    }
+
+    void OnEnable()
+    {
+        Shower.ShowerOnEvent += startCharging;
+        Shower.ShowerOffEvent += stopCharging;
+    }
+
+    void OnDisable()
+    {
+        Shower.ShowerOnEvent -= startCharging;
+        Shower.ShowerOffEvent -= stopCharging;
     }
 }

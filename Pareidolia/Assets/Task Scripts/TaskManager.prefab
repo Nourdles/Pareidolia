@@ -9,9 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2249100408614854772}
-  - component: {fileID: 2635595795695625885}
-  - component: {fileID: 2297231978275275625}
-  - component: {fileID: 6458584834686748410}
+  - component: {fileID: 4072765436998510136}
   m_Layer: 0
   m_Name: TaskManager
   m_TagString: Untagged
@@ -31,10 +29,11 @@ Transform:
   m_LocalPosition: {x: 4.1674423, y: 1.3383479, z: 0.87991774}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6079583377109218318}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2635595795695625885
+--- !u!114 &4072765436998510136
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,17 +42,63 @@ MonoBehaviour:
   m_GameObject: {fileID: 2474763767364141009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72fa69cf16b6db54eb228b6043a52953, type: 3}
+  m_Script: {fileID: 11500000, guid: 05530c6c8a3697d47ab08ad51a3f0f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  complete: 0
---- !u!114 &2297231978275275625
+--- !u!1 &8249609666087989725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6079583377109218318}
+  - component: {fileID: 6279608956281225193}
+  - component: {fileID: 1724088610452664863}
+  - component: {fileID: 6512192977328404584}
+  m_Layer: 0
+  m_Name: Morning manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6079583377109218318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8249609666087989725}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2249100408614854772}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6279608956281225193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2474763767364141009}
+  m_GameObject: {fileID: 8249609666087989725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72fa69cf16b6db54eb228b6043a52953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complete: 0
+--- !u!114 &1724088610452664863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8249609666087989725}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36a76c3432200dd4dac8a633f03833a8, type: 3}
@@ -62,15 +107,19 @@ MonoBehaviour:
   complete: 0
   numTasksRequired: 0
   numTasksCompleted: 0
---- !u!114 &6458584834686748410
+--- !u!114 &6512192977328404584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2474763767364141009}
+  m_GameObject: {fileID: 8249609666087989725}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8ac4313ee09bd843ab6648504267f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  complete: 0
+  _progress: 0
+  _isCharging: 0
+  _chargeSpeed: 0.1

@@ -22,13 +22,13 @@ public class UpdateUI: MonoBehaviour
     
    private void OnEnable() 
     {
-        Task.CompleteTaskEvent += completeTask;
+        Task.CrossOutTaskEvent += completeTask;
         GameStateManager.LevelChangeEvent += changeTasks;
     }
 
     private void OnDisable() 
     {
-       Task.CompleteTaskEvent -= completeTask;
+       Task.CrossOutTaskEvent -= completeTask;
        GameStateManager.LevelChangeEvent -= changeTasks;
     }
 
