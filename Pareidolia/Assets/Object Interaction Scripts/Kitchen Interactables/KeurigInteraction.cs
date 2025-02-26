@@ -4,6 +4,7 @@ using UnityEngine;
 public class KeurigInteraction : ObjectInteraction
 {
     [SerializeField] private Transform cupHoldPointTransform;
+    [SerializeField] private FMODUnity.EventReference coffeeMachineSFX;
     public static event Action CoffeeMadeEvent;
     //public static event Action CoffeeDrankEvent;
     public static event Action CupPutInMachineEvent;
@@ -39,6 +40,8 @@ public class KeurigInteraction : ObjectInteraction
         GameObject cupCenter = cup.transform.parent.gameObject;
         cupCenter.transform.position = cupHoldPointTransform.position;
         cupCenter.transform.rotation = cupHoldPointTransform.rotation;
+
+        AudioManager.instance.PlayOneShot(coffeeMachineSFX, transform.position);
         
         // set as interactable again
         cup.tag = "InteractableObject";

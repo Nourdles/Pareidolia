@@ -1,11 +1,16 @@
 using System;
 using UnityEngine;
+using FMODUnity;
 
 public abstract class HandheldObjectInteraction : ObjectInteraction
 {
     public static event Action<GameObject> PickUpEvent;
     [SerializeField] protected Handhelds handheld_id;
     [SerializeField] private Rigidbody itemRb;
+    
+    // FMOD event for object pickup sounds
+    [SerializeField] protected FMODUnity.EventReference pickupSFX;
+
     private int handheldLayer;
     private int defaultLayer;
 
@@ -24,6 +29,8 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
             InvokeDialoguePromptEvent("My hands are full right now");
         } else
         {
+            AudioManager.instance.PlayOneShot(pickupSFX, this.transform.position); //Trigger the sfx
+
             PickUpEvent?.Invoke(gameObject);
         }
     }

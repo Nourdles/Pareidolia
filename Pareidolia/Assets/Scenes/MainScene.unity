@@ -1399,6 +1399,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handheld_id: 0
   itemRb: {fileID: 0}
+  pickupSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1001 &408282185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3331,6 +3338,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1263577029}
     m_Modifications:
+    - target: {fileID: 1457077474341159746, guid: 1d914cab2c215be4dba2b838b68dc793, type: 3}
+      propertyPath: pickupSFX.Path
+      value: event:/SFX/Mug Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457077474341159746, guid: 1d914cab2c215be4dba2b838b68dc793, type: 3}
+      propertyPath: mugPickupSFX.Path
+      value: event:/SFX/Mug Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457077474341159746, guid: 1d914cab2c215be4dba2b838b68dc793, type: 3}
+      propertyPath: pickupSFX.Guid.Data1
+      value: -972671729
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457077474341159746, guid: 1d914cab2c215be4dba2b838b68dc793, type: 3}
+      propertyPath: pickupSFX.Guid.Data2
+      value: 1219292530
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457077474341159746, guid: 1d914cab2c215be4dba2b838b68dc793, type: 3}
+      propertyPath: pickupSFX.Guid.Data3
+      value: -1503200596
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457077474341159746, guid: 1d914cab2c215be4dba2b838b68dc793, type: 3}
+      propertyPath: pickupSFX.Guid.Data4
+      value: 228010926
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457077474341159746, guid: 1d914cab2c215be4dba2b838b68dc793, type: 3}
+      propertyPath: mugPickupSFX.Guid.Data1
+      value: -972671729
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457077474341159746, guid: 1d914cab2c215be4dba2b838b68dc793, type: 3}
+      propertyPath: mugPickupSFX.Guid.Data2
+      value: 1219292530
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457077474341159746, guid: 1d914cab2c215be4dba2b838b68dc793, type: 3}
+      propertyPath: mugPickupSFX.Guid.Data3
+      value: -1503200596
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457077474341159746, guid: 1d914cab2c215be4dba2b838b68dc793, type: 3}
+      propertyPath: mugPickupSFX.Guid.Data4
+      value: 228010926
+      objectReference: {fileID: 0}
     - target: {fileID: 6618354039770132041, guid: 1d914cab2c215be4dba2b838b68dc793, type: 3}
       propertyPath: m_Name
       value: CupCenter
@@ -7158,6 +7205,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 847228276}
     m_Modifications:
+    - target: {fileID: 2700818952148054359, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: pickupSFX.Path
+      value: event:/SFX/Cereal Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700818952148054359, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: cerealPickupSFX.Path
+      value: event:/SFX/Cereal Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700818952148054359, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: pickupSFX.Guid.Data1
+      value: -2128853257
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700818952148054359, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: pickupSFX.Guid.Data2
+      value: 1151067829
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700818952148054359, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: pickupSFX.Guid.Data3
+      value: -1598445166
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700818952148054359, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: pickupSFX.Guid.Data4
+      value: -1039440501
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700818952148054359, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: cerealPickupSFX.Guid.Data1
+      value: -2128853257
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700818952148054359, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: cerealPickupSFX.Guid.Data2
+      value: 1151067829
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700818952148054359, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: cerealPickupSFX.Guid.Data3
+      value: -1598445166
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700818952148054359, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
+      propertyPath: cerealPickupSFX.Guid.Data4
+      value: -1039440501
+      objectReference: {fileID: 0}
     - target: {fileID: 6104844605170748536, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
       propertyPath: m_Name
       value: Cereal Box
@@ -8623,6 +8710,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cupHoldPointTransform: {fileID: 557056822}
+  coffeeMachineSFX:
+    Guid:
+      Data1: -2044894081
+      Data2: 1301860350
+      Data3: -1125382245
+      Data4: 630171466
+    Path: event:/SFX/Coffee Machine
 --- !u!1001 &3475265434085679429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8833,6 +8927,20 @@ MonoBehaviour:
   hasCereal: 0
   cerealOnlyMaterial: {fileID: 2100000, guid: 201ca55236af0584f9e7d57f6116f199, type: 2}
   FullCerealPrefab: {fileID: 4400149336721459008, guid: 10a9bb09a61a6df408a704c144d42337, type: 3}
+  cerealPourSFX:
+    Guid:
+      Data1: 2101371687
+      Data2: 1303013740
+      Data3: -940715385
+      Data4: 1293085116
+    Path: event:/SFX/Cereal Pour
+  milkPourSFX:
+    Guid:
+      Data1: -1724549782
+      Data2: 1186989979
+      Data3: 1099919030
+      Data4: -892585134
+    Path: event:/SFX/Milk Pour
 --- !u!1001 &4050520364462249734
 PrefabInstance:
   m_ObjectHideFlags: 0
