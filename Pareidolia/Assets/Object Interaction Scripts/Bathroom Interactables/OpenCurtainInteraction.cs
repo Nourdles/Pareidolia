@@ -3,28 +3,24 @@ using UnityEngine;
 
 public class OpenCurtainInteraction : ObjectInteraction
 {
-    [SerializeField] private GameObject _closedCurtain;
-    [SerializeField] private GameObject _openCurtain;
     public static event Action CloseCurtainEvent;
     public override void interact(GameObject objectInHand)
     {
-        CloseCurtain();
+        InvokeCloseCurtain();
     }
 
-    private void CloseCurtain()
+    private void InvokeCloseCurtain()
     {
-        _openCurtain.SetActive(false);
-        _closedCurtain.SetActive(true);
         CloseCurtainEvent?.Invoke();
     }
 
     void OnEnable()
     {
-        TubInteraction.GetIntoTubEvent += CloseCurtain;
+        TubInteraction.GetIntoTubEvent += InvokeCloseCurtain;
     }
 
     void OnDisable()
     {
-        TubInteraction.GetIntoTubEvent -= CloseCurtain;
+        TubInteraction.GetIntoTubEvent -= InvokeCloseCurtain;
     }
 }
