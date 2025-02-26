@@ -19,8 +19,13 @@ public abstract class ObjectInteraction : MonoBehaviour
         DialoguePromptEvent?.Invoke(msg);
     }
 
-    protected void SetObjectInteractability(string tag)
+    protected void SetInteractable()
     {
-        gameObject.tag = tag;
+        gameObject.tag = "InteractableObject";
+    }
+
+    protected void SetUninteractable()
+    {
+        gameObject.tag = "Untagged";
     }
 }

@@ -27,14 +27,14 @@ public class TutorialTaskTracker : MonoBehaviour
     }
     private void OnEnable()
     {
-        MakeBedTask.CompleteTaskEvent += CountSimpleTasksCompleted;
+        MakeBedTask.CrossOutTaskEvent += CountSimpleTasksCompleted;
         doorInteraction.DoorFirstOpeningEvent += BridgeTaskCompleted;
 
     }
 
     private void OnDisable()
     {
-        MakeBedTask.CompleteTaskEvent -= CountSimpleTasksCompleted;
+        MakeBedTask.CrossOutTaskEvent -= CountSimpleTasksCompleted;
         //BedInteraction.BedInteractionEvent -= CountTasksCompleted;
         doorInteraction.DoorFirstOpeningEvent -= BridgeTaskCompleted;
     }

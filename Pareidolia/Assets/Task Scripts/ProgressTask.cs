@@ -16,26 +16,24 @@ public class ProgressTask : Task
         _isCharging = false;
     }
 
-    void Update()
+    protected void Update()
     {
-        if (!complete)
+        bool pbvisible = false;
+        // at any point if progress becomes 1, complete the task
+        if (_progress == 1)
         {
-            bool pbvisible = false;
-            // at any point if progress becomes 1, complete the task
-            if (_progress == 1)
-            {
-                completeTask();
-            } else if (_isCharging)
-            {
-                Charge();
-                UpdateProgressBarEvent?.Invoke(_progress);
-                pbvisible = true;
-            }
-            UpdatePBVisibilityEvent?.Invoke(pbvisible);
+            completeTask();
+        } else if (_isCharging)
+        {
+            Charge();
+            UpdateProgressBarEvent?.Invoke(_progress);
+            pbvisible = true;
         }
+        Debug.Log("Setting visibility to " + pbvisible);
+        UpdatePBVisibilityEvent?.Invoke(pbvisible);
     }
 
-    private void Charge()
+    protected void Charge()
     {
         _progress += _chargeSpeed * Time.deltaTime;
         if (_progress > 1)
