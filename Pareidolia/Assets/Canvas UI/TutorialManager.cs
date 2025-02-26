@@ -9,7 +9,7 @@ public class TutorialManager : MonoBehaviour
 {
     //Message to display on UI
     public TextMeshProUGUI message;
-    [SerializeField] TMP_Text dialogueField;
+    [SerializeField] GameObject textbox;
     public static event Action<string> TutorialDialogueEvent;
     [SerializeField] private GameObject player;
 
@@ -75,6 +75,7 @@ public class TutorialManager : MonoBehaviour
                 TutorialState.COMPLETED}.Contains(state))
         {
             this.message.text = "";
+            textbox.SetActive(false);
             if (state == TutorialState.COMPLETED)
             {
                 this.enabled = false;
@@ -143,21 +144,27 @@ public class TutorialManager : MonoBehaviour
         {
             case TutorialState.INTERACT_HOTKEY:
                 this.message.text = "Press " + InteractHotkey + " to interact with litup objects";
+                textbox.SetActive(true);
                 return;
             case TutorialState.NOTEPAD_HOTKEY:
                 this.message.text = "Press " + TasklistHotkey + " to open/close your task list";
+                textbox.SetActive(true);
                 return;
             case TutorialState.TASK_COMPLETION:
                 this.message.text = "Complete the listed task. Remember, you can press " + InteractHotkey + " to interact with objects";
+                textbox.SetActive(true);
                 return;
             case TutorialState.REOPEN_NOTEPAD:
                 this.message.text = "Reopen your task list using " + TasklistHotkey;
+                textbox.SetActive(true);
                 return;
             case TutorialState.NOTEPAD_EXPLANATION:
                 this.message.text = "Tasks will be crossed out when they are completed";
+                textbox.SetActive(true);
                 return;
             case TutorialState.COMPLETED:
                 this.message.text = "Tutorial complete. You are now free to roam the house";
+                textbox.SetActive(true);
                 return;
             default:
                 return;
