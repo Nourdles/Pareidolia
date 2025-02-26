@@ -7,6 +7,11 @@ public class BowlInteraction : ObjectInteraction
     [SerializeField] private bool hasCereal = false;
     [SerializeField] private Material cerealOnlyMaterial;
     [SerializeField] private GameObject FullCerealPrefab;
+
+    // FMOD events for pouring cereal and milk
+    [SerializeField] private FMODUnity.EventReference cerealPourSFX;
+    [SerializeField] private FMODUnity.EventReference milkPourSFX;
+
     public static event Action BreakfastMadeEvent;
     public static event Action<Material> ChangeBowlMat;
     public override void interact(GameObject objectInHand)
@@ -22,6 +27,7 @@ public class BowlInteraction : ObjectInteraction
                 } else if (hasCereal) // no milk
                 {
                     hasMilk = true;
+                    AudioManager.instance.PlayOneShot(milkPourSFX, transform.position);
                     Instantiate(FullCerealPrefab, transform.position, transform.rotation);
                     BreakfastMadeEvent?.Invoke();
                     Destroy(gameObject);
@@ -37,6 +43,7 @@ public class BowlInteraction : ObjectInteraction
                 } else
                 {
                     hasCereal = true;
+                    AudioManager.instance.PlayOneShot(cerealPourSFX, transform.position);
                     gameObject.GetComponent<MeshRenderer>().material = cerealOnlyMaterial;
                     ChangeBowlMat?.Invoke(cerealOnlyMaterial);
                 }
