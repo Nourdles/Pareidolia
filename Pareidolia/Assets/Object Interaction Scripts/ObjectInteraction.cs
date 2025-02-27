@@ -6,6 +6,7 @@ public abstract class ObjectInteraction : MonoBehaviour
 {
     protected InputAction interactKey;
     public static event Action<string> DialoguePromptEvent;
+    protected String interactText = "";
     
     protected virtual void Start()
     {
