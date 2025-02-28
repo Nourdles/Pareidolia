@@ -52,13 +52,13 @@ public class PlayerInteract : MonoBehaviour
 
     void OnEnable()
     {
-        PlayerView.ViewingObjectEvent += SetObjectInView;
+        ObjectHoverGlow.ViewingObjectEvent += SetObjectInView;
         HandheldObjectInteraction.PickUpEvent += PickUp;
     }
 
     void OnDisable()
     {
-        PlayerView.ViewingObjectEvent -= SetObjectInView;
+        ObjectHoverGlow.ViewingObjectEvent -= SetObjectInView;
         HandheldObjectInteraction.PickUpEvent -= PickUp;
     }
 }
