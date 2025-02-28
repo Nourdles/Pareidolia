@@ -30,12 +30,12 @@ public class InteractTextUpdater : MonoBehaviour
 
     void OnEnable()
     {
-        PlayerView.ViewingObjectEvent += DisplayInteractText;
+        ObjectHoverGlow.ViewingObjectEvent += DisplayInteractText;
     }
 
     void OnDisable()
     {
-        PlayerView.ViewingObjectEvent += DisplayInteractText;
+        ObjectHoverGlow.ViewingObjectEvent += DisplayInteractText;
     }
 
 }
