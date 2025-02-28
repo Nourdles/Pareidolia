@@ -30,4 +30,9 @@ public abstract class ObjectInteraction : MonoBehaviour
     {
         gameObject.tag = "Untagged";
     }
+
+    public string GetInteractText()
+    {
+        return interactText;
+    }
 }
