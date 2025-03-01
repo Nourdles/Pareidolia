@@ -1,9 +1,11 @@
 using UnityEngine;
+using FMODUnity;
 
 public class CurtainOpenClose : MonoBehaviour
 {
     [SerializeField] private GameObject _closedCurtain;
     [SerializeField] private GameObject _openCurtain;
+    [SerializeField] EventReference showerCurtainSfx;
 
     private void CloseCurtain()
     {
@@ -21,7 +23,7 @@ public class CurtainOpenClose : MonoBehaviour
 
     private void PlayCurtainSFX()
     {
-        // insert code for sfx here
+        AudioManager.instance.PlayOneShot(showerCurtainSfx, this.transform.position); // insert code for sfx here
     }
 
     void OnEnable()
