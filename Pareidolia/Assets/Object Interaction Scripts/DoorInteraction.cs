@@ -22,6 +22,8 @@ public class DoorInteraction : ObjectInteraction
     {
         base.Start();
         //doorAnimator = gameObject.GetComponent<Animator>();
+        interactText =  interactKey.GetBindingDisplayString() + " to open door"; 
+        // rn this is saying Press or hold E | Press or hold A
     }
 
     public override void interact(GameObject objectInHand)

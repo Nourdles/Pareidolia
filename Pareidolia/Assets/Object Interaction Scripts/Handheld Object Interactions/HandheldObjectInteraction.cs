@@ -85,6 +85,8 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
     }
 
+    /*
+
     void OnEnable()
     {
         PlayerInteract.DropItemEvent += DropObject;
@@ -94,4 +96,5 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
     {
         PlayerInteract.DropItemEvent -= DropObject;
     }
+    */
 }

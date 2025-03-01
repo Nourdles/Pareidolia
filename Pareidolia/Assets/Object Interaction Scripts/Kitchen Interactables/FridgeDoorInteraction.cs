@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class FridgeDoorInteraction : ObjectInteraction
 {
@@ -6,6 +7,8 @@ public class FridgeDoorInteraction : ObjectInteraction
     //public EventReference doorCloseSound;
     private bool doorOpen = false;
     [SerializeField] Animator doorAnimator;
+    [SerializeField] EventReference fridgeCloseSound;
+    [SerializeField] EventReference fridgeOpenSound;
 
 
     protected override void Start()
@@ -24,13 +27,13 @@ public class FridgeDoorInteraction : ObjectInteraction
         {
             doorAnimator.Play("CloseFridgeDoor");
             Debug.Log("Door Closing");
-            //AudioManager.instance.PlayOneShot(doorCloseSound, this.transform.position);
+            AudioManager.instance.PlayOneShot(fridgeCloseSound, this.transform.position);
         }
         else
         {
             doorAnimator.Play("OpenFridgeDoor");
             Debug.Log("Door Opening");
-            //AudioManager.instance.PlayOneShot(doorOpenSound, this.transform.position);
+            AudioManager.instance.PlayOneShot(fridgeOpenSound, this.transform.position);
         }
         doorOpen = !doorOpen;
     }

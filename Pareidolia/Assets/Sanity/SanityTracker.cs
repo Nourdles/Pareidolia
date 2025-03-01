@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -65,7 +64,6 @@ public class SanityTracker : MonoBehaviour
 
     void Start()
     {
-        Assert.IsNotNull(camera);
         for (int i = 0; i < stains.Count; i++)
         {
             stainInfo.Add(new StainInfo(stainDamageGracePeriod));

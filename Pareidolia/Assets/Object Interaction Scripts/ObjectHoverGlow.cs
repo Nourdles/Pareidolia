@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerView : MonoBehaviour 
+public class ObjectHoverGlow : MonoBehaviour 
 {
 
     [SerializeField] GameObject objectInView;

@@ -6,6 +6,8 @@ public abstract class ObjectInteraction : MonoBehaviour
 {
     protected InputAction interactKey;
     public static event Action<string> DialoguePromptEvent;
+    protected String interactText = "";
+    public static event Action InteractTextEvent;
     
     protected virtual void Start()
     {
@@ -27,5 +29,10 @@ public abstract class ObjectInteraction : MonoBehaviour
     protected void SetUninteractable()
     {
         gameObject.tag = "Untagged";
+    }
+
+    public string GetInteractText()
+    {
+        return interactText;
     }
 }

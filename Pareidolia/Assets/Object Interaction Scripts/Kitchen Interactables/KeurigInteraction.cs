@@ -45,6 +45,7 @@ public class KeurigInteraction : ObjectInteraction
         
         // set as interactable again
         cup.tag = "InteractableObject";
+        cup.layer = LayerMask.NameToLayer("Default");
         CupPutInMachineEvent?.Invoke();
     }
 }
