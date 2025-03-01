@@ -6,6 +6,7 @@ using FMODUnity;
 public class Shower : MonoBehaviour
 {
     [SerializeField] private bool _inShower;
+    private bool _showerStarted = false;
     private InputAction interactKey;
     private FMOD.Studio.EventInstance showerEventInstance;
     public static event Action ShowerOnEvent;
@@ -22,14 +23,22 @@ public class Shower : MonoBehaviour
     {
         if (_inShower)
         {
+            showerEventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
             if (interactKey.WasPressedThisFrame())
             {
-                Debug.Log("Showering");
                 ShowerOnEvent?.Invoke();
 
                 if (showerEventInstance.isValid())
                 {
+                    if (_showerStarted)
+                    {
+                        showerEventInstance.setPaused(false);
+                    } else
+                    {
+                    Debug.Log("Starting shower");
                     showerEventInstance.start();
+                    _showerStarted = true;
+                    }
                 }
             } 
             else if (interactKey.WasReleasedThisFrame())
@@ -38,10 +47,16 @@ public class Shower : MonoBehaviour
 
                 if (showerEventInstance.isValid())
                 {
-                    showerEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                    showerEventInstance.setPaused(true);
                 }
             }
         }
+    }
+
+    private void ReleaseSFXInstance()
+    {
+        showerEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        showerEventInstance.release();
     }
 
     private void EnableScript()
@@ -52,10 +67,12 @@ public class Shower : MonoBehaviour
     void OnEnable()
     {
         TubInteraction.GetIntoTubEvent += EnableScript;
+        ShowerTask.ShowerComplete += ReleaseSFXInstance;
     }
 
     void OnDisable()
     {
         TubInteraction.GetIntoTubEvent -= EnableScript;
+        ShowerTask.ShowerComplete -= ReleaseSFXInstance;
     }
 }

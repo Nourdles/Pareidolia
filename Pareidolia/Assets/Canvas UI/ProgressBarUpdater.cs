@@ -28,7 +28,6 @@ public class ProgressBarUpdater : MonoBehaviour
     {
         _handleIMG.enabled = _isVisible;
         _barIMG.enabled = _isVisible;
-        Debug.Log("Progress Bar visible: " + _isVisible);
     }
 
     void OnEnable()
