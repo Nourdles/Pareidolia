@@ -157,6 +157,8 @@ public class SanityTracker : MonoBehaviour
     private void onLoss()
     {
         Debug.Log("Game Over");
+        // Let player respawn
+        GameStateManager.Respawn();
     }
 
     private void onStainDamage(GameObject stain)
