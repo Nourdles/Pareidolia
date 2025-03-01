@@ -8,7 +8,7 @@ using UnityEngine;
 public class InteractTextUpdater : MonoBehaviour
 {
     [SerializeField] private TMP_Text _interactField;
-    [SerializeField] private GameObject _textboxObj;
+    //[SerializeField] private GameObject _textboxObj;
 
     //
     private void DisplayInteractText(GameObject gameobject)
@@ -25,7 +25,7 @@ public class InteractTextUpdater : MonoBehaviour
             visible = false;
         }
         _interactField.text = txt_to_display;
-        _textboxObj.SetActive(visible);
+        //_textboxObj.SetActive(visible);
     }
 
     void OnEnable()
