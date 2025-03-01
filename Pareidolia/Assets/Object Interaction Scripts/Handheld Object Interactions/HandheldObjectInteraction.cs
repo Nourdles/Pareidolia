@@ -13,6 +13,7 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
     private int handheldLayer;
     private int defaultLayer;
+    protected Transform _oldParent;
 
     protected override void Start() 
     {
@@ -20,6 +21,7 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
         itemRb = gameObject.GetComponentInParent<Rigidbody>();
         handheldLayer = LayerMask.NameToLayer("HandheldObjects");
         defaultLayer = LayerMask.NameToLayer("Default");
+        _oldParent = itemRb.transform.parent;
     }
 
     public override void interact(GameObject objectInHand)
@@ -74,7 +76,7 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
     public void DropObject()
     {
-        itemRb.transform.parent = null;
+        itemRb.transform.parent = _oldParent;
         itemRb.isKinematic = false;
         itemRb.detectCollisions = true;
         // set as interactable again
@@ -85,6 +87,8 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
     }
 
+    /*
+
     void OnEnable()
     {
         PlayerInteract.DropItemEvent += DropObject;
@@ -94,4 +98,5 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
     {
         PlayerInteract.DropItemEvent -= DropObject;
     }
+    */
 }

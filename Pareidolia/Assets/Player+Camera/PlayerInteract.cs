@@ -29,6 +29,7 @@ public class PlayerInteract : MonoBehaviour
             objectInView.GetComponent<ObjectInteraction>().interact(objectInHand);
         } else if (interactKey.WasPressedThisFrame() && playerInventory.isHoldingObject())
         {
+            playerInventory.getHandheld().GetComponent<HandheldObjectInteraction>().DropObject();
             DropItemEvent?.Invoke();
         }
     }
