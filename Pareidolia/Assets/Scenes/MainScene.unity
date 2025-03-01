@@ -242,6 +242,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _closedCurtain: {fileID: 1853067170}
   _openCurtain: {fileID: 4185140416148126587}
+  showerCurtainSfx:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!4 &67029538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6913891286149355202, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
@@ -4588,6 +4595,46 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 3cd7feb296bb73e4b81d881408e268a9, type: 2}
+    - target: {fileID: 7390966972997453254, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: fridgeOpenSound.Path
+      value: event:/SFX/Fridge Open
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390966972997453254, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: fridgeCloseSound.Path
+      value: event:/SFX/Fridge Close
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390966972997453254, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: fridgeOpenSound.Guid.Data1
+      value: -1141253450
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390966972997453254, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: fridgeOpenSound.Guid.Data2
+      value: 1149271437
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390966972997453254, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: fridgeOpenSound.Guid.Data3
+      value: -1597020262
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390966972997453254, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: fridgeOpenSound.Guid.Data4
+      value: 9336652
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390966972997453254, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: fridgeCloseSound.Guid.Data1
+      value: -1393147158
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390966972997453254, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: fridgeCloseSound.Guid.Data2
+      value: 1074655077
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390966972997453254, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: fridgeCloseSound.Guid.Data3
+      value: 1614537142
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390966972997453254, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
+      propertyPath: fridgeCloseSound.Guid.Data4
+      value: -410954124
+      objectReference: {fileID: 0}
     - target: {fileID: 9082327257813836355, guid: 2ab005b79388bbf4788aa4c6e172d63a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9
@@ -7299,6 +7346,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f9ef76f8b1d2d45839cbf7d3672e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showerCurtainSfx:
+    Guid:
+      Data1: -484098527
+      Data2: 1128633542
+      Data3: -882901118
+      Data4: 2118768531
+    Path: event:/SFX/Shower Interact
 --- !u!114 &1853067177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7311,6 +7365,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f9ef76f8b1d2d45839cbf7d3672e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showerCurtainSfx:
+    Guid:
+      Data1: -484098527
+      Data2: 1128633542
+      Data3: -882901118
+      Data4: 2118768531
+    Path: event:/SFX/Shower Interact
 --- !u!114 &1853067178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7323,6 +7384,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f9ef76f8b1d2d45839cbf7d3672e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showerCurtainSfx:
+    Guid:
+      Data1: -484098527
+      Data2: 1128633542
+      Data3: -882901118
+      Data4: 2118768531
+    Path: event:/SFX/Shower Interact
 --- !u!114 &1853067179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7335,6 +7403,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f9ef76f8b1d2d45839cbf7d3672e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showerCurtainSfx:
+    Guid:
+      Data1: -484098527
+      Data2: 1128633542
+      Data3: -882901118
+      Data4: 2118768531
+    Path: event:/SFX/Shower Interact
 --- !u!64 &1853067180
 MeshCollider:
   m_ObjectHideFlags: 0
