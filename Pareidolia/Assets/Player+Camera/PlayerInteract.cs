@@ -29,6 +29,7 @@ public class PlayerInteract : MonoBehaviour
             objectInView.GetComponent<ObjectInteraction>().interact(objectInHand);
         } else if (interactKey.WasPressedThisFrame() && playerInventory.isHoldingObject())
         {
+            playerInventory.getHandheld().GetComponent<HandheldObjectInteraction>().DropObject();
             DropItemEvent?.Invoke();
         }
     }
@@ -52,13 +53,13 @@ public class PlayerInteract : MonoBehaviour
 
     void OnEnable()
     {
-        PlayerView.ViewingObjectEvent += SetObjectInView;
+        ObjectHoverGlow.ViewingObjectEvent += SetObjectInView;
         HandheldObjectInteraction.PickUpEvent += PickUp;
     }
 
     void OnDisable()
     {
-        PlayerView.ViewingObjectEvent -= SetObjectInView;
+        ObjectHoverGlow.ViewingObjectEvent -= SetObjectInView;
         HandheldObjectInteraction.PickUpEvent -= PickUp;
     }
 }

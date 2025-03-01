@@ -11,14 +11,19 @@ public class CurtainOpenClose : MonoBehaviour
     {
         _closedCurtain.SetActive(true);
         _openCurtain.SetActive(false);
-        AudioManager.instance.PlayOneShot(showerCurtainSfx, this.transform.position);
+        PlayCurtainSFX();
     }
 
     private void OpenCurtain()
     {
         _closedCurtain.SetActive(false);
         _openCurtain.SetActive(true);
-        AudioManager.instance.PlayOneShot(showerCurtainSfx, this.transform.position);
+        PlayCurtainSFX();
+    }
+
+    private void PlayCurtainSFX()
+    {
+        AudioManager.instance.PlayOneShot(showerCurtainSfx, this.transform.position); // insert code for sfx here
     }
 
     void OnEnable()
