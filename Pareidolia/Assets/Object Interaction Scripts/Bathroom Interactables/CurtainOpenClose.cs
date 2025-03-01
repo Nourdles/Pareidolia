@@ -9,12 +9,19 @@ public class CurtainOpenClose : MonoBehaviour
     {
         _closedCurtain.SetActive(true);
         _openCurtain.SetActive(false);
+        PlayShowerSFX();
     }
 
     private void OpenCurtain()
     {
         _closedCurtain.SetActive(false);
         _openCurtain.SetActive(true);
+        PlayShowerSFX();
+    }
+
+    private void PlayShowerSFX()
+    {
+        // insert code for sfx here
     }
 
     void OnEnable()
