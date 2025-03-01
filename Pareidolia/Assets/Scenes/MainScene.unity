@@ -242,13 +242,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _closedCurtain: {fileID: 1853067170}
   _openCurtain: {fileID: 4185140416148126587}
-  showerCurtainSfx:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
 --- !u!4 &67029538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6913891286149355202, guid: 43f25f99fb9ebc041b58ec51503fbd4a, type: 3}
@@ -10160,6 +10153,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e26c5577cccb2d4bbe242fee85a26de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showerCurtainSfx:
+    Guid:
+      Data1: -484098527
+      Data2: 1128633542
+      Data3: -882901118
+      Data4: 2118768531
+    Path: event:/SFX/Shower Interact
 --- !u!114 &4185140416148126589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10172,6 +10172,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e26c5577cccb2d4bbe242fee85a26de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showerCurtainSfx:
+    Guid:
+      Data1: -484098527
+      Data2: 1128633542
+      Data3: -882901118
+      Data4: 2118768531
+    Path: event:/SFX/Shower Interact
 --- !u!1001 &4216683992952681033
 PrefabInstance:
   m_ObjectHideFlags: 0

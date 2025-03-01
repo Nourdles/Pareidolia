@@ -8,9 +8,7 @@ public class ClosedCurtainInteraction : ObjectInteraction
     public static event Action OpenCurtainEvent;
     public override void interact(GameObject objectInHand)
     {
-
         AudioManager.instance.PlayOneShot(showerCurtainSfx, this.transform.position);
-
         OpenCurtainEvent?.Invoke();
     }
 
