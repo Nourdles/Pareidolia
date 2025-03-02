@@ -1,42 +1,39 @@
 using System;
 using UnityEngine;
 
-public class Highlights : MonoBehaviour {
+public class ObjectHoverGlow : MonoBehaviour 
+{
 
+    [SerializeField] GameObject objectInView;
     public Material highlightMaterial;
     Material originalMaterial;
     GameObject lastHighlightedObject;
+    public static event Action<GameObject> ViewingObjectEvent;
 
     void HighlightObject(GameObject gameObject)
     {
         // if we are looking at a new one
         if (lastHighlightedObject != gameObject)
         {
-            if (gameObject.GetComponent<MeshRenderer>() != null)
+            MeshRenderer meshRenderer = gameObject.GetComponentInChildren<MeshRenderer>();
+            if (meshRenderer != null)
             {
                 ClearHighlighted();
-                originalMaterial = gameObject.GetComponent<MeshRenderer>().sharedMaterial;
-                if (gameObject.CompareTag("InteractableObject"))
-                {
-                    gameObject.GetComponent<MeshRenderer>().sharedMaterial = highlightMaterial;
-                    gameObject.GetComponent<InteractionManager>().setObjectAsInteractable();
-                }
+                originalMaterial = meshRenderer.material;
+                meshRenderer.material = highlightMaterial;
+                ViewingObjectEvent?.Invoke(gameObject);
                 lastHighlightedObject = gameObject;
             }
-        }
-
+        } 
     }
 
     void ClearHighlighted()
     {
         if (lastHighlightedObject != null)
         {
-            lastHighlightedObject.GetComponent<MeshRenderer>().sharedMaterial = originalMaterial;
-            if (lastHighlightedObject.CompareTag("InteractableObject"))
-            {
-                lastHighlightedObject.GetComponent<InteractionManager>().setObjectAsUninteractable();
-            }
+            lastHighlightedObject.GetComponent<MeshRenderer>().material = originalMaterial;
             lastHighlightedObject = null;
+            ViewingObjectEvent?.Invoke(lastHighlightedObject);
         }
     }
 
@@ -50,8 +47,15 @@ public class Highlights : MonoBehaviour {
         if (Physics.Raycast(ray, out rayHit, rayDistance))
         {
             GameObject hitObject = rayHit.collider.gameObject;
-            HighlightObject(hitObject);
+            objectInView = hitObject;
 
+            if (hitObject.CompareTag("InteractableObject"))
+            {
+                HighlightObject(hitObject);
+            } else
+            {
+                ClearHighlighted();
+            }
         } else
         {
                 ClearHighlighted();
@@ -61,6 +65,21 @@ public class Highlights : MonoBehaviour {
     void Update()
     {
         HighlightObjectInCenterOfCam();
+    }
+
+    private void UpdateOrigMaterial(Material newMat)
+    {
+        originalMaterial = newMat;
+    }
+
+    void OnEnable()
+    {
+        BowlInteraction.ChangeBowlMat += UpdateOrigMaterial;
+    }
+
+    void OnDisable()
+    {
+        BowlInteraction.ChangeBowlMat -= UpdateOrigMaterial;
     }
 
 }

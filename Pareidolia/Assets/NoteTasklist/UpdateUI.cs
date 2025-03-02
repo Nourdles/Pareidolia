@@ -22,13 +22,13 @@ public class UpdateUI: MonoBehaviour
     
    private void OnEnable() 
     {
-        Task.CompleteTaskEvent += completeTask;
+        Task.CrossOutTaskEvent += completeTask;
         GameStateManager.LevelChangeEvent += changeTasks;
     }
 
     private void OnDisable() 
     {
-       Task.CompleteTaskEvent -= completeTask;
+       Task.CrossOutTaskEvent -= completeTask;
        GameStateManager.LevelChangeEvent -= changeTasks;
     }
 
@@ -43,7 +43,7 @@ public class UpdateUI: MonoBehaviour
     {
         if (lvl == Levels.Morning) // morning lvl
         {
-            notepadText[2] = "Eat breakfast";
+            notepadText[2] = "Make breakfast and coffee";
             //notepadText[3] = "Put the laundry in the wash";
             notepadText[3] = "Take a shower";
         } else if (lvl == Levels.Afternoon) // afternoon lvl

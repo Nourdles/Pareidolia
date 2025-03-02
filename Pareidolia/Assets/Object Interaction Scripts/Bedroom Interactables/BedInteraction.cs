@@ -1,27 +1,43 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using FMODUnity;
 
-public class BedInteraction: MonoBehaviour
+public class BedInteraction: ObjectInteraction
 {
-    private InputAction interactKey;
-    private InteractionManager interactionManager;
+    private bool hasNotepad;
     public static event Action BedInteractionEvent;
+    public EventReference bedMakeSound;
 
-    private void Start() 
+    protected override void Start()
     {
-        interactionManager = gameObject.GetComponent<InteractionManager>();
-        interactKey = InputSystem.actions.FindAction("Interact");
+        base.Start();
+        hasNotepad = false;
     }
-    
-    private void Update() {
-        if (interactionManager.checkIfInteractable())
+
+    public override void interact(GameObject objectInHand)
+    {
+        if (hasNotepad)
         {
-            if (interactKey.WasPressedThisFrame())
-            {
-                Debug.Log("Invoking interaction event");
-                BedInteractionEvent?.Invoke();
-            }
+            BedInteractionEvent?.Invoke();
+            AudioManager.instance.PlayOneShot(bedMakeSound, this.transform.position);
+        } else
+        {
+            InvokeDialoguePromptEvent("I should pick up the notepad first");
         }
+    }
+
+    private void setHasNotepad()
+    {
+        hasNotepad = true;
+    }
+
+    void OnEnable()
+    {
+        NoteInteraction.NotepadPickedUp += setHasNotepad;
+    }
+
+    void OnDisable()
+    {
+        NoteInteraction.NotepadPickedUp -= setHasNotepad;
     }
 }
