@@ -9,7 +9,26 @@ public class GameStateManager : MonoBehaviour
 
     public static Levels levelState;
     private static bool faceSpawnOn;
-    
+
+    private void Awake()
+    {
+        // determine which level has been loaded at the start of the scene
+        // this allows us to test and play levels directly without having to play through previous
+        // levels to trigger a level change event
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name == "TutorialLevel")
+        {
+            levelState = Levels.Tutorial;
+            LevelChangeEvent?.Invoke(levelState);
+        }
+        else if (scene.name == "MorningLevel")
+        {
+            levelState = Levels.Morning;
+            LevelChangeEvent?.Invoke(levelState);
+        }
+
+
+    }
 
     public static void StartTutorial()
     {
