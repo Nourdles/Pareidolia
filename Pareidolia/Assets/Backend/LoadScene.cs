@@ -10,18 +10,29 @@ public class LoadScene : MonoBehaviour
 {
     [SerializeField] Animator animator;
 
-    // current scene fades out (called before startGame)
+    // Make current scene fade out (NEEDS TO BE REWORKED)
+    /*
     public void FadeToLevel()
     {
         animator.SetTrigger("FadeOut");
     }
+    */
 
-    // once title scene fades out, load the next scene
-    public void LoadNextScene()
+    // once title scene fades out, load the tutorial level
+    public static void LoadTutorialScene()
     {
         //FadeToLevel();
-        SceneManager.LoadSceneAsync("MainScene");
+        SceneManager.LoadSceneAsync("TutorialLevel");
     }
+    
+    public static void LoadMorningScene()
+    {
+        //FadeToLevel();
+        SceneManager.LoadSceneAsync("MorningLevel");
+
+
+    }
+
 
 
 }
