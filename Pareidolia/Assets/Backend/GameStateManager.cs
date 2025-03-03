@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public static class GameStateManager
+public class GameStateManager : MonoBehaviour
 {
     public static RandomFaceSpawner faceSpawner;
     public static event Action<Levels> LevelChangeEvent;
@@ -12,9 +13,11 @@ public static class GameStateManager
 
     public static void StartTutorial()
     {
+        Debug.Log("Starting Tutorial");
         levelState = Levels.Tutorial;
-        // turn off face spawn just in case
-        RandomFaceSpawner.DisableFaceSpawning();
+
+        // load the tutorial scene
+        LoadScene.LoadTutorialScene();
         LevelChangeEvent?.Invoke(levelState);
 
     }
@@ -23,26 +26,32 @@ public static class GameStateManager
     {
         Debug.Log("Advancing to Morning Level");
         levelState = Levels.Morning;
+
+        // fade out level
+
+        // load the morning scene
+        LoadScene.LoadMorningScene();
         // start face spawning
         RandomFaceSpawner.EnableFaceSpawning();
+
         LevelChangeEvent?.Invoke(levelState);
     }
 
 
     public static void Respawn()
     {
-        // determine which level the player died in, then respawn at the start of that level
+        // determine which level the player died in, then respawn at the start of the level
         // reload scene at beginning (restart all tasks, restore sanity)
-        /*
+
         switch ((int)levelState)
         {
             case 1:
-
+                LoadScene.LoadMorningScene();
                 break;
-            case 2:
-        }*/
+        }
     }
-    
+
+
     /*
     public static void StartAfternoon()
     {
