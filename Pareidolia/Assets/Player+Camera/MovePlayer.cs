@@ -1,48 +1,47 @@
-//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 
 /// <summary>
-/// Script for moving the player
+/// Script for moving the player with surface-specific footstep sounds
 /// </summary>
 public class MovePlayer : MonoBehaviour
 {
     public CharacterController characterController;
     public Transform orientation;
     public float moveSpeed = 1;
+    public float footstepInterval = 0.4f; // Adjust footstep frequency
 
-    float horizontalinput;
+    float horizontalInput;
     float verticalInput;
-
     Vector3 moveDirection;
-
-    // FMOD Audio Event Instance
+    
     private EventInstance playerFootsteps;
     private bool isMoving = false;
-
+    private int surfaceType = 0; // Default to Wood
+    private float footstepTimer = 0f;
+    
     void Start()
     {
-        // Initialize the footstep sound event instance
         playerFootsteps = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerFootsteps);
+        playerFootsteps.setParameterByName("Surface", surfaceType);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        horizontalinput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalinput;
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        // snap the player to the surface it is currently on (prevents player from accelerating off stair steps/slopes)
-        if (characterController.isGrounded) {
+        if (characterController.isGrounded)
+        {
             moveDirection.y = -characterController.stepOffset / Time.deltaTime;
         }
 
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
 
-        UpdateSound(horizontalinput, verticalInput);
+        UpdateSound(horizontalInput, verticalInput);
     }
 
     private void UpdateSound(float moveX, float moveZ)
@@ -50,24 +49,53 @@ public class MovePlayer : MonoBehaviour
         bool shouldMove = moveX != 0 || moveZ != 0;
 
         playerFootsteps.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+        playerFootsteps.setParameterByName("Surface", surfaceType);
 
-        if (shouldMove && !isMoving)
+        if (shouldMove)
         {
-            // Start playing footstep sound if not already playing
-            playerFootsteps.start();
+            footstepTimer += Time.deltaTime;
+            if (footstepTimer >= footstepInterval)
+            {
+                playerFootsteps.start();
+                footstepTimer = 0f;
+            }
             isMoving = true;
         }
         else if (!shouldMove && isMoving)
         {
-            // Stop the sound if movement stops
-            playerFootsteps.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            playerFootsteps.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             isMoving = false;
+            footstepTimer = 0f;
         }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        switch (hit.collider.tag)
+        {
+            case "Wood":
+                surfaceType = 0;
+                break;
+            case "Tile":
+                surfaceType = 1;
+                break;
+            case "Carpet":
+                surfaceType = 2;
+                break;
+            case "Stairs":
+                surfaceType = 3;
+                break;
+            default:
+                surfaceType = 0; // Default to Wood
+                break;
+        }
+
+        playerFootsteps.setParameterByName("Surface", surfaceType);
     }
 
     private void OnDestroy()
     {
-        // Release FMOD instance when object is destroyed
+        playerFootsteps.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         playerFootsteps.release();
     }
 }

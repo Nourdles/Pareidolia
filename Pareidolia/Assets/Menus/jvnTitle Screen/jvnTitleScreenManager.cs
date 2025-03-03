@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 using System.Collections;
+using FMODUnity;
 
 public class jvnTitleScreenManager : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class jvnTitleScreenManager : MonoBehaviour
     public GameObject optionsMenu;                  // container for options menu objects
     public GameObject creditsMenu;                  // container for credits menu objects
     public Button backButton;                       // back button
+    public EventReference titleScreenMusic;         // unity event for music
+    private FMOD.Studio.EventInstance titleScreenMusicInstance;
+    private FMOD.Studio.EventInstance optionsMenuEventInstance;
 
     private bool buttonsFaded = false;              // ensure buttons fade in only once
     private bool videoSkipped = false;              // track if the video has been skipped
@@ -27,6 +31,8 @@ public class jvnTitleScreenManager : MonoBehaviour
         creditsMenu.SetActive(false);               // hide credits menu at the start
         backButton.gameObject.SetActive(false);     // hide Back button at the start
         StartCoroutine(PlayFirstVideo());
+
+        optionsMenuEventInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Title Screen Music"); // Replace with your actual event path
     }
 
     // skip the intro video if the player clicks the mouse
@@ -49,6 +55,8 @@ public class jvnTitleScreenManager : MonoBehaviour
 
         videoPlayer.Play();
         StartCoroutine(PreloadSecondVideo());       // start preparing the next video early
+        titleScreenMusicInstance = FMODUnity.RuntimeManager.CreateInstance(titleScreenMusic);
+        titleScreenMusicInstance.start();           // start title screen music
     }
 
     IEnumerator PreloadSecondVideo()
@@ -124,6 +132,8 @@ public class jvnTitleScreenManager : MonoBehaviour
         optionsMenu.SetActive(true);
         creditsMenu.SetActive(false);
         backButton.gameObject.SetActive(true);
+
+        optionsMenuEventInstance.setParameterByName("Options Menu", 1.0f);
     }
 
     public void ShowCreditsMenu()
@@ -143,5 +153,21 @@ public class jvnTitleScreenManager : MonoBehaviour
         backButton.gameObject.SetActive(false);     // hide Back button
 
         currentMenu = "main";                       // reset to main menu state
+
+        optionsMenuEventInstance.setParameterByName("Options Menu", 0.0f);
+    }
+    private void OnDestroy() // This should stop the music when starting game
+    {
+        if (titleScreenMusicInstance.isValid())
+        {
+            titleScreenMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            titleScreenMusicInstance.release();
+        }
+
+        if (optionsMenuEventInstance.isValid())
+        {
+            optionsMenuEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            optionsMenuEventInstance.release();
+        }
     }
 }
