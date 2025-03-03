@@ -11818,8 +11818,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
+      propertyPath: fovAngle
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
       propertyPath: maxOpacity
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
+      propertyPath: spawnInFOV
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
       propertyPath: playerCamera
@@ -11827,7 +11835,7 @@ PrefabInstance:
       objectReference: {fileID: 1262487075}
     - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
       propertyPath: maxTotalFaces
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
       propertyPath: maxFacesPerSpot
