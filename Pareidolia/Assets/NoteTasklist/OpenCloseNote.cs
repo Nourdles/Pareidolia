@@ -13,7 +13,7 @@ public class OpenCloseNote : MonoBehaviour
     public EventReference tasklistsfx;
 
     private bool noteOpen = false;
-    private bool notePickedUp = false;
+    [SerializeField] private bool notePickedUp = false;
 
     private void Start() 
     {
