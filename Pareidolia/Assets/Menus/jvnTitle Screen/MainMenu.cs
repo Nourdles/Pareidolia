@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         Debug.Log("Play Game");
+        GameStateManager.StartTutorial();
     }
 
     public void QuitGame()

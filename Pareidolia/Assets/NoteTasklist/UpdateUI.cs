@@ -8,6 +8,7 @@ public class UpdateUI: MonoBehaviour
     // have a "Don't Look at the faces" images visible?
     
 
+    /*
     private void Start() 
     {
         // set up original text
@@ -18,18 +19,40 @@ public class UpdateUI: MonoBehaviour
             notepadText[i] = "";
         }
         updateTasks();
+    }*/
+
+    private void Start()
+    {
+        // determine which level/scene it currently is, and display the associated tasks
+        if (GameStateManager.levelState == Levels.Tutorial)
+        {
+            notepadText[0] = "Morning To-Do List";
+            notepadText[1] = "Make the bed";
+            for (int i = 2; i < notepadText.Length; i++)
+            {
+                notepadText[i] = "";
+            }
+        }
+        else if (GameStateManager.levelState == Levels.Morning)
+        {
+            notepadText[0] = "Morning To-Do List";
+            notepadText[1] = "Make breakfast and coffee";
+            notepadText[2] = "Take a shower";
+        }
+        updateTasks();
+
     }
-    
-   private void OnEnable() 
+
+    private void OnEnable() 
     {
         Task.CrossOutTaskEvent += completeTask;
-        GameStateManager.LevelChangeEvent += changeTasks;
+        //GameStateManager.LevelChangeEvent += changeTasks;
     }
 
     private void OnDisable() 
     {
        Task.CrossOutTaskEvent -= completeTask;
-       GameStateManager.LevelChangeEvent -= changeTasks;
+       //GameStateManager.LevelChangeEvent -= changeTasks;
     }
 
     private void completeTask(int taskNum)
@@ -39,6 +62,8 @@ public class UpdateUI: MonoBehaviour
     }
 
     // triggered by changelevelevent
+    
+    /*
     public void changeTasks(Levels lvl)
     {
         if (lvl == Levels.Morning) // morning lvl
@@ -66,7 +91,8 @@ public class UpdateUI: MonoBehaviour
             notepadText[2] = "GO TO BED";
         }
         updateTasks();
-    }
+    } */
+    
 
     private void updateTasks()
     {
