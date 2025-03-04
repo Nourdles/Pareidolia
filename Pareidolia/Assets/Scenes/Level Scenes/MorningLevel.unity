@@ -2743,6 +2743,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 8272508994152978414, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: pickupSFX.Path
+      value: event:/SFX/Spoon Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272508994152978414, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: pickupSFX.Guid.Data1
+      value: 791258067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272508994152978414, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: pickupSFX.Guid.Data2
+      value: 1216804114
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272508994152978414, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: pickupSFX.Guid.Data3
+      value: 1939665316
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272508994152978414, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: pickupSFX.Guid.Data4
+      value: -1794753488
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2515809889069024343, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
