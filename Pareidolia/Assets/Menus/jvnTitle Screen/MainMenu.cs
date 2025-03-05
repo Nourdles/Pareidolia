@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public FadeExitScene FadeOutCanvas;
     public void PlayGame()
     {
+
         Debug.Log("Play Game");
-        GameStateManager.StartTutorial();
+        // initialize game state;
+        GameStateManager.levelState = Levels.MainMenu;
+        FadeOutCanvas.FadeOutExit();
     }
 
     public void QuitGame()
