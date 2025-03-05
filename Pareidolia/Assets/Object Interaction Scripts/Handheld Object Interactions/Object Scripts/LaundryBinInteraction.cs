@@ -1,16 +1,10 @@
 using UnityEngine;
 
-public class LaundryBinInteraction : MonoBehaviour
+public class LaundryBinInteraction : HandheldObjectInteraction
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Start();
+        handheld_id = Handhelds.LaundryBin;
     }
 }
