@@ -16,11 +16,11 @@ public class ClothingInteraction : ObjectInteraction
                 ClothingPickUpEvent?.Invoke();
             } else
             {
-                InvokeDialoguePromptEvent("I should put these dirty clothes in the wash... I should get the laundry bin in my bathroom");
+                InvokeDialoguePromptEvent("I should put these dirty clothes in the wash...I need to get my laundry bin from the washroom to pick these up");
             }
         } else
         {
-            InvokeDialoguePromptEvent("I should put these dirty clothes in the wash... I should get the laundry bin in my bathroom");
+            InvokeDialoguePromptEvent("I should put these dirty clothes in the wash...I need to get my laundry bin from the washroom to pick these up");
         }
     }
 }
