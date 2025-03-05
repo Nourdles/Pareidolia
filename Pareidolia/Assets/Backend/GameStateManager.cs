@@ -26,11 +26,26 @@ public class GameStateManager : MonoBehaviour
             levelState = Levels.Morning;
             LevelChangeEvent?.Invoke(levelState);
         }
-
-
     }
 
-    public static void StartTutorial()
+
+    public static void MoveToNextLevel()
+    {
+        switch (levelState)
+        {
+            case Levels.MainMenu:
+                StartTutorial();
+                break;
+
+            case Levels.Tutorial:
+                StartMorning();
+                break;
+
+        }
+    }
+
+
+    private static void StartTutorial()
     {
         Debug.Log("Starting Tutorial");
         levelState = Levels.Tutorial;
@@ -41,12 +56,10 @@ public class GameStateManager : MonoBehaviour
 
     }
 
-    public static void StartMorning()
+    private static void StartMorning()
     {
         Debug.Log("Advancing to Morning Level");
         levelState = Levels.Morning;
-
-        // fade out level
 
         // load the morning scene
         LoadScene.LoadMorningScene();
@@ -62,9 +75,9 @@ public class GameStateManager : MonoBehaviour
         // determine which level the player died in, then respawn at the start of the level
         // reload scene at beginning (restart all tasks, restore sanity)
 
-        switch ((int)levelState)
+        switch (levelState)
         {
-            case 1:
+            case Levels.Morning:
                 LoadScene.LoadMorningScene();
                 break;
         }
