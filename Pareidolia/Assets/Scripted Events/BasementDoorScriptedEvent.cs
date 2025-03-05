@@ -1,4 +1,7 @@
 using UnityEngine;
+/// <summary>
+/// Script to open the basement door after the make breakfast task is completed, encouraging the player to go to the basement.
+/// </summary>
 
 public class BasementDoorScriptedEvent : MonoBehaviour
 {
