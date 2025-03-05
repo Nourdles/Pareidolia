@@ -240,6 +240,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1013644115}
     - target: {fileID: -4104793087109553581, guid: de6970f17fd9f564884c50aecb7218ea, type: 3}
+      propertyPath: FadeOutCanvas
+      value: 
+      objectReference: {fileID: 1811572020}
+    - target: {fileID: -4104793087109553581, guid: de6970f17fd9f564884c50aecb7218ea, type: 3}
       propertyPath: doorInteraction
       value: 
       objectReference: {fileID: 915121187}
@@ -1926,7 +1930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7158299030333866895, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_Name
-      value: Map (1)
+      value: Map
       objectReference: {fileID: 0}
     - target: {fileID: 7163681197307102244, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: locked
@@ -2301,6 +2305,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 393223024}
     m_Modifications:
+    - target: {fileID: 781168983414671911, guid: dba5bf46f1eeea1419d56d398d82d1ba, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1811572021}
+    - target: {fileID: 5247984467433615910, guid: dba5bf46f1eeea1419d56d398d82d1ba, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6783729091749737056, guid: dba5bf46f1eeea1419d56d398d82d1ba, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2390,6 +2402,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dba5bf46f1eeea1419d56d398d82d1ba, type: 3}
+--- !u!114 &1811572020 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 781168983414671911, guid: dba5bf46f1eeea1419d56d398d82d1ba, type: 3}
+  m_PrefabInstance: {fileID: 1811572018}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b121ca08773d4c44b446ca648d2d62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1811572021 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3201708882413482131, guid: dba5bf46f1eeea1419d56d398d82d1ba, type: 3}
+  m_PrefabInstance: {fileID: 1811572018}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1895373541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2967713500457466213, guid: 0ab4b59efe2950845a21e2e1d3a593f1, type: 3}
