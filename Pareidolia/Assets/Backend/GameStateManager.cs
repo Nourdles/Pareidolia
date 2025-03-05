@@ -64,7 +64,7 @@ public class GameStateManager : MonoBehaviour
         // load the morning scene
         LoadScene.LoadMorningScene();
         // start face spawning
-        //RandomFaceSpawner.EnableFaceSpawning();
+        RandomFaceSpawner.EnableFaceSpawning();
 
         LevelChangeEvent?.Invoke(levelState);
     }
