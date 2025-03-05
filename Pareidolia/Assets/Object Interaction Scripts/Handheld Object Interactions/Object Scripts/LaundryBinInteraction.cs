@@ -21,6 +21,9 @@ public class LaundryBinInteraction : HandheldObjectInteraction
         {
             _isFull = true;
             InvokeDialoguePromptEvent("That should be the last of my dirty clothes");
+        } else
+        {
+            InvokeDialoguePromptEvent(GetNumMissing());
         }
     }
 
@@ -37,5 +40,10 @@ public class LaundryBinInteraction : HandheldObjectInteraction
     public bool GetIsFull()
     {
         return _isFull;
+    }
+
+    public string GetNumMissing()
+    {
+        return _numclothes + "/" + NUM_DIRTY_CLOTHES;
     }
 }
