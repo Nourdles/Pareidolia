@@ -967,6 +967,11 @@ MonoBehaviour:
   flickerLight: {fileID: 7253418857600252978}
   silhouetteSprite: {fileID: 7289203476866472291}
   flickerCount: 5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  minY: -6
+  moveAmount: 0.7
   flickerSpeed: 0.2
 --- !u!1001 &14236593095875215
 PrefabInstance:
@@ -4629,7 +4634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5362800956699519109, guid: 5f603c0ce3f30d64c9fbae6770611aed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.697
+      value: 29.69
       objectReference: {fileID: 0}
     - target: {fileID: 5362800956699519109, guid: 5f603c0ce3f30d64c9fbae6770611aed, type: 3}
       propertyPath: m_LocalPosition.z
