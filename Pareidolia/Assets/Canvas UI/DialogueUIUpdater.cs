@@ -4,7 +4,6 @@ using UnityEngine;
 public class DialogueUIUpdater : MonoBehaviour
 {
     [SerializeField] private TMP_Text dialogueField;
-    [SerializeField] private GameObject _textboxObj;
     int MSG_TIME = 5;
     float timetodisappear;
 
@@ -13,7 +12,6 @@ public class DialogueUIUpdater : MonoBehaviour
         if (dialogueField.enabled && Time.time >= timetodisappear)
         {
             dialogueField.enabled = false;
-            _textboxObj.SetActive(false);
         }
     }
 
@@ -38,7 +36,6 @@ public class DialogueUIUpdater : MonoBehaviour
     private void EnableText()
     {
         dialogueField.enabled = true;
-        _textboxObj.SetActive(true);
         timetodisappear = Time.time + MSG_TIME;
     }
 }
