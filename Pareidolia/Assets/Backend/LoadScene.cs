@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,17 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    [SerializeField] Animator animator;
-
-    // Make current scene fade out (NEEDS TO BE REWORKED)
-    /*
-    public void FadeToLevel()
-    {
-        animator.SetTrigger("FadeOut");
-    }
-    */
-
-    // once title scene fades out, load the tutorial level
+    // load the tutorial level
     public static void LoadTutorialScene()
     {
         //FadeToLevel();
@@ -29,8 +20,6 @@ public class LoadScene : MonoBehaviour
     {
         //FadeToLevel();
         SceneManager.LoadSceneAsync("MorningLevel");
-
-
     }
 
 
