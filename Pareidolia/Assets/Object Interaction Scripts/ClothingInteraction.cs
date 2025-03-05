@@ -1,16 +1,26 @@
+using System;
 using UnityEngine;
 
-public class ClothingInteraction : MonoBehaviour
+public class ClothingInteraction : ObjectInteraction
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static event Action ClothingPickUpEvent;
+    
+    public override void interact(GameObject objectInHand)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // can only pick up if holding a bin
+        if (objectInHand != null)
+        {
+            Handhelds handheld = objectInHand.GetComponent<HandheldObjectInteraction>().getHandheld();
+            if (handheld == Handhelds.LaundryBin)
+            {
+                ClothingPickUpEvent?.Invoke();
+            } else
+            {
+                InvokeDialoguePromptEvent("I should put these dirty clothes in the wash... I should get the laundry bin in my bathroom");
+            }
+        } else
+        {
+            InvokeDialoguePromptEvent("I should put these dirty clothes in the wash... I should get the laundry bin in my bathroom");
+        }
     }
 }
