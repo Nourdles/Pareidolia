@@ -2161,6 +2161,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1708601075}
     m_Modifications:
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Path
+      value: event:/SFX/BedMake
+      objectReference: {fileID: 0}
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Guid.Data1
+      value: -666292581
+      objectReference: {fileID: 0}
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Guid.Data2
+      value: 1172150688
+      objectReference: {fileID: 0}
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Guid.Data3
+      value: 893254278
+      objectReference: {fileID: 0}
+    - target: {fileID: 172710365181405215, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: bedMakeSound.Guid.Data4
+      value: 481362769
+      objectReference: {fileID: 0}
     - target: {fileID: 5048180898682466603, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.8199687
