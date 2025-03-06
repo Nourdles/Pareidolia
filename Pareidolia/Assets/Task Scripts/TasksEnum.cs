@@ -29,4 +29,10 @@ public enum MorningTasks
     Shower = 2,
 }
 
+public enum AfternoonTasks
+{
+    WashLaundry = 1,
+    WatchTV = 2
+}
+
 
