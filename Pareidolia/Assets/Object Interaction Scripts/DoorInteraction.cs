@@ -35,14 +35,19 @@ public class DoorInteraction : ObjectInteraction
                 DoorAnimation();
                 DoorFirstOpeningEvent?.Invoke();
                 firstOpen = false;
-            
-            } else
+
+            }
+            else
             {
                 DoorAnimation();
             }
-        } else
+        }
+        else
         {
-            InvokeDialoguePromptEvent("I shouldn't leave till I make my bed");
+            if (GameStateManager.levelState == Levels.Tutorial)
+            {
+                InvokeDialoguePromptEvent("I shouldn't leave till I make my bed");
+            }
             AudioManager.instance.PlayOneShot(doorLockSound, this.transform.position);
         }
     }

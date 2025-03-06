@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 /// <summary>
 /// Script to open the basement door after the make breakfast task is completed, encouraging the player to go to the basement.
@@ -8,11 +9,12 @@ public class BasementDoorScriptedEvent : MonoBehaviour
     private TaskManager taskManager;
     private DoorInteraction doorInteraction;
     private bool eventTriggered = false;
-    
+    public static event Action<string> BasementDoorDialogueEvent;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        taskManager = Object.FindFirstObjectByType<TaskManager>();
+        taskManager = UnityEngine.Object.FindFirstObjectByType<TaskManager>();
 
         doorInteraction = GetComponent<DoorInteraction>();
 
@@ -36,6 +38,7 @@ public class BasementDoorScriptedEvent : MonoBehaviour
             eventTriggered = true;
             doorInteraction.UnlockDoor();
             doorInteraction.interact(null);
+            BasementDoorDialogueEvent?.Invoke("What was that? The basement...?");
         }
     }
 }

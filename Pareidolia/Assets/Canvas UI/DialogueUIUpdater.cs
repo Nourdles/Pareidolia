@@ -19,12 +19,14 @@ public class DialogueUIUpdater : MonoBehaviour
     {
         ObjectInteraction.DialoguePromptEvent += UpdateDialogueText;
         TutorialManager.TutorialDialogueEvent += UpdateDialogueText;
+        BasementDoorScriptedEvent.BasementDoorDialogueEvent += UpdateDialogueText;
     }
 
     void OnDisable()
     {
         ObjectInteraction.DialoguePromptEvent -= UpdateDialogueText;
         TutorialManager.TutorialDialogueEvent -= UpdateDialogueText;
+        BasementDoorScriptedEvent.BasementDoorDialogueEvent -= UpdateDialogueText;
     }
 
     private void UpdateDialogueText(string msg)
