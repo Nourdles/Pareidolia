@@ -24,6 +24,7 @@ public class GameStateManager : MonoBehaviour
         else if (scene.name == "MorningLevel")
         {
             levelState = Levels.Morning;
+            RandomFaceSpawner.EnableFaceSpawning();
             LevelChangeEvent?.Invoke(levelState);
         }
     }
