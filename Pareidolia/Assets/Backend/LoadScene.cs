@@ -22,6 +22,10 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadSceneAsync("MorningLevel");
     }
 
+    public static void LoadEndOfDemoScene()
+    {
+        SceneManager.LoadSceneAsync("GameDemoEnd");
+    }
 
 
 }
