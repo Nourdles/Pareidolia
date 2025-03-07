@@ -21,8 +21,6 @@ public class MoveCamera : MonoBehaviour
         cameraVerticalRotation = transform.eulerAngles.x;
         cameraHorizontalRotation = transform.eulerAngles.y;
 
-        Debug.Log("vertical rotation: " + cameraVerticalRotation);
-        Debug.Log("horizontal rotation" + cameraHorizontalRotation);
     }
 
     // Update is called once per frame
