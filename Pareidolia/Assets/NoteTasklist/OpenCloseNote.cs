@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using FMODUnity;
+using System;
 
 /// <summary>
 /// Script for opening and closing notes
@@ -11,9 +12,10 @@ public class OpenCloseNote : MonoBehaviour
     Renderer tasklist;
     [SerializeField] private GameObject tasklistcanvas;
     public EventReference tasklistsfx;
-
+    private bool _firstOpen = true;
     private bool noteOpen = false;
     [SerializeField] private bool notePickedUp = false;
+    public static event Action NotepadFirstCheckEvent;
 
     private void Start() 
     {
@@ -32,8 +34,12 @@ public class OpenCloseNote : MonoBehaviour
         // stop player from moving while reading
         AudioManager.instance.PlayOneShot(tasklistsfx, this.transform.position);
         // Play sfx whenever the player opens their tasklist
-
         noteOpen = true;
+        if (_firstOpen)
+        {
+            NotepadFirstCheckEvent?.Invoke();
+            _firstOpen = false;
+        }
     }
 
     private void CloseNote()

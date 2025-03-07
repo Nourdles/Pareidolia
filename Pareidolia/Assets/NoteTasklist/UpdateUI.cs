@@ -1,11 +1,13 @@
 using UnityEngine;
 using TMPro;
+using System;
 
 public class UpdateUI: MonoBehaviour
 {
     [SerializeField] private TMP_Text[] notepadTextFields; // size 7
     [SerializeField] private string[] notepadText; // size 7
     // have a "Don't Look at the faces" images visible?
+    public static event Action TasksUpdatedEvent;
     
 
     /*
@@ -40,7 +42,6 @@ public class UpdateUI: MonoBehaviour
             notepadText[2] = "Take a shower";
         }
         updateTasks();
-
     }
 
     private void OnEnable() 
@@ -100,5 +101,6 @@ public class UpdateUI: MonoBehaviour
         {
             notepadTextFields[txtfield].text = notepadText[txtfield];
         }
+        TasksUpdatedEvent?.Invoke();
     }
 }

@@ -5,12 +5,16 @@ public class DialogueUIUpdater : MonoBehaviour
 {
     [SerializeField] private TMP_Text dialogueField;
     [SerializeField] private GameObject textbox;
-    int MSG_TIME = 5;
+    int MSG_TIME = 7;
     float timetodisappear;
+    private bool _tutMSG = false;
 
     void Update()
     {
-        if (dialogueField.enabled && Time.time >= timetodisappear)
+        if (_tutMSG)
+        {
+            // don't make tutorial msg disappear
+        } else if (dialogueField.enabled && Time.time >= timetodisappear)
         {
             dialogueField.enabled = false;
             textbox.SetActive(false);
@@ -20,24 +24,40 @@ public class DialogueUIUpdater : MonoBehaviour
     void OnEnable()
     {
         ObjectInteraction.DialoguePromptEvent += UpdateDialogueText;
-        TutorialManager.TutorialDialogueEvent += UpdateDialogueText;
+        TutorialManager.TutorialDialogueEvent += TutorialTextEnable;
+        NoteInteraction.NotepadPickedUp += TutorialTextDisable;
         BasementDoorScriptedEvent.BasementDoorDialogueEvent += UpdateDialogueText;
     }
 
     void OnDisable()
     {
         ObjectInteraction.DialoguePromptEvent -= UpdateDialogueText;
-        TutorialManager.TutorialDialogueEvent -= UpdateDialogueText;
+        TutorialManager.TutorialDialogueEvent -= TutorialTextEnable;
+        NoteInteraction.NotepadPickedUp -= TutorialTextDisable;
         BasementDoorScriptedEvent.BasementDoorDialogueEvent -= UpdateDialogueText;
     }
 
     private void UpdateDialogueText(string msg)
     {
         dialogueField.text = msg;
-        EnableText();
+        EnableTempText();
     }
 
-    private void EnableText()
+    private void TutorialTextEnable(string msg)
+    {
+        dialogueField.text = msg;
+        _tutMSG = true;
+        EnableTempText();
+    }
+
+    private void TutorialTextDisable()
+    {
+        dialogueField.enabled = false;
+        textbox.SetActive(false);
+        _tutMSG = false;
+    }
+
+    private void EnableTempText()
     {
         dialogueField.enabled = true;
         textbox.SetActive(true);
