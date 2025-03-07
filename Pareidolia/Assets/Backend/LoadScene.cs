@@ -9,6 +9,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+    public static void LoadMorningCutscene()
+    {
+        SceneManager.LoadSceneAsync("MorningCutscene");
+    }
+    
     // load the tutorial level
     public static void LoadTutorialScene()
     {
