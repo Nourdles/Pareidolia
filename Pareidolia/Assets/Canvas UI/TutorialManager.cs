@@ -150,7 +150,7 @@ public class TutorialManager : MonoBehaviour
                 textbox.SetActive(true);
                 return;
             case TutorialState.TASK_COMPLETION:
-                this.message.text = "Complete the listed task. Remember, you can press " + InteractHotkey + " to interact with objects";
+                this.message.text = "Complete the listed task(s). Remember, you can press " + InteractHotkey + " to interact with objects";
                 textbox.SetActive(true);
                 return;
             case TutorialState.REOPEN_NOTEPAD:
@@ -162,7 +162,7 @@ public class TutorialManager : MonoBehaviour
                 textbox.SetActive(true);
                 return;
             case TutorialState.COMPLETED:
-                this.message.text = "Tutorial complete. You are now free to roam the house";
+                this.message.text = "Tutorial complete. Leave the bedroom when you're ready to start your day.";
                 textbox.SetActive(true);
                 return;
             default:
