@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TubInteraction : ObjectInteraction // or tub interaction
 {
@@ -29,6 +30,9 @@ public class TubInteraction : ObjectInteraction // or tub interaction
                 _player.transform.position = _matHoldTransform.transform.position;
                 cc.enabled = true;
                 _insideShower = false;
+
+                // FOR PLAYTEST DEMOS ONLY
+                LoadScene.LoadEndOfDemoScene();
             } else
             {
             InvokeDialoguePromptEvent("I already took a shower");
