@@ -22,7 +22,6 @@ public class TutorialManager : MonoBehaviour
         NOTEPAD_HOTKEY,
         TASK_COMPLETION,
         REOPEN_NOTEPAD,
-        NOTEPAD_EXPLANATION,
         COMPLETED 
 
     }
@@ -33,7 +32,7 @@ public class TutorialManager : MonoBehaviour
 
     //Config durations.
     private int SEC_TO_CALLS = 50;
-    private int MESSAGE_DURATION_SEC = 10;
+    private int MESSAGE_DURATION_SEC = 20;
 
     private int INITIAL_MESSAGE_DELAY_SEC = 5;
 
@@ -70,7 +69,6 @@ public class TutorialManager : MonoBehaviour
             new [] {
                 TutorialState.NOTEPAD_HOTKEY,
                 TutorialState.INTERACT_HOTKEY,
-                TutorialState.NOTEPAD_EXPLANATION,
                 TutorialState.COMPLETED}.Contains(state))
         {
             this.message.text = "";
@@ -119,13 +117,6 @@ public class TutorialManager : MonoBehaviour
                     NextState();
                 }
                 return;
-            case TutorialState.NOTEPAD_EXPLANATION:
-                //Check if notepad closed -> Next State
-                if (!OpenCloseNote.isNoteOpen())
-                {
-                    NextState();
-                }
-                return;
         }
 
     }
@@ -150,19 +141,15 @@ public class TutorialManager : MonoBehaviour
                 textbox.SetActive(true);
                 return;
             case TutorialState.TASK_COMPLETION:
-                this.message.text = "Complete the listed task. Remember, you can press " + InteractHotkey + " to interact with objects";
+                this.message.text = "Complete the listed task(s). Remember, you can press " + InteractHotkey + " to interact with objects";
                 textbox.SetActive(true);
                 return;
             case TutorialState.REOPEN_NOTEPAD:
-                this.message.text = "Reopen your task list using " + TasklistHotkey;
-                textbox.SetActive(true);
-                return;
-            case TutorialState.NOTEPAD_EXPLANATION:
-                this.message.text = "Tasks will be crossed out when they are completed";
+                this.message.text = "Reopen your task list using " + TasklistHotkey + ". Tasks will be automatically crossed out.";
                 textbox.SetActive(true);
                 return;
             case TutorialState.COMPLETED:
-                this.message.text = "Tutorial complete. You are now free to roam the house";
+                this.message.text = "Tutorial complete. Leave the bedroom when you're ready to start your day.";
                 textbox.SetActive(true);
                 return;
             default:

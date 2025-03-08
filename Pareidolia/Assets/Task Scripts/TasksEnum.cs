@@ -1,4 +1,4 @@
-public enum Tasks
+/*public enum Tasks
 {
     // Morning Tasks
     MakeBed = 1,
@@ -12,4 +12,21 @@ public enum Tasks
     WashDishes,
     WatchTV,
     // Night Tasks
+}*/
+
+
+
+public enum TutorialTasks
+{
+    // Tutorial Tasks
+    MakeBed = 1,
 }
+
+public enum MorningTasks
+{
+    // Morning Tasks
+    MakeBreakfast = 1,
+    Shower = 2,
+}
+
+

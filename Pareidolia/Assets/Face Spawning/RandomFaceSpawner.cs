@@ -253,9 +253,46 @@ public class RandomFaceSpawner : MonoBehaviour
         }
     }
 
+    //Confirms validity of sprite position, clamps to be within surface (position passed in is a ref)
     //Note: only works for x,y,z aligned walls
+    bool IsSpritePositionValid(Collider collider, ref Vector3 spritePosition, Vector2 spriteSize, Vector3 normal)
+    {
+        normal = normal.normalized; // Ensure normal is unit length
+        Bounds bounds = collider.bounds;
+
+        Vector3 surface = bounds.size;
+        Vector3 min = bounds.min, max = bounds.max;
+        float reqWidth = spriteSize.x, reqHeight = spriteSize.y;
+
+        // Determine which axis surface is normal to (x, y, z)
+        // Determine width & height axes based on normal
+        int w, h;
+        if (Mathf.Abs(normal.x) > 0.999f) // X-aligned wall
+        {
+            w = 2; h = 1; // Width along Z, Height along Y
+        }
+        else // normal.y or normal.z dominant
+        {
+            w = 0; h = (Mathf.Abs(normal.y) > 0.999f) ? 2 : 1; // Width along X, Height along Y/Z
+        }
+
+        float surfaceW = surface[w];
+        float surfaceH = surface[h];
+
+        if (surfaceW < reqWidth || surfaceH < reqHeight)
+            return false; // Surface too small
+
+        // Adjust position to keep the sprite inside the surface bounds
+        float halfW = reqWidth / 2, halfH = reqHeight / 2;
+        spritePosition[w] = Mathf.Clamp(spritePosition[w], min[w] + halfW, max[w] - halfW);
+        spritePosition[h] = Mathf.Clamp(spritePosition[h], min[h] + halfH, max[h] - halfH);
+
+        return true;
+    }
+
     bool isSurfaceBigEnough(Collider collider, Vector2 size, Vector3 normal)
     {
+        normal = normal.normalized;
         Vector3 surface = collider.bounds.size;
         float reqWidth = size.x, reqHeight = size.y, surfaceW = 0, surfaceH = 0;
         if (Mathf.Abs(normal.x) > 0.9f)
@@ -292,9 +329,9 @@ public class RandomFaceSpawner : MonoBehaviour
 
         float randomScale = Random.Range(0.02f, 0.06f); // random size
         Sprite sprite = faceSprites[Random.Range(0, faceSprites.Length)]; //Get a sprite
-        Vector2 finalSize = sprite.bounds.size * randomScale;
+        Vector2 finalSize = sprite.bounds.size * randomScale; 
 
-        if(!isSurfaceBigEnough(hit.collider, finalSize, normal))
+        if(!IsSpritePositionValid(hit.collider, ref position, finalSize, normal))
         {
             yield break;
         }

@@ -1,48 +1,107 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public static class GameStateManager
+public class GameStateManager : MonoBehaviour
 {
     public static RandomFaceSpawner faceSpawner;
     public static event Action<Levels> LevelChangeEvent;
 
     public static Levels levelState;
     private static bool faceSpawnOn;
-    
 
-    public static void StartTutorial()
+    private void Awake()
     {
+        // determine which level has been loaded at the start of the scene
+        // this allows us to test and play levels directly without having to play through previous
+        // levels to trigger a level change event
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name == "MorningCutscene")
+        {  
+            levelState = Levels.MorningCutscene;
+            LevelChangeEvent?.Invoke(levelState);
+        } else if (scene.name == "TutorialLevel")
+        {
+            levelState = Levels.Tutorial;
+            LevelChangeEvent?.Invoke(levelState);
+        }
+        else if (scene.name == "MorningLevel")
+        {
+            levelState = Levels.Morning;
+            RandomFaceSpawner.EnableFaceSpawning();
+            LevelChangeEvent?.Invoke(levelState);
+        }
+    }
+
+
+    public static void MoveToNextLevel()
+    {
+        switch (levelState)
+        {
+            case Levels.MainMenu:
+                StartMorningCutscene();
+                break;
+            case Levels.MorningCutscene:
+                StartTutorial();
+                break;
+
+            case Levels.Tutorial:
+                StartMorning();
+                break;
+
+        }
+    }
+
+
+    private static void StartMorningCutscene()
+    {
+        Debug.Log("Starting Morning Cutscene");
+        levelState = Levels.MorningCutscene;
+
+        // load the morning cutscene scene
+        LoadScene.LoadMorningCutscene();
+        LevelChangeEvent?.Invoke(levelState);
+    }
+    
+    private static void StartTutorial()
+    {
+        Debug.Log("Starting Tutorial");
         levelState = Levels.Tutorial;
-        // turn off face spawn just in case
-        RandomFaceSpawner.DisableFaceSpawning();
+
+        // load the tutorial scene
+        LoadScene.LoadTutorialScene();
         LevelChangeEvent?.Invoke(levelState);
 
     }
 
-    public static void StartMorning()
+    private static void StartMorning()
     {
         Debug.Log("Advancing to Morning Level");
         levelState = Levels.Morning;
+
+        // load the morning scene
+        LoadScene.LoadMorningScene();
         // start face spawning
         RandomFaceSpawner.EnableFaceSpawning();
+
         LevelChangeEvent?.Invoke(levelState);
     }
 
 
     public static void Respawn()
     {
-        // determine which level the player died in, then respawn at the start of that level
+        // determine which level the player died in, then respawn at the start of the level
         // reload scene at beginning (restart all tasks, restore sanity)
-        /*
-        switch ((int)levelState)
-        {
-            case 1:
 
+        switch (levelState)
+        {
+            case Levels.Morning:
+                LoadScene.LoadMorningScene();
                 break;
-            case 2:
-        }*/
+        }
     }
-    
+
+
     /*
     public static void StartAfternoon()
     {

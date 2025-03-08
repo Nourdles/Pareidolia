@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4604187625049162542}
   - component: {fileID: 4636058032503819632}
   - component: {fileID: 3201708882413482131}
-  - component: {fileID: 1613456091510619509}
+  - component: {fileID: 781168983414671911}
   m_Layer: 5
   m_Name: FadeToBlackCanvas
   m_TagString: Untagged
@@ -201,7 +201,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1613456091510619509
+--- !u!114 &781168983414671911
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9155307647875983505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4100d129c385b46a814f56c68b7d3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b121ca08773d4c44b446ca648d2d62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3201708882413482131}

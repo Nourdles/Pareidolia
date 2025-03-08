@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
@@ -6,10 +7,16 @@ public class TaskManager : MonoBehaviour
     private int _numMornComplete = 0;
     private int _numAfterComplete = 0;
     private int _numNightComplete = 0;
-    private static int numMornTasks = 2;
-    private static int numAfterTasks = 0;
-    private static int numNightTasks = 0;
-    
+    private static int numMornTasks;
+    private static int numAfterTasks;
+    private static int numNightTasks;
+
+    void Start()
+    {
+        numMornTasks = Enum.GetNames(typeof(MorningTasks)).Length - 1;
+        // numAfterTasks = Enum.GetNames(typeof(AfternoonTasks)).Length - 1;
+        // numNightTasks = Enum.GetNames(typeof(NightTasks)).Length - 1;
+    }
 
     public bool IsMorningComplete()
     {

@@ -40,6 +40,7 @@ public class SanityTracker : MonoBehaviour
     private Vignette vignette;
     private FilmGrain filmGrain;
     private Coroutine filmGrainRoutine; // handle multiple overlapping sanity damage events
+    private bool vignetteOnCooldown = false;
 
 
     class StainInfo
@@ -56,9 +57,6 @@ public class SanityTracker : MonoBehaviour
 
     // stainInfo[i] corresponds to stain[i]
     private List<StainInfo> stainInfo = new List<StainInfo>();
-
-
-
 
 
 
@@ -155,6 +153,8 @@ public class SanityTracker : MonoBehaviour
     private void onLoss()
     {
         Debug.Log("Game Over");
+        // Let player respawn
+        GameStateManager.Respawn();
     }
 
     private void onStainDamage(GameObject stain)
@@ -171,6 +171,11 @@ public class SanityTracker : MonoBehaviour
                 StopCoroutine(filmGrainRoutine);
             }
             filmGrainRoutine = StartCoroutine(AnimateFilmGrainIntensity());
+        }
+
+        if (vignette != null && !vignetteOnCooldown)
+        {
+            StartCoroutine(AnimateVignetteIntensity());
         }
     }
 
@@ -234,6 +239,34 @@ public class SanityTracker : MonoBehaviour
         }
 
         filmGrain.intensity.value = minIntensity;
+    }
+
+    private IEnumerator AnimateVignetteIntensity()
+    {
+        if (vignetteOnCooldown) yield break;
+        vignetteOnCooldown = true;
+
+        float originalIntensity = vignette.intensity.value; // current intensity
+        float surgedIntensity = 0.4f; 
+        float animationDuration = 2f; 
+        float cooldownDuration = 2f;
+        float elapsedTime = 0f;
+
+        vignette.intensity.value = surgedIntensity;
+
+        // fade back to the original intensity
+        while (elapsedTime < animationDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / animationDuration;
+            vignette.intensity.value = Mathf.Lerp(surgedIntensity, originalIntensity, t);
+            yield return null;
+        }
+
+        vignette.intensity.value = originalIntensity;
+
+        yield return new WaitForSeconds(cooldownDuration);
+        vignetteOnCooldown = false; // cooldown
     }
 
 }

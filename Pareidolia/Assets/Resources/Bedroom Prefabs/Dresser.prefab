@@ -568,6 +568,7 @@ GameObject:
   - component: {fileID: 3934595553917285252}
   - component: {fileID: 2648184854536019802}
   - component: {fileID: 2361909312241202533}
+  - component: {fileID: 7930211940163003668}
   m_Layer: 0
   m_Name: pCube2
   m_TagString: Untagged
@@ -643,6 +644,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7930211940163003668
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3240961011967991387}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5302568919011541938, guid: 9c0ac70e06ea5ad4e85d0f81dc78cf95, type: 3}
 --- !u!1 &3947453253951103027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,7 +1299,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8485245295404054853}
-  - component: {fileID: 7142140278118994917}
   m_Layer: 0
   m_Name: Dresser
   m_TagString: Untagged
@@ -1309,24 +1331,3 @@ Transform:
   - {fileID: 3081787440086077769}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!65 &7142140278118994917
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9118229103557518335}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5, y: 3, z: 2.6}
-  m_Center: {x: 0, y: 1, z: 0}
