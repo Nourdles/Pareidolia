@@ -1104,8 +1104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46fecd7c1b0a8d04b8910b337d3d6967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 527212214}
-  faceManager: {fileID: 1186912929}
 --- !u!114 &527212214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6580,7 +6578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
       propertyPath: maxOpacity
-      value: 0.4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
       propertyPath: playerCamera
@@ -6588,24 +6586,32 @@ PrefabInstance:
       objectReference: {fileID: 1262487075}
     - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
       propertyPath: maxTotalFaces
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
       propertyPath: maxFacesPerSpot
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
+      propertyPath: faceSprites.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
       propertyPath: 'faceSprites.Array.data[0]'
       value: 
-      objectReference: {fileID: 21300000, guid: 03c2c0da5ebee2b47b9e8d3eb3cac0c4, type: 3}
+      objectReference: {fileID: 21300000, guid: 417e48657c9207a4b9012585ac08da9b, type: 3}
     - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
       propertyPath: 'faceSprites.Array.data[3]'
       value: 
-      objectReference: {fileID: 21300000, guid: 2c2f6e5d737659945b36a161e1e0490c, type: 3}
+      objectReference: {fileID: 21300000, guid: 55aaef8daff176a479b7b478d27ce9ff, type: 3}
     - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
       propertyPath: 'faceSprites.Array.data[4]'
       value: 
       objectReference: {fileID: 21300000, guid: e7c14f076cf295d44a5831cd6b904fe4, type: 3}
+    - target: {fileID: 5942513529022063540, guid: e272706fd09599e45bb5321214a086cc, type: 3}
+      propertyPath: 'faceSprites.Array.data[5]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 03c2c0da5ebee2b47b9e8d3eb3cac0c4, type: 3}
     - target: {fileID: 8301949016319319256, guid: e272706fd09599e45bb5321214a086cc, type: 3}
       propertyPath: camera
       value: 
@@ -6649,7 +6655,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8792261052398437847, guid: e272706fd09599e45bb5321214a086cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6250100203206058355}
   m_SourcePrefab: {fileID: 100100000, guid: e272706fd09599e45bb5321214a086cc, type: 3}
 --- !u!114 &6250100203206058353 stripped
 MonoBehaviour:
@@ -6662,6 +6671,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf32b8cbb7067ea48a43fc1b705d143e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6250100203206058355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186912929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12dee38520f09846906fd272d3f0fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blendMode: 2
 --- !u!114 &6360957141023339706 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3094920055587717159, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
