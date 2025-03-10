@@ -50,16 +50,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 417e48657c9207a4b9012585ac08da9b, type: 3}
   - {fileID: 21300000, guid: 30b9e9e158b7cae47b64cb2088b1193a, type: 3}
   - {fileID: 21300000, guid: c08f3d02822192449a4c65527529b6f5, type: 3}
-  - {fileID: 21300000, guid: 2c2f6e5d737659945b36a161e1e0490c, type: 3}
-  - {fileID: 21300000, guid: 51bab667ee7894848868e28c45a67d1c, type: 3}
+  - {fileID: 21300000, guid: e7c14f076cf295d44a5831cd6b904fe4, type: 3}
   - {fileID: 21300000, guid: 55aaef8daff176a479b7b478d27ce9ff, type: 3}
   sanityTracker: {fileID: 8301949016319319256}
   playerCamera: {fileID: 0}
   maxFacesPerSpot: 3
   maxTotalFaces: 7
   fadeInTime: 3
-  maxOpacity: 0.1
+  maxOpacity: 2
   fadeOutTime: 3
+  spawnInFOV: 0
+  fovAngle: 90
 --- !u!114 &8301949016319319256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +73,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7888be8f107809b418759b5cef4a8517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   camera: {fileID: 0}
   stains: []
   stainDamageGracePeriod: 10

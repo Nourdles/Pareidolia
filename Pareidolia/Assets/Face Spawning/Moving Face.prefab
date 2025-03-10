@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9120362778859671200}
   - component: {fileID: 7643064658134593107}
   - component: {fileID: 4162911639793331842}
+  - component: {fileID: 622996022462252193}
   m_Layer: 0
   m_Name: Moving Face
   m_TagString: Untagged
@@ -57,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,3 +129,16 @@ MonoBehaviour:
   moveSpeed: 10
   detectRange: 20
   faceSpawner: {fileID: 0}
+--- !u!114 &622996022462252193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6093666618419022894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12dee38520f09846906fd272d3f0fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blendMode: 2
