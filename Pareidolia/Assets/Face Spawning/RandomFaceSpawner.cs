@@ -129,7 +129,7 @@ public class RandomFaceSpawner : MonoBehaviour
 
             float randomScale = Random.Range(0.02f, 0.06f); // random size
             newFace.transform.localScale = new Vector3(randomScale, randomScale, 1f);
-
+            /*
             SpriteRenderer sr = newFace.GetComponent<SpriteRenderer>();
             if (sr != null)
             {
@@ -144,6 +144,7 @@ public class RandomFaceSpawner : MonoBehaviour
             faceCount++;
 
             StartCoroutine(FadeIn(sr));
+            */
         }
     }
 
