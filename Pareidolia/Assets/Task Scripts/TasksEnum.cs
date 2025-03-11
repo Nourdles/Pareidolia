@@ -26,7 +26,8 @@ public enum MorningTasks
 {
     // Morning Tasks
     MakeBreakfast = 1,
-    Shower = 2,
+    MakeCoffee = 2,
+    Shower = 3,
 }
 
 public enum AfternoonTasks

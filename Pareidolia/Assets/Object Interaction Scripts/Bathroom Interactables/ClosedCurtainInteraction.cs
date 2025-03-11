@@ -1,15 +1,29 @@
 using System;
 using UnityEngine;
 using FMODUnity;
+using UnityEngine.InputSystem;
 
 public class ClosedCurtainInteraction : ObjectInteraction
 {
     [SerializeField] EventReference showerCurtainSfx;
     public static event Action OpenCurtainEvent;
+    protected override void Start()
+    {
+        base.Start();
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open curtain";
+    }
+
     public override void interact(GameObject objectInHand)
     {
         AudioManager.instance.PlayOneShot(showerCurtainSfx, this.transform.position);
         OpenCurtainEvent?.Invoke();
+    }
+
+    protected override void UpdateInteractText()
+    {
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open curtain";
     }
 
     void OnEnable()

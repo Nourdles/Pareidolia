@@ -16,7 +16,11 @@ public class GameStateManager : MonoBehaviour
         // this allows us to test and play levels directly without having to play through previous
         // levels to trigger a level change event
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "TutorialLevel")
+        if (scene.name == "MorningCutscene")
+        {  
+            levelState = Levels.MorningCutscene;
+            LevelChangeEvent?.Invoke(levelState);
+        } else if (scene.name == "TutorialLevel")
         {
             levelState = Levels.Tutorial;
             LevelChangeEvent?.Invoke(levelState);
@@ -35,6 +39,9 @@ public class GameStateManager : MonoBehaviour
         switch (levelState)
         {
             case Levels.MainMenu:
+                StartMorningCutscene();
+                break;
+            case Levels.MorningCutscene:
                 StartTutorial();
                 break;
 
@@ -46,6 +53,16 @@ public class GameStateManager : MonoBehaviour
     }
 
 
+    private static void StartMorningCutscene()
+    {
+        Debug.Log("Starting Morning Cutscene");
+        levelState = Levels.MorningCutscene;
+
+        // load the morning cutscene scene
+        LoadScene.LoadMorningCutscene();
+        LevelChangeEvent?.Invoke(levelState);
+    }
+    
     private static void StartTutorial()
     {
         Debug.Log("Starting Tutorial");

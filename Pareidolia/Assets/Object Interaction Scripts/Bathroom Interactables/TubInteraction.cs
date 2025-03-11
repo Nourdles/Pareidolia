@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class TubInteraction : ObjectInteraction // or tub interaction
 {
@@ -17,6 +19,8 @@ public class TubInteraction : ObjectInteraction // or tub interaction
     {
         base.Start();
         _taskManager = _taskManagerObj.GetComponent<TaskManager>();
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to step into the tub";
     }
 
     public override void interact(GameObject objectInHand)
@@ -29,6 +33,9 @@ public class TubInteraction : ObjectInteraction // or tub interaction
                 _player.transform.position = _matHoldTransform.transform.position;
                 cc.enabled = true;
                 _insideShower = false;
+
+                // FOR PLAYTEST DEMOS ONLY
+                LoadScene.LoadEndOfDemoScene();
             } else
             {
             InvokeDialoguePromptEvent("I already took a shower");
@@ -45,6 +52,8 @@ public class TubInteraction : ObjectInteraction // or tub interaction
             {
                 SetUninteractable();
                 GetIntoTubEvent?.Invoke();
+                interactText = "Press <sprite=\"UISprites\" name=\"" + 
+                    interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to step out of the tub";
                 cc.enabled = false;
                 _player.transform.position = _showerHoldTransform.transform.position;
                 cc.enabled = true;
@@ -56,6 +65,18 @@ public class TubInteraction : ObjectInteraction // or tub interaction
         }
     }
 
+    protected override void UpdateInteractText()
+    {
+        if (_insideShower)
+        {
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+                interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to step out of the tub";
+        } else
+        {
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+                interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to step into the tub";
+        }
+    }
 
     private void FinishShower()
     {

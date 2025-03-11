@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{3f8bfeed-228e-44cb-be8e-3ae18d58818f}">
+		<property name="volume">
+			<value>4.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{b3aa42bd-60d7-4473-93df-4d59743e05d7}</destination>
 		</relationship>
@@ -111,7 +114,10 @@
 	<object class="SpatialiserEffect" id="{3747c118-53b1-4b25-bd29-ea90eaa4fbc9}" />
 	<object class="ThreeEQEffect" id="{bc486c27-5cec-468b-ae62-751706088572}">
 		<property name="lowGain">
-			<value>-37</value>
+			<value>-27.5</value>
+		</property>
+		<property name="midGain">
+			<value>-14</value>
 		</property>
 		<property name="highGain">
 			<value>-13</value>

@@ -22,8 +22,8 @@ public class DoorInteraction : ObjectInteraction
     {
         base.Start();
         //doorAnimator = gameObject.GetComponent<Animator>();
-        interactText =  interactKey.GetBindingDisplayString() + " to open door"; 
-        // rn this is saying Press or hold E | Press or hold A
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+        interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open door";
     }
 
     public override void interact(GameObject objectInHand)
@@ -60,12 +60,16 @@ public class DoorInteraction : ObjectInteraction
             doorAnimator.Play("DoorClose");
             Debug.Log("Door Closing");
             AudioManager.instance.PlayOneShot(doorCloseSound, this.transform.position);
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open door";
         }
         else
         {
             doorAnimator.Play("DoorOpen");
             Debug.Log("Door Opening");
             AudioManager.instance.PlayOneShot(doorOpenSound, this.transform.position);
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to close door";
         }
         doorOpen = !doorOpen;
     }
@@ -93,5 +97,18 @@ public class DoorInteraction : ObjectInteraction
     {
         locked = true;
         Debug.Log("Door has been locked");
+    }
+
+    protected override void UpdateInteractText()
+    {
+        if (doorOpen)
+        {
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to close door";
+        } else
+        {
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open door";
+        }
     }
 }

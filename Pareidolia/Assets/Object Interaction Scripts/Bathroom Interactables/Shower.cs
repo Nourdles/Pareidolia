@@ -6,11 +6,14 @@ using FMODUnity;
 public class Shower : MonoBehaviour
 {
     [SerializeField] private bool _inShower;
+    private String inputMasking;
+    private bool _showInstructions = false;
     private bool _showerStarted = false;
     private InputAction interactKey;
     private FMOD.Studio.EventInstance showerEventInstance;
     public static event Action ShowerOnEvent;
     public static event Action ShowerOffEvent;
+    public static event Action<String> ShowerInstructions;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +26,12 @@ public class Shower : MonoBehaviour
     {
         if (_inShower)
         {
+            if (_showInstructions)
+            {
+               ShowerInstructions?.Invoke("Hold <sprite=\"UISprites\" name=\"" + 
+                interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to shower"); 
+            }
+            
             showerEventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
             if (interactKey.WasPressedThisFrame())
             {
@@ -53,26 +62,42 @@ public class Shower : MonoBehaviour
         }
     }
 
+
     private void ReleaseSFXInstance()
     {
         showerEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         showerEventInstance.release();
+        _showInstructions = false;
     }
 
     private void EnableScript()
     {
         _inShower = true;
+        _showInstructions = true;
+    }
+
+    private void UpdateControllerScheme(bool usingKBM)
+    {
+        if (usingKBM)
+        {
+            inputMasking = "Keyboard&Mouse";
+        } else
+        {
+            inputMasking = "Gamepad";
+        }
     }
 
     void OnEnable()
     {
         TubInteraction.GetIntoTubEvent += EnableScript;
         ShowerTask.ShowerComplete += ReleaseSFXInstance;
+        InputDeviceChecker.UsingKBMEvent += UpdateControllerScheme;
     }
 
     void OnDisable()
     {
         TubInteraction.GetIntoTubEvent -= EnableScript;
         ShowerTask.ShowerComplete -= ReleaseSFXInstance;
+        InputDeviceChecker.UsingKBMEvent -= UpdateControllerScheme;
     }
 }

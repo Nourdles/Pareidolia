@@ -1,7 +1,8 @@
 
 public enum Levels
 {
-    MainMenu = -1,
+    MainMenu = -2,
+    MorningCutscene = -1,
     Tutorial = 0,
     Morning = 1,
     Afternoon = 2,
