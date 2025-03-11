@@ -23,7 +23,7 @@ public class ClosedCurtainInteraction : ObjectInteraction
     protected override void UpdateInteractText()
     {
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
-            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to close curtain";
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open curtain";
     }
 
     void OnEnable()
