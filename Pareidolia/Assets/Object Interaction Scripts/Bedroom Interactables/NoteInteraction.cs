@@ -11,7 +11,8 @@ public class NoteInteraction : ObjectInteraction
     protected override void Start()
     {
         base.Start();
-        interactText = "Press " + interactKey.GetBindingDisplayString() + " to pickup notepad";
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup notepad";
     }
     public override void interact(GameObject objectInHand)
     {
@@ -19,5 +20,11 @@ public class NoteInteraction : ObjectInteraction
         NotepadPickedUp?.Invoke();
         Destroy(gameObject);
         AudioManager.instance.PlayOneShot(notepadPickupSound, this.transform.position);
+    }
+
+    protected override void UpdateInteractText()
+    {
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup notepad";
     }
 }

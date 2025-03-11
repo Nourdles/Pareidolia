@@ -13,7 +13,8 @@ public class BedInteraction: ObjectInteraction
     {
         base.Start();
         hasNotepad = false;
-        interactText = "Press " + interactKey.GetBindingDisplayString() + " to make the bed";
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to make the bed";
     }
 
     public override void interact(GameObject objectInHand)
@@ -27,6 +28,12 @@ public class BedInteraction: ObjectInteraction
         {
             InvokeDialoguePromptEvent("I should pick up the notepad first");
         }
+    }
+
+    protected override void UpdateInteractText()
+    {
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to make the bed";
     }
 
     private void setHasNotepad()

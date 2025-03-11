@@ -13,7 +13,8 @@ public class FullBowlInteraction : ObjectInteraction
     protected override void Start()
     {
         base.Start();
-        interactText = "Press " + interactKey.GetBindingDisplayString() + " to eat cereal";
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+        interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to eat cereal";
     }
     public override void interact(GameObject objectInHand)
     {
@@ -37,5 +38,11 @@ public class FullBowlInteraction : ObjectInteraction
         {
             InvokeDialoguePromptEvent("I need my spoon to eat this");
         }
+    }
+
+    protected override void UpdateInteractText()
+    {
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+        interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to eat cereal";
     }
 }

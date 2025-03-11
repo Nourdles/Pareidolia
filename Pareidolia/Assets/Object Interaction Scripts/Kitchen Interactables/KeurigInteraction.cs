@@ -50,10 +50,16 @@ public class KeurigInteraction : ObjectInteraction
         CupPutInMachineEvent?.Invoke();
     }
 
+    protected override void UpdateInteractText()
+    {
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+        interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to place mug in the coffee machine";
+    }
+
     private void HoldingCupInteractText()
     {
-        interactText = "Press " + interactKey.GetBindingDisplayString() +
-        " to place cup in the coffee machine";
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+        interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to place mug in the coffee machine";
     }
 
     void OnEnable()
