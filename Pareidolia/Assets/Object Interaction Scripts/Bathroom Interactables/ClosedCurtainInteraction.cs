@@ -10,13 +10,20 @@ public class ClosedCurtainInteraction : ObjectInteraction
     protected override void Start()
     {
         base.Start();
-        interactText = "Press " + interactKey.GetBindingDisplayString() + " to open curtain";
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open curtain";
     }
 
     public override void interact(GameObject objectInHand)
     {
         AudioManager.instance.PlayOneShot(showerCurtainSfx, this.transform.position);
         OpenCurtainEvent?.Invoke();
+    }
+
+    protected override void UpdateInteractText()
+    {
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open curtain";
     }
 
     void OnEnable()

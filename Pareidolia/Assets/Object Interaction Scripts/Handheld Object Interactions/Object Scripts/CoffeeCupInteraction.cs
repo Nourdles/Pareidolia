@@ -10,13 +10,19 @@ public class CoffeeCupInteraction : HandheldObjectInteraction
     {
         base.Start();
         handheld_id = Handhelds.Cup;
-
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+        interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup coffee mug";
         pickupSFX = mugPickupSFX;
-        interactText = "Press " + interactKey.GetBindingDisplayString() + " to pickup coffee mug";
     }
 
     protected override void InvokePickupEvent()
     {
         CupPickupEvent?.Invoke();
+    }
+
+    protected override void UpdateInteractText()
+    {
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+        interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup coffee mug";
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class BowlInteraction : ObjectInteraction
 {
+    private String instruction;
     [SerializeField] private bool hasMilk = false;
     [SerializeField] private bool hasCereal = false;
     [SerializeField] private Material cerealOnlyMaterial;
@@ -58,6 +59,16 @@ public class BowlInteraction : ObjectInteraction
         }
     }
 
+    protected override void UpdateInteractText()
+    {
+        if (interactText != "")
+        {
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+                interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + instruction;
+        }
+        Debug.Log("Updating the inputmasking of Cereal bowl");
+    }
+
     private void MissingRequiredObject()
     {
         if (!hasCereal && !hasMilk) // no cereal or milk
@@ -71,14 +82,16 @@ public class BowlInteraction : ObjectInteraction
 
     private void HoldingCerealInteractText()
     {
-        interactText = "Press " + interactKey.GetBindingDisplayString() + 
-        " to add cereal";
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to add cereal";
+        instruction = "\"> to add cereal";
     }
 
     private void HoldingMilkInteractText()
     {
-        interactText = "Press " + interactKey.GetBindingDisplayString() +
-        " to pour milk";
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pour milk";
+        instruction = "\"> to pour milk";
     }
 
     void OnEnable()

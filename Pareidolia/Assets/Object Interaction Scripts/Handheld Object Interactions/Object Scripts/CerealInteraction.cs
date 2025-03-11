@@ -11,11 +11,18 @@ public class CerealInteraction : HandheldObjectInteraction
         base.Start();
         handheld_id = Handhelds.Cereal;
         pickupSFX = cerealPickupSFX;
-        interactText = "Press " + interactKey.GetBindingDisplayString() + " to pickup cereal";
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup cereal";
     }
 
     protected override void InvokePickupEvent()
     {
         CerealPickupEvent?.Invoke();
+    }
+
+    protected override void UpdateInteractText()
+    {
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup cereal";
     }
 }
