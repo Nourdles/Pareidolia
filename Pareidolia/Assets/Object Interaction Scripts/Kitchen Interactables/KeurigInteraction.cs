@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class KeurigInteraction : ObjectInteraction
 {
@@ -47,5 +48,23 @@ public class KeurigInteraction : ObjectInteraction
         cup.tag = "InteractableObject";
         cup.layer = LayerMask.NameToLayer("Default");
         CupPutInMachineEvent?.Invoke();
+    }
+
+    private void HoldingCupInteractText()
+    {
+        interactText = "Press " + interactKey.GetBindingDisplayString() +
+        " to place cup in the coffee machine";
+    }
+
+    void OnEnable()
+    {
+        CoffeeCupInteraction.CupPickupEvent += HoldingCupInteractText;
+        PlayerInteract.DropItemEvent += ResetInteractionText;
+    }
+
+    void OnDisable()
+    {
+        CoffeeCupInteraction.CupPickupEvent -= HoldingCupInteractText;
+        PlayerInteract.DropItemEvent -= ResetInteractionText;
     }
 }

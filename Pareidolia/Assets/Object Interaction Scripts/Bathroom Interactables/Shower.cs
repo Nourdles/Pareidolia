@@ -11,6 +11,7 @@ public class Shower : MonoBehaviour
     private FMOD.Studio.EventInstance showerEventInstance;
     public static event Action ShowerOnEvent;
     public static event Action ShowerOffEvent;
+    public static event Action<String> ShowerInstructions;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -53,15 +54,18 @@ public class Shower : MonoBehaviour
         }
     }
 
+
     private void ReleaseSFXInstance()
     {
         showerEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         showerEventInstance.release();
+        ShowerInstructions?.Invoke("");
     }
 
     private void EnableScript()
     {
         _inShower = true;
+        ShowerInstructions?.Invoke("Hold " + interactKey.GetBindingDisplayString() + " to shower");
     }
 
     void OnEnable()

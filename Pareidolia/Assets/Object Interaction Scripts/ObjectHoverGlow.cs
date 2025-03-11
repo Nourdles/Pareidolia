@@ -34,6 +34,9 @@ public class ObjectHoverGlow : MonoBehaviour
             lastHighlightedObject.GetComponent<MeshRenderer>().material = originalMaterial;
             lastHighlightedObject = null;
             ViewingObjectEvent?.Invoke(lastHighlightedObject);
+        } else
+        {
+            ViewingObjectEvent?.Invoke(lastHighlightedObject);
         }
     }
 
