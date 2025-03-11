@@ -66,7 +66,6 @@ public class BowlInteraction : ObjectInteraction
             interactText = "Press <sprite=\"UISprites\" name=\"" + 
                 interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + instruction;
         }
-        Debug.Log("Updating the inputmasking of Cereal bowl");
     }
 
     private void MissingRequiredObject()
