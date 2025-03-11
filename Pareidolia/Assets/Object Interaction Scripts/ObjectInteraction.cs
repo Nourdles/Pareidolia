@@ -12,6 +12,7 @@ public abstract class ObjectInteraction : MonoBehaviour
     
     protected virtual void Start()
     {
+        InputDeviceChecker.UsingKBMEvent += SetDeviceController;
         interactKey = InputSystem.actions.FindAction("Interact");
         inputMasking = "Keyboard&Mouse";
     }
@@ -55,15 +56,5 @@ public abstract class ObjectInteraction : MonoBehaviour
             inputMasking = "Gamepad";
         }
         UpdateInteractText();
-    }
-
-    void OnEnable()
-    {
-        InputDeviceChecker.UsingKBMEvent += SetDeviceController;
-    }
-
-    void OnDisable()
-    {
-        InputDeviceChecker.UsingKBMEvent -= SetDeviceController;
     }
 }

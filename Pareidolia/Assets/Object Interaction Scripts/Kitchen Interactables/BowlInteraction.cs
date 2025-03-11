@@ -84,14 +84,14 @@ public class BowlInteraction : ObjectInteraction
     {
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to add cereal";
-        instruction = " to add cereal";
+        instruction = "\"> to add cereal";
     }
 
     private void HoldingMilkInteractText()
     {
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pour milk";
-        instruction = " to pour milk";
+        instruction = "\"> to pour milk";
     }
 
     void OnEnable()
