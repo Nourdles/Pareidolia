@@ -6,6 +6,7 @@ using FMODUnity;
 public class Shower : MonoBehaviour
 {
     [SerializeField] private bool _inShower;
+    private String inputMasking;
     private bool _showInstructions = false;
     private bool _showerStarted = false;
     private InputAction interactKey;
@@ -27,7 +28,8 @@ public class Shower : MonoBehaviour
         {
             if (_showInstructions)
             {
-               ShowerInstructions?.Invoke("Hold " + interactKey.GetBindingDisplayString() + " to shower"); 
+               ShowerInstructions?.Invoke("Hold <sprite=\"UISprites\" name=\"" + 
+                interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to shower"); 
             }
             
             showerEventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
@@ -74,15 +76,28 @@ public class Shower : MonoBehaviour
         _showInstructions = true;
     }
 
+    private void UpdateControllerScheme(bool usingKBM)
+    {
+        if (usingKBM)
+        {
+            inputMasking = "Keyboard&Mouse";
+        } else
+        {
+            inputMasking = "Gamepad";
+        }
+    }
+
     void OnEnable()
     {
         TubInteraction.GetIntoTubEvent += EnableScript;
         ShowerTask.ShowerComplete += ReleaseSFXInstance;
+        InputDeviceChecker.UsingKBMEvent += UpdateControllerScheme;
     }
 
     void OnDisable()
     {
         TubInteraction.GetIntoTubEvent -= EnableScript;
         ShowerTask.ShowerComplete -= ReleaseSFXInstance;
+        InputDeviceChecker.UsingKBMEvent -= UpdateControllerScheme;
     }
 }
