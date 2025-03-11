@@ -24,6 +24,7 @@ public class Shower : MonoBehaviour
     {
         if (_inShower)
         {
+            ShowerInstructions?.Invoke("Hold " + interactKey.GetBindingDisplayString() + " to shower");
             showerEventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
             if (interactKey.WasPressedThisFrame())
             {
@@ -65,7 +66,6 @@ public class Shower : MonoBehaviour
     private void EnableScript()
     {
         _inShower = true;
-        ShowerInstructions?.Invoke("Hold " + interactKey.GetBindingDisplayString() + " to shower");
     }
 
     void OnEnable()
