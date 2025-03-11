@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -28,14 +29,22 @@ public class InteractTextUpdater : MonoBehaviour
         //_textboxObj.SetActive(visible);
     }
 
+    private void DisplayInteractInstructions(String msg)
+    {
+        _interactField.text = msg;
+        //_textboxObj.SetActive(visible);
+    }
+
     void OnEnable()
     {
         ObjectHoverGlow.ViewingObjectEvent += DisplayInteractText;
+        Shower.ShowerInstructions += DisplayInteractInstructions;
     }
 
     void OnDisable()
     {
-        ObjectHoverGlow.ViewingObjectEvent += DisplayInteractText;
+        ObjectHoverGlow.ViewingObjectEvent -= DisplayInteractText;
+        Shower.ShowerInstructions -= DisplayInteractInstructions;
     }
 
 }

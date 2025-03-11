@@ -32,6 +32,7 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
             AudioManager.instance.PlayOneShot(pickupSFX, this.transform.position); //Trigger the sfx
 
             PickUpEvent?.Invoke(gameObject);
+            InvokePickupEvent();
         }
     }
 
@@ -85,16 +86,5 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
     }
 
-    /*
-
-    void OnEnable()
-    {
-        PlayerInteract.DropItemEvent += DropObject;
-    }
-
-    void OnDisable()
-    {
-        PlayerInteract.DropItemEvent -= DropObject;
-    }
-    */
+    protected abstract void InvokePickupEvent();
 }

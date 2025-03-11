@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BowlInteraction : ObjectInteraction
 {
@@ -66,5 +67,31 @@ public class BowlInteraction : ObjectInteraction
         {
             InvokeDialoguePromptEvent("I need to add milk");
         }
+    }
+
+    private void HoldingCerealInteractText()
+    {
+        interactText = "Press " + interactKey.GetBindingDisplayString() + 
+        " to add cereal";
+    }
+
+    private void HoldingMilkInteractText()
+    {
+        interactText = "Press " + interactKey.GetBindingDisplayString() +
+        " to pour milk";
+    }
+
+    void OnEnable()
+    {
+        PlayerInteract.DropItemEvent += ResetInteractionText;
+        CerealInteraction.CerealPickupEvent += HoldingCerealInteractText;
+        MilkInteraction.MilkPickupEvent += HoldingMilkInteractText;
+    }
+
+    void OnDisable()
+    {
+        PlayerInteract.DropItemEvent -= ResetInteractionText;
+        CerealInteraction.CerealPickupEvent -= HoldingCerealInteractText;
+        MilkInteraction.MilkPickupEvent -= HoldingMilkInteractText;
     }
 }

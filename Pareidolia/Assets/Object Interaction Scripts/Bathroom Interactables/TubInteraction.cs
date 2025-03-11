@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class TubInteraction : ObjectInteraction // or tub interaction
@@ -18,6 +19,7 @@ public class TubInteraction : ObjectInteraction // or tub interaction
     {
         base.Start();
         _taskManager = _taskManagerObj.GetComponent<TaskManager>();
+        interactText = "Press " + interactKey.GetBindingDisplayString() + " to get into the bathtub";
     }
 
     public override void interact(GameObject objectInHand)
@@ -49,6 +51,7 @@ public class TubInteraction : ObjectInteraction // or tub interaction
             {
                 SetUninteractable();
                 GetIntoTubEvent?.Invoke();
+                interactText = "Press " + interactKey.GetBindingDisplayString() + " to leave bathtub";
                 cc.enabled = false;
                 _player.transform.position = _showerHoldTransform.transform.position;
                 cc.enabled = true;

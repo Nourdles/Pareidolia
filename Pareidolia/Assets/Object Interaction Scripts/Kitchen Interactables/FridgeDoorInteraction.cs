@@ -1,6 +1,7 @@
 using UnityEngine;
 using FMODUnity;
 using System;
+using UnityEngine.InputSystem;
 
 public class FridgeDoorInteraction : ObjectInteraction
 {
@@ -19,6 +20,7 @@ public class FridgeDoorInteraction : ObjectInteraction
     protected override void Start()
     {
         base.Start();
+        interactText = "Press " + interactKey.GetBindingDisplayString() + " to open fridge"; 
     }
 
     public override void interact(GameObject objectInHand)
