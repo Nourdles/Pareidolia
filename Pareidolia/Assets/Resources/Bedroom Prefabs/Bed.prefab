@@ -99,9 +99,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -5783106682320924098, guid: 0ad6939875fded14e8f264233c246c71, type: 3}
       insertIndex: -1
       addedObject: {fileID: 172710365181405215}
-    - targetCorrespondingSourceObject: {fileID: -5783106682320924098, guid: 0ad6939875fded14e8f264233c246c71, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6566120852439846498}
     - targetCorrespondingSourceObject: {fileID: -4474797950045518312, guid: 0ad6939875fded14e8f264233c246c71, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5901606029219351723}
@@ -247,19 +244,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8163f03d79f63714dbfd60fbdd8efe09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6566120852439846498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7942735274194158846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69039d3a1d6cf54b845bde135d09103, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canInteract: 0
+  interactText: 
+  inputMasking: Keyboard&Mouse
+  bedMakeSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &8691839058962024904 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5108320954320150776, guid: 0ad6939875fded14e8f264233c246c71, type: 3}
