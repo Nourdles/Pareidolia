@@ -1032,6 +1032,10 @@ PrefabInstance:
       value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 1446550205788826261, guid: 2ba68b92ea0f82b40b6a398d7d419b4d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 83606f6cd788ff247b1ef31963c83c19, type: 2}
+    - target: {fileID: 1446550205788826261, guid: 2ba68b92ea0f82b40b6a398d7d419b4d, type: 3}
       propertyPath: m_spriteAsset
       value: 
       objectReference: {fileID: 11400000, guid: f52b60fa1c0de5144845deec326b9400, type: 2}
@@ -1046,10 +1050,14 @@ PrefabInstance:
     - target: {fileID: 1446550205788826261, guid: 2ba68b92ea0f82b40b6a398d7d419b4d, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 5017473090410504002, guid: 83606f6cd788ff247b1ef31963c83c19, type: 2}
     - target: {fileID: 1446550205788826261, guid: 2ba68b92ea0f82b40b6a398d7d419b4d, type: 3}
       propertyPath: m_TextStyleHashCode
       value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446550205788826261, guid: 2ba68b92ea0f82b40b6a398d7d419b4d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6396671919562022920, guid: 2ba68b92ea0f82b40b6a398d7d419b4d, type: 3}
       propertyPath: m_Pivot.x
