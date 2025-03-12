@@ -11,11 +11,18 @@ public class MilkInteraction : HandheldObjectInteraction
         handheld_id = Handhelds.Milk;
 
         pickupSFX = milkPickupSFX;
-        interactText = "Press " + interactKey.GetBindingDisplayString() + " to pickup milk";
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup milk";
     }
 
     protected override void InvokePickupEvent()
     {
         MilkPickupEvent?.Invoke();
+    }
+
+    protected override void UpdateInteractText()
+    {
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup milk";
     }
 }

@@ -8,11 +8,18 @@ public class SpoonInteraction : HandheldObjectInteraction
     {
         base.Start();
         handheld_id = Handhelds.Spoon;
-        interactText = "Press " + interactKey.GetBindingDisplayString() + " to pickup spoon";
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup spoon";
     }
 
     protected override void InvokePickupEvent()
     {
         SpoonPickupEvent?.Invoke();
+    }
+
+    protected override void UpdateInteractText()
+    {
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup spoon";
     }
 }
