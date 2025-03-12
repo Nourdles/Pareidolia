@@ -20,7 +20,8 @@ public class FridgeDoorInteraction : ObjectInteraction
     protected override void Start()
     {
         base.Start();
-        interactText = "Press " + interactKey.GetBindingDisplayString() + " to open fridge"; 
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open fridge";
     }
 
     public override void interact(GameObject objectInHand)
@@ -41,6 +42,9 @@ public class FridgeDoorInteraction : ObjectInteraction
                 hasClosedOnce = true;
                 OnFirstFridgeClose?.Invoke();  // notify listeners
             }
+
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open fridge";
         }
         else
         {
@@ -53,7 +57,23 @@ public class FridgeDoorInteraction : ObjectInteraction
                 hasOpenedOnce = true;
                 OnFirstFridgeOpen?.Invoke();  // notify listeners
             }
+
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to close fridge";
         }
         doorOpen = !doorOpen;
+    }
+
+    protected override void UpdateInteractText()
+    {
+        if (doorOpen)
+        {
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to close fridge";
+        } else
+        {
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open fridge";
+        }
     }
 }

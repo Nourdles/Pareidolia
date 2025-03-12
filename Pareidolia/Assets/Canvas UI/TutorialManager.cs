@@ -133,19 +133,19 @@ public class TutorialManager : MonoBehaviour
         switch (state)
         {
             case TutorialState.INTERACT_HOTKEY:
-                this.message.text = "Press " + InteractHotkey + " to interact with litup objects";
+                this.message.text = "Press <sprite=\"UISprites\" name=\"E\">/<sprite=\"UISprites\" name=\"A\"> to interact with litup objects";
                 textbox.SetActive(true);
                 return;
             case TutorialState.NOTEPAD_HOTKEY:
-                this.message.text = "Press " + TasklistHotkey + " to open/close your task list";
+                this.message.text = "Press <sprite=\"UISprites\" name=\"Tab\">/<sprite=\"UISprites\" name=\"LB\"> to open/close your task list";
                 textbox.SetActive(true);
                 return;
             case TutorialState.TASK_COMPLETION:
-                this.message.text = "Complete the listed task(s). Remember, you can press " + InteractHotkey + " to interact with objects";
+                this.message.text = "Complete the listed task(s). Remember, you can press <sprite=\"UISprites\" name=\"E\">/<sprite=\"UISprites\" name=\"A\"> to interact with objects";
                 textbox.SetActive(true);
                 return;
             case TutorialState.REOPEN_NOTEPAD:
-                this.message.text = "Reopen your task list using " + TasklistHotkey + ". Tasks will be automatically crossed out.";
+                this.message.text = "Reopen your task list using <sprite=\"UISprites\" name=\"Tab\">/<sprite=\"UISprites\" name=\"LB\">. Tasks will be automatically crossed out.";
                 textbox.SetActive(true);
                 return;
             case TutorialState.COMPLETED:
