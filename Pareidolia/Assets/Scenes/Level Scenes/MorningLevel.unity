@@ -32,7 +32,7 @@ RenderSettings:
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 0
+  m_DefaultReflectionMode: 1
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
@@ -1262,6 +1262,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+--- !u!1001 &1441108396
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1140027499513869234, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: m_Name
+      value: ScriptedEventManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232387197609061696, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.195227
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232387197609061696, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.0721848
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232387197609061696, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.4402447
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232387197609061696, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232387197609061696, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232387197609061696, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232387197609061696, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232387197609061696, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232387197609061696, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232387197609061696, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6686033488946288320, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: bedroomDoorInteraction
+      value: 
+      objectReference: {fileID: 5524556281714177838}
+    - target: {fileID: 6686033488946288320, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: basementDoorInteraction
+      value: 
+      objectReference: {fileID: 5524556281714177837}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
 --- !u!1001 &1460371789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1384,23 +1449,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2474763767364141009, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
   m_PrefabInstance: {fileID: 1953324888584976748}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1724322614 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2515733564876901934, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
-  m_PrefabInstance: {fileID: 5524556281714177836}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1724322620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724322614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8261dca9f7eed02489d2d0012e588a2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1768174929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2085,6 +2133,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -4.02
       objectReference: {fileID: 0}
+    - target: {fileID: 2515733564876901934, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: m_Name
+      value: basementdoor_low.001
+      objectReference: {fileID: 0}
     - target: {fileID: 2529744100699905807, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.446045
@@ -2124,6 +2176,10 @@ PrefabInstance:
     - target: {fileID: 2692578234572521713, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: locked
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692578234572521713, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: lockedDialogue
+      value: I should probably eat first.
       objectReference: {fileID: 0}
     - target: {fileID: 2772336368340124233, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2200,6 +2256,14 @@ PrefabInstance:
     - target: {fileID: 3572441851432718847, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 5.925101
+      objectReference: {fileID: 0}
+    - target: {fileID: 3936766556132573810, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3936766556132573810, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -58.02
       objectReference: {fileID: 0}
     - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: handheld_id
@@ -2325,6 +2389,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1470.51
       objectReference: {fileID: 0}
+    - target: {fileID: 6800612744577909067, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: m_AudioOutputMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800612744577909067, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: 'm_DirectAudioMutes.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6808050159285447184, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: faceSpawner
       value: 
@@ -2348,6 +2420,10 @@ PrefabInstance:
     - target: {fileID: 7158299030333866895, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_Name
       value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268486414449609467, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: m_Name
+      value: bedroomdoor_low.001
       objectReference: {fileID: 0}
     - target: {fileID: 7332881986455026284, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2384,6 +2460,10 @@ PrefabInstance:
     - target: {fileID: 7753276711939637350, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: flickerCount
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753276711939637350, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: flickerSpeed
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7753276711939637350, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: playerLayer.m_Bits
@@ -2437,6 +2517,14 @@ PrefabInstance:
       propertyPath: pickupSFX.Guid.Data4
       value: -1794753488
       objectReference: {fileID: 0}
+    - target: {fileID: 8279751169904698867, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: locked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279751169904698867, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: lockedDialogue
+      value: I cant leave the house! There's too many chores to do.
+      objectReference: {fileID: 0}
     - target: {fileID: 8472571304717280982, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.93
@@ -2478,10 +2566,29 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7477191421766646576, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 143822365}
-    - targetCorrespondingSourceObject: {fileID: 2515733564876901934, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1724322620}
   m_SourcePrefab: {fileID: 100100000, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+--- !u!114 &5524556281714177837 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2692578234572521713, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+  m_PrefabInstance: {fileID: 5524556281714177836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5524556281714177838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7163681197307102244, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+  m_PrefabInstance: {fileID: 5524556281714177836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6250100203206058351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2670,6 +2777,7 @@ SceneRoots:
   - {fileID: 1211731952}
   - {fileID: 826296378}
   - {fileID: 6250100203206058351}
+  - {fileID: 1441108396}
   - {fileID: 1004544167}
   - {fileID: 627526276}
   - {fileID: 1953324888584976748}
