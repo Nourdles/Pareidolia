@@ -49,6 +49,10 @@ public class GameStateManager : MonoBehaviour
                 StartMorning();
                 break;
 
+            default:
+                StartTutorial();
+                break;
+
         }
     }
 

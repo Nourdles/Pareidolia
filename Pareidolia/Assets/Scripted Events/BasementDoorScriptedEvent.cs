@@ -7,7 +7,8 @@ using UnityEngine;
 public class BasementDoorScriptedEvent : MonoBehaviour
 {
     private TaskManager taskManager;
-    private DoorInteraction doorInteraction;
+    [SerializeField] DoorInteraction basementDoorInteraction;
+    [SerializeField] DoorInteraction bedroomDoorInteraction;
     private bool eventTriggered = false;
     public static event Action<string> BasementDoorDialogueEvent;
 
@@ -16,29 +17,57 @@ public class BasementDoorScriptedEvent : MonoBehaviour
     {
         taskManager = UnityEngine.Object.FindFirstObjectByType<TaskManager>();
 
-        doorInteraction = GetComponent<DoorInteraction>();
+        /*basementDoorInteraction = GetComponent<DoorInteraction>();
 
-        if (doorInteraction == null)
+        if (basementDoorInteraction == null)
         {
             Debug.LogError("ScriptedDoorEvent: No DoorInteraction found on this object.");
-        }
+        } */
 
         Task.CompleteTaskEvent += OnTaskCompleted;
+        SilhouetteFlickerEvent.EventStart += EventStarted;
+        SilhouetteFlickerEvent.EventEnd += EventEnded;
     }
 
     private void OnDestroy()
     {
         Task.CompleteTaskEvent -= OnTaskCompleted;
+        SilhouetteFlickerEvent.EventStart -= EventStarted;
+        SilhouetteFlickerEvent.EventEnd -= EventEnded;
+
     }
 
+    // after completing two tasks, unlock the basement door.
     private void OnTaskCompleted()
     {
         if (!eventTriggered && taskManager.IsMorningComplete())
         {
             eventTriggered = true;
-            doorInteraction.UnlockDoor();
-            doorInteraction.interact(null);
+
+            // unlock basement door
+            basementDoorInteraction.UnlockDoor();
+            basementDoorInteraction.interact(null);
             BasementDoorDialogueEvent?.Invoke("What was that? The basement...?");
+
+            // lock bedroom door (so player has to go into basement)
+            bedroomDoorInteraction.LockDoor();
+            // set the dialogue for the player attempting to enter the bedroom
+            bedroomDoorInteraction.SetLockedDialogue("...I should check out the basement first.");
+
+
         }
+    }
+
+    // upon triggering the event
+    private void EventStarted()
+    {
+        BasementDoorDialogueEvent?.Invoke("What the hell is that?");
+    }
+
+    // after event has ended
+    private void EventEnded()
+    {
+        BasementDoorDialogueEvent?.Invoke("Eugh...It's disgusting down here. Now I really need that shower.");
+        bedroomDoorInteraction.UnlockDoor();
     }
 }

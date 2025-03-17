@@ -16,6 +16,7 @@ public class DoorInteraction : ObjectInteraction
     public bool locked = true;
     private bool firstOpen = true;
     private bool doorOpen = false;
+    [SerializeField] private string lockedDialogue;
 
 
     protected override void Start()
@@ -44,10 +45,7 @@ public class DoorInteraction : ObjectInteraction
         }
         else
         {
-            if (GameStateManager.levelState == Levels.Tutorial)
-            {
-                InvokeDialoguePromptEvent("I shouldn't leave till I make my bed");
-            }
+            InvokeDialoguePromptEvent(lockedDialogue);
             AudioManager.instance.PlayOneShot(doorLockSound, this.transform.position);
         }
     }
@@ -74,16 +72,11 @@ public class DoorInteraction : ObjectInteraction
         doorOpen = !doorOpen;
     }
 
-    /*private void OnEnable()
+    public void SetLockedDialogue(string newDialogue)
     {
-        BedInteraction.BedInteractionEvent += UnlockDoor;
-
+        lockedDialogue = newDialogue;   
     }
 
-    private void OnDisable()
-    {
-        BedInteraction.BedInteractionEvent -= UnlockDoor;
-    } */
 
     public void UnlockDoor()
     {

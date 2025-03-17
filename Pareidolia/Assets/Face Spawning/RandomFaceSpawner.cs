@@ -164,21 +164,17 @@ public class RandomFaceSpawner : MonoBehaviour
         if (sr == null) yield break;
 
         float alpha = 0f;
-        UnityEngine.ColorUtility.TryParseHtmlString("#C1B89F", out Color color);
-        color.a = 0f;
 
         while (alpha < maxOpacity)
         {
             if (sr == null || sr.gameObject == null) yield break;
             alpha += Time.deltaTime / fadeInTime;
             alpha = Mathf.Clamp01(alpha);
-            color.a = alpha;
-            sr.color = color;
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
             yield return null;
         }
 
-        color.a = maxOpacity;
-        if (sr != null) sr.color = color;
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, maxOpacity);
     }
 
     /*void Update()
