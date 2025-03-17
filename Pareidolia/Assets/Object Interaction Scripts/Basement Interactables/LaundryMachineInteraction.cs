@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 /// <summary>
@@ -10,7 +11,9 @@ public class LaundryMachineInteraction : ObjectInteraction
     private bool _doorOpen = false;
     private bool _soapAdded = false;
     private bool _clothesAdded = false;
+    private String instruction = "";
     public static event Action DoLaundryEvent;
+
     public override void interact(GameObject objectInHand)
     {
         if (objectInHand != null)
@@ -69,10 +72,47 @@ public class LaundryMachineInteraction : ObjectInteraction
         }
     }
 
+    protected override void UpdateInteractText()
+    {
+        if (interactText != "")
+        {
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+                interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + instruction;
+        }
+    }
+
+    private void HoldingBinInteractText()
+    {
+        interactText = interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to place clothes";
+        instruction = "\"> to place clothes";
+    }
+
+    private void HoldingDetergentInteractText()
+    {
+        interactText = interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to add detergent";
+        instruction = "\"> to add detergent";
+    }
+
     private void StartLoad()
     {
         // play washing machine sound
         DoLaundryEvent?.Invoke();
         SetUninteractable();
+    }
+
+    void OnEnable()
+    {
+        PlayerInteract.DropItemEvent += ResetInteractionText;
+        LaundryBinInteraction.PickupBinEvent += HoldingBinInteractText;
+        LaundryDetergentInteraction.PickupDetergentEvent += HoldingDetergentInteractText;
+    }
+
+    void OnDisable()
+    {
+        PlayerInteract.DropItemEvent -= ResetInteractionText;
+        LaundryBinInteraction.PickupBinEvent -= HoldingBinInteractText;
+        LaundryDetergentInteraction.PickupDetergentEvent -= HoldingDetergentInteractText;
     }
 }

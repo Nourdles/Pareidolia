@@ -1,16 +1,25 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+
+/// <summary>
+/// Logic for pickup up laundry bin and adding clothes. Attach to bin gameobject
+/// </summary>
 public class LaundryBinInteraction : HandheldObjectInteraction
 {
     [SerializeField] private bool _isFull; // if all clothes have been collected
     private int _numclothes;
     private const int NUM_DIRTY_CLOTHES = 7; // the number of clothes needed to be picked up
+    public static event Action PickupBinEvent;
     
     protected override void Start()
     {
         base.Start();
         handheld_id = Handhelds.LaundryBin;
         _numclothes = 0;
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pick up laundry bin";
     }
 
     private void pickupClothes()
@@ -45,5 +54,16 @@ public class LaundryBinInteraction : HandheldObjectInteraction
     public string GetNumMissing()
     {
         return _numclothes + "/" + NUM_DIRTY_CLOTHES;
+    }
+
+    protected override void InvokePickupEvent()
+    {
+        PickupBinEvent?.Invoke();
+    }
+
+    protected override void UpdateInteractText()
+    {
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pick up laundry bin";
     }
 }
