@@ -363,7 +363,7 @@ public class RandomFaceSpawner : MonoBehaviour
                 Vector3 randomDirection = randomDirectionOutsideFOV(playerCamera.transform.forward);
                 if (Physics.Raycast(playerCamera.transform.position, randomDirection, out hit))
                 {
-                    if (hit.collider.CompareTag("Wall"))
+                    if (hit.collider.CompareTag("Wall") || hit.collider.CompareTag("Wood") || hit.collider.CompareTag("Ceiling"))
                     {
                         StartCoroutine(SpawnFace(hit));
                     }
