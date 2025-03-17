@@ -31,6 +31,9 @@
 		<relationship name="parameters">
 			<destination>{7724371e-1456-493b-b336-acf86fd0f47d}</destination>
 		</relationship>
+		<relationship name="banks">
+			<destination>{5033dd87-eed3-4240-854d-7a5726f14ea6}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixer" id="{46b5741e-1189-45f6-9a5b-2878f01e3dde}">
 		<relationship name="masterBus">
@@ -79,7 +82,11 @@
 			<destination>{46b5741e-1189-45f6-9a5b-2878f01e3dde}</destination>
 		</relationship>
 	</object>
-	<object class="MultiSound" id="{2e9c6e0d-7060-4510-8b35-777efbdd3907}" />
+	<object class="MultiSound" id="{2e9c6e0d-7060-4510-8b35-777efbdd3907}">
+		<relationship name="sounds">
+			<destination>{a6b9a3c3-9f08-4d0a-97df-de598c357ff5}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{3472c7cc-2d6f-4cd0-8cae-67e9316d6f58}">
 		<relationship name="effects">
 			<destination>{c7753b02-9bf1-4ac3-8602-5e9c21c2ce93}</destination>
@@ -93,7 +100,29 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ccdf2dd0-b2a4-4cd9-a987-0ad34f5f8726}" />
+	<object class="SingleSound" id="{a6b9a3c3-9f08-4d0a-97df-de598c357ff5}">
+		<relationship name="modulators">
+			<destination>{d93feb96-35ff-4113-84eb-8e1451da6c66}</destination>
+			<destination>{304b9e82-4107-4391-bb3b-350f0bf50368}</destination>
+		</relationship>
+		<relationship name="audioFile">
+			<destination>{2449ab64-b940-4f80-83a2-1f154095c01f}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{c7753b02-9bf1-4ac3-8602-5e9c21c2ce93}" />
 	<object class="MixerBusFader" id="{bbf1b304-1677-408d-8a00-73c25137bfb8}" />
 	<object class="SpatialiserEffect" id="{4118264a-ca7e-426e-8298-49cec51da3a9}" />
+	<object class="RandomizerModulator" id="{d93feb96-35ff-4113-84eb-8e1451da6c66}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>4.5</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{304b9e82-4107-4391-bb3b-350f0bf50368}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>startOffset</value>
+		</property>
+	</object>
 </objects>

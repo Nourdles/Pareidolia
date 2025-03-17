@@ -5,11 +5,13 @@ using FMODUnity;
 public abstract class HandheldObjectInteraction : ObjectInteraction
 {
     public static event Action<GameObject> PickUpEvent;
+    
     [SerializeField] protected Handhelds handheld_id;
     [SerializeField] private Rigidbody itemRb;
     
-    // FMOD event for object pickup sounds
+    // FMOD events for pickup & drop sounds
     [SerializeField] protected FMODUnity.EventReference pickupSFX;
+    [SerializeField] protected FMODUnity.EventReference dropSFX;
 
     private int handheldLayer;
     private int defaultLayer;
@@ -20,6 +22,16 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
         itemRb = gameObject.GetComponentInParent<Rigidbody>();
         handheldLayer = LayerMask.NameToLayer("HandheldObjects");
         defaultLayer = LayerMask.NameToLayer("Default");
+
+        if (itemRb != null)
+        {
+            Debug.Log($"[Physics Debug] Rigidbody found: {itemRb.gameObject.name}");
+            
+            HandheadObjectCollisionListener collisionListener = itemRb.gameObject.AddComponent<HandheadObjectCollisionListener>();
+
+            // Subscribe only to this object's listener
+            collisionListener.OnObjectDropped += PlayDropSound;
+        }
     }
 
     public override void interact(GameObject objectInHand)
@@ -27,28 +39,28 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
         if (objectInHand != null)
         {
             InvokeDialoguePromptEvent("My hands are full right now");
-        } else
+        }
+        else
         {
-            AudioManager.instance.PlayOneShot(pickupSFX, this.transform.position); //Trigger the sfx
-
+            AudioManager.instance.PlayOneShot(pickupSFX, this.transform.position);
             PickUpEvent?.Invoke(gameObject);
             InvokePickupEvent();
         }
     }
 
     private GameObject FindObjectCenter()
-{
-   Transform t = gameObject.transform;
-   while (t.parent != null)
-   {
-      if (t.parent.tag == "HandheldCenter")
-      {
-         return t.parent.gameObject;
-      }
-      t = t.parent.transform;
-   }
-   return null; // Could not find a parent with given tag.
-}
+    {
+        Transform t = gameObject.transform;
+        while (t.parent != null)
+        {
+            if (t.parent.tag == "HandheldCenter")
+            {
+                return t.parent.gameObject;
+            }
+            t = t.parent.transform;
+        }
+        return null; 
+    }
 
     public Handhelds getHandheld()
     {
@@ -83,7 +95,14 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
         // set the object's layer back to default
         gameObject.layer = defaultLayer;
+    }
 
+    private void PlayDropSound(Vector3 position)
+    {
+        if (dropSFX.IsNull) {
+            Debug.Log("Drop sound null");
+        }
+        RuntimeManager.PlayOneShot(dropSFX, transform.position);
     }
 
     protected abstract void InvokePickupEvent();
