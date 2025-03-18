@@ -2265,6 +2265,46 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.46
       objectReference: {fileID: 0}
+    - target: {fileID: 2892956011728901691, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Path
+      value: event:/SFX/Mug Drop
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892956011728901691, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: mugDropSFX.Path
+      value: event:/SFX/Mug Drop
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892956011728901691, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data1
+      value: 263467241
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892956011728901691, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data2
+      value: 1264224700
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892956011728901691, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data3
+      value: -1054210409
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892956011728901691, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data4
+      value: -1882904692
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892956011728901691, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: mugDropSFX.Guid.Data1
+      value: 263467241
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892956011728901691, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: mugDropSFX.Guid.Data2
+      value: 1264224700
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892956011728901691, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: mugDropSFX.Guid.Data3
+      value: -1054210409
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892956011728901691, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: mugDropSFX.Guid.Data4
+      value: -1882904692
+      objectReference: {fileID: 0}
     - target: {fileID: 2895077540403946143, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 4.7631006
@@ -2309,9 +2349,89 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -55.642
       objectReference: {fileID: 0}
+    - target: {fileID: 3993095919884582947, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Path
+      value: event:/SFX/Cereal Drop
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993095919884582947, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: cerealDropSFX.Path
+      value: event:/SFX/Cereal Drop
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993095919884582947, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data1
+      value: -910086668
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993095919884582947, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data2
+      value: 1088815279
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993095919884582947, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data3
+      value: 1304911035
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993095919884582947, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data4
+      value: 211106121
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993095919884582947, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: cerealDropSFX.Guid.Data1
+      value: -910086668
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993095919884582947, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: cerealDropSFX.Guid.Data2
+      value: 1088815279
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993095919884582947, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: cerealDropSFX.Guid.Data3
+      value: 1304911035
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993095919884582947, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: cerealDropSFX.Guid.Data4
+      value: 211106121
+      objectReference: {fileID: 0}
     - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: handheld_id
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Path
+      value: event:/SFX/Milk Drop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: milkDropSFX.Path
+      value: event:/SFX/Milk Drop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data1
+      value: -2139597806
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data2
+      value: 1236428082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data3
+      value: 1679263131
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data4
+      value: 361942483
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: milkDropSFX.Guid.Data1
+      value: -2139597806
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: milkDropSFX.Guid.Data2
+      value: 1236428082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: milkDropSFX.Guid.Data3
+      value: 1679263131
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: milkDropSFX.Guid.Data4
+      value: 361942483
       objectReference: {fileID: 0}
     - target: {fileID: 4414102828919096756, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -2606,8 +2726,28 @@ PrefabInstance:
       value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 8272508994152978414, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Path
+      value: event:/SFX/Spoon Drop
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272508994152978414, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: pickupSFX.Path
       value: event:/SFX/Spoon Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272508994152978414, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data1
+      value: 1992536362
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272508994152978414, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data2
+      value: 1265790646
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272508994152978414, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data3
+      value: 1674580151
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272508994152978414, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: dropSFX.Guid.Data4
+      value: -76446043
       objectReference: {fileID: 0}
     - target: {fileID: 8272508994152978414, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: pickupSFX.Guid.Data1
