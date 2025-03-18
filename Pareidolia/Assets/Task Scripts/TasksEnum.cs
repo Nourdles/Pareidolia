@@ -27,7 +27,15 @@ public enum MorningTasks
     // Morning Tasks
     MakeBreakfast = 1,
     MakeCoffee = 2,
-    Shower = 3,
+    //PutAwayClothes,
+    //WatchTV,
+    //Go to bed
+}
+
+public enum AfternoonTasks
+{
+    WashLaundry = 3,
+    Shower = 4,
 }
 
 
