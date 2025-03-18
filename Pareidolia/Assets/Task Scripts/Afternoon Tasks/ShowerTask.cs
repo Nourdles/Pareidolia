@@ -8,7 +8,7 @@ public class ShowerTask : ProgressTask
     protected override void Start()
     {
         base.Start();
-        task = (int) MorningTasks.Shower;
+        task = (int) AfternoonTasks.Shower;
     }
 
     protected override void invokeCompleteTaskEvent(int tasknum)
