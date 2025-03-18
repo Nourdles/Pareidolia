@@ -15,8 +15,9 @@ public class SilhouetteFlickerEvent : MonoBehaviour
     [SerializeField] private float moveAmount = 0.7f; // final y position
     [SerializeField] private float flickerSpeed = 0.2f;
 
-    public static event Action EventStart;
-    public static event Action EventEnd; // after this event has finished
+    public static event Action<string> SilhouetteDialogueEvent;
+    public static event Action EventStart; // this event has started
+    public static event Action EventEnd; // this event has finished
 
     private bool hasTriggered = false;
     void Start()
@@ -34,6 +35,7 @@ public class SilhouetteFlickerEvent : MonoBehaviour
             hasTriggered = true;
             EventStart?.Invoke();
             StartCoroutine(FlickerEffect());
+            //BasementDoorDialogueEvent?.Invoke("What the hell is that?");
         }
     }
 
@@ -75,6 +77,11 @@ public class SilhouetteFlickerEvent : MonoBehaviour
         // scripted event has ended
         // wait a bit 
         yield return new WaitForSeconds(1.5f);
+
+        //SilhouetteDialogueEvent?.Invoke("Eugh...It's disgusting down here. Now I really need that shower.");
+        SilhouetteDialogueEvent?.Invoke("Eugh...how did this happen? It's disgusting down here.");
+
+
         EventEnd?.Invoke();
 }
 
