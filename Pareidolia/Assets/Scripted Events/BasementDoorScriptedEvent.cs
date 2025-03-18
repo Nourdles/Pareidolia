@@ -9,6 +9,8 @@ public class BasementDoorScriptedEvent : MonoBehaviour
     private TaskManager taskManager;
     [SerializeField] DoorInteraction basementDoorInteraction;
     [SerializeField] DoorInteraction bedroomDoorInteraction;
+    [SerializeField] UpdateUI notepadUI;
+
     private bool eventTriggered = false;
     public static event Action<string> BasementDoorDialogueEvent;
 
@@ -25,19 +27,18 @@ public class BasementDoorScriptedEvent : MonoBehaviour
         } */
 
         Task.CompleteTaskEvent += OnTaskCompleted;
-        SilhouetteFlickerEvent.EventStart += EventStarted;
-        SilhouetteFlickerEvent.EventEnd += EventEnded;
+        SilhouetteFlickerEvent.EventEnd += EndEvent;
     }
 
     private void OnDestroy()
     {
-        Task.CompleteTaskEvent -= OnTaskCompleted;
-        SilhouetteFlickerEvent.EventStart -= EventStarted;
-        SilhouetteFlickerEvent.EventEnd -= EventEnded;
+        //Task.CompleteTaskEvent -= OnTaskCompleted;
+        SilhouetteFlickerEvent.EventEnd -= EndEvent;
 
     }
 
     // after completing two tasks, unlock the basement door.
+    
     private void OnTaskCompleted()
     {
         if (!eventTriggered && taskManager.IsMorningComplete())
@@ -58,16 +59,10 @@ public class BasementDoorScriptedEvent : MonoBehaviour
         }
     }
 
-    // upon triggering the event
-    private void EventStarted()
+    public void EndEvent()
     {
-        BasementDoorDialogueEvent?.Invoke("What the hell is that?");
-    }
-
-    // after event has ended
-    private void EventEnded()
-    {
-        BasementDoorDialogueEvent?.Invoke("Eugh...It's disgusting down here. Now I really need that shower.");
+        // unlock bedroom door
         bedroomDoorInteraction.UnlockDoor();
     }
+
 }
