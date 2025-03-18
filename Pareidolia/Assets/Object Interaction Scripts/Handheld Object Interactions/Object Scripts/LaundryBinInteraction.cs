@@ -10,7 +10,7 @@ public class LaundryBinInteraction : HandheldObjectInteraction
 {
     [SerializeField] private bool _isFull; // if all clothes have been collected
     private int _numclothes;
-    private const int NUM_DIRTY_CLOTHES = 7; // the number of clothes needed to be picked up
+    private const int NUM_DIRTY_CLOTHES = 3; // the number of clothes needed to be picked up
     public static event Action PickupBinEvent;
     
     protected override void Start()
