@@ -6,6 +6,8 @@ using FMODUnity;
 public class DoorInteraction : ObjectInteraction
 {
     [SerializeField] private Animator doorAnimator;
+    [SerializeField] private MeshCollider doorCollider;
+    [SerializeField] private MeshCollider doorKnobCollider;
 
     public event Action DoorFirstOpeningEvent;
     public event Action DoorUnlockEvent;
@@ -53,6 +55,8 @@ public class DoorInteraction : ObjectInteraction
 
     private void DoorAnimation()
     {
+        DisableColliders();
+
         if (doorOpen)
         {
             doorAnimator.Play("DoorClose");
@@ -70,6 +74,31 @@ public class DoorInteraction : ObjectInteraction
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to close door";
         }
         doorOpen = !doorOpen;
+        float animDuration = GetAnimationClipDuration(doorAnimator, doorOpen ? "DoorOpen" : "DoorClose");
+        Invoke(nameof(EnableColliders), animDuration);
+    }
+
+    private void DisableColliders()
+    {
+        if (doorCollider != null) doorCollider.enabled = false;
+        if (doorKnobCollider != null) doorKnobCollider.enabled = false;
+    }
+
+    private void EnableColliders()
+    {
+        if (doorCollider != null) doorCollider.enabled = true;
+        if (doorKnobCollider != null) doorKnobCollider.enabled = true;
+    }
+
+    private float GetAnimationClipDuration(Animator animator, string clipName)
+    {
+        if (animator == null || animator.runtimeAnimatorController == null) return 1f;
+
+        foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips)
+        {
+            if (clip.name == clipName) return clip.length;
+        }
+        return 1f;
     }
 
     public void SetLockedDialogue(string newDialogue)

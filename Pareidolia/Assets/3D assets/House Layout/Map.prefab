@@ -6878,14 +6878,6 @@ Transform:
   - {fileID: 4987031673112642197}
   - {fileID: 8505710881557616706}
   - {fileID: 8943144422544616237}
-  - {fileID: 414904393095204461}
-  - {fileID: 6595769974617111979}
-  - {fileID: 2719267098761183737}
-  - {fileID: 393626346383733671}
-  - {fileID: 4985710978059268850}
-  - {fileID: 5517003682955894547}
-  - {fileID: 8831393975056422293}
-  - {fileID: 4989144916583569962}
   - {fileID: 1439095749640911341}
   - {fileID: 8083948135992911948}
   - {fileID: 624364376067372371}
@@ -13424,6 +13416,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCollider
+      value: 
+      objectReference: {fileID: 6462778666163080220}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorKnobCollider
+      value: 
+      objectReference: {fileID: 3732803146387998751}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorLockSound.Path
       value: event:/SFX/DoorLock
       objectReference: {fileID: 0}
@@ -13492,9 +13492,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+--- !u!64 &3732803146387998751 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 183166777043558998, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+  m_PrefabInstance: {fileID: 3550852571209886281}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6429014273661546279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7529838200303142254, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+  m_PrefabInstance: {fileID: 3550852571209886281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &6462778666163080220 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 7563601428999104085, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
   m_PrefabInstance: {fileID: 3550852571209886281}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3559024316541621567
@@ -17604,6 +17614,14 @@ PrefabInstance:
       value: 608150863
       objectReference: {fileID: 0}
     - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCollider
+      value: 
+      objectReference: {fileID: 2475103355852873828}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorKnobCollider
+      value: 
+      objectReference: {fileID: 5198463732703405159}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorLockSound.Path
       value: event:/SFX/DoorLock
       objectReference: {fileID: 0}
@@ -17676,9 +17694,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+--- !u!64 &2475103355852873828 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 7563601428999104085, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+  m_PrefabInstance: {fileID: 5381267254297757233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2508859021044237151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7529838200303142254, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+  m_PrefabInstance: {fileID: 5381267254297757233}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &5198463732703405159 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 183166777043558998, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
   m_PrefabInstance: {fileID: 5381267254297757233}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5531309749422636729
@@ -24251,6 +24279,14 @@ PrefabInstance:
       value: 608150863
       objectReference: {fileID: 0}
     - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorCollider
+      value: 
+      objectReference: {fileID: 2271803571430869193}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: doorKnobCollider
+      value: 
+      objectReference: {fileID: 8501356923213089994}
+    - target: {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: doorLockSound.Path
       value: event:/SFX/DoorLock
       objectReference: {fileID: 0}
@@ -24326,6 +24362,16 @@ PrefabInstance:
 --- !u!4 &2238013930964610034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7529838200303142254, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+  m_PrefabInstance: {fileID: 8606482391327387292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2271803571430869193 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 7563601428999104085, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+  m_PrefabInstance: {fileID: 8606482391327387292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &8501356923213089994 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 183166777043558998, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
   m_PrefabInstance: {fileID: 8606482391327387292}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8614523343093994147
