@@ -13,9 +13,9 @@ public class TaskManager : MonoBehaviour
 
     void Start()
     {
-        numMornTasks = Enum.GetNames(typeof(MorningTasks)).Length - 1;
-        // numAfterTasks = Enum.GetNames(typeof(AfternoonTasks)).Length - 1;
-        // numNightTasks = Enum.GetNames(typeof(NightTasks)).Length - 1;
+        numMornTasks = Enum.GetNames(typeof(MorningTasks)).Length;
+        numAfterTasks = Enum.GetNames(typeof(AfternoonTasks)).Length;
+        // numNightTasks = Enum.GetNames(typeof(NightTasks)).Length;
     }
 
     public bool IsMorningComplete()
