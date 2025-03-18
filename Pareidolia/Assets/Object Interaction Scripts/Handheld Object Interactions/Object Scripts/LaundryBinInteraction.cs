@@ -32,7 +32,7 @@ public class LaundryBinInteraction : HandheldObjectInteraction
             InvokeDialoguePromptEvent("That should be the last of my dirty clothes");
         } else
         {
-            InvokeDialoguePromptEvent(GetNumMissing());
+            InvokeDialoguePromptEvent(GetNumMissing() + " clothes picked up");
         }
     }
 
