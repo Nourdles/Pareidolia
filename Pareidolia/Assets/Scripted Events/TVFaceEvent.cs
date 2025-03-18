@@ -39,6 +39,7 @@ public class TVFaceEvent : MonoBehaviour
     }
 
 
+    // Once player finishes watch TV task
     void ViewingStains()
     {   
         RandomFaceSpawner.EnableFaceSpawning();
