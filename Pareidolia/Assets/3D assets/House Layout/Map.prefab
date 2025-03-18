@@ -17765,6 +17765,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.046
       objectReference: {fileID: 0}
+    - target: {fileID: 3554082802835770082, guid: 34464b17ee6752e49bcc14025f574717, type: 3}
+      propertyPath: m_TagString
+      value: InteractableObject
+      objectReference: {fileID: 0}
     - target: {fileID: 3780853871930318328, guid: 34464b17ee6752e49bcc14025f574717, type: 3}
       propertyPath: m_Name
       value: Couch
@@ -17812,13 +17816,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3554082802835770082, guid: 34464b17ee6752e49bcc14025f574717, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6756748738563119371}
   m_SourcePrefab: {fileID: 100100000, guid: 34464b17ee6752e49bcc14025f574717, type: 3}
 --- !u!4 &8231336802727085962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4554153230868760386, guid: 34464b17ee6752e49bcc14025f574717, type: 3}
   m_PrefabInstance: {fileID: 5550703075880370376}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8960664020522453546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3554082802835770082, guid: 34464b17ee6752e49bcc14025f574717, type: 3}
+  m_PrefabInstance: {fileID: 5550703075880370376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6756748738563119371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960664020522453546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ef456daf6047845974ec7c3199fd1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: 
+  inputMasking: Keyboard&Mouse
 --- !u!1001 &5555494327015764020
 PrefabInstance:
   m_ObjectHideFlags: 0

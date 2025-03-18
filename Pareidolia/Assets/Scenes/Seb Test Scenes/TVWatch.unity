@@ -998,7 +998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1004544167
 Transform:
   m_ObjectHideFlags: 0
@@ -1526,6 +1526,7 @@ GameObject:
   - component: {fileID: 1502738752}
   - component: {fileID: 1502738753}
   - component: {fileID: 1502738756}
+  - component: {fileID: 1502738757}
   m_Layer: 0
   m_Name: VideoScreen
   m_TagString: Untagged
@@ -1659,6 +1660,18 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &1502738757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502738751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948142d2e01ffc54aa38973c953f8c41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1583375692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3017299154016998455, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
@@ -2761,6 +2774,10 @@ PrefabInstance:
     - target: {fileID: 8784494199369073160, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: moveSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960664020522453546, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9097819445922689642, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_LocalPosition.x
