@@ -25,9 +25,9 @@ Material:
   m_Parent: {fileID: 2100000, guid: 1584be12bb65a4a498734fe187d0f0f1, type: 2}
   m_ModifiedSerializedProperties: 2
   m_ValidKeywords:
-  - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   - _OCCLUSIONMAP
+  - _SPECULAR_SETUP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -51,9 +51,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Smoothness: 0.172
+    - _Smoothness: 0.116
+    - _SmoothnessTextureChannel: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.89411765, b: 0.8509804, a: 1}
-    - _Color: {r: 1, g: 0.89411765, b: 0.8509804, a: 1}
+    - _BaseColor: {r: 0.19245279, g: 0.19245279, b: 0.19245279, a: 1}
+    - _Color: {r: 0.19245276, g: 0.19245276, b: 0.19245276, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
