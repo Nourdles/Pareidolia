@@ -404,7 +404,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2586680619629926031}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 2
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -482,6 +482,7 @@ MonoBehaviour:
       Data3: 416244907
       Data4: 2039507551
     Path: event:/SFX/Tasklist
+  notePickedUp: 0
 --- !u!1 &4694286059916030705
 GameObject:
   m_ObjectHideFlags: 0

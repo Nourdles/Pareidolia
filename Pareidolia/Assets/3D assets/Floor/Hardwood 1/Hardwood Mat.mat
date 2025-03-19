@@ -23,7 +23,7 @@ Material:
   m_Name: Hardwood Mat
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 2100000, guid: 1584be12bb65a4a498734fe187d0f0f1, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 2
   m_ValidKeywords:
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
@@ -50,7 +50,12 @@ Material:
         m_Scale: {x: 7.18, y: 5.32}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _BumpScale: 3
+    - _Smoothness: 0.172
+    m_Colors:
+    - _BaseColor: {r: 1, g: 0.89353096, b: 0.8509433, a: 1}
+    - _Color: {r: 1, g: 0.89353096, b: 0.8509433, a: 1}
+    - _EmissionColor: {r: 0.01886791, g: 0.011764706, b: 0.011764706, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
