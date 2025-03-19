@@ -26,10 +26,12 @@ public class SanityTracker : MonoBehaviour
     //Note that this script is responsible for null checking accessed stains
     public List<GameObject> stains;
 
+    public DeathManager DeathManager;
+
     //Sanity percentage
     private float sanity = 100;
 
-
+    private int startingSanity = 100;
     private int stainDamageGracePeriod = 100;
     private int stainDamageFreq = 100;
 
@@ -66,6 +68,7 @@ public class SanityTracker : MonoBehaviour
         {
             stainInfo.Add(new StainInfo(stainDamageGracePeriod));
         }
+
 
         // get the vignette effect from the Global Volume
         if (postProcessingVolume.profile.TryGet<Vignette>(out Vignette v))
@@ -153,7 +156,10 @@ public class SanityTracker : MonoBehaviour
     {
         Debug.Log("Game Over");
         // Let player respawn
-        GameStateManager.Respawn();
+
+        //GameStateManager.Respawn();
+        sanity = startingSanity;
+        StartCoroutine(DeathManager.ProcessDeath());
     }
 
     private void onStainDamage(GameObject stain)

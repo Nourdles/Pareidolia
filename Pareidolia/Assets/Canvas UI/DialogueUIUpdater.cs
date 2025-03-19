@@ -31,6 +31,7 @@ public class DialogueUIUpdater : MonoBehaviour
         BasementDoorScriptedEvent.BasementDoorDialogueEvent += UpdateDialogueText;
         SilhouetteFlickerEvent.SilhouetteDialogueEvent += UpdateDialogueText;
         TVFaceEvent.LivingRoomDialogueEvent += UpdateDialogueText;
+        DeathManager.DeathEvent += UpdateDialogueText;
     }
 
     void OnDisable()
@@ -42,6 +43,7 @@ public class DialogueUIUpdater : MonoBehaviour
         BasementDoorScriptedEvent.BasementDoorDialogueEvent -= UpdateDialogueText;
         SilhouetteFlickerEvent.SilhouetteDialogueEvent -= UpdateDialogueText;
         TVFaceEvent.LivingRoomDialogueEvent -= UpdateDialogueText;
+        DeathManager.DeathEvent -= UpdateDialogueText;
     }
 
     private void UpdateDialogueText(string msg)

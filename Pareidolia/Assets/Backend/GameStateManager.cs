@@ -1,11 +1,14 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameStateManager : MonoBehaviour
 {
     public static RandomFaceSpawner faceSpawner;
     public static event Action<Levels> LevelChangeEvent;
+
+    public Image BlackPanel;
 
     public static Levels levelState;
     private static bool faceSpawnOn;
@@ -97,12 +100,12 @@ public class GameStateManager : MonoBehaviour
         // determine which level the player died in, then respawn at the start of the level
         // reload scene at beginning (restart all tasks, restore sanity)
 
-        switch (levelState)
-        {
-            case Levels.Morning:
-                LoadScene.LoadMorningScene();
-                break;
-        }
+        //Step 1: fade to black
+       
+
+        //Step 2: Add permanent stain at kill spot
+
+        //Step 3: move player to bed
     }
 
 
