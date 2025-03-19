@@ -7317,9 +7317,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 912396106291976797, guid: 496f8ce3cb92bb94f91fff97d9972c9a, type: 3}
+      propertyPath: m_SourcePositions.Array.data[4].x
+      value: 0.074665986
+      objectReference: {fileID: 0}
+    - target: {fileID: 912396106291976797, guid: 496f8ce3cb92bb94f91fff97d9972c9a, type: 3}
+      propertyPath: m_SourcePositions.Array.data[4].y
+      value: 6.5356293
+      objectReference: {fileID: 0}
+    - target: {fileID: 912396106291976797, guid: 496f8ce3cb92bb94f91fff97d9972c9a, type: 3}
+      propertyPath: m_SourcePositions.Array.data[4].z
+      value: 1.114254
+      objectReference: {fileID: 0}
+    - target: {fileID: 912396106291976797, guid: 496f8ce3cb92bb94f91fff97d9972c9a, type: 3}
+      propertyPath: m_SourcePositions.Array.data[6].y
+      value: 7.8661695
+      objectReference: {fileID: 0}
+    - target: {fileID: 912396106291976797, guid: 496f8ce3cb92bb94f91fff97d9972c9a, type: 3}
+      propertyPath: m_SourcePositions.Array.data[7].y
+      value: 6.1406846
+      objectReference: {fileID: 0}
     - target: {fileID: 943507953013697726, guid: 496f8ce3cb92bb94f91fff97d9972c9a, type: 3}
       propertyPath: m_Name
       value: ReflectionProbes
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015428391802580416, guid: 496f8ce3cb92bb94f91fff97d9972c9a, type: 3}
+      propertyPath: m_IntensityMultiplier
+      value: 1.09
       objectReference: {fileID: 0}
     - target: {fileID: 7074788528254713277, guid: 496f8ce3cb92bb94f91fff97d9972c9a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7360,6 +7384,10 @@ PrefabInstance:
     - target: {fileID: 7074788528254713277, guid: 496f8ce3cb92bb94f91fff97d9972c9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316818968965767822, guid: 496f8ce3cb92bb94f91fff97d9972c9a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
