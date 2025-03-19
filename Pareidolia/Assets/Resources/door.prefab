@@ -133,8 +133,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactText: 
+  inputMasking: Keyboard&Mouse
   doorAnimator: {fileID: 0}
+  doorCollider: {fileID: 7419768210914371037}
+  doorKnobCollider: {fileID: 902335914858783198}
+  doorOpenSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  doorCloseSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  doorLockSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   locked: 1
+  lockedDialogue: 
 --- !u!1 &6599727246159864634 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6670616711854400851, guid: e35535956103cda4188bf69f83272639, type: 3}

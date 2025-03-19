@@ -20,11 +20,9 @@ public class DoorInteraction : ObjectInteraction
     private bool doorOpen = false;
     [SerializeField] private string lockedDialogue;
 
-
     protected override void Start()
     {
         base.Start();
-        //doorAnimator = gameObject.GetComponent<Animator>();
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
         interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open door";
     }
@@ -38,7 +36,6 @@ public class DoorInteraction : ObjectInteraction
                 DoorAnimation();
                 DoorFirstOpeningEvent?.Invoke();
                 firstOpen = false;
-
             }
             else
             {
@@ -52,10 +49,9 @@ public class DoorInteraction : ObjectInteraction
         }
     }
 
-
     private void DoorAnimation()
     {
-        DisableColliders();
+        DisableColliders(); // disable colliders before animation starts
 
         if (doorOpen)
         {
@@ -73,7 +69,10 @@ public class DoorInteraction : ObjectInteraction
             interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to close door";
         }
+
         doorOpen = !doorOpen;
+
+        // wait for animation to finish before enabling colliders again
         float animDuration = GetAnimationClipDuration(doorAnimator, doorOpen ? "DoorOpen" : "DoorClose");
         Invoke(nameof(EnableColliders), animDuration);
     }
@@ -98,7 +97,7 @@ public class DoorInteraction : ObjectInteraction
         {
             if (clip.name == clipName) return clip.length;
         }
-        return 1f;
+        return 1f; // default
     }
 
     public void SetLockedDialogue(string newDialogue)
@@ -106,13 +105,11 @@ public class DoorInteraction : ObjectInteraction
         lockedDialogue = newDialogue;   
     }
 
-
     public void UnlockDoor()
     {
         locked = false;
         Debug.Log("Door has been unlocked");
         DoorUnlockEvent?.Invoke();
-
     }
 
     public void LockDoor()
@@ -127,7 +124,8 @@ public class DoorInteraction : ObjectInteraction
         {
             interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to close door";
-        } else
+        }
+        else
         {
             interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open door";
