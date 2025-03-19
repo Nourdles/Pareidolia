@@ -6,12 +6,14 @@ public abstract class ObjectInteraction : MonoBehaviour
 {
     protected InputAction interactKey;
     public static event Action<string> DialoguePromptEvent;
-    protected String interactText = "";
-    public static event Action InteractTextEvent;
+    [SerializeField] protected String interactText = "";
+    [SerializeField] protected String inputMasking = "Keyboard&Mouse";
     
     protected virtual void Start()
     {
+        InputDeviceChecker.UsingKBMEvent += SetDeviceController;
         interactKey = InputSystem.actions.FindAction("Interact");
+        inputMasking = "Keyboard&Mouse";
     }
 
     public abstract void interact(GameObject objectInHand);
@@ -31,8 +33,27 @@ public abstract class ObjectInteraction : MonoBehaviour
         gameObject.tag = "Untagged";
     }
 
+    protected void ResetInteractionText()
+    {
+        interactText = "";
+    }
+
     public string GetInteractText()
     {
         return interactText;
+    }
+
+    protected abstract void UpdateInteractText();
+    
+    protected void SetDeviceController(bool usingKBM)
+    {
+        if (usingKBM)
+        {
+            inputMasking = "Keyboard&Mouse";
+        } else
+        {
+            inputMasking = "Gamepad";
+        }
+        UpdateInteractText();
     }
 }

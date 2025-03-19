@@ -29,7 +29,6 @@ public class ProgressTask : Task
             UpdateProgressBarEvent?.Invoke(_progress);
             pbvisible = true;
         }
-        Debug.Log("Setting visibility to " + pbvisible);
         UpdatePBVisibilityEvent?.Invoke(pbvisible);
     }
 

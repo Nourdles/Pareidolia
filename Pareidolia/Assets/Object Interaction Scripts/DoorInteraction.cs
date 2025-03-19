@@ -6,6 +6,8 @@ using FMODUnity;
 public class DoorInteraction : ObjectInteraction
 {
     [SerializeField] private Animator doorAnimator;
+    [SerializeField] private MeshCollider doorCollider;
+    [SerializeField] private MeshCollider doorKnobCollider;
 
     public event Action DoorFirstOpeningEvent;
     public event Action DoorUnlockEvent;
@@ -16,14 +18,15 @@ public class DoorInteraction : ObjectInteraction
     public bool locked = true;
     private bool firstOpen = true;
     private bool doorOpen = false;
+    [SerializeField] private string lockedDialogue;
 
 
     protected override void Start()
     {
         base.Start();
         //doorAnimator = gameObject.GetComponent<Animator>();
-        interactText =  interactKey.GetBindingDisplayString() + " to open door"; 
-        // rn this is saying Press or hold E | Press or hold A
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+        interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open door";
     }
 
     public override void interact(GameObject objectInHand)
@@ -35,14 +38,16 @@ public class DoorInteraction : ObjectInteraction
                 DoorAnimation();
                 DoorFirstOpeningEvent?.Invoke();
                 firstOpen = false;
-            
-            } else
+
+            }
+            else
             {
                 DoorAnimation();
             }
-        } else
+        }
+        else
         {
-            InvokeDialoguePromptEvent("I shouldn't leave till I make my bed");
+            InvokeDialoguePromptEvent(lockedDialogue);
             AudioManager.instance.PlayOneShot(doorLockSound, this.transform.position);
         }
     }
@@ -50,31 +55,57 @@ public class DoorInteraction : ObjectInteraction
 
     private void DoorAnimation()
     {
+        DisableColliders();
+
         if (doorOpen)
         {
             doorAnimator.Play("DoorClose");
             Debug.Log("Door Closing");
             AudioManager.instance.PlayOneShot(doorCloseSound, this.transform.position);
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open door";
         }
         else
         {
             doorAnimator.Play("DoorOpen");
             Debug.Log("Door Opening");
             AudioManager.instance.PlayOneShot(doorOpenSound, this.transform.position);
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to close door";
         }
         doorOpen = !doorOpen;
+        float animDuration = GetAnimationClipDuration(doorAnimator, doorOpen ? "DoorOpen" : "DoorClose");
+        Invoke(nameof(EnableColliders), animDuration);
     }
 
-    /*private void OnEnable()
+    private void DisableColliders()
     {
-        BedInteraction.BedInteractionEvent += UnlockDoor;
-
+        if (doorCollider != null) doorCollider.enabled = false;
+        if (doorKnobCollider != null) doorKnobCollider.enabled = false;
     }
 
-    private void OnDisable()
+    private void EnableColliders()
     {
-        BedInteraction.BedInteractionEvent -= UnlockDoor;
-    } */
+        if (doorCollider != null) doorCollider.enabled = true;
+        if (doorKnobCollider != null) doorKnobCollider.enabled = true;
+    }
+
+    private float GetAnimationClipDuration(Animator animator, string clipName)
+    {
+        if (animator == null || animator.runtimeAnimatorController == null) return 1f;
+
+        foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips)
+        {
+            if (clip.name == clipName) return clip.length;
+        }
+        return 1f;
+    }
+
+    public void SetLockedDialogue(string newDialogue)
+    {
+        lockedDialogue = newDialogue;   
+    }
+
 
     public void UnlockDoor()
     {
@@ -88,5 +119,18 @@ public class DoorInteraction : ObjectInteraction
     {
         locked = true;
         Debug.Log("Door has been locked");
+    }
+
+    protected override void UpdateInteractText()
+    {
+        if (doorOpen)
+        {
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to close door";
+        } else
+        {
+            interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open door";
+        }
     }
 }

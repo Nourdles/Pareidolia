@@ -1,15 +1,22 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public static bool gamePaused = false;
     public GameObject pauseMenu;
+    private InputAction interactKey;
+
+    void Start()
+    {
+        interactKey = InputSystem.actions.FindAction("Pause");
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (interactKey.WasPressedThisFrame())
         {
             if (gamePaused)
             {

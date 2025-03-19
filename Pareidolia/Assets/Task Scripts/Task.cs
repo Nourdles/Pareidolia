@@ -4,7 +4,7 @@ using System;
 public abstract class Task : MonoBehaviour
 {
     [SerializeField] protected bool complete;
-    protected Tasks task;
+    protected int task;
     public static event Action<int> CrossOutTaskEvent;
     public static event Action CompleteTaskEvent;
     

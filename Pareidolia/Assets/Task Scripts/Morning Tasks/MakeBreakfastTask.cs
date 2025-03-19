@@ -1,24 +1,21 @@
 using UnityEngine;
 
-public class MakeBreakfastTask : MultistepTask
+public class MakeBreakfastTask : SimpleTask
 {   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
         base.Start();
-        task = Tasks.MakeBreakfast;
-        numTasksRequired = 2; // make coffee, cereal
+        task = (int) MorningTasks.MakeBreakfast;
     }
 
     void OnEnable()
     {
-        KeurigInteraction.CoffeeMadeEvent += completeSubTask;
-        BowlInteraction.BreakfastMadeEvent += completeSubTask;
+        BowlInteraction.BreakfastMadeEvent += completeTask;
     }
 
     void OnDisable()
     {
-        KeurigInteraction.CoffeeMadeEvent -= completeSubTask;
-        BowlInteraction.BreakfastMadeEvent -= completeSubTask;
+        BowlInteraction.BreakfastMadeEvent -= completeTask;
     }
 }

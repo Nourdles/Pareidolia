@@ -7,7 +7,7 @@ public class MakeBedTask: SimpleTask
     protected override void Start()
     {
         base.Start();
-        task = Tasks.MakeBed;
+        task = (int) TutorialTasks.MakeBed;
     }
     private void OnEnable() {
         BedInteraction.BedInteractionEvent += completeTask;

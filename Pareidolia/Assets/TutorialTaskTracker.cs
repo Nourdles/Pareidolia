@@ -14,17 +14,9 @@ public class TutorialTaskTracker : MonoBehaviour
 
     public DoorInteraction doorInteraction;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    // canvas for fading out level
+    public FadeExitScene FadeOutCanvas;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     private void OnEnable()
     {
         MakeBedTask.CrossOutTaskEvent += CountSimpleTasksCompleted;
@@ -52,7 +44,8 @@ public class TutorialTaskTracker : MonoBehaviour
 
     private void BridgeTaskCompleted()
     {
-        GameStateManager.StartMorning();
+        // start fading out the level, which will trigger a scene change
+        FadeOutCanvas.FadeOutExit();
     }
 
 }

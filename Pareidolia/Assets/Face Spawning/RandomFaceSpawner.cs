@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 
 /// <summary>
 /// Script for spawning faces on walls within the player's FOV, and despawning them once the player looks away (using Raycasting)
@@ -21,10 +23,14 @@ public class RandomFaceSpawner : MonoBehaviour
     public float fadeOutTime = 2f;
 
     private int totalFaceCount = 0;
+
+    private int testCount = 3; //Delete this
     private List<GameObject> activeFaces = new List<GameObject>(); // list of active faces
     
     private static Coroutine co = null;
     static bool faceSpawnOn = false;
+    public bool spawnInFOV = false;
+    public float fovAngle = 90f;
    /* void Start()
     {
         if (playerCamera == null) return;
@@ -47,7 +53,7 @@ public class RandomFaceSpawner : MonoBehaviour
 
         if (faceSpawnOn && co == null)
         {
-            co = StartCoroutine(SpawnFacesRandomly());
+            co = (spawnInFOV) ? StartCoroutine(SpawnFacesRandomly()) : StartCoroutine(SpawnFacesOutOfFOV());
         }
         else if (!faceSpawnOn && co != null)
         {
@@ -123,12 +129,12 @@ public class RandomFaceSpawner : MonoBehaviour
 
             float randomScale = Random.Range(0.02f, 0.06f); // random size
             newFace.transform.localScale = new Vector3(randomScale, randomScale, 1f);
-
+            /*
             SpriteRenderer sr = newFace.GetComponent<SpriteRenderer>();
             if (sr != null)
             {
                 sr.sprite = faceSprites[Random.Range(0, faceSprites.Length)];
-                ColorUtility.TryParseHtmlString("#C1B89F", out Color yellowTint); // yellow tint to blend with wall
+                UnityEngine.ColorUtility.TryParseHtmlString("#C1B89F", out Color yellowTint); // yellow tint to blend with wall
                 sr.color = new Color(yellowTint.r, yellowTint.g, yellowTint.b, 0f);
             }
 
@@ -138,6 +144,7 @@ public class RandomFaceSpawner : MonoBehaviour
             faceCount++;
 
             StartCoroutine(FadeIn(sr));
+            */
         }
     }
 
@@ -157,21 +164,17 @@ public class RandomFaceSpawner : MonoBehaviour
         if (sr == null) yield break;
 
         float alpha = 0f;
-        ColorUtility.TryParseHtmlString("#C1B89F", out Color color);
-        color.a = 0f;
 
         while (alpha < maxOpacity)
         {
             if (sr == null || sr.gameObject == null) yield break;
             alpha += Time.deltaTime / fadeInTime;
             alpha = Mathf.Clamp01(alpha);
-            color.a = alpha;
-            sr.color = color;
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
             yield return null;
         }
 
-        color.a = maxOpacity;
-        if (sr != null) sr.color = color;
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, maxOpacity);
     }
 
     /*void Update()
@@ -206,6 +209,7 @@ public class RandomFaceSpawner : MonoBehaviour
 
     void StartFadingOutFaces()
     {
+        return;
         for (int i = activeFaces.Count - 1; i >= 0; i--)
         {
             GameObject face = activeFaces[i];
@@ -243,6 +247,159 @@ public class RandomFaceSpawner : MonoBehaviour
             Destroy(face);
             activeFaces.Remove(face);
             totalFaceCount--;         
+        }
+    }
+
+    //Confirms validity of sprite position, clamps to be within surface (position passed in is a ref)
+    //Note: only works for x,y,z aligned walls
+    bool IsSpritePositionValid(Collider collider, ref Vector3 spritePosition, Vector2 spriteSize, Vector3 normal)
+    {
+        normal = normal.normalized; // Ensure normal is unit length
+        Bounds bounds = collider.bounds;
+
+        Vector3 surface = bounds.size;
+        Vector3 min = bounds.min, max = bounds.max;
+        float reqWidth = spriteSize.x, reqHeight = spriteSize.y;
+
+        // Determine which axis surface is normal to (x, y, z)
+        // Determine width & height axes based on normal
+        int w, h;
+        if (Mathf.Abs(normal.x) > 0.999f) // X-aligned wall
+        {
+            w = 2; h = 1; // Width along Z, Height along Y
+        }
+        else // normal.y or normal.z dominant
+        {
+            w = 0; h = (Mathf.Abs(normal.y) > 0.999f) ? 2 : 1; // Width along X, Height along Y/Z
+        }
+
+        float surfaceW = surface[w];
+        float surfaceH = surface[h];
+
+        if (surfaceW < reqWidth || surfaceH < reqHeight)
+            return false; // Surface too small
+
+        // Adjust position to keep the sprite inside the surface bounds
+        float halfW = reqWidth / 2, halfH = reqHeight / 2;
+        spritePosition[w] = Mathf.Clamp(spritePosition[w], min[w] + halfW, max[w] - halfW);
+        spritePosition[h] = Mathf.Clamp(spritePosition[h], min[h] + halfH, max[h] - halfH);
+
+        return true;
+    }
+
+    bool isSurfaceBigEnough(Collider collider, Vector2 size, Vector3 normal)
+    {
+        normal = normal.normalized;
+        Vector3 surface = collider.bounds.size;
+        float reqWidth = size.x, reqHeight = size.y, surfaceW = 0, surfaceH = 0;
+        if (Mathf.Abs(normal.x) > 0.9f)
+        {
+            surfaceW = surface.z; surfaceH = surface.y;
+        }
+        else if (Mathf.Abs(normal.y) > 0.9f)
+        {
+            surfaceW = surface.x; surfaceH = surface.z;
+        }
+        else if (Mathf.Abs(normal.z)  > 0.9f)
+        {
+            surfaceW = surface.x; surfaceH = surface.y;
+        }
+        return surfaceW >= reqWidth && surfaceH >= reqHeight;
+    }
+
+    IEnumerator SpawnFace(RaycastHit hit)
+    {
+        Vector3 position = hit.point;
+        Vector3 normal = hit.normal;
+        float delay = 0;
+        yield return new WaitForSeconds(delay);
+
+        //Check if spawn position is too close to existing faces
+        foreach (GameObject existingFace in activeFaces)
+        {
+            if (existingFace != null && Vector3.Distance(existingFace.transform.position, position) < 1f)
+            {
+                yield break;
+            }
+        }
+
+
+        float randomScale = Random.Range(0.02f, 0.06f); // random size
+        Sprite sprite = faceSprites[Random.Range(0, faceSprites.Length)]; //Get a sprite
+        Vector2 finalSize = sprite.bounds.size * randomScale; 
+
+        if(!IsSpritePositionValid(hit.collider, ref position, finalSize, normal))
+        {
+            yield break;
+        }
+
+        GameObject newFace = Instantiate(facePrefab, position + (normal * 0.01f), Quaternion.identity);
+        newFace.transform.rotation = Quaternion.LookRotation(-normal);
+
+        newFace.transform.localScale = new Vector3(randomScale, randomScale, 1f);
+
+        SpriteRenderer sr = newFace.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            sr.sprite = faceSprites[Random.Range(0, faceSprites.Length)];
+            UnityEngine.ColorUtility.TryParseHtmlString("#C1B89F", out Color yellowTint); // yellow tint to blend with wall
+            sr.color = new Color(yellowTint.r, yellowTint.g, yellowTint.b, 0f);
+        }
+        activeFaces.Add(newFace);
+        sanityTracker.registerStain(newFace);
+        totalFaceCount++;
+
+        StartCoroutine(FadeIn(sr));
+    }
+ 
+    IEnumerator SpawnFacesOutOfFOV()
+    {
+        while (true)
+        {
+            if (totalFaceCount < maxTotalFaces)
+            {
+                yield return new WaitForSeconds(Random.Range(0.5f, 3f));
+                RaycastHit hit;
+                Vector3 randomDirection = randomDirectionOutsideFOV(playerCamera.transform.forward);
+                if (Physics.Raycast(playerCamera.transform.position, randomDirection, out hit))
+                {
+                    if (hit.collider.CompareTag("Wall") || hit.collider.CompareTag("Wood") || hit.collider.CompareTag("Ceiling"))
+                    {
+                        StartCoroutine(SpawnFace(hit));
+                    }
+                }
+
+            } else
+            {
+                yield return new WaitForSeconds(Random.Range(5f, 10f));
+                //Remove a random face
+                while (true)
+                {
+                    int idx = Random.Range(0, activeFaces.Count);
+                    Debug.Log(idx.ToString() + " " +  activeFaces.Count.ToString());
+                    GameObject face = activeFaces[idx];
+                    if (face != null)
+                    {
+                        StartCoroutine(FadeOutAndDestroy(face));
+                        break;
+                    }
+                }
+            }
+
+        }
+    }
+
+    Vector3 randomDirectionOutsideFOV(Vector3 playerForward)
+    {
+        float halfFovCos = Mathf.Cos(fovAngle * 0.5f * Mathf.Deg2Rad);
+
+        while (true)
+        {
+            Vector3 randomDir = Random.onUnitSphere;
+            if (Vector3.Dot(playerForward, randomDir) < halfFovCos)
+            {
+                return randomDir;
+            }
         }
     }
 }

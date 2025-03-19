@@ -16,6 +16,11 @@ public class MoveCamera : MonoBehaviour
         // prevent cursor from moving off the screen
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        // initialize the players start rotation
+        cameraVerticalRotation = transform.eulerAngles.x;
+        cameraHorizontalRotation = transform.eulerAngles.y;
+
     }
 
     // Update is called once per frame
@@ -29,11 +34,12 @@ public class MoveCamera : MonoBehaviour
 
         cameraVerticalRotation -= mouseY;
         cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 90f);
+        
 
         // move camera
         transform.rotation = Quaternion.Euler(cameraVerticalRotation, cameraHorizontalRotation, 0);
 
-        // rotate the player obejct to face the new camera direction
+        // rotate the player object to face the new camera direction
         orientation.rotation = Quaternion.Euler(0, cameraHorizontalRotation, 0);
 
     }

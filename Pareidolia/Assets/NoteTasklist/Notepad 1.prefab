@@ -451,7 +451,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: c4cc47b7ded446448bd217841bb1590f, type: 3}
+  - {fileID: 2100000, guid: 2979c476c6776f842bb45fe94c0d0710, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -486,6 +486,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tasklistcanvas: {fileID: 7281409154582004331}
+  tasklistsfx:
+    Guid:
+      Data1: 2074671206
+      Data2: 1255252543
+      Data3: 264584072
+      Data4: 1834060964
+    Path: event:/SFX/NotepadPickup
+  notePickedUp: 0
 --- !u!64 &5466795558401844151
 MeshCollider:
   m_ObjectHideFlags: 0
