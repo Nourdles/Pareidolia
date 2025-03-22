@@ -127,7 +127,7 @@ public class RandomFaceSpawner : MonoBehaviour
             GameObject newFace = Instantiate(facePrefab, spawnPosition + (normal * 0.01f), Quaternion.identity);
             newFace.transform.rotation = Quaternion.LookRotation(-normal);
 
-            float randomScale = Random.Range(0.02f, 0.06f); // random size
+            float randomScale = Random.Range(0.4f, 0.6f); // random size
             newFace.transform.localScale = new Vector3(randomScale, randomScale, 1f);
             /*
             SpriteRenderer sr = newFace.GetComponent<SpriteRenderer>();
@@ -324,7 +324,7 @@ public class RandomFaceSpawner : MonoBehaviour
         }
 
 
-        float randomScale = Random.Range(0.02f, 0.06f); // random size
+        float randomScale = Random.Range(0.06f, 0.09f); // random size
         Sprite sprite = faceSprites[Random.Range(0, faceSprites.Length)]; //Get a sprite
         Vector2 finalSize = sprite.bounds.size * randomScale; 
 
