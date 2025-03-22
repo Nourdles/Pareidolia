@@ -5513,6 +5513,37 @@ Transform:
   - {fileID: 8410461352801135710}
   m_Father: {fileID: 2772336368340124233}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3700357641419821315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1815255924779676738}
+  m_Layer: 0
+  m_Name: Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1815255924779676738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3700357641419821315}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1188.3, y: -266.83, z: -1469.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2772336368340124233}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3823933051479881877
 GameObject:
   m_ObjectHideFlags: 0
@@ -11445,6 +11476,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1815255924779676738}
   - {fileID: 139546154275177218}
   - {fileID: 4936127766777091523}
   - {fileID: 8652591173960162735}
@@ -11666,6 +11698,7 @@ GameObject:
   - component: {fileID: 6253649068256177027}
   - component: {fileID: 5882985886697204294}
   - component: {fileID: 470750907795165845}
+  - component: {fileID: 5872006865081430336}
   m_Layer: 0
   m_Name: Shower Fog
   m_TagString: Untagged
@@ -16488,6 +16521,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5872006865081430336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8089549788756619131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1789cfc9e2539924f8480c148abf91d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8158282958484051408
 GameObject:
   m_ObjectHideFlags: 0
@@ -18937,7 +18982,7 @@ PrefabInstance:
     - target: {fileID: 476357459148189712, guid: 85dde2d9585b4db488682ef2f790517c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 758c6a0b9af9cff448fc742a7e448d6a, type: 2}
+      objectReference: {fileID: 2100000, guid: 082c35e494d0fe449a3b8c37955a1b39, type: 2}
     - target: {fileID: 2021196434068295524, guid: 85dde2d9585b4db488682ef2f790517c, type: 3}
       propertyPath: m_Name
       value: Bedroom Doorway
@@ -18997,7 +19042,7 @@ PrefabInstance:
     - target: {fileID: 3339104481361869067, guid: 85dde2d9585b4db488682ef2f790517c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b5746b6dc1c3d4e47b637d7bb199a4ee, type: 2}
+      objectReference: {fileID: 2100000, guid: 2b9fe986ad97d964b8dc140865b01e16, type: 2}
     - target: {fileID: 3718185675562452560, guid: 85dde2d9585b4db488682ef2f790517c, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.62
@@ -19025,7 +19070,7 @@ PrefabInstance:
     - target: {fileID: 7489974115523578860, guid: 85dde2d9585b4db488682ef2f790517c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 3c43a1ad660d190469eb30c01d7d3f44, type: 2}
+      objectReference: {fileID: 2100000, guid: 32a4d02c2d511d945a19f728989b6219, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -25280,7 +25325,7 @@ MonoBehaviour:
       Data3: -1125382245
       Data4: 630171466
     Path: event:/SFX/Coffee Machine
-  coffeePourEffect: {fileID: 0}
+  coffeePourEffect: {fileID: 1466405906795647243}
   coffeeContent: {fileID: 0}
 --- !u!1001 &4037538788449728867
 PrefabInstance:
@@ -25741,7 +25786,7 @@ PrefabInstance:
     - target: {fileID: 476357459148189712, guid: 85dde2d9585b4db488682ef2f790517c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 758c6a0b9af9cff448fc742a7e448d6a, type: 2}
+      objectReference: {fileID: 2100000, guid: c099ba99fab72004397f2f63f2360164, type: 2}
     - target: {fileID: 1928962549232355845, guid: 85dde2d9585b4db488682ef2f790517c, type: 3}
       propertyPath: m_Name
       value: Washroom Doorway Wall 1
@@ -25805,7 +25850,7 @@ PrefabInstance:
     - target: {fileID: 3339104481361869067, guid: 85dde2d9585b4db488682ef2f790517c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b5746b6dc1c3d4e47b637d7bb199a4ee, type: 2}
+      objectReference: {fileID: 2100000, guid: 2fb3c7752fc99f245b5e25691cb06820, type: 2}
     - target: {fileID: 3718185675562452560, guid: 85dde2d9585b4db488682ef2f790517c, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.55
@@ -25845,7 +25890,7 @@ PrefabInstance:
     - target: {fileID: 7489974115523578860, guid: 85dde2d9585b4db488682ef2f790517c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8d32b05f4aed56e479bb9f9c12c4a328, type: 2}
+      objectReference: {fileID: 2100000, guid: e144705e2fa0423469f78becd83f2a9b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -27321,7 +27366,7 @@ PrefabInstance:
     - target: {fileID: 121475342273363505, guid: fd627d72cc7045344a54470b99df67c2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 05eac3561aa011c45a1168ee8b253e2f, type: 2}
+      objectReference: {fileID: 2100000, guid: 6eae6b3529208504896dce4bc5e95fc2, type: 2}
     - target: {fileID: 939876078400811152, guid: fd627d72cc7045344a54470b99df67c2, type: 3}
       propertyPath: m_Name
       value: House Wall
@@ -28425,6 +28470,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: 
   inputMasking: Keyboard&Mouse
+  washingMachineSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  detergentPourSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  clothingAddSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1001 &5591303069554642443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33153,7 +33219,7 @@ PrefabInstance:
     - target: {fileID: 121475342273363505, guid: fd627d72cc7045344a54470b99df67c2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 05eac3561aa011c45a1168ee8b253e2f, type: 2}
+      objectReference: {fileID: 2100000, guid: 9a11b4dcf44aba0438f8d8fb257a6b52, type: 2}
     - target: {fileID: 939876078400811152, guid: fd627d72cc7045344a54470b99df67c2, type: 3}
       propertyPath: m_Name
       value: House Wall (2)
@@ -35314,6 +35380,13 @@ MonoBehaviour:
       Data4: 0
     Path: 
   _isFull: 0
+  clothingPickupSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1001 &8753016298195514537
 PrefabInstance:
   m_ObjectHideFlags: 0
