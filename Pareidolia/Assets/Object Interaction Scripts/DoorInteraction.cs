@@ -82,14 +82,14 @@ public class DoorInteraction : ObjectInteraction
 
     private void DisableColliders()
     {
-        if (doorCollider != null) doorCollider.enabled = false;
-        if (doorKnobCollider != null) doorKnobCollider.enabled = false;
+        if (doorCollider != null) doorCollider.isTrigger = true;
+        if (doorKnobCollider != null) doorKnobCollider.isTrigger = true;
     }
 
     private void EnableColliders()
     {
-        if (doorCollider != null) doorCollider.enabled = true;
-        if (doorKnobCollider != null) doorKnobCollider.enabled = true;
+        if (doorCollider != null) doorCollider.isTrigger = false;
+        if (doorKnobCollider != null) doorKnobCollider.isTrigger = false;
     }
 
     private float GetAnimationClipDuration(Animator animator, string clipName)

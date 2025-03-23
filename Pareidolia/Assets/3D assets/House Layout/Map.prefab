@@ -21590,6 +21590,10 @@ PrefabInstance:
       propertyPath: doorCloseSound.Guid.Data4
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6168225579636809906, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7529838200303142254, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -27.95
@@ -23307,8 +23311,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5274787330324429417, guid: 8a1cf2ea30a449749a7a7fa7f0757cff, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274787330324429417, guid: 8a1cf2ea30a449749a7a7fa7f0757cff, type: 3}
       propertyPath: m_TagString
       value: InteractableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059378345054775931, guid: 8a1cf2ea30a449749a7a7fa7f0757cff, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6059378345054775931, guid: 8a1cf2ea30a449749a7a7fa7f0757cff, type: 3}
       propertyPath: m_TagString
@@ -25395,6 +25407,10 @@ PrefabInstance:
     - target: {fileID: 7939226793385516704, guid: e3deec49d429ce544954b0bacef572c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908699812797536536, guid: e3deec49d429ce544954b0bacef572c1, type: 3}
+      propertyPath: m_TagString
+      value: InteractableObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31299,6 +31315,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: shoercurtain_closed
       objectReference: {fileID: 0}
+    - target: {fileID: 623451974513969388, guid: 78dfeedf3575dc04896e472818a486e1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 904818926626013603, guid: 78dfeedf3575dc04896e472818a486e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.24
@@ -31337,6 +31357,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 904818926626013603, guid: 78dfeedf3575dc04896e472818a486e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272901604585977339, guid: 78dfeedf3575dc04896e472818a486e1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508021672875279711, guid: 78dfeedf3575dc04896e472818a486e1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860484001277056333, guid: 78dfeedf3575dc04896e472818a486e1, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816354313728211198, guid: 78dfeedf3575dc04896e472818a486e1, type: 3}
@@ -35442,7 +35474,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Study Room Door
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5921577658639838829, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
