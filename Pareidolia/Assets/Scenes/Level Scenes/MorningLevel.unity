@@ -9403,6 +9403,10 @@ PrefabInstance:
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: itemRb
+      value: 
+      objectReference: {fileID: 5524556281714177837}
+    - target: {fileID: 4218768403345701850, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: handheld_id
       value: 0
       objectReference: {fileID: 0}
@@ -11449,6 +11453,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 143822365}
   m_SourcePrefab: {fileID: 100100000, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+--- !u!54 &5524556281714177837 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 894855922993019158, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+  m_PrefabInstance: {fileID: 5524556281714177836}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5524556281714177839 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4747615054138274191, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
