@@ -74,7 +74,10 @@ public class DoorInteraction : ObjectInteraction
 
         // wait for animation to finish before enabling colliders again
         float animDuration = GetAnimationClipDuration(doorAnimator, doorOpen ? "DoorOpen" : "DoorClose");
-        Invoke(nameof(EnableColliders), animDuration);
+        if (!doorOpen)
+        {
+            Invoke(nameof(EnableColliders), animDuration);
+        }
     }
 
     private void DisableColliders()
