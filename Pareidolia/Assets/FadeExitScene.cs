@@ -8,38 +8,37 @@ public class FadeExitScene : MonoBehaviour
 {
     [SerializeField] Animator animator;
 
-    // play fadeout animation only
-    public void FadeOutAnim()
-    {
-        animator.SetTrigger("FadeOut");
-    }
-
-    // play fade out animation then exit scene
+    // Play the fade out, which will lead to a level change
     public void FadeOutExit()
-    {
+    {  
+        Debug.Log("fading out");
         animator.SetTrigger("FadeOut");
-        StartCoroutine(WaitForFadeOut());
     }
 
     // called by an animation event on the fade out animation once it ends
-    /*
     public void NextLevel()
     {
         GameStateManager.MoveToNextLevel();
-    } */
+    }
 
+
+    /*
+    // play fade out animation, but also cmove to the next level
+    public void FadeOutExitScene()
+    {
+        FadeOutAnim();
+        StartCoroutine(WaitForFadeOut());
+    }
 
 
     IEnumerator WaitForFadeOut()
     {
         //Debug.Log("Waiting for animation");
-        //while (animator.GetCurrentAnimatorStateInfo(0).length >= animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
-        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+        while (animator.GetCurrentAnimatorStateInfo(0).length + 0.5f >= animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
         {
             yield return null;
         }
         // once animation has finished, move to the next level
-        yield return new WaitForSeconds(1.0f);
         GameStateManager.MoveToNextLevel();
-    }
+    } */
 }

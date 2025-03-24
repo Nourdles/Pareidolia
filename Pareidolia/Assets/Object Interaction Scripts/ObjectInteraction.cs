@@ -7,6 +7,7 @@ public abstract class ObjectInteraction : MonoBehaviour
     protected InputAction interactKey;
     public static event Action<string> DialoguePromptEvent;
     [SerializeField] protected String interactText = "";
+    public static event Action InteractTextEvent;
     [SerializeField] protected String inputMasking = "Keyboard&Mouse";
     
     protected virtual void Start()

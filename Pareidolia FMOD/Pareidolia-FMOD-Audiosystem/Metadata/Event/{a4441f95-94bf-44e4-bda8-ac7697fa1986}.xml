@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{a4441f95-94bf-44e4-bda8-ac7697fa1986}">
-		<property name="note">
-			<value>Test the room ambience against the stain hum to make sure they work well together</value>
-		</property>
 		<property name="name">
 			<value>StainAmb</value>
 		</property>
@@ -30,7 +27,6 @@
 		</relationship>
 		<relationship name="groupTracks">
 			<destination>{4720b1e8-1062-400c-949c-576e0a2d1402}</destination>
-			<destination>{65fac64d-e1a6-4fdd-9610-44421561352a}</destination>
 		</relationship>
 		<relationship name="timeline">
 			<destination>{21dfa141-d351-45e4-8e5e-f524cdba0a3d}</destination>
@@ -68,11 +64,6 @@
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{158686bc-e373-4acd-8fdd-ee4b620fe1e8}</destination>
-		</relationship>
-	</object>
-	<object class="GroupTrack" id="{65fac64d-e1a6-4fdd-9610-44421561352a}">
-		<relationship name="mixerGroup">
-			<destination>{51021122-b148-4120-9447-432413e8b0e1}</destination>
 		</relationship>
 	</object>
 	<object class="Timeline" id="{21dfa141-d351-45e4-8e5e-f524cdba0a3d}">
@@ -125,7 +116,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{158686bc-e373-4acd-8fdd-ee4b620fe1e8}">
 		<property name="volume">
-			<value>-6</value>
+			<value>-14.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -135,20 +126,6 @@
 		</relationship>
 		<relationship name="panner">
 			<destination>{bee77681-a0f5-48cb-b73f-4085e7a1c0bb}</destination>
-		</relationship>
-		<relationship name="output">
-			<destination>{8245dabc-7c0a-469a-a1eb-ea21de126bb4}</destination>
-		</relationship>
-	</object>
-	<object class="EventMixerGroup" id="{51021122-b148-4120-9447-432413e8b0e1}">
-		<property name="name">
-			<value>TEST ROOM AMB</value>
-		</property>
-		<relationship name="effectChain">
-			<destination>{5e031c08-9109-48ef-9bff-01b74efb13cb}</destination>
-		</relationship>
-		<relationship name="panner">
-			<destination>{fe97c71a-92b2-4e53-900e-84530ae87fb6}</destination>
 		</relationship>
 		<relationship name="output">
 			<destination>{8245dabc-7c0a-469a-a1eb-ea21de126bb4}</destination>
@@ -207,12 +184,6 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{bee77681-a0f5-48cb-b73f-4085e7a1c0bb}" />
-	<object class="MixerBusEffectChain" id="{5e031c08-9109-48ef-9bff-01b74efb13cb}">
-		<relationship name="effects">
-			<destination>{0484f6a5-667d-4c3a-bceb-595912e5edb9}</destination>
-		</relationship>
-	</object>
-	<object class="MixerBusPanner" id="{fe97c71a-92b2-4e53-900e-84530ae87fb6}" />
 	<object class="MixerBusFader" id="{42a4aabe-c7c5-4cad-8907-4475e2ab0d66}" />
 	<object class="AutomationPoint" id="{2ae86acf-7276-4c68-9d5a-fbd2f70f20f1}">
 		<property name="position">
@@ -259,5 +230,4 @@
 		</property>
 	</object>
 	<object class="SpatialiserEffect" id="{a58b3ac9-495e-4adc-872e-a1d161119f3c}" />
-	<object class="MixerBusFader" id="{0484f6a5-667d-4c3a-bceb-595912e5edb9}" />
 </objects>

@@ -14,7 +14,6 @@ public class TubInteraction : ObjectInteraction // or tub interaction
     public static event Action GetIntoTubEvent;
     private bool _doneShower = false;
     private bool _insideShower = false;
-    [SerializeField] private bool _canShower = false;
 
     protected override void Start()
     {
@@ -44,7 +43,7 @@ public class TubInteraction : ObjectInteraction // or tub interaction
         } else if (!_doneShower && _insideShower)
         {
             InvokeDialoguePromptEvent("I haven't finished my shower yet!!!");
-        } else if (_canShower)
+        } else if (_taskManager.IsMorningComplete())
         {
             if (objectInHand != null)
             {
@@ -83,18 +82,13 @@ public class TubInteraction : ObjectInteraction // or tub interaction
     {
         _doneShower = true;
     }
-
-    private void CanShower()
-    {
-        _canShower = true;
-    }
     
     void OnEnable()
     {
         ShowerTask.ShowerComplete += FinishShower;
         ClosedCurtainInteraction.OpenCurtainEvent += SetInteractable;
         OpenCurtainInteraction.CloseCurtainEvent += SetUninteractable;
-        LaundryMachineInteraction.DoLaundryEvent += CanShower;
+        
     }
 
     void OnDisable()
@@ -102,7 +96,6 @@ public class TubInteraction : ObjectInteraction // or tub interaction
         ShowerTask.ShowerComplete -= FinishShower;
         ClosedCurtainInteraction.OpenCurtainEvent -= SetInteractable;
         OpenCurtainInteraction.CloseCurtainEvent -= SetUninteractable;
-        LaundryMachineInteraction.DoLaundryEvent -= CanShower;
     }
 
 }

@@ -135,56 +135,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3201708882413482131, guid: dba5bf46f1eeea1419d56d398d82d1ba, type: 3}
   m_PrefabInstance: {fileID: 204499330}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &124092382
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 124092383}
-  - component: {fileID: 124092384}
-  m_Layer: 0
-  m_Name: TitleMenuManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &124092383
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124092382}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.62607, y: -15.450734, z: -1.0897896}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &124092384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124092382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d70c773beb5cb4d9f43ce4bb916a97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenu: {fileID: 1513770101}
-  optionsMenu: {fileID: 956605466}
-  creditsMenu: {fileID: 2067543191}
-  mainMenuFirstButton: {fileID: 277217568}
-  optionsMenuFirstButton: {fileID: 1534222067}
-  creditsMenuFirstButton: {fileID: 1817379335}
 --- !u!1 &160875038
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +481,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 715117298}
-  - {fileID: 1994804541}
   - {fileID: 1513770102}
   - {fileID: 956605467}
   - {fileID: 2067543192}
@@ -622,18 +571,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 3
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 385798975}
-    m_SelectOnDown: {fileID: 1762760486}
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.9956295, b: 0.5613208, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0.98929787, b: 0, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -678,7 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -689,7 +638,7 @@ MonoBehaviour:
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 0
+  m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -1195,10 +1144,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 3
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1461007614}
-    m_SelectOnDown: {fileID: 277217568}
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -1206,7 +1155,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0.98929787, b: 0, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1251,7 +1200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1303,7 +1252,7 @@ GameObject:
   - component: {fileID: 715117298}
   - component: {fileID: 715117297}
   m_Layer: 0
-  m_Name: IntroVideoPlayer
+  m_Name: Video Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1375,7 +1324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &956605467
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1431,7 +1380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 975998330}
-  - component: {fileID: 975998331}
+  - component: {fileID: 975998329}
   m_Layer: 0
   m_Name: TitleScreenManager
   m_TagString: Untagged
@@ -1439,6 +1388,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &975998329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975998328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b45f9d8e4912324a83ab3a28208b388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 715117297}
+  fadeInVideo: {fileID: 32900000, guid: 30b77d914efb69042941705cf357d9b0, type: 3}
+  titleScreenVideo: {fileID: 32900000, guid: 6b1a69c7213f2d14a8a3a3d70764448c, type: 3}
+  buttonGroup: {fileID: 1513770103}
+  mainMenu: {fileID: 1513770101}
+  optionsMenu: {fileID: 956605466}
+  creditsMenu: {fileID: 2067543191}
+  backButton: {fileID: 1534222067}
+  titleScreenMusic:
+    Guid:
+      Data1: 1614276644
+      Data2: 1200451454
+      Data3: -962824003
+      Data4: 1044975597
+    Path: event:/Music/Title Screen Music
 --- !u!4 &975998330
 Transform:
   m_ObjectHideFlags: 0
@@ -1454,23 +1430,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &975998331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 975998328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 829cf1dd1e7ad3e4592eeaef477d8db5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  introVideo: {fileID: 715117297}
-  loopingVideo: {fileID: 1994804542}
-  menuManager: {fileID: 124092384}
-  menuFader: {fileID: 1513770105}
-  mainMenuUI: {fileID: 1513770101}
 --- !u!1 &1084791326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,10 +1905,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 3
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1762760486}
-    m_SelectOnDown: {fileID: 385798975}
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -1957,7 +1916,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0.98929787, b: 0, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1977,8 +1936,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 124092384}
-        m_TargetAssemblyTypeName: TitleMenuManager, Assembly-CSharp
+      - m_Target: {fileID: 975998329}
+        m_TargetAssemblyTypeName: jvnTitleScreenManager, Assembly-CSharp
         m_MethodName: ShowCreditsMenu
         m_Mode: 1
         m_Arguments:
@@ -2002,7 +1961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2054,14 +2013,13 @@ GameObject:
   - component: {fileID: 1513770102}
   - component: {fileID: 1513770103}
   - component: {fileID: 1513770104}
-  - component: {fileID: 1513770105}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1513770102
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2110,21 +2068,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeOutCanvas: {fileID: 0}
---- !u!114 &1513770105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513770101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044bc9010d5542a45add7b12adab0b85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenuCanvasGroup: {fileID: 1513770103}
-  firstButton: {fileID: 277217568}
-  fadeDuration: 1
 --- !u!1 &1534222063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,7 +2081,7 @@ GameObject:
   - component: {fileID: 1534222068}
   - component: {fileID: 1534222067}
   - component: {fileID: 1534222066}
-  - component: {fileID: 1534222070}
+  - component: {fileID: 1534222065}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -2166,6 +2109,19 @@ RectTransform:
   m_AnchoredPosition: {x: 745, y: -450}
   m_SizeDelta: {x: 120, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1534222065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534222063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8878841dd77c72f4086a7de791e4f123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeOutCanvas: {fileID: 0}
 --- !u!114 &1534222066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2195,7 +2151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2226,9 +2182,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 124092384}
-        m_TargetAssemblyTypeName: TitleMenuManager, Assembly-CSharp
-        m_MethodName: ShowMainMenu
+      - m_Target: {fileID: 975998329}
+        m_TargetAssemblyTypeName: jvnTitleScreenManager, Assembly-CSharp
+        m_MethodName: HideCurrentMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2276,20 +2232,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534222063}
   m_CullTransparentMesh: 1
---- !u!114 &1534222070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1534222063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d6b3e495c82524ab7d61cc29e799cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentMenu: {fileID: 956605466}
-  previousMenu: {fileID: 1513770101}
 --- !u!1 &1582301622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,10 +2435,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 3
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 277217568}
-    m_SelectOnDown: {fileID: 1461007614}
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -2504,7 +2446,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0.98929787, b: 0, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2524,8 +2466,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 124092384}
-        m_TargetAssemblyTypeName: TitleMenuManager, Assembly-CSharp
+      - m_Target: {fileID: 975998329}
+        m_TargetAssemblyTypeName: jvnTitleScreenManager, Assembly-CSharp
         m_MethodName: ShowOptionsMenu
         m_Mode: 1
         m_Arguments:
@@ -2549,7 +2491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2603,7 +2545,7 @@ GameObject:
   - component: {fileID: 1817379336}
   - component: {fileID: 1817379335}
   - component: {fileID: 1817379334}
-  - component: {fileID: 1817379338}
+  - component: {fileID: 1817379333}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -2631,6 +2573,19 @@ RectTransform:
   m_AnchoredPosition: {x: 745, y: -450}
   m_SizeDelta: {x: 120, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1817379333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817379331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8878841dd77c72f4086a7de791e4f123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeOutCanvas: {fileID: 0}
 --- !u!114 &1817379334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2660,7 +2615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2691,9 +2646,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 124092384}
-        m_TargetAssemblyTypeName: TitleMenuManager, Assembly-CSharp
-        m_MethodName: ShowMainMenu
+      - m_Target: {fileID: 975998329}
+        m_TargetAssemblyTypeName: jvnTitleScreenManager, Assembly-CSharp
+        m_MethodName: HideCurrentMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2741,20 +2696,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817379331}
   m_CullTransparentMesh: 1
---- !u!114 &1817379338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817379331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d6b3e495c82524ab7d61cc29e799cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentMenu: {fileID: 2067543191}
-  previousMenu: {fileID: 1513770101}
 --- !u!1 &1825971851
 GameObject:
   m_ObjectHideFlags: 0
@@ -2891,72 +2832,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825971851}
   m_CullTransparentMesh: 1
---- !u!1 &1994804540
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1994804541}
-  - component: {fileID: 1994804542}
-  m_Layer: 0
-  m_Name: LoopVideo Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1994804541
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994804540}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -959.94904, y: -576.09314, z: -18.48968}
-  m_LocalScale: {x: 2.1168687, y: 2.1168687, z: 2.1168687}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 241255350}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!328 &1994804542
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994804540}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 6b1a69c7213f2d14a8a3a3d70764448c, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 313853851}
-  m_TargetTexture: {fileID: 0}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 0
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_TimeUpdateMode: 1
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 0
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
-  m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
-  m_PlayOnAwake: 0
-  m_SkipOnDrop: 0
-  m_Looping: 1
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
 --- !u!1 &2006830194
 GameObject:
   m_ObjectHideFlags: 0
@@ -3018,7 +2893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 277217565}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &2006830197
@@ -3053,7 +2928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2067543192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3107,6 +2982,5 @@ SceneRoots:
   - {fileID: 313853852}
   - {fileID: 2006830197}
   - {fileID: 975998330}
-  - {fileID: 124092383}
   - {fileID: 241255350}
   - {fileID: 204499330}

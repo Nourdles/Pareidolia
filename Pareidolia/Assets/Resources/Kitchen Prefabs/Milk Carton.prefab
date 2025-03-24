@@ -122,8 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6bbad96a1ef8e24b88c4c361d5e6690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: 
-  inputMasking: Keyboard&Mouse
   handheld_id: 0
   itemRb: {fileID: 0}
   pickupSFX:
@@ -133,13 +131,13 @@ MonoBehaviour:
       Data3: 1243199927
       Data4: 1505742785
     Path: event:/SFX/Milk Pickup
-  dropSFX:
+  milkPickupSFX:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -482902259
+      Data2: 1290119245
+      Data3: 1243199927
+      Data4: 1505742785
+    Path: event:/SFX/Milk Pickup
 --- !u!1 &9158036352083687508
 GameObject:
   m_ObjectHideFlags: 0

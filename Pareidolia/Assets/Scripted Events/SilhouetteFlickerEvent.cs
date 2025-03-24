@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System;
 /// <summary>
 /// Script to make the basement light flicker and a silhouette appear and slowly sink into the ground once the player hits the trigger.
 /// </summary>
@@ -14,10 +13,6 @@ public class SilhouetteFlickerEvent : MonoBehaviour
     [SerializeField] private float minY = -6f; // final y position
     [SerializeField] private float moveAmount = 0.7f; // final y position
     [SerializeField] private float flickerSpeed = 0.2f;
-
-    public static event Action<string> SilhouetteDialogueEvent;
-    public static event Action EventStart; // this event has started
-    public static event Action EventEnd; // this event has finished
 
     private bool hasTriggered = false;
     void Start()
@@ -33,9 +28,7 @@ public class SilhouetteFlickerEvent : MonoBehaviour
         if (!hasTriggered && IsPlayer(other.gameObject))
         {
             hasTriggered = true;
-            EventStart?.Invoke();
             StartCoroutine(FlickerEffect());
-            //BasementDoorDialogueEvent?.Invoke("What the hell is that?");
         }
     }
 
@@ -65,7 +58,7 @@ public class SilhouetteFlickerEvent : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f, 0.4f));
+        yield return new WaitForSeconds(Random.Range(0.1f, 0.4f));
     }
 
     flickerLight.enabled = true; // light on after event
@@ -73,16 +66,6 @@ public class SilhouetteFlickerEvent : MonoBehaviour
     {
         SetSpriteOpacity(silhouetteSprite, 0f);
     }
-
-        // scripted event has ended
-        // wait a bit 
-        yield return new WaitForSeconds(1.5f);
-
-        //SilhouetteDialogueEvent?.Invoke("Eugh...It's disgusting down here. Now I really need that shower.");
-        SilhouetteDialogueEvent?.Invoke("Eugh...how did this happen? It's disgusting down here.");
-
-
-        EventEnd?.Invoke();
 }
 
 

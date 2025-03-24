@@ -1,13 +1,8 @@
 using UnityEngine;
-///<summary>
-///script to run a water particle effect when the player is doing the shower task. should have a cooldown to avoid race condition
-///</summary>
+
 public class ShowerWaterController : MonoBehaviour
 {
     private ParticleSystem showerParticles;
-    private bool isWaterRunning = false; // track if water should be running
-    private float cooldownTime = 0.2f; // small delay to prevent rapid toggling
-    private float lastToggleTime = -1f;
 
     void Start()
     {
@@ -15,7 +10,7 @@ public class ShowerWaterController : MonoBehaviour
 
         if (showerParticles != null)
         {
-            showerParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); 
+            showerParticles.Stop(); // Keep it off initially
         }
     }
 
@@ -33,15 +28,7 @@ public class ShowerWaterController : MonoBehaviour
 
     private void StartWaterEffect()
     {
-        if (showerParticles == null) return;
-        
-        float currentTime = Time.time;
-        if (currentTime - lastToggleTime < cooldownTime) return;
-
-        lastToggleTime = currentTime;
-        isWaterRunning = true;
-
-        if (!showerParticles.isPlaying)
+        if (showerParticles != null && !showerParticles.isPlaying)
         {
             showerParticles.Play();
         }
@@ -49,15 +36,7 @@ public class ShowerWaterController : MonoBehaviour
 
     private void StopWaterEffect()
     {
-        if (showerParticles == null) return;
-
-        float currentTime = Time.time;
-        if (currentTime - lastToggleTime < cooldownTime) return;
-
-        lastToggleTime = currentTime;
-        isWaterRunning = false;
-
-        if (showerParticles.isPlaying)
+        if (showerParticles != null && showerParticles.isPlaying)
         {
             showerParticles.Stop();
         }

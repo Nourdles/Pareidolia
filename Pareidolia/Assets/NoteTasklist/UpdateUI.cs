@@ -38,10 +38,9 @@ public class UpdateUI: MonoBehaviour
         else if (GameStateManager.levelState == Levels.Morning)
         {
             notepadText[0] = "Morning To-Do List";
-            notepadText[1] = "Make cereal";
+            notepadText[1] = "Make breakfast";
             notepadText[2] = "Make coffee";
-            notepadText[3] = "Put dirty clothes in the wash";
-            notepadText[4] = "Take a shower";
+            notepadText[3] = "Take a shower";
         }
         updateTasks();
     }
