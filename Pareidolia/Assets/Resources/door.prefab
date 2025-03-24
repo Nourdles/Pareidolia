@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6670616711854400851, guid: e35535956103cda4188bf69f83272639, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -5782885681420162795, guid: e35535956103cda4188bf69f83272639, type: 3}
       propertyPath: m_TagString
       value: InteractableObject
@@ -87,12 +91,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -6670616711854400851, guid: e35535956103cda4188bf69f83272639, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7419768210914371037}
+    - targetCorrespondingSourceObject: {fileID: -6670616711854400851, guid: e35535956103cda4188bf69f83272639, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2781994397474442675}
     - targetCorrespondingSourceObject: {fileID: -5782885681420162795, guid: e35535956103cda4188bf69f83272639, type: 3}
       insertIndex: -1
       addedObject: {fileID: 902335914858783198}
-    - targetCorrespondingSourceObject: {fileID: -5782885681420162795, guid: e35535956103cda4188bf69f83272639, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 862642832139277167}
   m_SourcePrefab: {fileID: 100100000, guid: e35535956103cda4188bf69f83272639, type: 3}
 --- !u!1 &6288385843001495682 stripped
 GameObject:
@@ -118,23 +122,9 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4314565863056063247, guid: e35535956103cda4188bf69f83272639, type: 3}
---- !u!114 &862642832139277167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6288385843001495682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnimator: {fileID: 0}
-  locked: 1
 --- !u!1 &6599727246159864634 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6670616711854400851, guid: e35535956103cda4188bf69f83272639, type: 3}
@@ -159,6 +149,46 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4489444387513025828, guid: e35535956103cda4188bf69f83272639, type: 3}
+--- !u!114 &2781994397474442675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6599727246159864634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: 
+  inputMasking: Keyboard&Mouse
+  doorAnimator: {fileID: 0}
+  doorCollider: {fileID: 7419768210914371037}
+  doorKnobCollider: {fileID: 902335914858783198}
+  doorOpenSound:
+    Guid:
+      Data1: 1354553520
+      Data2: 1158808347
+      Data3: 957051310
+      Data4: -97738646
+    Path: event:/SFX/DoorOpen
+  doorCloseSound:
+    Guid:
+      Data1: -1944904614
+      Data2: 1282215556
+      Data3: 360232589
+      Data4: 608150863
+    Path: event:/SFX/DoorClose
+  doorLockSound:
+    Guid:
+      Data1: -1837889869
+      Data2: 1154181984
+      Data3: 581505212
+      Data4: 685115745
+    Path: event:/SFX/DoorLock
+  locked: 1
+  lockedDialogue: 

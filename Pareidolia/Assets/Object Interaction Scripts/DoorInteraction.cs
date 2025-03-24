@@ -6,6 +6,8 @@ using FMODUnity;
 public class DoorInteraction : ObjectInteraction
 {
     [SerializeField] private Animator doorAnimator;
+    [SerializeField] private MeshCollider doorCollider;
+    [SerializeField] private MeshCollider doorKnobCollider;
 
     public event Action DoorFirstOpeningEvent;
     public event Action DoorUnlockEvent;
@@ -16,12 +18,11 @@ public class DoorInteraction : ObjectInteraction
     public bool locked = true;
     private bool firstOpen = true;
     private bool doorOpen = false;
-
+    [SerializeField] private string lockedDialogue;
 
     protected override void Start()
     {
         base.Start();
-        //doorAnimator = gameObject.GetComponent<Animator>();
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
         interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open door";
     }
@@ -35,7 +36,6 @@ public class DoorInteraction : ObjectInteraction
                 DoorAnimation();
                 DoorFirstOpeningEvent?.Invoke();
                 firstOpen = false;
-
             }
             else
             {
@@ -44,17 +44,15 @@ public class DoorInteraction : ObjectInteraction
         }
         else
         {
-            if (GameStateManager.levelState == Levels.Tutorial)
-            {
-                InvokeDialoguePromptEvent("I shouldn't leave till I make my bed");
-            }
+            InvokeDialoguePromptEvent(lockedDialogue);
             AudioManager.instance.PlayOneShot(doorLockSound, this.transform.position);
         }
     }
 
-
     private void DoorAnimation()
     {
+        DisableColliders(); // disable colliders before animation starts
+
         if (doorOpen)
         {
             doorAnimator.Play("DoorClose");
@@ -71,26 +69,50 @@ public class DoorInteraction : ObjectInteraction
             interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to close door";
         }
+
         doorOpen = !doorOpen;
+
+        // wait for animation to finish before enabling colliders again
+        float animDuration = GetAnimationClipDuration(doorAnimator, doorOpen ? "DoorOpen" : "DoorClose");
+        if (!doorOpen)
+        {
+            Invoke(nameof(EnableColliders), animDuration);
+        }
     }
 
-    /*private void OnEnable()
+    private void DisableColliders()
     {
-        BedInteraction.BedInteractionEvent += UnlockDoor;
-
+        if (doorCollider != null) doorCollider.isTrigger = true;
+        if (doorKnobCollider != null) doorKnobCollider.isTrigger = true;
     }
 
-    private void OnDisable()
+    private void EnableColliders()
     {
-        BedInteraction.BedInteractionEvent -= UnlockDoor;
-    } */
+        if (doorCollider != null) doorCollider.isTrigger = false;
+        if (doorKnobCollider != null) doorKnobCollider.isTrigger = false;
+    }
+
+    private float GetAnimationClipDuration(Animator animator, string clipName)
+    {
+        if (animator == null || animator.runtimeAnimatorController == null) return 1f;
+
+        foreach (AnimationClip clip in animator.runtimeAnimatorController.animationClips)
+        {
+            if (clip.name == clipName) return clip.length;
+        }
+        return 1f; // default
+    }
+
+    public void SetLockedDialogue(string newDialogue)
+    {
+        lockedDialogue = newDialogue;   
+    }
 
     public void UnlockDoor()
     {
         locked = false;
         Debug.Log("Door has been unlocked");
         DoorUnlockEvent?.Invoke();
-
     }
 
     public void LockDoor()
@@ -105,7 +127,8 @@ public class DoorInteraction : ObjectInteraction
         {
             interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to close door";
-        } else
+        }
+        else
         {
             interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open door";

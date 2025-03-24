@@ -4,18 +4,18 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour
 {
     private Levels _currLvl;
-    private int _numMornComplete = 0;
+    [SerializeField] private int _numMornComplete = 0;
     private int _numAfterComplete = 0;
     private int _numNightComplete = 0;
-    private static int numMornTasks;
+    [SerializeField] private static int numMornTasks;
     private static int numAfterTasks;
     private static int numNightTasks;
 
     void Start()
     {
-        numMornTasks = Enum.GetNames(typeof(MorningTasks)).Length - 1;
-        // numAfterTasks = Enum.GetNames(typeof(AfternoonTasks)).Length - 1;
-        // numNightTasks = Enum.GetNames(typeof(NightTasks)).Length - 1;
+        numMornTasks = Enum.GetNames(typeof(MorningTasks)).Length;
+        numAfterTasks = Enum.GetNames(typeof(AfternoonTasks)).Length;
+        // numNightTasks = Enum.GetNames(typeof(NightTasks)).Length;
     }
 
     public bool IsMorningComplete()

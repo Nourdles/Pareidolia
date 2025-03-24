@@ -5,7 +5,7 @@
 			<value>DoorOpen</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{04d258de-607e-416b-a751-2e9cdd687642}</destination>
@@ -99,9 +99,14 @@
 	<object class="MixerBusEffectChain" id="{c56eed87-5443-4cdb-975a-f8575551a0d4}">
 		<relationship name="effects">
 			<destination>{18a3097b-a7ca-4af1-add8-2ad6d33fabc0}</destination>
+			<destination>{7c1621a9-7a48-4180-afc6-dcf1afabd444}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{19153785-26ff-4cba-a56b-095267dec5dd}" />
+	<object class="MixerBusPanner" id="{19153785-26ff-4cba-a56b-095267dec5dd}">
+		<property name="disabledSpeakers">
+			<value>4</value>
+		</property>
+	</object>
 	<object class="SingleSound" id="{dcbc03c9-87dc-4c26-941c-8c4a2e940f91}">
 		<property name="volume">
 			<value>8</value>
@@ -112,4 +117,5 @@
 	</object>
 	<object class="MixerBusFader" id="{7d8759f1-f7db-414f-b2fd-a81fafc5c29e}" />
 	<object class="MixerBusFader" id="{18a3097b-a7ca-4af1-add8-2ad6d33fabc0}" />
+	<object class="SpatialiserEffect" id="{7c1621a9-7a48-4180-afc6-dcf1afabd444}" />
 </objects>

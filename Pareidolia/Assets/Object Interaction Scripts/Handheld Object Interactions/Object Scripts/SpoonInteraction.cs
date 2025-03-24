@@ -1,5 +1,7 @@
+using UnityEngine;
 using System;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 public class SpoonInteraction : HandheldObjectInteraction
 {
