@@ -14,6 +14,13 @@ public class LaundryMachineInteraction : ObjectInteraction
     private String instruction = "";
     public static event Action DoLaundryEvent;
 
+    [SerializeField] private FMODUnity.EventReference washingMachineSFX;
+    [SerializeField] private FMODUnity.EventReference detergentPourSFX;
+    [SerializeField] private FMODUnity.EventReference clothingAddSFX;
+    [SerializeField] private GameObject washingMachineContent; // clothes inside
+    [SerializeField] private LaundrySpinRotator spinRotator; // rotator
+
+
     public override void interact(GameObject objectInHand)
     {
         if (objectInHand != null)
@@ -26,6 +33,13 @@ public class LaundryMachineInteraction : ObjectInteraction
                 {
                     // if yes: put laundry in machine + sfx
                     _clothesAdded = true;
+                    ((LaundryBinInteraction)objectInteraction).HideBasketShirts(); // call to empty basket
+
+                    AudioManager.instance.PlayOneShot(clothingAddSFX, transform.position);
+                    if (washingMachineContent != null) // display the clothing inside
+                    {
+                        washingMachineContent.SetActive(true);
+                    }
                     if (!_soapAdded)
                     {
                         InvokeDialoguePromptEvent("Now I just need to add detergent");
@@ -50,6 +64,7 @@ public class LaundryMachineInteraction : ObjectInteraction
                 } else
                 {
                     _soapAdded = true;
+                    AudioManager.instance.PlayOneShot(detergentPourSFX, transform.position);
                     if (_clothesAdded)
                     {
                         if (_doorOpen)
@@ -98,8 +113,14 @@ public class LaundryMachineInteraction : ObjectInteraction
     private void StartLoad()
     {
         // play washing machine sound
+        AudioManager.instance.PlayOneShot(washingMachineSFX, transform.position);
         DoLaundryEvent?.Invoke();
         SetUninteractable();
+        
+        if (spinRotator != null)
+        {
+            spinRotator.StartSpinning();
+        }
     }
 
     void OnEnable()

@@ -4,10 +4,10 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour
 {
     private Levels _currLvl;
-    private int _numMornComplete = 0;
+    [SerializeField] private int _numMornComplete = 0;
     private int _numAfterComplete = 0;
     private int _numNightComplete = 0;
-    private static int numMornTasks;
+    [SerializeField] private static int numMornTasks;
     private static int numAfterTasks;
     private static int numNightTasks;
 

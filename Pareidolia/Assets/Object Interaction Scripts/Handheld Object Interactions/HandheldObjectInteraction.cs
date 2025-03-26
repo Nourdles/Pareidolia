@@ -16,9 +16,13 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
     private int handheldLayer;
     private int defaultLayer;
 
+    private Camera playerCam;
+
     protected override void Start() 
     {
         base.Start();
+        playerCam = GameObject.Find("Player Camera").GetComponent<Camera>(); // get the player camera (used to detect object clipping)
+
         itemRb = gameObject.GetComponentInParent<Rigidbody>();
         handheldLayer = LayerMask.NameToLayer("HandheldObjects");
         defaultLayer = LayerMask.NameToLayer("Default");
@@ -85,6 +89,7 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
     }
 
+
     public void DropObject()
     {
         itemRb.transform.parent = null;
@@ -95,6 +100,27 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
         // set the object's layer back to default
         gameObject.layer = defaultLayer;
+        PreventClipping();
+    }
+
+    public void PreventClipping()
+    {
+        //Debug.Log("Preventing Clipping");
+        GameObject objectCenter = FindObjectCenter();
+        var clipRange = Vector3.Distance(gameObject.transform.position, playerCam.transform.position * 1.5f); //distance from holdPos/the held object to the camera (offset so the ray doesn't start from inside collider)
+
+        RaycastHit[] rayHits;
+        rayHits = Physics.RaycastAll(playerCam.transform.position, playerCam.transform.TransformDirection(Vector3.forward), clipRange);
+        Debug.Log("Clip Range:" + clipRange);
+        Debug.Log(rayHits);
+        // check if the raycasts have detected another object between the object hold position and camera
+        if (rayHits.Length > 1)
+        {
+            Debug.Log("Clipping Detected");
+            Debug.Log("Clip Range:" + clipRange);
+            // move object to be positioned slightly below player camera so it doesn't clip upon dropping
+            objectCenter.transform.position = playerCam.transform.position + new Vector3(0f, -0.1f, 0f);
+        }
     }
 
     private void PlayDropSound(Vector3 position)
