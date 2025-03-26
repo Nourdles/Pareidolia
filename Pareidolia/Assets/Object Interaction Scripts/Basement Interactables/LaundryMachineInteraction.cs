@@ -17,6 +17,9 @@ public class LaundryMachineInteraction : ObjectInteraction
     [SerializeField] private FMODUnity.EventReference washingMachineSFX;
     [SerializeField] private FMODUnity.EventReference detergentPourSFX;
     [SerializeField] private FMODUnity.EventReference clothingAddSFX;
+    [SerializeField] private GameObject washingMachineContent; // clothes inside
+    [SerializeField] private LaundrySpinRotator spinRotator; // rotator
+
 
     public override void interact(GameObject objectInHand)
     {
@@ -30,7 +33,13 @@ public class LaundryMachineInteraction : ObjectInteraction
                 {
                     // if yes: put laundry in machine + sfx
                     _clothesAdded = true;
+                    ((LaundryBinInteraction)objectInteraction).HideBasketShirts(); // call to empty basket
+
                     AudioManager.instance.PlayOneShot(clothingAddSFX, transform.position);
+                    if (washingMachineContent != null) // display the clothing inside
+                    {
+                        washingMachineContent.SetActive(true);
+                    }
                     if (!_soapAdded)
                     {
                         InvokeDialoguePromptEvent("Now I just need to add detergent");
@@ -107,6 +116,11 @@ public class LaundryMachineInteraction : ObjectInteraction
         AudioManager.instance.PlayOneShot(washingMachineSFX, transform.position);
         DoLaundryEvent?.Invoke();
         SetUninteractable();
+        
+        if (spinRotator != null)
+        {
+            spinRotator.StartSpinning();
+        }
     }
 
     void OnEnable()

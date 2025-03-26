@@ -14,6 +14,8 @@ public class LaundryBinInteraction : HandheldObjectInteraction
     public static event Action PickupBinEvent;
 
     [SerializeField] private FMODUnity.EventReference clothingPickupSFX;
+
+    [SerializeField] GameObject[] basketShirts;
     
     protected override void Start()
     {
@@ -30,6 +32,11 @@ public class LaundryBinInteraction : HandheldObjectInteraction
 
         // play pickup sfx
         AudioManager.instance.PlayOneShot(clothingPickupSFX, transform.position);
+
+        if (basketShirts[_numclothes - 1] != null)
+        {
+            basketShirts[_numclothes - 1].SetActive(true);
+        }
         
         // check if equal to num_dirty_clothes
         if (_numclothes == NUM_DIRTY_CLOTHES)
@@ -39,6 +46,17 @@ public class LaundryBinInteraction : HandheldObjectInteraction
         } else
         {
             InvokeDialoguePromptEvent(GetNumMissing() + " clothes picked up");
+        }
+    }
+
+    public void HideBasketShirts() // empty the basket when the shirts are put in the washer
+    {
+        Debug.Log("DoLaundryEvent received: hiding basket shirts.");
+
+        foreach (GameObject shirt in basketShirts)
+        {
+            if (shirt != null)
+                shirt.SetActive(false);
         }
     }
 
