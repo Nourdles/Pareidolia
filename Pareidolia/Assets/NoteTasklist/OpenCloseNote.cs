@@ -11,7 +11,7 @@ public class OpenCloseNote : MonoBehaviour
     InputAction tasklistAction;
     Renderer tasklist;
     [SerializeField] private GameObject tasklistcanvas;
-    public EventReference tasklistsfx;
+    [SerializeField] private EventReference tasklistsfx;
     private bool _firstOpen = true;
     private bool noteOpen = false;
     [SerializeField] private bool notePickedUp = false;
@@ -32,8 +32,12 @@ public class OpenCloseNote : MonoBehaviour
     {
         Debug.Log("Opening note");
         // stop player from moving while reading
-        AudioManager.instance.PlayOneShot(tasklistsfx, this.transform.position);
-        // Play sfx whenever the player opens their tasklist
+
+        // Play the FMOD sound here
+        FMOD.Studio.EventInstance tasklistEvent = FMODUnity.RuntimeManager.CreateInstance(tasklistsfx);
+        tasklistEvent.start();
+        tasklistEvent.release();
+        
         noteOpen = true;
         if (_firstOpen)
         {
