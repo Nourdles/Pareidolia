@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05530c6c8a3697d47ab08ad51a3f0f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _numMornComplete: 0
 --- !u!1 &8249609666087989725
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +60,7 @@ GameObject:
   - component: {fileID: 6512192977328404584}
   - component: {fileID: 7689178146164018306}
   - component: {fileID: 1431324100755688594}
+  - component: {fileID: 4426802300662661107}
   m_Layer: 0
   m_Name: Morning manager
   m_TagString: Untagged
@@ -146,6 +148,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49b7217925a1a4a46b89b43b8f81874c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complete: 0
+--- !u!114 &4426802300662661107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8249609666087989725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed3b096dc3cffa4bbf731592a1e9770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   complete: 0

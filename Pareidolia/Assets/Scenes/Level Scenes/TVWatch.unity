@@ -1407,7 +1407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2083205631
 Transform:
   m_ObjectHideFlags: 0
@@ -1511,6 +1511,10 @@ PrefabInstance:
     - target: {fileID: 2727285169134911928, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727285169134911928, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3017299154016998455, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
       propertyPath: m_LocalScale.x
@@ -1728,28 +1732,7 @@ PrefabInstance:
     - {fileID: 5466795558401844151, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4241590656131842012, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2215969203596542729, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 7690185691387756577, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5949477426133563552, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8709234714499185758, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1538579855359083319, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 4725345745410619510, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
 --- !u!114 &321109939135082730 stripped
 MonoBehaviour:
