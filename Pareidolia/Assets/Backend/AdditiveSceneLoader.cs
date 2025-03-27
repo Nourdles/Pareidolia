@@ -1,4 +1,5 @@
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public static class SceneSwitcher
 {
@@ -12,6 +13,7 @@ public static class SceneSwitcher
         int n = SceneManager.sceneCount;
         if (n > 1)
         {
+            Debug.Log("Unloading " + scene);
             SceneManager.UnloadSceneAsync(scene);
         }
     }

@@ -748,6 +748,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4123032530708855145, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6720208989509201760, guid: 83606f6cd788ff247b1ef31963c83c19, type: 2}
     - target: {fileID: 5218271766939581242, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9370,42 +9374,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7697350605525136741}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 88.865}
---- !u!328 &1354329943495308903
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4436926937376056060}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 272038b8832a55441bd5265e843335d3, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: 6b4098a270636cd4b9d63c6f533b84de, type: 2}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 2
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 01
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 1
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
 --- !u!114 &1355626533686467900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18048,7 +18016,7 @@ GameObject:
   - component: {fileID: 8300624210796884195}
   m_Layer: 0
   m_Name: TVBody_low
-  m_TagString: InteractableObject
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24879,6 +24847,8 @@ MonoBehaviour:
   interactText: 
   inputMasking: Keyboard&Mouse
   doorAnimator: {fileID: 3671617128537391762}
+  doorCollider: {fileID: 0}
+  doorKnobCollider: {fileID: 0}
   doorOpenSound:
     Guid:
       Data1: 1354553520
@@ -25260,9 +25230,10 @@ GameObject:
   - component: {fileID: 242862899701012650}
   - component: {fileID: 6891918292784967148}
   - component: {fileID: 8567980338591564915}
+  - component: {fileID: 8567980338591564916}
   m_Layer: 0
   m_Name: top_pillows
-  m_TagString: Untagged
+  m_TagString: InteractableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29596,23 +29567,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &4436926937376056060
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7958899144482435491}
-  - component: {fileID: 1354329943495308903}
-  m_Layer: 0
-  m_Name: Video Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!65 &4439123343712796071
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29742,6 +29696,8 @@ MonoBehaviour:
       Data3: -1125382245
       Data4: 630171466
     Path: event:/SFX/Coffee Machine
+  coffeePourEffect: {fileID: 0}
+  coffeeContent: {fileID: 0}
 --- !u!23 &4470689772279749406
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30004,6 +29960,8 @@ MonoBehaviour:
   interactText: 
   inputMasking: Keyboard&Mouse
   doorAnimator: {fileID: 2556113405675037509}
+  doorCollider: {fileID: 0}
+  doorKnobCollider: {fileID: 0}
   doorOpenSound:
     Guid:
       Data1: 0
@@ -30088,6 +30046,13 @@ MonoBehaviour:
       Data3: 1939665316
       Data4: -1794753488
     Path: event:/SFX/Spoon Pickup
+  dropSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!4 &4499580421528627157
 Transform:
   m_ObjectHideFlags: 0
@@ -32235,7 +32200,6 @@ Transform:
   - {fileID: 7637590781176535067}
   - {fileID: 2666502099695214344}
   - {fileID: 5827328776099854455}
-  - {fileID: 7958899144482435491}
   m_Father: {fileID: 6318769047335669037}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &4967918308929066568
@@ -32426,6 +32390,7 @@ MonoBehaviour:
   _showerHoldTransform: {fileID: 1258714407175075296}
   _matHoldTransform: {fileID: 6179790514183783081}
   _taskManagerObj: {fileID: 1665090996}
+  _canShower: 0
 --- !u!4 &5042387624730322117
 Transform:
   m_ObjectHideFlags: 0
@@ -37324,6 +37289,8 @@ MonoBehaviour:
   interactText: 
   inputMasking: Keyboard&Mouse
   doorAnimator: {fileID: 5268375680052457194}
+  doorCollider: {fileID: 0}
+  doorKnobCollider: {fileID: 0}
   doorOpenSound:
     Guid:
       Data1: 1354553520
@@ -42892,13 +42859,13 @@ MonoBehaviour:
       Data3: -1503200596
       Data4: 228010926
     Path: event:/SFX/Mug Pickup
-  mugPickupSFX:
+  dropSFX:
     Guid:
-      Data1: -972671729
-      Data2: 1219292530
-      Data3: -1503200596
-      Data4: 228010926
-    Path: event:/SFX/Mug Pickup
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!4 &7271489710096530271
 Transform:
   m_ObjectHideFlags: 0
@@ -44466,6 +44433,8 @@ MonoBehaviour:
   interactText: 
   inputMasking: Keyboard&Mouse
   doorAnimator: {fileID: 8413643193134892615}
+  doorCollider: {fileID: 0}
+  doorKnobCollider: {fileID: 0}
   doorOpenSound:
     Guid:
       Data1: 1354553520
@@ -46065,21 +46034,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7958899144482435491
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4436926937376056060}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0058, y: 0.00917, z: -0.00586}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4967524863004376273}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7960793309748245619
 Transform:
   m_ObjectHideFlags: 0
@@ -48648,13 +48602,13 @@ MonoBehaviour:
       Data3: 1243199927
       Data4: 1505742785
     Path: event:/SFX/Milk Pickup
-  milkPickupSFX:
+  dropSFX:
     Guid:
-      Data1: -482902259
-      Data2: 1290119245
-      Data3: 1243199927
-      Data4: 1505742785
-    Path: event:/SFX/Milk Pickup
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!4 &8518501026501232773
 Transform:
   m_ObjectHideFlags: 0
@@ -48806,6 +48760,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3281662134571721145, guid: 2410173c1e7fe4f4083773cdf07a8f70, type: 3}
+--- !u!114 &8567980338591564916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3526748252187966726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ef456daf6047845974ec7c3199fd1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: 
+  inputMasking: Keyboard&Mouse
 --- !u!33 &8578822926851037316
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -50144,13 +50112,13 @@ MonoBehaviour:
       Data3: -1598445166
       Data4: -1039440501
     Path: event:/SFX/Cereal Pickup
-  cerealPickupSFX:
+  dropSFX:
     Guid:
-      Data1: -2128853257
-      Data2: 1151067829
-      Data3: -1598445166
-      Data4: -1039440501
-    Path: event:/SFX/Cereal Pickup
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!23 &8919084890226446676
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -50338,6 +50306,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: 
   inputMasking: Keyboard&Mouse
+  washingMachineSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  detergentPourSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  clothingAddSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  washingMachineContent: {fileID: 0}
+  spinRotator: {fileID: 0}
 --- !u!65 &8944863377366829859
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51029,7 +51020,22 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  dropSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _isFull: 0
+  clothingPickupSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  basketShirts: []
 --- !u!1 &9081986743658301276
 GameObject:
   m_ObjectHideFlags: 0
@@ -51652,6 +51658,13 @@ MonoBehaviour:
   handheld_id: 0
   itemRb: {fileID: 0}
   pickupSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  dropSFX:
     Guid:
       Data1: 0
       Data2: 0
