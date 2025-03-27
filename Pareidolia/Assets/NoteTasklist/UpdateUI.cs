@@ -42,6 +42,7 @@ public class UpdateUI: MonoBehaviour
             notepadText[2] = "Make coffee";
             notepadText[3] = "Put dirty clothes in the wash";
             notepadText[4] = "Take a shower";
+            notepadText[5] = "Watch TV";
         }
         updateTasks();
     }
