@@ -11,8 +11,8 @@ public class SofaInteraction : ObjectInteraction
     }
     public override void interact(GameObject objectInHand)
     {
-        SceneSwitcher.LoadSceneOnTop("TVWatch");
         SetUninteractable();
+        SceneSwitcher.LoadSceneOnTop("TVWatch");
     }
 
     protected override void UpdateInteractText()

@@ -402,6 +402,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjectHighlighter
       objectReference: {fileID: 0}
+    - target: {fileID: 5120962696092117623, guid: 2c4235b32cf4ef941b2612ffc5fbce5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5137694159811739967, guid: 2c4235b32cf4ef941b2612ffc5fbce5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.54891
@@ -1298,7 +1302,7 @@ VideoPlayer:
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
-  - 0.525
+  - 0.524
   m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
@@ -1634,6 +1638,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4954518801142401524, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206928624042792612, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5206928624042792612, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
