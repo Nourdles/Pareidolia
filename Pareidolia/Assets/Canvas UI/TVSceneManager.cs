@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.Video;
 
 public class TVSceneManager : MonoBehaviour
 {
-
+    public static event Action TVWatchedEvent;
      private VideoPlayer video;
 
     void Start()
@@ -16,6 +17,7 @@ public class TVSceneManager : MonoBehaviour
 
     private void OnMovieEnded(VideoPlayer vp)
     {
+        TVWatchedEvent?.Invoke();
         SceneSwitcher.UnLoadSceneOnTop("TVWatch");
     }
 }
