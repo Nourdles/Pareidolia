@@ -25,7 +25,7 @@ public class ClothingInteraction : ObjectInteraction
                 Destroy(gameObject);
             } else
             {
-                InvokeDialoguePromptEvent("I should put these dirty clothes in the wash...I need to get my laundry bin from the w=basement to pick these up");
+                InvokeDialoguePromptEvent("I should put these dirty clothes in the wash...I need to get my laundry bin from the basement to pick these up");
             }
         } else
         {

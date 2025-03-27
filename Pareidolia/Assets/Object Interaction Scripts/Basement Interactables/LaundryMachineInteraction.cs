@@ -98,14 +98,14 @@ public class LaundryMachineInteraction : ObjectInteraction
 
     private void HoldingBinInteractText()
     {
-        interactText = interactText = "Press <sprite=\"UISprites\" name=\"" + 
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to place clothes";
         instruction = "\"> to place clothes";
     }
 
     private void HoldingDetergentInteractText()
     {
-        interactText = interactText = "Press <sprite=\"UISprites\" name=\"" + 
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to add detergent";
         instruction = "\"> to add detergent";
     }
