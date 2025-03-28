@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class PauseManager : MonoBehaviour
 {
@@ -6,17 +7,18 @@ public class PauseManager : MonoBehaviour
     public PauseMenuManager pauseMenuManager;
 
     private bool isPaused = false;
+    private FMOD.Studio.Bus masterBus;
 
     void Start()
     {
-        // make sure pause menu is hidden at the beginning
         pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
+
+        masterBus = RuntimeManager.GetBus("bus:/");
     }
 
     void Update()
     {
-        // ESC key or Start button (JoystickButton7)
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7))
         {
             if (isPaused)
@@ -25,8 +27,7 @@ public class PauseManager : MonoBehaviour
                 PauseGame();
         }
 
-        // "B" can still resume if you're in main pause menu
-        if (isPaused && Input.GetKeyDown(KeyCode.JoystickButton1) && pauseMenuCanvas.activeSelf)
+        if (isPaused && Input.GetKeyDown(KeyCode.JoystickButton1))
         {
             ResumeGame();
         }
@@ -40,6 +41,8 @@ public class PauseManager : MonoBehaviour
         pauseMenuCanvas.SetActive(true);
         pauseMenuManager.ShowPauseMainMenu();
 
+        masterBus.setPaused(true);
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -50,6 +53,8 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
 
         pauseMenuCanvas.SetActive(false);
+
+        masterBus.setPaused(false);
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

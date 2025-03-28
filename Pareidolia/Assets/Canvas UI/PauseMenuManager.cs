@@ -8,18 +8,16 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject pauseMainMenu;
     public GameObject pauseOptionsMenu;
 
-    public Button pauseMainMenuFirstButton;     // resume button
-    public Button pauseOptionsMenuFirstButton;  // back or first options button
+    public Button pauseMainMenuFirstButton;
+    public Button pauseOptionsMenuFirstButton;
 
     void Start()
     {
-        // start on pause main menu and auto-select Resume
         ShowPauseMainMenu();
     }
 
     void Update()
     {
-        // "B" button (xbox) / "circle" (playstation) to go back
         if (Input.GetKeyDown(KeyCode.JoystickButton1))
         {
             if (pauseOptionsMenu.activeSelf)
@@ -34,7 +32,6 @@ public class PauseMenuManager : MonoBehaviour
         pauseMainMenu.SetActive(true);
         pauseOptionsMenu.SetActive(false);
 
-        ResetAllButtonColors(pauseMainMenu);
         StartCoroutine(ForceSelectButton(pauseMainMenuFirstButton));
     }
 
@@ -43,7 +40,6 @@ public class PauseMenuManager : MonoBehaviour
         pauseMainMenu.SetActive(false);
         pauseOptionsMenu.SetActive(true);
 
-        ResetAllButtonColors(pauseOptionsMenu);
         StartCoroutine(ForceSelectButton(pauseOptionsMenuFirstButton));
     }
 
@@ -56,15 +52,6 @@ public class PauseMenuManager : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             yield return null;
             EventSystem.current.SetSelectedGameObject(button.gameObject);
-        }
-    }
-
-    void ResetAllButtonColors(GameObject menu)
-    {
-        TextColorChanger[] textChangers = menu.GetComponentsInChildren<TextColorChanger>();
-        foreach (TextColorChanger changer in textChangers)
-        {
-            changer.ResetTextColor();
         }
     }
 }
