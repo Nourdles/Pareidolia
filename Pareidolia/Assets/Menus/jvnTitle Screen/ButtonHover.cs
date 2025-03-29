@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 using System.Collections;
+using FMODUnity;
 
 public class TextColorChanger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
@@ -25,6 +26,9 @@ public class TextColorChanger : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        // Play UI Hover sound when the pointer enters the UI element
+        RuntimeManager.PlayOneShot("event:/Music/UI Hover");
+
         StartFade(highlightColor);
     }
 
@@ -38,6 +42,8 @@ public class TextColorChanger : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnSelect(BaseEventData eventData)
     {
+        RuntimeManager.PlayOneShot("event:/Music/UI Hover");
+
         isSelected = true;
         StartFade(highlightColor);
     }

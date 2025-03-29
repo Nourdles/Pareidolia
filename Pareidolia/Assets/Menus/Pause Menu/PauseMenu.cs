@@ -6,15 +6,17 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuCanvas;
     public PauseMenuManager pauseMenuManager;
     public string mainMenuSceneName = "jvnTitleScene";
+    public static PauseManager pauseManager;
 
     public void ResumeGame()
     {
         Debug.Log("Resume Game");
 
-        Time.timeScale = 1f;
-        pauseMenuCanvas.SetActive(false);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (pauseManager == null)
+        {
+            pauseManager = FindObjectOfType<PauseManager>();
+        }
+        pauseManager.ResumeGame();
     }
 
     public void Options()
