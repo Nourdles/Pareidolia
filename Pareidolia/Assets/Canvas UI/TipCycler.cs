@@ -7,7 +7,7 @@ public class TipCycler : MonoBehaviour
 
     [TextArea(2, 4)]
     public string[] tips;
-    public float interval = 5f; // ⏱️ 5-second cycle
+    public float interval = 5f; // 5-second cycle
 
     private int currentTipIndex = 0;
     private float timer;

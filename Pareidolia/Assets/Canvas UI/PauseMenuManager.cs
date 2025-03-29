@@ -29,29 +29,48 @@ public class PauseMenuManager : MonoBehaviour
 
     public void ShowPauseMainMenu()
     {
-        pauseMainMenu.SetActive(true);
+        StopAllCoroutines();
+        EventSystem.current.SetSelectedGameObject(null);
+
         pauseOptionsMenu.SetActive(false);
+        pauseMainMenu.SetActive(true);
 
         StartCoroutine(ForceSelectButton(pauseMainMenuFirstButton));
     }
 
     public void ShowPauseOptionsMenu()
     {
+        StopAllCoroutines();
+        EventSystem.current.SetSelectedGameObject(null);
+
         pauseMainMenu.SetActive(false);
         pauseOptionsMenu.SetActive(true);
 
         StartCoroutine(ForceSelectButton(pauseOptionsMenuFirstButton));
     }
 
-    IEnumerator ForceSelectButton(Button button)
+    IEnumerator ForceSelectButton(Button targetButton)
     {
+        yield return null; // Let layout settle
+
+        GameObject activeMenu = pauseMainMenu.activeSelf ? pauseMainMenu : pauseOptionsMenu;
+        Button[] allButtons = activeMenu.GetComponentsInChildren<Button>(false);
+
+        foreach (var btn in allButtons)
+        {
+            if (btn != targetButton)
+            {
+                EventSystem.current.SetSelectedGameObject(btn.gameObject);
+                yield return null;
+            }
+        }
+
+        EventSystem.current.SetSelectedGameObject(null);
         yield return null;
 
-        if (button != null)
+        if (targetButton != null)
         {
-            EventSystem.current.SetSelectedGameObject(null);
-            yield return null;
-            EventSystem.current.SetSelectedGameObject(button.gameObject);
+            EventSystem.current.SetSelectedGameObject(targetButton.gameObject);
         }
     }
 }

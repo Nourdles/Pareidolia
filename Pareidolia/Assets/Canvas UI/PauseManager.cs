@@ -52,8 +52,17 @@ public class PauseManager : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1f;
 
-        pauseMenuCanvas.SetActive(false);
+        // Clear glows before hiding UI
+        GlowHoverEffect[] glows = pauseMenuCanvas.GetComponentsInChildren<GlowHoverEffect>(false);
+        foreach (var glow in glows)
+        {
+            if (glow.gameObject.activeInHierarchy)
+            {
+                glow.ForceGlowOff();
+            }
+        }
 
+        pauseMenuCanvas.SetActive(false);
         masterBus.setPaused(false);
 
         Cursor.visible = false;
