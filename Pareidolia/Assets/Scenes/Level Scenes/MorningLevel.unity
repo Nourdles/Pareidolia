@@ -2882,9 +2882,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955e2358c3ba042498629a4e108ae254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverGlowImage: {fileID: 600287179}
   fadeSpeed: 5
   moveDistance: 5
+  hoverGlowImage: {fileID: 600287179}
 --- !u!114 &600287178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3103,9 +3103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955e2358c3ba042498629a4e108ae254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverGlowImage: {fileID: 636319817}
   fadeSpeed: 5
   moveDistance: 5
+  hoverGlowImage: {fileID: 636319817}
 --- !u!114 &636319816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4691,9 +4691,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955e2358c3ba042498629a4e108ae254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverGlowImage: {fileID: 931301555}
   fadeSpeed: 5
   moveDistance: 5
+  hoverGlowImage: {fileID: 931301555}
 --- !u!114 &931301554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5451,9 +5451,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955e2358c3ba042498629a4e108ae254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverGlowImage: {fileID: 1099851518}
   fadeSpeed: 5
   moveDistance: 5
+  hoverGlowImage: {fileID: 1099851518}
 --- !u!114 &1099851517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7523,9 +7523,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955e2358c3ba042498629a4e108ae254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverGlowImage: {fileID: 1536574783}
   fadeSpeed: 5
   moveDistance: 5
+  hoverGlowImage: {fileID: 1536574783}
 --- !u!114 &1536574782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7779,9 +7779,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955e2358c3ba042498629a4e108ae254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverGlowImage: {fileID: 1630445475}
   fadeSpeed: 5
   moveDistance: 5
+  hoverGlowImage: {fileID: 1630445475}
 --- !u!114 &1630445474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8786,9 +8786,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 202499602849459105, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: fadeSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 202499602849459105, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: moveDistance
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 314113074333006478, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1077805456538128832, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681243219984116923, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: fadeSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681243219984116923, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: moveDistance
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1712604788243930304, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_LocalScale.x
@@ -8797,6 +8817,14 @@ PrefabInstance:
     - target: {fileID: 1712604788243930304, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.255
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557047013326109888, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: fadeSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557047013326109888, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: moveDistance
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3668270083755728894, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_Name
@@ -8812,6 +8840,10 @@ PrefabInstance:
       objectReference: {fileID: 3790186195687072487, guid: 6440efcf2b116a64181a5ffcb694fbef, type: 2}
     - target: {fileID: 5218271766939581242, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610474084784603209, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6657068062427459338, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
@@ -8842,6 +8874,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 316
       objectReference: {fileID: 0}
+    - target: {fileID: 7356591671051616787, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: fadeSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7356591671051616787, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: moveDistance
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392729927968847873, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: fadeSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392729927968847873, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: moveDistance
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7442110803628346509, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_Color.b
       value: 0.592289
@@ -8861,6 +8909,14 @@ PrefabInstance:
     - target: {fileID: 8060051119996557232, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372634013574685294, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: fadeSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372634013574685294, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: moveDistance
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8982564742291136182, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_LocalPosition.x

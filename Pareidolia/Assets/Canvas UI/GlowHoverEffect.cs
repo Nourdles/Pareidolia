@@ -5,9 +5,12 @@ using System.Collections;
 
 public class GlowHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
+    [Header("Glow Settings")]
+    [SerializeField] private float fadeSpeed = 2.5f;
+    [SerializeField] private float moveDistance = 10f;
+
+    [Header("References")]
     public Image hoverGlowImage;
-    public float fadeSpeed = 5f;
-    public float moveDistance = 10f;
 
     private Color originalColor;
     private Vector2 originalPosition;
@@ -17,7 +20,7 @@ public class GlowHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         if (hoverGlowImage == null)
         {
-            Debug.LogWarning("GlowHoverEffect: No image assigned!");
+            Debug.LogWarning("GlowHoverEffect: No image assigned");
             return;
         }
 
@@ -40,11 +43,13 @@ public class GlowHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnSelect(BaseEventData eventData)
     {
+        if (!gameObject.activeInHierarchy) return;
         TriggerGlowIn();
     }
 
     public void OnDeselect(BaseEventData eventData)
     {
+        if (!gameObject.activeInHierarchy) return;
         TriggerGlowOut();
     }
 
@@ -96,5 +101,16 @@ public class GlowHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
             yield return null;
         }
+    }
+
+    public void ForceGlowOff()
+    {
+        if (hoverRoutine != null) StopCoroutine(hoverRoutine);
+
+        Color c = hoverGlowImage.color;
+        c.a = 0f;
+        hoverGlowImage.color = c;
+
+        hoverGlowImage.rectTransform.anchoredPosition = originalPosition;
     }
 }
