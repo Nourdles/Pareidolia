@@ -4538,6 +4538,17 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 8.9, y: 5.45, z: 1}
   m_FadeFactor: 0.691
+--- !u!114 &907217092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8657140290455984576, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+  m_PrefabInstance: {fileID: 1867931190}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &930672820
 GameObject:
   m_ObjectHideFlags: 0
@@ -5128,6 +5139,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 0459e8ff0fa04394fa08eaca6b8a02d1, type: 3}
+--- !u!114 &993996392 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1006159459788457778, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+  m_PrefabInstance: {fileID: 1867931190}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1004544166
 GameObject:
   m_ObjectHideFlags: 0
@@ -8818,6 +8840,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.255
       objectReference: {fileID: 0}
+    - target: {fileID: 2060377826425130140, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088006561113471026, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3557047013326109888, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: fadeSpeed
       value: 2.5
@@ -8841,6 +8871,18 @@ PrefabInstance:
     - target: {fileID: 5218271766939581242, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5326720092952944373, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245131064186805203, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557808946590672215, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6610474084784603209, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_IsActive
@@ -8902,6 +8944,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.89433956
       objectReference: {fileID: 0}
+    - target: {fileID: 7442110803628346509, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8060051119996557232, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -8918,6 +8964,26 @@ PrefabInstance:
       propertyPath: moveDistance
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8657140290455984576, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657140290455984576, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657140290455984576, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_Color.r
+      value: 0.89411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915522818178837943, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: _progressBase
+      value: 
+      objectReference: {fileID: 907217092}
+    - target: {fileID: 8915522818178837943, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: _progressFill
+      value: 
+      objectReference: {fileID: 993996392}
     - target: {fileID: 8982564742291136182, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1190.9413
