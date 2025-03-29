@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -11,17 +12,23 @@ public class MoveCamera : MonoBehaviour
     float cameraHorizontalRotation;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    IEnumerator Start()
     {
-        // prevent cursor from moving off the screen
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        // initialize the players start rotation
-        cameraVerticalRotation = transform.eulerAngles.x;
-        cameraHorizontalRotation = transform.eulerAngles.y;
+        // wait one frame to allow other scripts/objects to initialize
+        yield return null;
 
+        // get the local starting rotation
+        Vector3 localStartRotation = transform.localEulerAngles;
+        cameraVerticalRotation = localStartRotation.x;
+        cameraHorizontalRotation = localStartRotation.y;
+
+        // apply it manually to avoid startup snap
+        transform.localRotation = Quaternion.Euler(cameraVerticalRotation, cameraHorizontalRotation, 0f);
     }
+
 
     // Update is called once per frame
     void Update()

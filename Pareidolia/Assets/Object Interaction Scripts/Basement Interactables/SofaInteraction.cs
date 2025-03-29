@@ -1,16 +1,23 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class SofaInteraction : MonoBehaviour
+public class SofaInteraction : ObjectInteraction
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
-        
+        base.Start();
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to watch TV";
+    }
+    public override void interact(GameObject objectInHand)
+    {
+        SetUninteractable();
+        SceneSwitcher.LoadSceneOnTop("TVWatch");
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void UpdateInteractText()
     {
-        
+        interactText = "Press <sprite=\"UISprites\" name=\"" + 
+            interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to watch TV";
     }
 }

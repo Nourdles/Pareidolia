@@ -36,6 +36,7 @@ public enum AfternoonTasks
 {
     WashLaundry = 3,
     Shower = 4,
+    WatchTV = 5,
 }
 
 
