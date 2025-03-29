@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using FMODUnity;
 
@@ -7,14 +8,18 @@ public class PauseManager : MonoBehaviour
     public PauseMenuManager pauseMenuManager;
 
     private bool isPaused = false;
-    private FMOD.Studio.Bus masterBus;
+    private FMOD.Studio.Bus gameBus;
+    private FMOD.Studio.Bus uiBus;
+
 
     void Start()
     {
         pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
 
-        masterBus = RuntimeManager.GetBus("bus:/");
+        // Get a reference to the bus
+        gameBus = RuntimeManager.GetBus("bus:/Game");
+        uiBus = RuntimeManager.GetBus("bus:/UI");
     }
 
     void Update()
@@ -41,13 +46,15 @@ public class PauseManager : MonoBehaviour
         pauseMenuCanvas.SetActive(true);
         pauseMenuManager.ShowPauseMainMenu();
 
-        masterBus.setPaused(true);
+        // Pause only game sounds not master
+        gameBus.setPaused(true);
+        uiBus.setPaused(false);
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
 
-    void ResumeGame()
+    public void ResumeGame()
     {
         isPaused = false;
         Time.timeScale = 1f;
@@ -63,7 +70,9 @@ public class PauseManager : MonoBehaviour
         }
 
         pauseMenuCanvas.SetActive(false);
-        masterBus.setPaused(false);
+        // Unpause game sounds
+        gameBus.setPaused(false);
+        uiBus.setPaused(true);
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

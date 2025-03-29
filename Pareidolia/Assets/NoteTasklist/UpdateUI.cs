@@ -1,11 +1,13 @@
 using UnityEngine;
 using TMPro;
 using System;
+using FMODUnity;
 
 public class UpdateUI: MonoBehaviour
 {
     [SerializeField] private TMP_Text[] notepadTextFields; // size 7
     [SerializeField] private string[] notepadText; // size 7
+    [SerializeField] private string tasklistUpdateSFXPath = "event:/SFX/Tasklist Update";
     // have a "Don't Look at the faces" images visible?
     public static event Action TasksUpdatedEvent;
     
@@ -23,6 +25,11 @@ public class UpdateUI: MonoBehaviour
         updateTasks();
     }*/
 
+    private void updateTaskListSFX()
+    {
+        RuntimeManager.PlayOneShot(tasklistUpdateSFXPath, transform.position);
+    }
+
     private void Start()
     {
         // determine which level/scene it currently is, and display the associated tasks
@@ -37,6 +44,8 @@ public class UpdateUI: MonoBehaviour
         }
         else if (GameStateManager.levelState == Levels.Morning)
         {
+            // Update task list sfx
+            updateTaskListSFX();
             notepadText[0] = "Morning To-Do List";
             notepadText[1] = "Make cereal";
             notepadText[2] = "Make coffee";
