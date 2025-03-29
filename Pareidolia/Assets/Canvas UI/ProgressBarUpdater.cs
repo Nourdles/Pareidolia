@@ -32,8 +32,11 @@ public class ProgressBarUpdater : MonoBehaviour
         if (_handleIMG != null)
             _handleIMG.enabled = _isVisible;
 
-        _progressBase.enabled = _isVisible;
-        _progressFill.enabled = _isVisible;
+        if (_progressBase != null)
+            _progressBase.enabled = _isVisible;
+
+        if (_progressFill != null)
+            _progressFill.enabled = _isVisible;
     }
 
     void OnEnable()
