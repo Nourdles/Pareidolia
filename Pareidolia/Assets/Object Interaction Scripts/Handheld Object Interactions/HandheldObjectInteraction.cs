@@ -83,10 +83,19 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
         // set the object tag as untagged so it can't be interacted with
         gameObject.tag = "Untagged";
-        // set the objects layer so that it can be rendered by the pickup camera
-        gameObject.layer = handheldLayer;
+        // set the object and its children's layer so that it can be rendered by the pickup camera
+        SetLayerRecursively(gameObject, handheldLayer);
         Debug.Log("Layer set");
 
+    }
+
+    private void SetLayerRecursively(GameObject obj, int newLayer) // recursively apply layer ot gameobject's children
+    {
+        obj.layer = newLayer;
+        foreach (Transform child in obj.transform)
+        {
+            SetLayerRecursively(child.gameObject, newLayer);
+        }
     }
 
 
@@ -98,8 +107,8 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
         // set as interactable again
         gameObject.tag = "InteractableObject";
 
-        // set the object's layer back to default
-        gameObject.layer = defaultLayer;
+        // revert this object and all children back to the default layer
+        SetLayerRecursively(gameObject, defaultLayer);
         PreventClipping();
     }
 
