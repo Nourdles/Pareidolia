@@ -3,42 +3,48 @@ using UnityEngine.UI;
 
 public class ProgressBarUpdater : MonoBehaviour
 {
-    [SerializeField] private Scrollbar _progressBar;
+    [SerializeField] private Image _progressFill;
+    [SerializeField] private Image _progressBase;
     [SerializeField] private GameObject _handle;
+
     private Image _handleIMG;
-    private Image _barIMG;
     private bool _isVisible = false;
 
     void Start()
     {
-        _handleIMG = _handle.GetComponent<Image>();
-        _barIMG = _progressBar.GetComponent<Image>();
-    }
-    private void UpdateProgressBar(float _chargeValue)
-    {
-        _progressBar.size = _chargeValue;
+        if (_handle != null)
+            _handleIMG = _handle.GetComponent<Image>();
     }
 
-    private void UpdatePBVisiblity(bool visible)
+    private void UpdateProgressBar(float chargeValue)
+    {
+        chargeValue = Mathf.Clamp01(chargeValue);
+        _progressFill.fillAmount = chargeValue;
+    }
+
+    private void UpdatePBVisibility(bool visible)
     {
         _isVisible = visible;
     }
 
     void Update()
     {
-        _handleIMG.enabled = _isVisible;
-        _barIMG.enabled = _isVisible;
+        if (_handleIMG != null)
+            _handleIMG.enabled = _isVisible;
+
+        _progressBase.enabled = _isVisible;
+        _progressFill.enabled = _isVisible;
     }
 
     void OnEnable()
     {
         ProgressTask.UpdateProgressBarEvent += UpdateProgressBar;
-        ProgressTask.UpdatePBVisibilityEvent += UpdatePBVisiblity;
+        ProgressTask.UpdatePBVisibilityEvent += UpdatePBVisibility;
     }
 
     void OnDisable()
     {
         ProgressTask.UpdateProgressBarEvent -= UpdateProgressBar;
-        ProgressTask.UpdatePBVisibilityEvent += UpdatePBVisiblity;
+        ProgressTask.UpdatePBVisibilityEvent -= UpdatePBVisibility;
     }
 }
