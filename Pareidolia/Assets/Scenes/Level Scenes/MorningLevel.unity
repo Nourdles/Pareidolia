@@ -7566,6 +7566,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1969891929}
     - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: windowColor
+      value: 
+      objectReference: {fileID: 2100000, guid: ad49ab653b5cb8544b6df17914ba5920, type: 2}
+    - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
       propertyPath: flickerEvent
       value: 
       objectReference: {fileID: 1003750439}
@@ -14673,7 +14677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8599551834089714071, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
       objectReference: {fileID: 0}
     - target: {fileID: 8625100481247653392, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -14713,7 +14717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8719704403004295669, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.413
+      value: 22.4
       objectReference: {fileID: 0}
     - target: {fileID: 8719704403004295669, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_LocalPosition.z

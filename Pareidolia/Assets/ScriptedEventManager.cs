@@ -16,6 +16,8 @@ public class ScriptedEventManager : MonoBehaviour
 
     [SerializeField] GameObject upperFloorDecals;
     [SerializeField] GameObject basementDecals;
+    [SerializeField] private Material windowColor;
+    
 
     //[SerializeField] UpdateUI notepadUI;
 
@@ -88,6 +90,23 @@ public class ScriptedEventManager : MonoBehaviour
     private void DeteriorateUpperFloor()
     {
         upperFloorDecals.SetActive(true);
+        
+        // change window color
+        Color emissionColor = new Color(1f, 0f, 0f);
+        float intensity = 1.1f;
+
+        MaterialPropertyBlock block = new MaterialPropertyBlock();
+        Renderer[] renderers = FindObjectsOfType<Renderer>();
+
+        foreach (Renderer r in renderers)
+        {
+            if (r.sharedMaterial == windowColor) // affect all windows
+            {
+                r.GetPropertyBlock(block);
+                block.SetColor("_EmissionColor", emissionColor * intensity);
+                r.SetPropertyBlock(block);
+            }
+        }
     }
 
     // after shower event
