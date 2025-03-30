@@ -311,6 +311,7 @@
 		<relationship name="effects">
 			<destination>{b68aa70b-dc01-43b9-812f-0ed673c05fe8}</destination>
 			<destination>{cb6060c4-3d9a-4b84-a771-98b8887cade5}</destination>
+			<destination>{1132f7a7-2f71-489a-aeb9-156e80af3e88}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{0a2dae9e-0133-4518-b4db-2ca325f6a6db}" />
@@ -323,6 +324,17 @@
 		</property>
 		<property name="gain">
 			<value>-5</value>
+		</property>
+	</object>
+	<object class="SFXReverbEffect" id="{1132f7a7-2f71-489a-aeb9-156e80af3e88}">
+		<property name="decayTime">
+			<value>850</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>86</value>
+		</property>
+		<property name="wetLevel">
+			<value>-30</value>
 		</property>
 	</object>
 </objects>
