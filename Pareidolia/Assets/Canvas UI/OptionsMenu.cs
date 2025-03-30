@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using System.Collections;
 using FMODUnity;
+using UnityEngine.InputSystem;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -61,6 +62,17 @@ public class OptionsMenu : MonoBehaviour
             masterBus.setVolume(masterVol);
             ambienceBus.setVolume(ambienceVol);
             sfxBus.setVolume(sfxVol);
+        }
+        else
+        {
+            // fallback if OptionsManager isn’t ready
+            masterVolumeSlider.SetValueWithoutNotify(defaultVolume);
+            ambienceSlider.SetValueWithoutNotify(defaultVolume);
+            sfxSlider.SetValueWithoutNotify(defaultVolume);
+
+            masterBus.setVolume(defaultVolume);
+            ambienceBus.setVolume(defaultVolume);
+            sfxBus.setVolume(defaultVolume);
         }
 
         if (optionsMenuUI.activeSelf)
@@ -125,12 +137,13 @@ public class OptionsMenu : MonoBehaviour
     void HandleControllerSliderInput()
     {
         GameObject selected = EventSystem.current.currentSelectedGameObject;
-        if (selected == null) return;
+        if (selected == null || Gamepad.current == null) return;
 
         Slider slider = selected.GetComponent<Slider>();
         if (slider != null)
         {
-            float input = Input.GetAxis("Horizontal");
+            float input = Gamepad.current.leftStick.ReadValue().x;
+
             if (Mathf.Abs(input) > inputDeadzone)
             {
                 slider.value += input * controllerAdjustSpeed * Time.unscaledDeltaTime;
