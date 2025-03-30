@@ -2,12 +2,11 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using FMODUnity;
 
 public class OptionsManager : MonoBehaviour
 {
     public static OptionsManager Instance;
-
-    [Header("Settings")]
     [Range(0f, 1f)] public float gammaValue = 0.5f; // Normalized value
     public float sensitivity = 500f;
 
@@ -17,9 +16,9 @@ public class OptionsManager : MonoBehaviour
     private const float minGamma = -0.5f;
     private const float maxGamma = 1.0f;
 
-    public float masterVolume = 1.0f;
-    public float ambienceVolume = 1.0f;
-    public float sfxVolume = 1.0f;
+    [Range(0f, 1f)] public float masterVolume = -1f;
+    [Range(0f, 1f)] public float ambienceVolume = -1f;
+    [Range(0f, 1f)] public float sfxVolume = -1f;
 
     private void Awake()
     {
@@ -68,6 +67,15 @@ public class OptionsManager : MonoBehaviour
                 gamma.gamma.value = new Vector4(mappedGamma, mappedGamma, mappedGamma, mappedGamma);
             }
         }
+
+        // fallback to default volume if not initialized
+        if (masterVolume < 0f) masterVolume = 1f;
+        if (ambienceVolume < 0f) ambienceVolume = 1f;
+        if (sfxVolume < 0f) sfxVolume = 1f;
+
+        RuntimeManager.GetBus("bus:/").setVolume(masterVolume);
+        RuntimeManager.GetBus("bus:/Game/Ambience").setVolume(ambienceVolume);
+        RuntimeManager.GetBus("bus:/Game/SFX").setVolume(sfxVolume);
     }
 
     // Manual update if needed

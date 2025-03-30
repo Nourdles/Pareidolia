@@ -43,11 +43,13 @@ public class OptionsMenu : MonoBehaviour
         ambienceBus = FMODUnity.RuntimeManager.GetBus("bus:/Game/Ambience");
         sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/Game/SFX");
 
+        SetupListeners();
+
         if (OptionsManager.Instance != null)
         {
-            float masterVol = OptionsManager.Instance.masterVolume;
-            float ambienceVol = OptionsManager.Instance.ambienceVolume;
-            float sfxVol = OptionsManager.Instance.sfxVolume;
+            float masterVol = (OptionsManager.Instance.masterVolume >= 0f) ? OptionsManager.Instance.masterVolume : defaultVolume;
+            float ambienceVol = (OptionsManager.Instance.ambienceVolume >= 0f) ? OptionsManager.Instance.ambienceVolume : defaultVolume;
+            float sfxVol = (OptionsManager.Instance.sfxVolume >= 0f) ? OptionsManager.Instance.sfxVolume : defaultVolume;
 
             masterVolumeSlider.SetValueWithoutNotify(masterVol);
             ambienceSlider.SetValueWithoutNotify(ambienceVol);
@@ -62,8 +64,6 @@ public class OptionsMenu : MonoBehaviour
         {
             StartCoroutine(ForceSelectSlider(firstSlider));
         }
-
-        SetupListeners();
 
         if (OptionsManager.Instance != null) // store values across scenes
         {
