@@ -3,8 +3,14 @@ using FMODUnity;
 
 public class FMODEvents : MonoBehaviour
 {
-    [field: Header("Ambience")]
-    [field: SerializeField] public EventReference ambience { get; private set; }
+    [field: Header("Dream")]
+    [field: SerializeField] public EventReference Dream { get; private set; }
+    
+    [field: Header("Ambience1")]
+    [field: SerializeField] public EventReference ambience1 { get; private set; }
+
+    [field: Header("Ambience2")]
+    [field: SerializeField] public EventReference ambience2 { get; private set; }
     
     [field: Header("Player SFX")]
     [field: SerializeField] public EventReference playerFootsteps { get; private set; }
