@@ -11,6 +11,8 @@ public class TitleScreenManager : MonoBehaviour
     public MainMenuFader menuFader;
     public GameObject mainMenuUI;
     private bool hasFadedIn = false; // prevents fade from triggering multiple times
+    private bool hasSkipped = false; // prevent ShowMainMenu being triggered whenever the main menu screen is clicked
+
 
     void Start()
     {
@@ -28,7 +30,7 @@ public class TitleScreenManager : MonoBehaviour
     void Update()
     {
         // skip input uses "B" (xbox) / "circle" (playstation) OR left click
-        if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetMouseButtonDown(0))
+        if (!hasSkipped && Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetMouseButtonDown(0))
         {
             SkipIntro();
         }
@@ -36,13 +38,19 @@ public class TitleScreenManager : MonoBehaviour
 
     void SkipIntro()
     {
+        if (hasSkipped) return; // already skipped
+        
         // stop intro vid and play looping vid
+        hasSkipped = true;
         introVideo.Stop();
         StartLoopingVideo();
     }
 
     void OnIntroFinished(VideoPlayer vp)
     {
+        if (hasSkipped) return;
+        hasSkipped = true;
+
         StartLoopingVideo();
     }
 
