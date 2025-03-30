@@ -35,6 +35,9 @@ public class OptionsMenu : MonoBehaviour
     private FMOD.Studio.Bus ambienceBus;
     private FMOD.Studio.Bus sfxBus;
     private const float defaultVolume = 1.0f;
+    // controller support
+    public float controllerAdjustSpeed = 0.5f;
+    private const float inputDeadzone = 0.2f;
 
 
     void Start()
@@ -113,6 +116,26 @@ public class OptionsMenu : MonoBehaviour
         {
             FindObjectOfType<PauseMenuManager>().ShowPauseMainMenu();
         }
+
+        HandleControllerSliderInput();
+    }
+
+    // controller support PLS PLSPLS WORK
+    // left stick or d pad
+    void HandleControllerSliderInput()
+    {
+        GameObject selected = EventSystem.current.currentSelectedGameObject;
+        if (selected == null) return;
+
+        Slider slider = selected.GetComponent<Slider>();
+        if (slider != null)
+        {
+            float input = Input.GetAxis("Horizontal");
+            if (Mathf.Abs(input) > inputDeadzone)
+            {
+                slider.value += input * controllerAdjustSpeed * Time.unscaledDeltaTime;
+            }
+        }
     }
 
     private void SetupListeners()
@@ -142,14 +165,15 @@ public class OptionsMenu : MonoBehaviour
 
     private void OnSensitivityChanged(float value)
     {
+        float mappedSens = Mathf.Lerp(minSensitivity, maxSensitivity, value);
+
         if (OptionsManager.Instance != null)
         {
-            OptionsManager.Instance.sensitivity = Mathf.Lerp(minSensitivity, maxSensitivity, value);
+            OptionsManager.Instance.sensitivity = mappedSens;
         }
 
         if (moveCamera != null)
         {
-            float mappedSens = Mathf.Lerp(minSensitivity, maxSensitivity, value);
             moveCamera.mouseSens = mappedSens;
         }
     }
