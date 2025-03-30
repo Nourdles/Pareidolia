@@ -18,6 +18,7 @@ public class OpenCloseNote : MonoBehaviour
     [SerializeField] private string tasklistSFXPath = "event:/SFX/Tasklist";
     // Pickup SFX
     [SerializeField] private string notepadPickupSFX = "event:/SFX/NotepadPickup";
+    public static bool isPaused = false;
 
 
     public static event Action NotepadFirstCheckEvent;
@@ -66,7 +67,7 @@ public class OpenCloseNote : MonoBehaviour
         tasklistcanvas.SetActive(noteOpen);
         if (notePickedUp)
         {
-            if (tasklistAction.WasPressedThisFrame())
+            if (tasklistAction.WasPressedThisFrame() && !isPaused)
             {
                 if (noteOpen) 
                 {

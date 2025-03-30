@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class SofaInteraction : ObjectInteraction
 {
+    public static event Action TVStartEvent; // notify that the tv task has been started
     protected override void Start()
     {
         base.Start();
@@ -12,6 +14,7 @@ public class SofaInteraction : ObjectInteraction
     public override void interact(GameObject objectInHand)
     {
         SetUninteractable();
+        TVStartEvent?.Invoke();
         SceneSwitcher.LoadSceneOnTop("TVWatch");
     }
 
