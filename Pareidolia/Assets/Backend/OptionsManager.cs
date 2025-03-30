@@ -17,6 +17,10 @@ public class OptionsManager : MonoBehaviour
     private const float minGamma = -0.5f;
     private const float maxGamma = 1.0f;
 
+    public float masterVolume = 1.0f;
+    public float ambienceVolume = 1.0f;
+    public float sfxVolume = 1.0f;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

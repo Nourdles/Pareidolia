@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using System.Collections;
+using FMODUnity;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -30,8 +31,33 @@ public class OptionsMenu : MonoBehaviour
     public Slider ambienceSlider;
     public Slider sfxSlider;
 
+    private FMOD.Studio.Bus masterBus;
+    private FMOD.Studio.Bus ambienceBus;
+    private FMOD.Studio.Bus sfxBus;
+    private const float defaultVolume = 1.0f;
+
+
     void Start()
     {
+        masterBus = FMODUnity.RuntimeManager.GetBus("bus:/");
+        ambienceBus = FMODUnity.RuntimeManager.GetBus("bus:/Game/Ambience");
+        sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/Game/SFX");
+
+        if (OptionsManager.Instance != null)
+        {
+            float masterVol = OptionsManager.Instance.masterVolume;
+            float ambienceVol = OptionsManager.Instance.ambienceVolume;
+            float sfxVol = OptionsManager.Instance.sfxVolume;
+
+            masterVolumeSlider.SetValueWithoutNotify(masterVol);
+            ambienceSlider.SetValueWithoutNotify(ambienceVol);
+            sfxSlider.SetValueWithoutNotify(sfxVol);
+
+            masterBus.setVolume(masterVol);
+            ambienceBus.setVolume(ambienceVol);
+            sfxBus.setVolume(sfxVol);
+        }
+
         if (optionsMenuUI.activeSelf)
         {
             StartCoroutine(ForceSelectSlider(firstSlider));
@@ -78,7 +104,7 @@ public class OptionsMenu : MonoBehaviour
         {
             float normalized = Mathf.InverseLerp(minSensitivity, maxSensitivity, OptionsManager.Instance.sensitivity);
             sensitivitySlider.SetValueWithoutNotify(normalized);
-        }        
+        }
     }
 
     void Update()
@@ -130,20 +156,32 @@ public class OptionsMenu : MonoBehaviour
 
     private void OnMasterVolumeChanged(float value)
     {
-        // SET AUDIO MASTER VOLUME LOGIC HERE
-        Debug.Log($"Master Volume set to {value}");
+        if (OptionsManager.Instance != null)
+        {
+            OptionsManager.Instance.masterVolume = value;
+        }
+
+        masterBus.setVolume(value);
     }
 
     private void OnAmbienceChanged(float value)
     {
-        // SET AUDIO AMBIENCE VOLUME LOGIC HERE
-        Debug.Log($"Ambience set to {value}");
+        if (OptionsManager.Instance != null)
+        {
+            OptionsManager.Instance.ambienceVolume = value;
+        }
+
+        ambienceBus.setVolume(value);
     }
 
     private void OnSFXChanged(float value)
     {
-        // SET AUDIO SFX VOLUME LOGIC HERE
-        Debug.Log($"SFX set to {value}");
+        if (OptionsManager.Instance != null)
+        {
+            OptionsManager.Instance.sfxVolume = value;
+        }
+
+        sfxBus.setVolume(value);
     }
 
     IEnumerator ForceSelectSlider(Selectable slider)
