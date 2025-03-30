@@ -142,7 +142,10 @@ public class OptionsMenu : MonoBehaviour
         Slider slider = selected.GetComponent<Slider>();
         if (slider != null)
         {
-            float input = Gamepad.current.leftStick.ReadValue().x;
+            // left stick + D PAD!!
+            float leftStick = Gamepad.current.leftStick.ReadValue().x;
+            float dpad = Gamepad.current.dpad.x.ReadValue();
+            float input = Mathf.Abs(leftStick) > Mathf.Abs(dpad) ? leftStick : dpad;
 
             if (Mathf.Abs(input) > inputDeadzone)
             {
