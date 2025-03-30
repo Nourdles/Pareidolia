@@ -49,6 +49,8 @@ public class PauseManager : MonoBehaviour
         // Pause only game sounds not master
         gameBus.setPaused(true);
         uiBus.setPaused(false);
+        // prevent player from being able to open/close the notepad
+        OpenCloseNote.isPaused = true;
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -73,6 +75,8 @@ public class PauseManager : MonoBehaviour
         // Unpause game sounds
         gameBus.setPaused(false);
         uiBus.setPaused(true);
+        // enable opening/closing notepad again
+        OpenCloseNote.isPaused = false;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

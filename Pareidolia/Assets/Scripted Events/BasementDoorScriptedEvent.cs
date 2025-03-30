@@ -40,7 +40,6 @@ public class BasementDoorScriptedEvent : MonoBehaviour
     }
 
     // after completing two tasks, unlock the basement door.
-    
     private void OnTaskCompleted()
     {
         if (!eventTriggered && taskManager.IsMorningComplete())
