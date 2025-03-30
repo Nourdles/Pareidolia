@@ -100,31 +100,31 @@ public class OptionsMenu : MonoBehaviour
 
     private void OnBrightnessChanged(float value)
     {
+        if (OptionsManager.Instance != null)
+        {
+            OptionsManager.Instance.gammaValue = value;
+        }
+        
         if (gamma != null)
         {
             float gammaVal = Mathf.Lerp(minGamma, maxGamma, value);
             Vector4 gammaVector = new Vector4(gammaVal, gammaVal, gammaVal, gammaVal);
             gamma.gamma.overrideState = true;
             gamma.gamma.value = gammaVector;
-
-            if (OptionsManager.Instance != null) 
-            {
-            OptionsManager.Instance.gammaValue = value;
-            }
         }
     }
 
     private void OnSensitivityChanged(float value)
     {
+        if (OptionsManager.Instance != null)
+        {
+            OptionsManager.Instance.sensitivity = Mathf.Lerp(minSensitivity, maxSensitivity, value);
+        }
+
         if (moveCamera != null)
         {
             float mappedSens = Mathf.Lerp(minSensitivity, maxSensitivity, value);
             moveCamera.mouseSens = mappedSens;
-
-            if (OptionsManager.Instance != null) 
-            {
-            OptionsManager.Instance.sensitivity = mappedSens;
-            }
         }
     }
 

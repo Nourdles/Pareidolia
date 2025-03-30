@@ -37,7 +37,6 @@ public class MenuManager : MonoBehaviour
 
     public void ShowMainMenu()
     {
-        Debug.LogWarning("ShowMainMenu() triggered" + Environment.StackTrace);
         mainMenu.SetActive(true);
         optionsMenu.SetActive(false);
         creditsMenu.SetActive(false);
