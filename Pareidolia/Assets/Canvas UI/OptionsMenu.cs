@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using System.Collections;
 using FMODUnity;
+using UnityEngine.InputSystem;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -35,6 +36,9 @@ public class OptionsMenu : MonoBehaviour
     private FMOD.Studio.Bus ambienceBus;
     private FMOD.Studio.Bus sfxBus;
     private const float defaultVolume = 1.0f;
+    // controller support
+    public float controllerAdjustSpeed = 0.5f;
+    private const float inputDeadzone = 0.2f;
 
 
     void Start()
@@ -58,6 +62,17 @@ public class OptionsMenu : MonoBehaviour
             masterBus.setVolume(masterVol);
             ambienceBus.setVolume(ambienceVol);
             sfxBus.setVolume(sfxVol);
+        }
+        else
+        {
+            // fallback if OptionsManager isn’t ready
+            masterVolumeSlider.SetValueWithoutNotify(defaultVolume);
+            ambienceSlider.SetValueWithoutNotify(defaultVolume);
+            sfxSlider.SetValueWithoutNotify(defaultVolume);
+
+            masterBus.setVolume(defaultVolume);
+            ambienceBus.setVolume(defaultVolume);
+            sfxBus.setVolume(defaultVolume);
         }
 
         if (optionsMenuUI.activeSelf)
@@ -113,6 +128,30 @@ public class OptionsMenu : MonoBehaviour
         {
             FindObjectOfType<PauseMenuManager>().ShowPauseMainMenu();
         }
+
+        HandleControllerSliderInput();
+    }
+
+    // controller support PLS PLSPLS WORK
+    // left stick or d pad
+    void HandleControllerSliderInput()
+    {
+        GameObject selected = EventSystem.current.currentSelectedGameObject;
+        if (selected == null || Gamepad.current == null) return;
+
+        Slider slider = selected.GetComponent<Slider>();
+        if (slider != null)
+        {
+            // left stick + D PAD!!
+            float leftStick = Gamepad.current.leftStick.ReadValue().x;
+            float dpad = Gamepad.current.dpad.x.ReadValue();
+            float input = Mathf.Abs(leftStick) > Mathf.Abs(dpad) ? leftStick : dpad;
+
+            if (Mathf.Abs(input) > inputDeadzone)
+            {
+                slider.value += input * controllerAdjustSpeed * Time.unscaledDeltaTime;
+            }
+        }
     }
 
     private void SetupListeners()
@@ -142,14 +181,15 @@ public class OptionsMenu : MonoBehaviour
 
     private void OnSensitivityChanged(float value)
     {
+        float mappedSens = Mathf.Lerp(minSensitivity, maxSensitivity, value);
+
         if (OptionsManager.Instance != null)
         {
-            OptionsManager.Instance.sensitivity = Mathf.Lerp(minSensitivity, maxSensitivity, value);
+            OptionsManager.Instance.sensitivity = mappedSens;
         }
 
         if (moveCamera != null)
         {
-            float mappedSens = Mathf.Lerp(minSensitivity, maxSensitivity, value);
             moveCamera.mouseSens = mappedSens;
         }
     }
