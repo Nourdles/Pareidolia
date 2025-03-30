@@ -60,7 +60,7 @@ public class CutscenePlayer : MonoBehaviour
                 fillAmount += fillSpeed * Time.unscaledDeltaTime;
                 lastInteractionTime = Time.unscaledTime;
             }
-            else
+            else if (fillAmount < 1f)
             {
                 fillAmount -= drainSpeed * Time.unscaledDeltaTime;
             }
