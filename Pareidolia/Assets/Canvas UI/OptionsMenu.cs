@@ -130,16 +130,19 @@ public class OptionsMenu : MonoBehaviour
 
     private void OnMasterVolumeChanged(float value)
     {
+        // SET AUDIO MASTER VOLUME LOGIC HERE
         Debug.Log($"Master Volume set to {value}");
     }
 
     private void OnAmbienceChanged(float value)
     {
+        // SET AUDIO AMBIENCE VOLUME LOGIC HERE
         Debug.Log($"Ambience set to {value}");
     }
 
     private void OnSFXChanged(float value)
     {
+        // SET AUDIO SFX VOLUME LOGIC HERE
         Debug.Log($"SFX set to {value}");
     }
 
