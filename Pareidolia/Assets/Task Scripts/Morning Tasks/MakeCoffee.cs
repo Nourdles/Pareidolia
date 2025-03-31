@@ -5,7 +5,7 @@ public class MakeCoffee : SimpleTask
     protected override void Start()
     {
         base.Start();
-        task = (int) MorningTasks.MakeCoffee;
+        task = (int) Tasks.MakeCoffee;
     }
 
     void OnEnable()

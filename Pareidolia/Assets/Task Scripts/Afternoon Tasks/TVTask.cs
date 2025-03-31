@@ -5,7 +5,7 @@ public class TVTask : SimpleTask
     protected override void Start()
     {
         base.Start();
-        task = (int) AfternoonTasks.WatchTV;
+        task = (int) Tasks.WatchTV;
     }
 
     void OnEnable()
