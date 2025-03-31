@@ -6,6 +6,7 @@ public class MakeCoffeeTask : SimpleTask
     {
         base.Start();
         task = (int) Tasks.MakeCoffee;
+        _stringrepresentation = "make coffee";
     }
 
     void OnEnable()

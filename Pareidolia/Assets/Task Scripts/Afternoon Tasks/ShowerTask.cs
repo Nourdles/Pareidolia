@@ -9,6 +9,7 @@ public class ShowerTask : ProgressTask
     {
         base.Start();
         task = (int) Tasks.Shower;
+        _stringrepresentation = "take a shower";
     }
 
     protected override void invokeCompleteTaskEvent(int tasknum)
