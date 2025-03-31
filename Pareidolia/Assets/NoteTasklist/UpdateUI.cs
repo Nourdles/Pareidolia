@@ -9,7 +9,7 @@ public class UpdateUI: MonoBehaviour
     [SerializeField] private TMP_Text[] notepadTextFields; // size 7
     [SerializeField] private string[] notepadText; // size 7
     [SerializeField] private string tasklistUpdateSFXPath = "event:/SFX/Tasklist Update";
-    private static Color InactiveColor = new Color(107f, 107f, 107f);
+    private static Color InactiveColor = new Color(.349f, .274f, .211f);
     private static Color ActiveColor = new Color(0f, 0f, 0f);
     public static event Action TasksUpdatedEvent;
 
@@ -81,6 +81,7 @@ public class UpdateUI: MonoBehaviour
                 notepadTextFields[txtfield].color = ActiveColor;
             } else 
             {
+                Debug.Log("Setting textfield "+ txtfield + " to inactive color");
                 notepadTextFields[txtfield].color = InactiveColor;
             }
             
