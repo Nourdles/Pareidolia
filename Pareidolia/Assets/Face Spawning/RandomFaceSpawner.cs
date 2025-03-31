@@ -31,6 +31,8 @@ public class RandomFaceSpawner : MonoBehaviour
     static bool faceSpawnOn = false;
     public bool spawnInFOV = false;
     public float fovAngle = 90f;
+    public float wallSpawnWeight = 0.6f; // likelihood to spawn on walls
+
    /* void Start()
     {
         if (playerCamera == null) return;
@@ -359,16 +361,36 @@ public class RandomFaceSpawner : MonoBehaviour
             if (totalFaceCount < maxTotalFaces)
             {
                 yield return new WaitForSeconds(Random.Range(0.5f, 3f));
+
                 RaycastHit hit;
-                Vector3 randomDirection = randomDirectionOutsideFOV(playerCamera.transform.forward);
-                if (Physics.Raycast(playerCamera.transform.position, randomDirection, out hit))
+                int attempts = 0;
+                const int maxAttempts = 20;
+
+                while (attempts < maxAttempts)
                 {
-                    if (hit.collider.CompareTag("Wall") || hit.collider.CompareTag("Wood") || hit.collider.CompareTag("Ceiling"))
+                    attempts++;
+                    Vector3 dir = randomDirectionOutsideFOV(playerCamera.transform.forward);
+                    if (Physics.Raycast(playerCamera.transform.position, dir, out hit, 30f))
                     {
-                        StartCoroutine(SpawnFace(hit));
+                        string hitTag = hit.collider.tag;
+
+                        bool isWall = hitTag == "Wall";
+                        bool isCeiling = hitTag == "Ceiling";
+                        bool isFloor = hitTag == "Floor";
+                        bool isTile = hitTag == "Tile";
+                        bool isWood = hitTag == "Wood";
+
+                        float roll = Random.value;
+
+                        // prioritize walls based on weight & allow other tags with remaining chance
+                        if ((isWall && roll <= wallSpawnWeight) ||
+                            (!isWall && roll > wallSpawnWeight && (isCeiling || isFloor || isTile)))
+                        {
+                            StartCoroutine(SpawnFace(hit));
+                            break;
+                        }
                     }
                 }
-
             } else
             {
                 yield return new WaitForSeconds(Random.Range(5f, 10f));
@@ -385,7 +407,6 @@ public class RandomFaceSpawner : MonoBehaviour
                     }
                 }
             }
-
         }
     }
 
