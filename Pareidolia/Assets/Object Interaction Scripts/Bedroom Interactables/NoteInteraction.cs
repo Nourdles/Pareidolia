@@ -14,7 +14,7 @@ public class NoteInteraction : ObjectInteraction
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup notepad";
     }
-    public override void interact(GameObject objectInHand)
+    protected override void interactaction(GameObject objectInHand)
     {
         ResetInteractionText();
         NotepadPickedUp?.Invoke();

@@ -16,7 +16,13 @@ public class BowlInteraction : ObjectInteraction
 
     public static event Action BreakfastMadeEvent;
     public static event Action<Material> ChangeBowlMat;
-    public override void interact(GameObject objectInHand)
+
+    protected override void Start()
+    {
+        base.Start();
+        task = taskManager.GetComponentInChildren<MakeBreakfastTask>();
+    }
+    protected override void interactaction(GameObject objectInHand)
     {
         if (objectInHand != null)
         {

@@ -8,7 +8,8 @@ public class ShowerTask : ProgressTask
     protected override void Start()
     {
         base.Start();
-        task = (int) AfternoonTasks.Shower;
+        task = (int) Tasks.Shower;
+        _stringrepresentation = "take a shower";
     }
 
     protected override void invokeCompleteTaskEvent(int tasknum)

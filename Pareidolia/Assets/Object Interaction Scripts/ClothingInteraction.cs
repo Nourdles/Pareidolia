@@ -11,9 +11,10 @@ public class ClothingInteraction : ObjectInteraction
         base.Start();
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pick up dirty clothes";
+        task = taskManager.GetComponentInChildren<WashLaundry>();
     }
 
-    public override void interact(GameObject objectInHand)
+    protected override void interactaction(GameObject objectInHand)
     {
         // can only pick up if holding a bin
         if (objectInHand != null)

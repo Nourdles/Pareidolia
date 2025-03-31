@@ -14,7 +14,7 @@ public class ClosedCurtainInteraction : ObjectInteraction
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open curtain";
     }
 
-    public override void interact(GameObject objectInHand)
+    protected override void interactaction(GameObject objectInHand)
     {
         AudioManager.instance.PlayOneShot(showerCurtainSfx, this.transform.position);
         OpenCurtainEvent?.Invoke();

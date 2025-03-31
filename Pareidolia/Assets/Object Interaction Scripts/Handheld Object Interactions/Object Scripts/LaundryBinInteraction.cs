@@ -24,6 +24,7 @@ public class LaundryBinInteraction : HandheldObjectInteraction
         _numclothes = 0;
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pick up laundry bin";
+        task = taskManager.GetComponentInChildren<WashLaundry>();
     }
 
     private void pickupClothes()
