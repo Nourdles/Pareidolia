@@ -2,28 +2,16 @@ using UnityEngine;
 using TMPro;
 using System;
 using FMODUnity;
+using UnityEngine.UIElements;
 
 public class UpdateUI: MonoBehaviour
 {
     [SerializeField] private TMP_Text[] notepadTextFields; // size 7
     [SerializeField] private string[] notepadText; // size 7
     [SerializeField] private string tasklistUpdateSFXPath = "event:/SFX/Tasklist Update";
-    // have a "Don't Look at the faces" images visible?
+    private static Color InactiveColor = new Color(107f, 107f, 107f);
+    private static Color ActiveColor = new Color(0f, 0f, 0f);
     public static event Action TasksUpdatedEvent;
-    
-
-    /*
-    private void Start() 
-    {
-        // set up original text
-        notepadText[0] = "Morning To-Do List";
-        notepadText[1] = "Make the bed";
-        for (int i = 2; i<notepadText.Length; i++)
-        {
-            notepadText[i] = "";
-        }
-        updateTasks();
-    }*/
 
     private void updateTaskListSFX()
     {
@@ -47,8 +35,8 @@ public class UpdateUI: MonoBehaviour
             // Update task list sfx
             updateTaskListSFX();
             notepadText[0] = "Morning To-Do List";
-            notepadText[1] = "Make cereal";
-            notepadText[2] = "Make coffee";
+            notepadText[1] = "Make coffee";
+            notepadText[2] = "Make cereal";
             notepadText[3] = "Put dirty clothes in the wash";
             notepadText[4] = "Take a shower";
             notepadText[5] = "Watch TV";
@@ -59,59 +47,43 @@ public class UpdateUI: MonoBehaviour
     private void OnEnable() 
     {
         Task.CrossOutTaskEvent += completeTask;
+        TaskManager.MoveToNextTask += changeTextColor;
         //GameStateManager.LevelChangeEvent += changeTasks;
     }
 
     private void OnDisable() 
     {
        Task.CrossOutTaskEvent -= completeTask;
+       TaskManager.MoveToNextTask -= changeTextColor;
        //GameStateManager.LevelChangeEvent -= changeTasks;
+    }
+
+    private void changeTextColor(int taskNum)
+    {
+        TMP_Text tasktocomplete = notepadTextFields[taskNum];
+        tasktocomplete.color = ActiveColor;
     }
 
     private void completeTask(int taskNum)
     {
         TMP_Text tasktocomplete = notepadTextFields[taskNum];
         tasktocomplete.fontStyle = FontStyles.Strikethrough;
+        tasktocomplete.color = InactiveColor;
     }
-
-    // triggered by changelevelevent
-    
-    /*
-    public void changeTasks(Levels lvl)
-    {
-        if (lvl == Levels.Morning) // morning lvl
-        {
-            notepadText[2] = "Make breakfast and coffee";
-            //notepadText[3] = "Put the laundry in the wash";
-            notepadText[3] = "Take a shower";
-        } else if (lvl == Levels.Afternoon) // afternoon lvl
-        {
-            notepadText[0] = "Afternoon To-Do List";
-            notepadText[1] = "Pick the trash up off the floors";
-            //notepadText[2] = "Put the laundry in the dryer";
-            //notepadText[3] = "Cook instant ramen for dinner";
-            //notepadText[4] = "Wash the dishes";
-            notepadText[2] = "Watch the newest episode of Octopus Competition";
-
-        } else if (lvl == Levels.Evening) // evening lvl
-        {
-            notepadText[0] = "Night To-Do List";
-            //notepadText[1] = "Feed the fish";
-            //notepadText[2] = "Put away the laundry";
-            //notepadText[3] = "Get a drink";
-            //notepadText[4] = "Wipe the walls";
-            notepadText[1] = "Board up the windows";
-            notepadText[2] = "GO TO BED";
-        }
-        updateTasks();
-    } */
-    
 
     private void updateTasks()
     {
         for (int txtfield = 0; txtfield < notepadTextFields.Length; txtfield++)
         {
             notepadTextFields[txtfield].text = notepadText[txtfield];
+            if (txtfield == 0 || txtfield == 1)
+            {
+                notepadTextFields[txtfield].color = ActiveColor;
+            } else 
+            {
+                notepadTextFields[txtfield].color = InactiveColor;
+            }
+            
         }
         TasksUpdatedEvent?.Invoke();
     }
