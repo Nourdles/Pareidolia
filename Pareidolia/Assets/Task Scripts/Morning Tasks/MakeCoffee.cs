@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MakeCoffee : SimpleTask
+public class MakeCoffeeTask : SimpleTask
 {
     protected override void Start()
     {
