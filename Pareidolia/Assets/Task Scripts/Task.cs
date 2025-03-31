@@ -6,6 +6,7 @@ public abstract class Task : MonoBehaviour
     [SerializeField] protected bool complete;
     [SerializeField] protected Task next;
     protected int task;
+    protected static string _stringrepresentation;
     [SerializeField] protected bool active;
     public static event Action<int> CrossOutTaskEvent;
     public static event Action CompleteTaskEvent;
@@ -48,5 +49,15 @@ public abstract class Task : MonoBehaviour
     public int GetTasknum()
     {
         return task;
+    }
+
+    public bool GetActiveStatus()
+    {
+        return active;
+    }
+
+    public override string ToString()
+    {
+        return _stringrepresentation;
     }
 }
