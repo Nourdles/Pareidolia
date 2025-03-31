@@ -68,9 +68,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6670616711854400851, guid: e35535956103cda4188bf69f83272639, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -5782885681420162795, guid: e35535956103cda4188bf69f83272639, type: 3}
       propertyPath: m_TagString
       value: InteractableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: -5782885681420162795, guid: e35535956103cda4188bf69f83272639, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2209807072482202999, guid: e35535956103cda4188bf69f83272639, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
