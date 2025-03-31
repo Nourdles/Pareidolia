@@ -13,7 +13,13 @@ public class KeurigInteraction : ObjectInteraction
     [SerializeField] private GameObject coffeeContent;
     private bool isPouring = false;
 
-    public override void interact(GameObject objectInHand)
+    protected override void Start()
+    {
+        base.Start();
+        task = taskManager.GetComponentInChildren<MakeCoffeeTask>();
+    }
+
+    protected override void interactaction(GameObject objectInHand)
     {
         if (objectInHand != null)
         {
