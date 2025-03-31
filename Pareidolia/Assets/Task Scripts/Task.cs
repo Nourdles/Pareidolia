@@ -4,13 +4,16 @@ using System;
 public abstract class Task : MonoBehaviour
 {
     [SerializeField] protected bool complete;
+    [SerializeField] protected Task next;
     protected int task;
+    [SerializeField] protected bool active;
     public static event Action<int> CrossOutTaskEvent;
     public static event Action CompleteTaskEvent;
     
     protected virtual void Start()
     {
         complete = false;
+        active = false;
     }
     
     protected virtual void invokeCompleteTaskEvent(int tasknum)
@@ -27,7 +30,23 @@ public abstract class Task : MonoBehaviour
     protected void completeTask()
     {
         complete = true;
+        active = false;
         invokeCompleteTaskEvent((int) task);
         enabled = false; // disable the task
+    }
+
+    public Task GetNextTask()
+    {
+        return next;
+    }
+
+    public void SetAsCurrent()
+    {
+        active = true;
+    }
+
+    public int GetTasknum()
+    {
+        return task;
     }
 }
