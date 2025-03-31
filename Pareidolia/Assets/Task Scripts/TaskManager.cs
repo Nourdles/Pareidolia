@@ -16,7 +16,7 @@ public class TaskManager : MonoBehaviour
         {
             currentTask = GetComponentInChildren<MakeCoffeeTask>();
         }
-        
+        currentTask.SetAsCurrent();
     }
 
     private void completeTask()
@@ -30,6 +30,11 @@ public class TaskManager : MonoBehaviour
             }
             currentTask.SetAsCurrent();
         }
+    }
+
+    public Task GetCurrentTask()
+    {
+        return currentTask;
     }
 
     private void ChangeLevel(Levels newLvl)
