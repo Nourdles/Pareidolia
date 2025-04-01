@@ -17,6 +17,8 @@ public class ScriptedEventManager : MonoBehaviour
     [SerializeField] GameObject upperFloorDecals;
     [SerializeField] GameObject basementDecals;
     [SerializeField] private Material windowColor;
+    [SerializeField] private GameObject notepad;
+    [SerializeField] private Material notepadDeteriorationMat;
     
 
     //[SerializeField] UpdateUI notepadUI;
@@ -105,6 +107,21 @@ public class ScriptedEventManager : MonoBehaviour
                 r.GetPropertyBlock(block);
                 block.SetColor("_EmissionColor", emissionColor * intensity);
                 r.SetPropertyBlock(block);
+            }
+        }
+
+        // notepad
+        DeteriorateNotepad();
+    }
+
+    private void DeteriorateNotepad(){
+
+        if (notepad != null && notepadDeteriorationMat != null)
+        {
+            Renderer notepadRenderer = notepad.GetComponent<Renderer>();
+            if (notepadRenderer != null)
+            {
+                notepadRenderer.material = notepadDeteriorationMat;
             }
         }
     }

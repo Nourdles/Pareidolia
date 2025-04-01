@@ -2944,6 +2944,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6713024755793817057, guid: 9f0ee3e6f9a27ba41baf4037266575b7, type: 3}
   m_PrefabInstance: {fileID: 571606843}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &572583312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2727285169134911928, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+  m_PrefabInstance: {fileID: 185329317915847528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &600287175
 GameObject:
   m_ObjectHideFlags: 0
@@ -7589,6 +7594,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: notepad
+      value: 
+      objectReference: {fileID: 572583312}
+    - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
       propertyPath: TVFaceEvent
       value: 
       objectReference: {fileID: 1969891929}
@@ -7612,6 +7621,10 @@ PrefabInstance:
       propertyPath: basementDoorEvent
       value: 
       objectReference: {fileID: 1969891927}
+    - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: notepadDeteriorationMat
+      value: 
+      objectReference: {fileID: 2100000, guid: b75496e62f6557941a37699abf1a9a74, type: 2}
     - target: {fileID: 6686033488946288320, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
       propertyPath: notepadUI
       value: 
@@ -10693,6 +10706,10 @@ PrefabInstance:
       propertyPath: m_LightProbeUsage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1249013810287158547, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2979c476c6776f842bb45fe94c0d0710, type: 2}
     - target: {fileID: 1538579855359083319, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
       propertyPath: m_Layer
       value: 7
