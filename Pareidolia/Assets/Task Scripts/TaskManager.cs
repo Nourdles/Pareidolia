@@ -9,6 +9,7 @@ public class TaskManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Level is:" + _currLvl);
         if (_currLvl == Levels.Tutorial)
         {
             currentTask = GetComponentInChildren<MakeBedTask>();
@@ -27,8 +28,8 @@ public class TaskManager : MonoBehaviour
             if (currentTask != null)
             {
                 MoveToNextTask?.Invoke(currentTask.GetTasknum());
+                currentTask.SetAsCurrent();
             }
-            currentTask.SetAsCurrent();
         }
     }
 
