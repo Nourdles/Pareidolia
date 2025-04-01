@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 
 public class CutscenePlayer : MonoBehaviour
@@ -15,14 +17,18 @@ public class CutscenePlayer : MonoBehaviour
     public Image progressBase;
     public GameObject progressHandle;
 
+    private CanvasGroup promptGroup;
+    private Coroutine fadeCoroutine;
+
+    private float fadeDuration = 0.5f;
     private float fillAmount = 0f;
-    private float fillSpeed = 0.4f; // how quickly bar fills when held
-    private float drainSpeed = 0.5f; // how quickly bar drains when released
+    private float fillSpeed = 0.4f;
+    private float drainSpeed = 0.5f;
 
     private bool promptVisible = false;
     private bool holdingSkip = false;
     private float lastInteractionTime = 0f;
-    private float inactivityThreshold = 5f; // num seconds before hiding prompt
+    private float inactivityThreshold = 5f;
     private bool hasSkipped = false;
 
     private void Start()
@@ -31,20 +37,34 @@ public class CutscenePlayer : MonoBehaviour
         video.loopPointReached += OnMovieEnded;
         video.Play();
 
+        promptGroup = promptCanvas.GetComponent<CanvasGroup>();
+        if (promptGroup == null)
+            promptGroup = promptCanvas.gameObject.AddComponent<CanvasGroup>();
+
+        promptGroup.alpha = 0f;
+        promptGroup.interactable = false;
+        promptGroup.blocksRaycasts = false;
+
         SetPromptVisible(false);
     }
 
     private void Update()
     {
-        bool keyboardHeld = Keyboard.current != null && Keyboard.current.eKey.isPressed;
-        bool gamepadHeld = Gamepad.current != null && Gamepad.current.buttonSouth.isPressed; // A button
+        // detect keyboard key
+        bool anyKeyboardPressed = Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame;
 
-        bool clickPressed = Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame;
-        bool keyboardPressed = Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame;
-        bool gamepadPressed = Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame;
+        // detect gamepad button
+        bool anyGamepadPressed = Gamepad.current != null &&
+            Gamepad.current.allControls.Any(control => control is ButtonControl button && button.wasPressedThisFrame);
 
-        // if any input happens (click or hold), show the prompt
-        if (!promptVisible && (clickPressed || keyboardPressed || gamepadPressed))
+        // detect mouse click (left or right)
+        bool clickPressed = Mouse.current != null &&
+            (Mouse.current.leftButton.wasPressedThisFrame || Mouse.current.rightButton.wasPressedThisFrame);
+
+        // combined input check
+        bool anyInputPressed = anyKeyboardPressed || anyGamepadPressed || clickPressed;
+
+        if (!promptVisible && anyInputPressed)
         {
             SetPromptVisible(true);
             lastInteractionTime = Time.unscaledTime;
@@ -52,8 +72,12 @@ public class CutscenePlayer : MonoBehaviour
 
         if (promptVisible)
         {
-            // check if skip key is being held
-            holdingSkip = keyboardHeld || gamepadHeld;
+            holdingSkip =
+                (Keyboard.current != null && Keyboard.current.anyKey.isPressed) ||
+                (Gamepad.current != null && Gamepad.current.allControls.Any(control => control is ButtonControl button && button.isPressed)) ||
+                (Mouse.current != null && (
+                    Mouse.current.leftButton.isPressed || Mouse.current.rightButton.isPressed
+                ));
 
             if (holdingSkip)
             {
@@ -73,7 +97,6 @@ public class CutscenePlayer : MonoBehaviour
                 SkipCutscene();
             }
 
-            // hide after inactivity
             if (Time.unscaledTime - lastInteractionTime > inactivityThreshold)
             {
                 SetPromptVisible(false);
@@ -86,21 +109,55 @@ public class CutscenePlayer : MonoBehaviour
     {
         promptVisible = visible;
 
-        if (promptCanvas != null)
-            promptCanvas.gameObject.SetActive(visible);
+        if (fadeCoroutine != null)
+            StopCoroutine(fadeCoroutine);
 
-        if (progressBase != null)
-            progressBase.enabled = visible;
+        fadeCoroutine = StartCoroutine(FadePrompt(visible));
+    }
 
-        if (progressFill != null)
-            progressFill.enabled = visible;
+    private IEnumerator FadePrompt(bool fadeIn)
+    {
+        float startAlpha = promptGroup.alpha;
+        float endAlpha = fadeIn ? 1f : 0f;
+        float t = 0f;
 
-        if (progressHandle != null)
+        if (fadeIn)
         {
-            Image handleImg = progressHandle.GetComponent<Image>();
-            if (handleImg != null)
-                handleImg.enabled = visible;
+            promptCanvas.gameObject.SetActive(true);
+            progressBase.enabled = true;
+            progressFill.enabled = true;
+
+            if (progressHandle != null)
+            {
+                var handleImg = progressHandle.GetComponent<Image>();
+                if (handleImg != null) handleImg.enabled = true;
+            }
         }
+
+        while (t < fadeDuration)
+        {
+            t += Time.unscaledDeltaTime;
+            float normalized = t / fadeDuration;
+            promptGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, normalized);
+            yield return null;
+        }
+
+        promptGroup.alpha = endAlpha;
+
+        if (!fadeIn)
+        {
+            promptCanvas.gameObject.SetActive(false);
+            progressBase.enabled = false;
+            progressFill.enabled = false;
+
+            if (progressHandle != null)
+            {
+                var handleImg = progressHandle.GetComponent<Image>();
+                if (handleImg != null) handleImg.enabled = false;
+            }
+        }
+
+        fadeCoroutine = null;
     }
 
     private void OnMovieEnded(VideoPlayer vp)
@@ -110,7 +167,7 @@ public class CutscenePlayer : MonoBehaviour
         FadeOutCanvas.FadeOutExit();
     }
 
-    private void SkipCutscene() // skip it manually
+    private void SkipCutscene()
     {
         if (hasSkipped) return;
         hasSkipped = true;
