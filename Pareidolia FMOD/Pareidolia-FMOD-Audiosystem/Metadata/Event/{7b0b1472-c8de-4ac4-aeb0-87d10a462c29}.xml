@@ -56,7 +56,7 @@
 			<destination>{4e38bb71-a763-457c-863d-4a29a915be68}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{ad6e1adb-9570-455f-b35f-a7c1d7bd6d70}</destination>
+			<destination>{ce5267df-5260-438a-835b-f3b24932f724}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{b69642bf-ade1-4c33-90be-a6ab1b1148ff}" />
@@ -101,6 +101,7 @@
 			<destination>{81a5b1ab-9bb2-43c6-b5bb-e3121d7d3141}</destination>
 			<destination>{7584fa89-50e0-4f50-9196-9e60350efbf6}</destination>
 			<destination>{f6aebf14-bd03-4431-88bc-3e3aab0b8388}</destination>
+			<destination>{861a18de-4335-41a4-906c-e9868a6387d1}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{944ca102-4435-45a0-ade6-5747ec02fb43}" />
@@ -121,6 +122,20 @@
 		</property>
 		<property name="highCrossover">
 			<value>10</value>
+		</property>
+	</object>
+	<object class="SFXReverbEffect" id="{861a18de-4335-41a4-906c-e9868a6387d1}">
+		<property name="HFDecayRatio">
+			<value>83.5</value>
+		</property>
+		<property name="highCut">
+			<value>3600</value>
+		</property>
+		<property name="wetLevel">
+			<value>-24.5</value>
+		</property>
+		<property name="dryLevel">
+			<value>-9</value>
 		</property>
 	</object>
 </objects>

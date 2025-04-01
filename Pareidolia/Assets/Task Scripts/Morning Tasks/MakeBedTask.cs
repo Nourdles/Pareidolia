@@ -8,6 +8,7 @@ public class MakeBedTask: SimpleTask
     {
         base.Start();
         task = (int) TutorialTasks.MakeBed;
+        _stringrepresentation = "make my bed";
     }
     private void OnEnable() {
         BedInteraction.BedInteractionEvent += completeTask;

@@ -11,10 +11,16 @@ public class OpenCloseNote : MonoBehaviour
     InputAction tasklistAction;
     Renderer tasklist;
     [SerializeField] private GameObject tasklistcanvas;
-    [SerializeField] private EventReference tasklistsfx;
     private bool _firstOpen = true;
     private bool noteOpen = false;
     [SerializeField] private bool notePickedUp = false;
+    // Tasklist SFX for opening
+    [SerializeField] private string tasklistSFXPath = "event:/SFX/Tasklist";
+    // Pickup SFX
+    [SerializeField] private string notepadPickupSFX = "event:/SFX/NotepadPickup";
+    public static bool isPaused = false;
+
+
     public static event Action NotepadFirstCheckEvent;
 
     private void Start() 
@@ -26,6 +32,7 @@ public class OpenCloseNote : MonoBehaviour
     private void PickUpNotepad()
     {
         notePickedUp = true;
+        RuntimeManager.PlayOneShot(notepadPickupSFX, transform.position);
     }
 
     private void OpenNote()
@@ -34,9 +41,7 @@ public class OpenCloseNote : MonoBehaviour
         // stop player from moving while reading
 
         // Play the FMOD sound here
-        FMOD.Studio.EventInstance tasklistEvent = FMODUnity.RuntimeManager.CreateInstance(tasklistsfx);
-        tasklistEvent.start();
-        tasklistEvent.release();
+        RuntimeManager.PlayOneShot(tasklistSFXPath, transform.position);
         
         noteOpen = true;
         if (_firstOpen)
@@ -62,7 +67,7 @@ public class OpenCloseNote : MonoBehaviour
         tasklistcanvas.SetActive(noteOpen);
         if (notePickedUp)
         {
-            if (tasklistAction.WasPressedThisFrame())
+            if (tasklistAction.WasPressedThisFrame() && !isPaused)
             {
                 if (noteOpen) 
                 {

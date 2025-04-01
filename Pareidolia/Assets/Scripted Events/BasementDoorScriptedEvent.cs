@@ -11,7 +11,6 @@ public class BasementDoorScriptedEvent : MonoBehaviour
     [SerializeField] DoorInteraction basementDoorInteraction;
     [SerializeField] DoorInteraction bedroomDoorInteraction;
     [SerializeField] UpdateUI notepadUI;
-
     private bool eventTriggered = false;
     public static event Action<string> BasementDoorDialogueEvent;
     public string doorOpenBasementSFX = "event:/SFX/DoorOpenBasement";
@@ -28,7 +27,7 @@ public class BasementDoorScriptedEvent : MonoBehaviour
             Debug.LogError("ScriptedDoorEvent: No DoorInteraction found on this object.");
         } */
 
-        Task.CompleteTaskEvent += OnTaskCompleted;
+        BowlInteraction.BreakfastMadeEvent += OnTaskCompleted;
         SilhouetteFlickerEvent.EventEnd += EndEvent;
     }
 
@@ -40,10 +39,9 @@ public class BasementDoorScriptedEvent : MonoBehaviour
     }
 
     // after completing two tasks, unlock the basement door.
-    
     private void OnTaskCompleted()
     {
-        if (!eventTriggered && taskManager.IsMorningComplete())
+        if (!eventTriggered)
         {
             eventTriggered = true;
 

@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 public abstract class ObjectInteraction : MonoBehaviour
 {
     protected InputAction interactKey;
+    protected Task task = null;
+    protected TaskManager taskManager;
     public static event Action<string> DialoguePromptEvent;
     [SerializeField] protected String interactText = "";
     [SerializeField] protected String inputMasking = "Keyboard&Mouse";
@@ -14,9 +16,23 @@ public abstract class ObjectInteraction : MonoBehaviour
         InputDeviceChecker.UsingKBMEvent += SetDeviceController;
         interactKey = InputSystem.actions.FindAction("Interact");
         inputMasking = "Keyboard&Mouse";
+        taskManager = GameObject.FindWithTag("TaskManager").GetComponent<TaskManager>();
     }
 
-    public abstract void interact(GameObject objectInHand);
+    public void interact(GameObject objectInHand)
+    {
+        if (CheckIfTaskActive())
+        {
+            interactaction(objectInHand);
+        } else
+        {
+            //InvokeDialoguePromptEvent("I should " + taskManager.GetCurrentTask().ToString() + " first");
+            // issue with above
+            InvokeDialoguePromptEvent("I should finish my other chores first");
+        }
+    }
+
+    protected abstract void interactaction(GameObject objectInHand);
 
     protected void InvokeDialoguePromptEvent(string msg)
     {
@@ -55,5 +71,17 @@ public abstract class ObjectInteraction : MonoBehaviour
             inputMasking = "Gamepad";
         }
         UpdateInteractText();
+    }
+
+    protected bool CheckIfTaskActive()
+    {
+        if (task != null)
+        {
+            return task.GetActiveStatus();
+        } else
+        {
+            return true;
+            // will always return true for objects unassociated with a task
+        }
     }
 }

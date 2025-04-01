@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4072765436998510136}
   m_Layer: 0
   m_Name: TaskManager
-  m_TagString: Untagged
+  m_TagString: TaskManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05530c6c8a3697d47ab08ad51a3f0f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _numMornComplete: 0
+  currentTask: {fileID: 0}
 --- !u!1 &8249609666087989725
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   complete: 0
+  next: {fileID: 0}
+  active: 0
 --- !u!114 &1724088610452664863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   complete: 0
+  next: {fileID: 1431324100755688594}
+  active: 0
 --- !u!114 &6512192977328404584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   complete: 0
+  next: {fileID: 4426802300662661107}
+  active: 0
   _progress: 0
   _isCharging: 0
   _chargeSpeed: 0.1
@@ -138,6 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   complete: 0
+  next: {fileID: 1724088610452664863}
+  active: 0
 --- !u!114 &1431324100755688594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   complete: 0
+  next: {fileID: 6512192977328404584}
+  active: 0
 --- !u!114 &4426802300662661107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,3 +174,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   complete: 0
+  next: {fileID: 0}
+  active: 0

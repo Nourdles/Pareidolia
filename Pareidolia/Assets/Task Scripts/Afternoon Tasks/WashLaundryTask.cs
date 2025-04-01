@@ -5,7 +5,8 @@ public class WashLaundry : SimpleTask
     protected override void Start()
     {
         base.Start();
-        task = (int) AfternoonTasks.WashLaundry;
+        task = (int) Tasks.WashLaundry;
+        _stringrepresentation = "wash the laundry";
     }
 
     void OnEnable()

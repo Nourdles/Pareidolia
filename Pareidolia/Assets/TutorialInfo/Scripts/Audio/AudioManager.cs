@@ -21,11 +21,17 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        InitializeAmbience(FMODEvents.instance.ambience);
+        InitializeAmbience(FMODEvents.instance.ambience1);
     }
 
-    private void InitializeAmbience(EventReference ambienceEventReference)
+    public void InitializeAmbience(EventReference ambienceEventReference)
     {
+        // Stop the previous ambience if it's running
+        if (ambienceEventInstance.isValid())
+        {
+            ambienceEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
+
         ambienceEventInstance = CreateEventInstance(ambienceEventReference);
         ambienceEventInstance.start();
     }
