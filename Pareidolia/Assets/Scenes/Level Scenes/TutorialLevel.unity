@@ -950,6 +950,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   complete: 0
+  next: {fileID: 0}
+  active: 0
 --- !u!1001 &1016547967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2549,6 +2551,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TaskManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2474763767364141009, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: m_TagString
+      value: TaskManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072765436998510136, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: currentTask
+      value: 
+      objectReference: {fileID: 1013644115}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8249609666087989725, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
