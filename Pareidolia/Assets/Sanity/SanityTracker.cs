@@ -31,6 +31,8 @@ public class SanityTracker : MonoBehaviour
     //Sanity percentage
     private float sanity = 100;
 
+    private int lastDamageStainIdx = -1;
+
     private int startingSanity = 100;
     private int stainDamageGracePeriod = 100;
     private int stainDamageFreq = 100;
@@ -111,6 +113,7 @@ public class SanityTracker : MonoBehaviour
                     } else
                     { //Stain has remained on screen long enough to do damage
                         onStainDamage(stains[i]);
+                        lastDamageStainIdx = i;
                         stainInfo[i].damageCounter = stainDamageFreq;
                     }
                 } else
@@ -159,7 +162,7 @@ public class SanityTracker : MonoBehaviour
 
         //GameStateManager.Respawn();
         sanity = startingSanity;
-        StartCoroutine(DeathManager.ProcessDeath());
+        StartCoroutine(DeathManager.ProcessDeath(stains[lastDamageStainIdx]));
     }
 
     private void onStainDamage(GameObject stain)

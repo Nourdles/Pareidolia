@@ -39,20 +39,39 @@ public class DeathManager : MonoBehaviour
         }
     }
 
-    public IEnumerator ProcessDeath()
+    private void blackScreen()
+    {
+        blackPanel.color = new Color(0, 0, 0, 255);
+    }
+
+    private void disableBlackScreen()
+    {
+        blackPanel.color = new Color(0, 0, 0, 0);
+    }
+
+    public IEnumerator ProcessDeath(GameObject murderingStain)
     {
         DeathEvent?.Invoke("I feel dizzy. What's going on??");
 
-        blackPanel.color = new Color(0, 0, 0, 255);
+        blackScreen();
 
         yield return new WaitForSeconds(1.2f);
 
         cc.enabled = false;
+        Player.transform.position = murderingStain.transform.position;
+
+        disableBlackScreen();
+
+        yield return new WaitForSeconds(5f);
+        blackScreen();
+
         Player.transform.position = SpawnPoint.transform.position;
 
         cc.enabled = true;
         yield return new WaitForSeconds(3);
-        blackPanel.color = new Color(0, 0, 0, 0);
+
+        disableBlackScreen();
+       
 
         DeathEvent?.Invoke("What a weird dream?");
         
