@@ -10,6 +10,8 @@ public class EndHallwayCloseDoor : MonoBehaviour
     {
         if (IsPlayer(other.gameObject))
         {
+            // set the end hallway scene to be the active scene
+            SceneSwitcher.SetSceneActive("EndSequence");
             if (frontDoor.CheckOpen())
             {
                 // close the door

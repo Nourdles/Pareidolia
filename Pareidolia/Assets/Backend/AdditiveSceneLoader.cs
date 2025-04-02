@@ -12,6 +12,17 @@ public static class SceneSwitcher
         AddingSceneEvent?.Invoke();
     }
 
+    /// <summary>
+    ///  set an additively loaded scene to be the active scene
+    /// </summary>
+    /// <param name="scene"></param>
+    public static void SetSceneActive(string scene)
+    {
+
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(scene));
+        //AddingSceneEvent?.Invoke();
+    }
+
     public static void UnLoadSceneOnTop(string scene)
     {
         int n = SceneManager.sceneCount;
