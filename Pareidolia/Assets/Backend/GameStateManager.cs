@@ -19,7 +19,13 @@ public class GameStateManager : MonoBehaviour
         // this allows us to test and play levels directly without having to play through previous
         // levels to trigger a level change event
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "MorningCutscene")
+        if (scene.name == "IntroSequence")
+        {
+            levelState = Levels.IntroSequence;
+            LevelChangeEvent?.Invoke(levelState);
+
+        }
+        else if (scene.name == "MorningCutscene")
         {  
             levelState = Levels.MorningCutscene;
             LevelChangeEvent?.Invoke(levelState);
@@ -42,6 +48,9 @@ public class GameStateManager : MonoBehaviour
         switch (levelState)
         {
             case Levels.MainMenu:
+                StartIntroSequence();
+                break;
+            case Levels.IntroSequence:
                 StartMorningCutscene();
                 break;
             case Levels.MorningCutscene:
@@ -52,6 +61,13 @@ public class GameStateManager : MonoBehaviour
                 StartMorning();
                 break;
 
+            case Levels.Morning:
+                StartEndSequence();
+                break;
+
+            case Levels.EndSequence:
+                EndGame();
+                break;
             default:
                 StartTutorial();
                 break;
@@ -59,6 +75,16 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
+
+    private static void StartIntroSequence()
+    {
+        Debug.Log("Starting Intro Sequence");
+        levelState = Levels.IntroSequence;
+
+        // load the intro sequence scene
+        LoadScene.LoadIntroSequence();
+        LevelChangeEvent?.Invoke(levelState);
+    }
 
     private static void StartMorningCutscene()
     {
@@ -93,6 +119,28 @@ public class GameStateManager : MonoBehaviour
 
         LevelChangeEvent?.Invoke(levelState);
     }
+
+    private static void StartEndSequence()
+    {
+        Debug.Log("Starting End Sequence");
+        levelState = Levels.EndSequence;
+
+        // load the end sequence scene
+        //LoadScene.LoadIntroSequence();
+        LevelChangeEvent?.Invoke(levelState);
+    }
+
+    private static void EndGame()
+    {
+        Debug.Log("Game End");
+        // play credits
+        LoadScene.LoadGameEnd();
+
+    }
+
+
+
+
 
     public Levels GetLevelState()
     {
