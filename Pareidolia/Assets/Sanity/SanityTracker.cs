@@ -29,9 +29,12 @@ public class SanityTracker : MonoBehaviour
     public DeathManager DeathManager;
 
     //Sanity percentage
-    private float sanity = 100;
+    private float sanity = 50;
 
-    private int startingSanity = 100;
+    private int lastDamageStainIdx = -1;
+    private Vector3 lastNormal;
+
+    private int startingSanity = 50;
     private int stainDamageGracePeriod = 100;
     private int stainDamageFreq = 100;
 
@@ -111,6 +114,7 @@ public class SanityTracker : MonoBehaviour
                     } else
                     { //Stain has remained on screen long enough to do damage
                         onStainDamage(stains[i]);
+                        lastDamageStainIdx = i;
                         stainInfo[i].damageCounter = stainDamageFreq;
                     }
                 } else
@@ -159,7 +163,7 @@ public class SanityTracker : MonoBehaviour
 
         //GameStateManager.Respawn();
         sanity = startingSanity;
-        StartCoroutine(DeathManager.ProcessDeath());
+        StartCoroutine(DeathManager.ProcessDeath(stains[lastDamageStainIdx], lastNormal));
     }
 
     private void onStainDamage(GameObject stain)
@@ -203,6 +207,7 @@ public class SanityTracker : MonoBehaviour
         {
             if(hit.collider.gameObject == go)
             {
+                lastNormal = hit.normal;
                 return true;
             }
         }
