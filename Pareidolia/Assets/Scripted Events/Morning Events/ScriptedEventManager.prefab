@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3232387197609061696}
   - component: {fileID: 6686033488946288320}
-  - component: {fileID: 5210916969815718151}
+  - component: {fileID: -3898744318029160640}
+  - component: {fileID: 6800651081598985165}
   m_Layer: 0
   m_Name: ScriptedEventManager
   m_TagString: Untagged
@@ -47,7 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basementDoorInteraction: {fileID: 0}
   bedroomDoorInteraction: {fileID: 0}
---- !u!114 &5210916969815718151
+  notepadUI: {fileID: 0}
+  doorOpenBasementSFX: event:/SFX/DoorOpenBasement
+--- !u!114 &-3898744318029160640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,6 +59,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1140027499513869234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57a04be7651c226499916f5f660f8b10, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bdafe682635af6448db82d8f5be0601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TVFaceEvent: {fileID: 0}
+  upperFloorDecals: {fileID: 0}
+  basementDecals: {fileID: 0}
+  windowColor: {fileID: 0}
+  notepad: {fileID: 0}
+  notepadDeteriorationMat: {fileID: 0}
+  TVOverlayQuad: {fileID: 0}
+--- !u!114 &6800651081598985165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140027499513869234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338ffbedb23a08c47a17b9ea219c7dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livingRoomStains: {fileID: 0}
+  TVStain: {fileID: 0}
+  fadeInRate: 0.005
+  camera: {fileID: 0}
+  sanityTracker: {fileID: 0}
