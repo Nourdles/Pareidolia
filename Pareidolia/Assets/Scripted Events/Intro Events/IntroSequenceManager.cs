@@ -1,6 +1,6 @@
 using UnityEngine;
 using System;
-public class DreamSequenceEvent : MonoBehaviour
+public class IntroSequenceManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] DoorInteraction hallwayExitDoor;
@@ -22,9 +22,9 @@ public class DreamSequenceEvent : MonoBehaviour
     }
     public void FadeOut()
     {
-        fadeOutCanvas.FadeOutAnim();
-        DreamDialogueEvent?.Invoke("Another day.");
-        Debug.Log("dialogue");
+        fadeOutCanvas.FadeOutExit();
+        //DreamDialogueEvent?.Invoke("Another day.");
+        Debug.Log("Intro finished");
 
 
     }
