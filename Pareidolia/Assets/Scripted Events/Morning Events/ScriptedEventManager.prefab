@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6686033488946288320}
   - component: {fileID: -3898744318029160640}
   - component: {fileID: 6800651081598985165}
+  - component: {fileID: 5861229812658429849}
   m_Layer: 0
   m_Name: ScriptedEventManager
   m_TagString: Untagged
@@ -86,3 +87,17 @@ MonoBehaviour:
   fadeInRate: 0.005
   camera: {fileID: 0}
   sanityTracker: {fileID: 0}
+--- !u!114 &5861229812658429849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140027499513869234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a06c3a4df07c840b11e95ed140d688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  morningFrontDoor: {fileID: 0}
+  endHallway: {fileID: 0}
