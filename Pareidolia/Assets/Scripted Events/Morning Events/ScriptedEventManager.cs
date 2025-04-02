@@ -20,6 +20,8 @@ public class ScriptedEventManager : MonoBehaviour
     [SerializeField] private Material windowColor;
     [SerializeField] private GameObject notepad;
     [SerializeField] private Material notepadDeteriorationMat;
+    [SerializeField] private GameObject TVOverlayQuad;
+
     
 
     //[SerializeField] UpdateUI notepadUI;
@@ -57,7 +59,7 @@ public class ScriptedEventManager : MonoBehaviour
     {
         //SilhouetteFlickerEvent.EventStart -= BasementEventStart;
         //SilhouetteFlickerEvent.EventEnd -= BasementEventEnd;
-
+        //SofaInteraction.TVStartEvent += TurnOffTVOverlayQuad;
         SofaInteraction.TVStartEvent += StartTVFaceEvent;
         SofaInteraction.TVStartEvent += DeteriorateUpperFloor;
 
@@ -89,6 +91,13 @@ public class ScriptedEventManager : MonoBehaviour
         TVFaceEvent.StartEvent();
     }
 
+    // KEEP COMMENTED WHILE TV IS BUGGED: keep quad on
+    /*private void TurnOffTVOverlayQuad()
+    {
+        if (TVOverlayQuad != null)
+            TVOverlayQuad.SetActive(false);
+    }*/
+
     // after tv event
     private void DeteriorateUpperFloor()
     {
@@ -113,7 +122,7 @@ public class ScriptedEventManager : MonoBehaviour
     private void DeteriorateWindows()
     {
         // color change
-        Color emissionColor = new Color(0.749f, 0.0078f, 0f);
+        Color emissionColor = new Color(0.82f, 0.0078f, 0f);
         float intensity = 3.138f;
 
         MaterialPropertyBlock block = new MaterialPropertyBlock();

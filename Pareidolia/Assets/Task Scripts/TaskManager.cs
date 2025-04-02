@@ -4,18 +4,21 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour
 {
     [SerializeField] private Task currentTask;
+    [SerializeField] private GameStateManager gameStateManager;
     public static event Action<int> MoveToNextTask;
     private Levels _currLvl;
 
     void Start()
     {
-        Debug.Log("Level is:" + _currLvl);
+        gameStateManager = FindAnyObjectByType<GameStateManager>();
+        _currLvl = gameStateManager.GetLevelState();
+
         if (_currLvl == Levels.Tutorial)
         {
-            currentTask = GetComponentInChildren<MakeBedTask>();
+            currentTask = gameObject.GetComponentInChildren<MakeBedTask>();
         } else
         {
-            currentTask = GetComponentInChildren<MakeCoffeeTask>();
+            currentTask = gameObject.GetComponentInChildren<MakeCoffeeTask>();
         }
         currentTask.SetAsCurrent();
     }

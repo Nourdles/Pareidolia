@@ -210,7 +210,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 552762729}
     m_SelectOnDown: {fileID: 1529341912}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 1134967886}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 0.26666668, b: 0.26666668, a: 1}
@@ -879,6 +879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 267912046}
   - component: {fileID: 267912045}
+  - component: {fileID: 267912047}
   m_Layer: 5
   m_Name: Ambience Slider
   m_TagString: Untagged
@@ -899,7 +900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -959,6 +960,21 @@ RectTransform:
   m_AnchoredPosition: {x: 104.999985, y: 1}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &267912047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267912044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955e2358c3ba042498629a4e108ae254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 2.5
+  moveDistance: 2.5
+  hoverGlowImage: {fileID: 1529341913}
 --- !u!1 &277217565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,6 +1690,7 @@ MonoBehaviour:
   masterVolumeSlider: {fileID: 1134967886}
   ambienceSlider: {fileID: 267912045}
   sfxSlider: {fileID: 1395104152}
+  controllerAdjustSpeed: 0.5
 --- !u!225 &455392016
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1928,7 +1945,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1254888636}
     m_SelectOnDown: {fileID: 22874285}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 725395968}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 0.26666668, b: 0.26666668, a: 1}
@@ -2227,6 +2244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 725395969}
   - component: {fileID: 725395968}
+  - component: {fileID: 725395970}
   m_Layer: 5
   m_Name: Sensitivity Slider
   m_TagString: Untagged
@@ -2247,7 +2265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2307,6 +2325,21 @@ RectTransform:
   m_AnchoredPosition: {x: 132, y: 0}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &725395970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725395967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955e2358c3ba042498629a4e108ae254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 2.5
+  moveDistance: 2.5
+  hoverGlowImage: {fileID: 552762730}
 --- !u!1 &789722913
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,6 +2671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1134967887}
   - component: {fileID: 1134967886}
+  - component: {fileID: 1134967888}
   m_Layer: 5
   m_Name: Master Volume Slider
   m_TagString: Untagged
@@ -2658,7 +2692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2718,6 +2752,21 @@ RectTransform:
   m_AnchoredPosition: {x: 132, y: 0}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1134967888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134967885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955e2358c3ba042498629a4e108ae254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 2.5
+  moveDistance: 2.5
+  hoverGlowImage: {fileID: 22874286}
 --- !u!1 &1182090931
 GameObject:
   m_ObjectHideFlags: 0
@@ -3133,7 +3182,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1761978301}
     m_SelectOnDown: {fileID: 552762729}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 1565132054}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 0.26666668, b: 0.26666668, a: 1}
@@ -3503,6 +3552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1395104153}
   - component: {fileID: 1395104152}
+  - component: {fileID: 1395104154}
   m_Layer: 5
   m_Name: SFX Slider
   m_TagString: Untagged
@@ -3523,7 +3573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3583,6 +3633,21 @@ RectTransform:
   m_AnchoredPosition: {x: 104.999985, y: 1}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1395104154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395104151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955e2358c3ba042498629a4e108ae254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 2.5
+  moveDistance: 2.5
+  hoverGlowImage: {fileID: 1512001356}
 --- !u!1 &1424528962
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,7 +3978,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1529341912}
     m_SelectOnDown: {fileID: 1761978301}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 1395104152}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 0.26666668, b: 0.26666668, a: 1}
@@ -4336,7 +4401,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 22874285}
     m_SelectOnDown: {fileID: 1512001355}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 267912045}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 0.26666668, b: 0.26666668, a: 1}
@@ -4458,6 +4523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1565132055}
   - component: {fileID: 1565132054}
+  - component: {fileID: 1565132056}
   m_Layer: 5
   m_Name: Brightness Slider
   m_TagString: Untagged
@@ -4478,8 +4544,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
+    m_Mode: 2
+    m_WrapAround: 1
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -4550,6 +4616,21 @@ RectTransform:
   m_AnchoredPosition: {x: 132, y: 0}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1565132056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565132053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955e2358c3ba042498629a4e108ae254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 2.5
+  moveDistance: 2.5
+  hoverGlowImage: {fileID: 1254888634}
 --- !u!1 &1582301622
 GameObject:
   m_ObjectHideFlags: 0
@@ -4848,8 +4929,8 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1512001355}
-    m_SelectOnDown: {fileID: 1254888636}
+    m_SelectOnUp: {fileID: 1395104152}
+    m_SelectOnDown: {fileID: 1565132054}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0

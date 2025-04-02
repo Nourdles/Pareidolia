@@ -129,6 +129,16 @@ public class OptionsMenu : MonoBehaviour
             FindObjectOfType<PauseMenuManager>().ShowPauseMainMenu();
         }
 
+        if (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame) // A button
+        {
+            TrySelectSlider();
+        }
+
+        if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
+        {
+            TrySelectSlider();
+        }
+
         HandleControllerSliderInput();
     }
 
@@ -234,4 +244,26 @@ public class OptionsMenu : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(slider.gameObject);
         }
     }
+
+    private void TrySelectSlider()
+    {
+        GameObject selected = EventSystem.current.currentSelectedGameObject;
+        if (selected == null) return;
+
+        Slider slider = selected.GetComponentInChildren<Slider>();
+        if (slider != null)
+        {
+            // Simulate pointer click on the slider to grab focus
+            var pointer = new PointerEventData(EventSystem.current)
+            {
+                position = RectTransformUtility.WorldToScreenPoint(Camera.main, slider.transform.position)
+            };
+
+            ExecuteEvents.Execute(slider.gameObject, pointer, ExecuteEvents.pointerDownHandler);
+
+            // Optional: also set it as the selected GameObject
+            EventSystem.current.SetSelectedGameObject(slider.gameObject);
+        }
+    }
+
 }

@@ -27,6 +27,15 @@ public class DoorInteraction : ObjectInteraction
         interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open door";
     }
 
+    /// <summary>
+    /// return true if door is open, false otherwise
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckOpen()
+    {
+        return doorOpen;
+    }
+
     protected override void interactaction(GameObject objectInHand)
     {
         if (!locked)
@@ -80,6 +89,7 @@ public class DoorInteraction : ObjectInteraction
         }
     }
 
+    
     private void DisableColliders()
     {
         if (doorCollider != null) doorCollider.isTrigger = true;
