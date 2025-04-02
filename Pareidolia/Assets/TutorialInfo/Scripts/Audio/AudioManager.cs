@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour
 {
 
     private EventInstance ambienceEventInstance;
+
+    [SerializeField] private EventReference ambienceEventReference;
     
     public static AudioManager instance { get; private set; }
 
@@ -21,7 +23,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        InitializeAmbience(FMODEvents.instance.ambience1);
+        InitializeAmbience(ambienceEventReference);
     }
 
     public void InitializeAmbience(EventReference ambienceEventReference)

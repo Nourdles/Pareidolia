@@ -25076,6 +25076,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186af924b6bc048c5880578f9a341c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambienceEventReference:
+    Guid:
+      Data1: -437008910
+      Data2: 1103835551
+      Data3: -2011505221
+      Data4: 2003917290
+    Path: event:/Ambience/Room Ambience
 --- !u!1 &1023977243
 GameObject:
   m_ObjectHideFlags: 0
@@ -25290,25 +25297,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Dream>k__BackingField:
     Guid:
-      Data1: 363699294
-      Data2: 1132689091
-      Data3: -1233088885
-      Data4: -827135824
-    Path: event:/Ambience/Room (Dream)
-  <ambience1>k__BackingField:
+      Data1: -1083923356
+      Data2: 1309540820
+      Data3: 165709453
+      Data4: 898229366
+    Path: event:/Ambience/Dream Ambience
+  <ambience>k__BackingField:
     Guid:
-      Data1: -1511802359
-      Data2: 1271843365
-      Data3: 504165273
-      Data4: -47887114
-    Path: event:/Ambience/Room
-  <ambience2>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -437008910
+      Data2: 1103835551
+      Data3: -2011505221
+      Data4: 2003917290
+    Path: event:/Ambience/Room Ambience
   <playerFootsteps>k__BackingField:
     Guid:
       Data1: 1103128936
