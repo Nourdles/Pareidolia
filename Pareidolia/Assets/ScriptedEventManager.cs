@@ -122,7 +122,7 @@ public class ScriptedEventManager : MonoBehaviour
     private void DeteriorateWindows()
     {
         // color change
-        Color emissionColor = new Color(0.749f, 0.0078f, 0f);
+        Color emissionColor = new Color(0.82f, 0.0078f, 0f);
         float intensity = 3.138f;
 
         MaterialPropertyBlock block = new MaterialPropertyBlock();
