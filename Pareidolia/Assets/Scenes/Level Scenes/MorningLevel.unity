@@ -25031,17 +25031,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1003750439 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7753276711939637350, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
-  m_PrefabInstance: {fileID: 5524556281714177836}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9409d66a1dc596e41a181ef2b0aecf83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1004544166
 GameObject:
   m_ObjectHideFlags: 0
@@ -25722,6 +25711,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60425310b2893e843a770e9cbe1da48b, type: 3}
+--- !u!114 &1211731953 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8413457228316337008, guid: 60425310b2893e843a770e9cbe1da48b, type: 3}
+  m_PrefabInstance: {fileID: 1211731952}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b386fb16bb903e469a96783f428f4a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1231780486
 GameObject:
   m_ObjectHideFlags: 0
@@ -32102,6 +32102,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3898744318029160640, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: notepad
+      value: 
+      objectReference: {fileID: 572583312}
+    - target: {fileID: -3898744318029160640, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: TVFaceEvent
+      value: 
+      objectReference: {fileID: 1969891929}
+    - target: {fileID: -3898744318029160640, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: windowColor
+      value: 
+      objectReference: {fileID: 2100000, guid: ad49ab653b5cb8544b6df17914ba5920, type: 2}
+    - target: {fileID: -3898744318029160640, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: TVOverlayQuad
+      value: 
+      objectReference: {fileID: 1813694177}
+    - target: {fileID: -3898744318029160640, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: basementDecals
+      value: 
+      objectReference: {fileID: 1343567303}
+    - target: {fileID: -3898744318029160640, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: upperFloorDecals
+      value: 
+      objectReference: {fileID: 692261167}
+    - target: {fileID: -3898744318029160640, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: notepadDeteriorationMat
+      value: 
+      objectReference: {fileID: 2100000, guid: b75496e62f6557941a37699abf1a9a74, type: 2}
     - target: {fileID: 1140027499513869234, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
       propertyPath: m_Name
       value: ScriptedEventManager
@@ -32146,6 +32174,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6686033488946288320, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: notepadUI
+      value: 
+      objectReference: {fileID: 1268465076}
+    - target: {fileID: 6686033488946288320, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: bedroomDoorInteraction
+      value: 
+      objectReference: {fileID: 722404921}
+    - target: {fileID: 6686033488946288320, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: basementDoorInteraction
+      value: 
+      objectReference: {fileID: 636077202}
     - target: {fileID: 6800651081598985165, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
       propertyPath: camera
       value: 
@@ -32162,54 +32202,6 @@ PrefabInstance:
       propertyPath: livingRoomStains
       value: 
       objectReference: {fileID: 1070300329}
-    - target: {fileID: 0}
-      propertyPath: notepad
-      value: 
-      objectReference: {fileID: 572583312}
-    - target: {fileID: 0}
-      propertyPath: TVFaceEvent
-      value: 
-      objectReference: {fileID: 1969891929}
-    - target: {fileID: 0}
-      propertyPath: windowColor
-      value: 
-      objectReference: {fileID: 2100000, guid: ad49ab653b5cb8544b6df17914ba5920, type: 2}
-    - target: {fileID: 0}
-      propertyPath: flickerEvent
-      value: 
-      objectReference: {fileID: 1003750439}
-    - target: {fileID: 0}
-      propertyPath: TVOverlayQuad
-      value: 
-      objectReference: {fileID: 1813694177}
-    - target: {fileID: 0}
-      propertyPath: basementDecals
-      value: 
-      objectReference: {fileID: 1343567303}
-    - target: {fileID: 0}
-      propertyPath: upperFloorDecals
-      value: 
-      objectReference: {fileID: 692261167}
-    - target: {fileID: 0}
-      propertyPath: basementDoorEvent
-      value: 
-      objectReference: {fileID: 1969891927}
-    - target: {fileID: 0}
-      propertyPath: notepadDeteriorationMat
-      value: 
-      objectReference: {fileID: 2100000, guid: b75496e62f6557941a37699abf1a9a74, type: 2}
-    - target: {fileID: 6686033488946288320, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
-      propertyPath: notepadUI
-      value: 
-      objectReference: {fileID: 1268465076}
-    - target: {fileID: 6686033488946288320, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
-      propertyPath: bedroomDoorInteraction
-      value: 
-      objectReference: {fileID: 722404921}
-    - target: {fileID: 6686033488946288320, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
-      propertyPath: basementDoorInteraction
-      value: 
-      objectReference: {fileID: 636077202}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34887,17 +34879,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8366393104098558000, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
   m_PrefabInstance: {fileID: 5524556281714177836}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1969891927 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6686033488946288320, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
-  m_PrefabInstance: {fileID: 1441108396}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8261dca9f7eed02489d2d0012e588a2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1969891929 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6800651081598985165, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
@@ -41250,6 +41231,10 @@ PrefabInstance:
       propertyPath: currentTask
       value: 
       objectReference: {fileID: 448606134}
+    - target: {fileID: 4072765436998510136, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: gameStateManager
+      value: 
+      objectReference: {fileID: 1211731953}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
