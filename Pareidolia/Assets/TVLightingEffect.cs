@@ -1,47 +1,35 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Video;
 
 public class TVLightingEffect : MonoBehaviour
 {
-    [Header("TV Lighting")]
-    [SerializeField] private Light tvLight; // turns on immediately
-    [SerializeField] private Light ceilingLight; // flickers after delay
+    [SerializeField] private Light TVLight;
+    [SerializeField] private Light ceilingLight;
     [SerializeField] private float delayBeforeFlicker = 10f;
     [SerializeField] private int flickerCountMin = 3;
     [SerializeField] private int flickerCountMax = 4;
     [SerializeField] private float flickerIntervalMin = 0.05f;
     [SerializeField] private float flickerIntervalMax = 0.3f;
 
-    private VideoPlayer video;
+    private bool hasStarted = false;
 
-    void Start()
+    void OnEnable()
     {
-        video = GetComponent<VideoPlayer>();
-        if (video != null)
-        {
-            video.started += OnVideoStarted;
-        }
-        else
-        {
-            Debug.LogError("no VideoPlayer found");
-        }
+        SofaInteraction.TVStartEvent += OnTVStarted;
     }
 
-    void OnDestroy()
+    void OnDisable()
     {
-        if (video != null)
-        {
-            video.started -= OnVideoStarted;
-        }
+        SofaInteraction.TVStartEvent -= OnTVStarted;
     }
 
-    private void OnVideoStarted(VideoPlayer vp)
+    private void OnTVStarted()
     {
-        if (tvLight != null)
-        {
-            tvLight.enabled = true;
-        }
+        if (hasStarted) return;
+        hasStarted = true;
+
+        if (TVLight != null)
+            TVLight.enabled = true;
 
         StartCoroutine(FlickerCeilingLightAfterDelay());
     }

@@ -9,6 +9,7 @@ public class TaskManager : MonoBehaviour
 
     void Start()
     {
+        _currLvl = GameStateManager.levelState;
         Debug.Log("Level is:" + _currLvl);
         if (_currLvl == Levels.Tutorial)
         {

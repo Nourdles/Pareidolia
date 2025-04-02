@@ -20,6 +20,8 @@ public class ScriptedEventManager : MonoBehaviour
     [SerializeField] private Material windowColor;
     [SerializeField] private GameObject notepad;
     [SerializeField] private Material notepadDeteriorationMat;
+    [SerializeField] private GameObject TVOverlayQuad;
+
     
 
     //[SerializeField] UpdateUI notepadUI;
@@ -57,7 +59,7 @@ public class ScriptedEventManager : MonoBehaviour
     {
         //SilhouetteFlickerEvent.EventStart -= BasementEventStart;
         //SilhouetteFlickerEvent.EventEnd -= BasementEventEnd;
-
+        SofaInteraction.TVStartEvent += TurnOffTVOverlayQuad;
         SofaInteraction.TVStartEvent += StartTVFaceEvent;
         SofaInteraction.TVStartEvent += DeteriorateUpperFloor;
 
@@ -87,6 +89,12 @@ public class ScriptedEventManager : MonoBehaviour
     private void StartTVFaceEvent()
     {
         TVFaceEvent.StartEvent();
+    }
+
+    private void TurnOffTVOverlayQuad()
+    {
+        if (TVOverlayQuad != null)
+            TVOverlayQuad.SetActive(false);
     }
 
     // after tv event
