@@ -384,7 +384,7 @@ public class RandomFaceSpawner : MonoBehaviour
 
                         // prioritize walls based on weight & allow other tags with remaining chance
                         if ((isWall && roll <= wallSpawnWeight) ||
-                            (!isWall && roll > wallSpawnWeight && (isCeiling || isFloor || isTile)))
+                            (!isWall && roll > wallSpawnWeight && (isCeiling || isWood || isTile)))
                         {
                             StartCoroutine(SpawnFace(hit));
                             break;
