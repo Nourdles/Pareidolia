@@ -63,8 +63,16 @@ public class OpenCloseNote : MonoBehaviour
     private void Update()
     {
         // change to check if open button if being pressed and that note has been picked up
-        tasklist.enabled = noteOpen;
-        tasklistcanvas.SetActive(noteOpen);
+        if (tasklist != null)
+        {
+            tasklist.enabled = noteOpen;
+        }
+
+        if (tasklistcanvas != null)
+        {
+            tasklistcanvas.SetActive(noteOpen);
+        }
+
         if (notePickedUp)
         {
             if (tasklistAction.WasPressedThisFrame() && !isPaused)

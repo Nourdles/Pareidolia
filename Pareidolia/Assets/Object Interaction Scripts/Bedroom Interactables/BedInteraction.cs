@@ -15,7 +15,6 @@ public class BedInteraction: ObjectInteraction
         hasNotepad = false;
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to make the bed";
-        task = taskManager.GetComponentInChildren<MakeBedTask>();
     }
 
     protected override void interactaction(GameObject objectInHand)

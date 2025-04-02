@@ -28,6 +28,7 @@ public class DialogueUIUpdater : MonoBehaviour
         NoteInteraction.NotepadPickedUp += TutorialTextDisable;
 
         // dialogue for scripted events
+        IntroSequenceDialogueEvent.IntroDialogueEvent += UpdateDialogueText;
         BasementDoorScriptedEvent.BasementDoorDialogueEvent += UpdateDialogueText;
         SilhouetteFlickerEvent.SilhouetteDialogueEvent += UpdateDialogueText;
         TVFaceEvent.LivingRoomDialogueEvent += UpdateDialogueText;
@@ -40,6 +41,7 @@ public class DialogueUIUpdater : MonoBehaviour
         TutorialManager.TutorialDialogueEvent -= TutorialTextEnable;
         NoteInteraction.NotepadPickedUp -= TutorialTextDisable;
 
+        IntroSequenceDialogueEvent.IntroDialogueEvent -= UpdateDialogueText;
         BasementDoorScriptedEvent.BasementDoorDialogueEvent -= UpdateDialogueText;
         SilhouetteFlickerEvent.SilhouetteDialogueEvent -= UpdateDialogueText;
         TVFaceEvent.LivingRoomDialogueEvent -= UpdateDialogueText;

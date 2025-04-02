@@ -6,7 +6,7 @@ public class TVTask : SimpleTask
     {
         base.Start();
         task = (int) Tasks.WatchTV;
-        _stringrepresentation = "watch some tv";
+        stringrepresentation = "watch some TV";
     }
 
     void OnEnable()
