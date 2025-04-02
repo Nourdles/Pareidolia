@@ -26,9 +26,7 @@ public abstract class ObjectInteraction : MonoBehaviour
             interactaction(objectInHand);
         } else
         {
-            //InvokeDialoguePromptEvent("I should " + taskManager.GetCurrentTask().ToString() + " first");
-            // issue with above
-            InvokeDialoguePromptEvent("I should finish my other chores first");
+            InvokeDialoguePromptEvent("I should " + taskManager.GetCurrentTask().ToString() + " first");
         }
     }
 

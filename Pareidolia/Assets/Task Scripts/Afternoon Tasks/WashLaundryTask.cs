@@ -6,7 +6,7 @@ public class WashLaundry : SimpleTask
     {
         base.Start();
         task = (int) Tasks.WashLaundry;
-        _stringrepresentation = "wash the laundry";
+        stringrepresentation = "wash my laundry";
     }
 
     void OnEnable()

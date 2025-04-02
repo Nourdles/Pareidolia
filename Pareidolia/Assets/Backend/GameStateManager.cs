@@ -94,6 +94,10 @@ public class GameStateManager : MonoBehaviour
         LevelChangeEvent?.Invoke(levelState);
     }
 
+    public Levels GetLevelState()
+    {
+        return levelState;
+    }
 
     public static void Respawn()
     {
