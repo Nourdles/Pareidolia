@@ -32907,6 +32907,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1255599140174515332, guid: 187897f1a58e7674f82b423f1210cb28, type: 3}
   m_PrefabInstance: {fileID: 1460371789}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1460371792 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6814786826083370412, guid: 187897f1a58e7674f82b423f1210cb28, type: 3}
+  m_PrefabInstance: {fileID: 1460371789}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236141593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb973157bc40a9429a0b46d540d82af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1467632261
 GameObject:
   m_ObjectHideFlags: 0
@@ -41926,6 +41937,22 @@ PrefabInstance:
       propertyPath: blackPanel
       value: 
       objectReference: {fileID: 7932603549232412902}
+    - target: {fileID: 1347566679124368642, guid: 16c25ee5d9b9c3b409b2f8fce91e9f53, type: 3}
+      propertyPath: bodySprite
+      value: 
+      objectReference: {fileID: 21300000, guid: acff6c88e7d6dcf4fa8999fdcb94dd29, type: 3}
+    - target: {fileID: 1347566679124368642, guid: 16c25ee5d9b9c3b409b2f8fce91e9f53, type: 3}
+      propertyPath: StainPrefab
+      value: 
+      objectReference: {fileID: 4438785931773998117, guid: a24f4f0fdc8cd8f40a6eb0233a8715d7, type: 3}
+    - target: {fileID: 1347566679124368642, guid: 16c25ee5d9b9c3b409b2f8fce91e9f53, type: 3}
+      propertyPath: cameraMovement
+      value: 
+      objectReference: {fileID: 1460371792}
+    - target: {fileID: 1347566679124368642, guid: 16c25ee5d9b9c3b409b2f8fce91e9f53, type: 3}
+      propertyPath: cameraPosition
+      value: 
+      objectReference: {fileID: 1236141593}
     - target: {fileID: 6391608051017370215, guid: 16c25ee5d9b9c3b409b2f8fce91e9f53, type: 3}
       propertyPath: m_Name
       value: DeathManager
