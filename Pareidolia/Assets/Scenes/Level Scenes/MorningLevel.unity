@@ -32146,39 +32146,55 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+    - target: {fileID: 6800651081598985165, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1262487075}
+    - target: {fileID: 6800651081598985165, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: TVStain
+      value: 
+      objectReference: {fileID: 1640869227}
+    - target: {fileID: 6800651081598985165, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: sanityTracker
+      value: 
+      objectReference: {fileID: 6250100203206058356}
+    - target: {fileID: 6800651081598985165, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: livingRoomStains
+      value: 
+      objectReference: {fileID: 1070300329}
+    - target: {fileID: 0}
       propertyPath: notepad
       value: 
       objectReference: {fileID: 572583312}
-    - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+    - target: {fileID: 0}
       propertyPath: TVFaceEvent
       value: 
       objectReference: {fileID: 1969891929}
-    - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+    - target: {fileID: 0}
       propertyPath: windowColor
       value: 
       objectReference: {fileID: 2100000, guid: ad49ab653b5cb8544b6df17914ba5920, type: 2}
-    - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+    - target: {fileID: 0}
       propertyPath: flickerEvent
       value: 
       objectReference: {fileID: 1003750439}
-    - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+    - target: {fileID: 0}
       propertyPath: TVOverlayQuad
       value: 
       objectReference: {fileID: 1813694177}
-    - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+    - target: {fileID: 0}
       propertyPath: basementDecals
       value: 
       objectReference: {fileID: 1343567303}
-    - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+    - target: {fileID: 0}
       propertyPath: upperFloorDecals
       value: 
       objectReference: {fileID: 692261167}
-    - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+    - target: {fileID: 0}
       propertyPath: basementDoorEvent
       value: 
       objectReference: {fileID: 1969891927}
-    - target: {fileID: 5210916969815718151, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+    - target: {fileID: 0}
       propertyPath: notepadDeteriorationMat
       value: 
       objectReference: {fileID: 2100000, guid: b75496e62f6557941a37699abf1a9a74, type: 2}
@@ -32197,10 +32213,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1140027499513869234, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1969891929}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
 --- !u!1 &1444377874
 GameObject:
@@ -34874,39 +34887,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8366393104098558000, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
   m_PrefabInstance: {fileID: 5524556281714177836}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1969891925 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1140027499513869234, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
-  m_PrefabInstance: {fileID: 1441108396}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1969891927 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6686033488946288320, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
   m_PrefabInstance: {fileID: 1441108396}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969891925}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8261dca9f7eed02489d2d0012e588a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1969891929
+--- !u!114 &1969891929 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6800651081598985165, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+  m_PrefabInstance: {fileID: 1441108396}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969891925}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 338ffbedb23a08c47a17b9ea219c7dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livingRoomStains: {fileID: 1070300329}
-  TVStain: {fileID: 1640869227}
-  fadeInRate: 0.005
-  camera: {fileID: 1262487075}
-  sanityTracker: {fileID: 6250100203206058356}
 --- !u!1 &2001696855
 GameObject:
   m_ObjectHideFlags: 0
