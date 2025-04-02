@@ -38,7 +38,7 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
         }
     }
 
-    public override void interact(GameObject objectInHand)
+    protected override void interactaction(GameObject objectInHand)
     {
         if (objectInHand != null)
         {

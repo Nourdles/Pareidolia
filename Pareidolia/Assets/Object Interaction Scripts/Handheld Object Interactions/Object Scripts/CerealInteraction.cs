@@ -14,6 +14,7 @@ public class CerealInteraction : HandheldObjectInteraction
 
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup cereal";
+        task = taskManager.GetComponentInChildren<MakeBreakfastTask>();
     }
 
     protected override void InvokePickupEvent()

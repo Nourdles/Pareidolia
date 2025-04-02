@@ -11,6 +11,7 @@ public class LaundryDetergentInteraction : HandheldObjectInteraction
         handheld_id = Handhelds.Detergent;
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pick up laundry detergent";
+        task = taskManager.GetComponentInChildren<WashLaundry>();
     }
 
     protected override void UpdateInteractText()

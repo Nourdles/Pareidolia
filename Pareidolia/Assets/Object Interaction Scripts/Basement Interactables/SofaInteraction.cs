@@ -10,8 +10,9 @@ public class SofaInteraction : ObjectInteraction
         base.Start();
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to watch TV";
+        task = taskManager.GetComponentInChildren<TVTask>();
     }
-    public override void interact(GameObject objectInHand)
+    protected override void interactaction(GameObject objectInHand)
     {
         SetUninteractable();
         TVStartEvent?.Invoke();

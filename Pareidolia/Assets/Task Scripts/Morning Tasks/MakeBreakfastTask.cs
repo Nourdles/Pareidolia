@@ -6,7 +6,8 @@ public class MakeBreakfastTask : SimpleTask
     protected override void Start()
     {
         base.Start();
-        task = (int) MorningTasks.MakeBreakfast;
+        task = (int) Tasks.MakeBreakfast;
+        _stringrepresentation = "make breakfast";
     }
 
     void OnEnable()

@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class LaundryMachineInteraction : ObjectInteraction
 {
-    private bool _doorOpen = false;
     private bool _soapAdded = false;
     private bool _clothesAdded = false;
     private String instruction = "";
@@ -20,8 +19,13 @@ public class LaundryMachineInteraction : ObjectInteraction
     [SerializeField] private GameObject washingMachineContent; // clothes inside
     [SerializeField] private LaundrySpinRotator spinRotator; // rotator
 
+    protected override void Start()
+    {
+        base.Start();
+        task = taskManager.GetComponentInChildren<WashLaundry>();
+    }
 
-    public override void interact(GameObject objectInHand)
+    protected override void interactaction(GameObject objectInHand)
     {
         if (objectInHand != null)
         {
@@ -45,10 +49,6 @@ public class LaundryMachineInteraction : ObjectInteraction
                         InvokeDialoguePromptEvent("Now I just need to add detergent");
                     } else
                     {
-                        if (_doorOpen)
-                        {
-                            // close door
-                        }
                         StartLoad();
                     } 
                 } else
@@ -67,10 +67,6 @@ public class LaundryMachineInteraction : ObjectInteraction
                     AudioManager.instance.PlayOneShot(detergentPourSFX, transform.position);
                     if (_clothesAdded)
                     {
-                        if (_doorOpen)
-                        {
-                            // close door
-                        }
                         StartLoad();
                     } else
                     {

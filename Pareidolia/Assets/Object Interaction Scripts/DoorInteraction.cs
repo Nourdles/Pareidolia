@@ -27,7 +27,7 @@ public class DoorInteraction : ObjectInteraction
         interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to open door";
     }
 
-    public override void interact(GameObject objectInHand)
+    protected override void interactaction(GameObject objectInHand)
     {
         if (!locked)
         {
