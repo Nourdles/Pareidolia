@@ -59,7 +59,7 @@ public class ScriptedEventManager : MonoBehaviour
     {
         //SilhouetteFlickerEvent.EventStart -= BasementEventStart;
         //SilhouetteFlickerEvent.EventEnd -= BasementEventEnd;
-        SofaInteraction.TVStartEvent += TurnOffTVOverlayQuad;
+        //SofaInteraction.TVStartEvent += TurnOffTVOverlayQuad;
         SofaInteraction.TVStartEvent += StartTVFaceEvent;
         SofaInteraction.TVStartEvent += DeteriorateUpperFloor;
 
@@ -91,11 +91,12 @@ public class ScriptedEventManager : MonoBehaviour
         TVFaceEvent.StartEvent();
     }
 
-    private void TurnOffTVOverlayQuad()
+    // KEEP COMMENTED WHILE TV IS BUGGED: keep quad on
+    /*private void TurnOffTVOverlayQuad()
     {
         if (TVOverlayQuad != null)
             TVOverlayQuad.SetActive(false);
-    }
+    }*/
 
     // after tv event
     private void DeteriorateUpperFloor()
