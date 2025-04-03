@@ -33,11 +33,11 @@ public class OpenCurtainInteraction : ObjectInteraction
 
     void OnEnable()
     {
-        TubInteraction.GetIntoTubEvent += InvokeCloseCurtain;
+        ShowerInteraction.GetIntoTubEvent += InvokeCloseCurtain;
     }
 
     void OnDisable()
     {
-        TubInteraction.GetIntoTubEvent -= InvokeCloseCurtain;
+        ShowerInteraction.GetIntoTubEvent -= InvokeCloseCurtain;
     }
 }

@@ -9,42 +9,27 @@ using UnityEngine;
 public class InteractTextUpdater : MonoBehaviour
 {
     [SerializeField] private TMP_Text _interactField;
-    //[SerializeField] private GameObject _textboxObj;
-
-    //
     private void DisplayInteractText(GameObject gameobject)
     {
         string txt_to_display;
-        bool visible;
         if (gameobject != null)
         {
             txt_to_display = gameobject.GetComponent<ObjectInteraction>().GetInteractText();
-            visible = true;
         } else
         {
             txt_to_display = "";
-            visible = false;
         }
         _interactField.text = txt_to_display;
-        //_textboxObj.SetActive(visible);
-    }
-
-    private void DisplayInteractInstructions(String msg)
-    {
-        _interactField.text = msg;
-        //_textboxObj.SetActive(visible);
     }
 
     void OnEnable()
     {
         ObjectHoverGlow.ViewingObjectEvent += DisplayInteractText;
-        Shower.ShowerInstructions += DisplayInteractInstructions;
     }
 
     void OnDisable()
     {
         ObjectHoverGlow.ViewingObjectEvent -= DisplayInteractText;
-        Shower.ShowerInstructions -= DisplayInteractInstructions;
     }
 
 }
