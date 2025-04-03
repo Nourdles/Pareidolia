@@ -25299,6 +25299,13 @@ MonoBehaviour:
       Data3: -2011505221
       Data4: 2003917290
     Path: event:/Ambience/Room Ambience
+  ambienceDreamReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &1023977243
 GameObject:
   m_ObjectHideFlags: 0
@@ -33108,6 +33115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb973157bc40a9429a0b46d540d82af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1462997108 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1502374500035379640, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+  m_PrefabInstance: {fileID: 1741159379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1467632261
 GameObject:
   m_ObjectHideFlags: 0
@@ -34499,6 +34511,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3563760237589203832, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1741159385}
+    - targetCorrespondingSourceObject: {fileID: 1502374500035379640, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1741159386}
   m_SourcePrefab: {fileID: 100100000, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
 --- !u!1 &1741159380 stripped
 GameObject:
@@ -34510,7 +34525,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7625949288353427249, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
   m_PrefabInstance: {fileID: 1741159379}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1462997108}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
@@ -34558,6 +34573,25 @@ MonoBehaviour:
   flickerDuration: 0.2
   flickerCooldownMin: 1
   flickerCooldownMax: 5
+--- !u!114 &1741159386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462997108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d881d16da555b4dc0a06e41857d04799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorEvent:
+    Guid:
+      Data1: -1061094504
+      Data2: 1260388854
+      Data3: -1124827988
+      Data4: 752405581
+    Path: event:/Ambience/Dream Door
 --- !u!1 &1745611468
 GameObject:
   m_ObjectHideFlags: 0
