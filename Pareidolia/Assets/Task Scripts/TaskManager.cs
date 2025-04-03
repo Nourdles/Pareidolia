@@ -56,7 +56,7 @@ public class TaskManager : MonoBehaviour
             taskLevel = 2;
             AudioManager.instance.UpdateTaskLevel(taskLevel); // Task Level 2
         }
-        else if (taskNum == 4) // WashLaundry
+        else if (taskNum == 6) // WashLaundry
         {
             taskLevel = 3;
             AudioManager.instance.UpdateTaskLevel(taskLevel); // Task Level 3
