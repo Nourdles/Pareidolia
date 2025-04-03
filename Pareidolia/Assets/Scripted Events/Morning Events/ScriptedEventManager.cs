@@ -21,9 +21,7 @@ public class ScriptedEventManager : MonoBehaviour
     [SerializeField] private GameObject notepad;
     [SerializeField] private Material notepadDeteriorationMat;
     [SerializeField] private GameObject TVOverlayQuad;
-
-    
-
+    [SerializeField] private RandomFaceSpawner morningFaceManager;    
     //[SerializeField] UpdateUI notepadUI;
 
     private bool eventTriggered = false;
@@ -59,7 +57,7 @@ public class ScriptedEventManager : MonoBehaviour
     {
         //SilhouetteFlickerEvent.EventStart -= BasementEventStart;
         //SilhouetteFlickerEvent.EventEnd -= BasementEventEnd;
-        //SofaInteraction.TVStartEvent += TurnOffTVOverlayQuad;
+        SofaInteraction.TVStartEvent += TurnOffTVOverlayQuad;
         SofaInteraction.TVStartEvent += StartTVFaceEvent;
         SofaInteraction.TVStartEvent += DeteriorateUpperFloor;
 
@@ -92,16 +90,19 @@ public class ScriptedEventManager : MonoBehaviour
     }
 
     // KEEP COMMENTED WHILE TV IS BUGGED: keep quad on
-    /*private void TurnOffTVOverlayQuad()
+    private void TurnOffTVOverlayQuad()
     {
         if (TVOverlayQuad != null)
             TVOverlayQuad.SetActive(false);
-    }*/
+    }
 
     // after tv event
     private void DeteriorateUpperFloor()
     {
         upperFloorDecals.SetActive(true);
+
+        if (morningFaceManager != null)
+            morningFaceManager.maxTotalFaces = 12;
 
         DeteriorateWindows();
         DeteriorateNotepad();
@@ -162,6 +163,8 @@ public class ScriptedEventManager : MonoBehaviour
     private void DeteriorateBasement()
     {
         basementDecals.SetActive(true);
+        if (morningFaceManager != null)
+            morningFaceManager.maxTotalFaces = 16;
     }
 
 
