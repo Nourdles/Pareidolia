@@ -24,8 +24,7 @@ public class TaskManager : MonoBehaviour
         }
         currentTask.SetAsCurrent();
 
-        // Initial FMOD parameter for Task Level
-        FMODEvents.instance.UpdateTaskLevel(taskLevel); 
+        AudioManager.instance.UpdateTaskLevel(taskLevel);
     }
 
     private void completeTask()
@@ -35,28 +34,32 @@ public class TaskManager : MonoBehaviour
             currentTask = currentTask.GetNextTask(); // go to next task
             if (currentTask != null)
             {
-                taskLevel = currentTask.GetTasknum(); // change "task level" based on tasknum
                 MoveToNextTask?.Invoke(currentTask.GetTasknum());
                 currentTask.SetAsCurrent();
 
-                UpdateFMODTaskLevel(taskLevel);
+                if (_currLvl != Levels.Tutorial) {
+                    UpdateFMODTaskLevel(currentTask.GetTasknum());
+                }
             }
         }
     }
 
     private void UpdateFMODTaskLevel(int taskNum)
     {
-        if (taskNum == 2) // MakeBreakfast
+        if (taskNum == 3) // MakeBreakfast
         {
-            FMODEvents.instance.UpdateTaskLevel(1); // Task Level 1
+            taskLevel = 1;
+            AudioManager.instance.UpdateTaskLevel(taskLevel); // Task Level 1
         }
-        else if (taskNum == 4) // Shower
+        else if (taskNum == 5) // Shower
         {
-            FMODEvents.instance.UpdateTaskLevel(2); // Task Level 2
+            taskLevel = 2;
+            AudioManager.instance.UpdateTaskLevel(taskLevel); // Task Level 2
         }
-        else if (taskNum == 3) // WashLaundry
+        else if (taskNum == 4) // WashLaundry
         {
-            FMODEvents.instance.UpdateTaskLevel(3); // Task Level 3
+            taskLevel = 3;
+            AudioManager.instance.UpdateTaskLevel(taskLevel); // Task Level 3
         }
     }
 

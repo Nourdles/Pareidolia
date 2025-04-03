@@ -49,6 +49,16 @@ public class AudioManager : MonoBehaviour
         RuntimeManager.PlayOneShot(sound, worldPos);
     }
 
-    
+    public void UpdateTaskLevel(int level)
+    {
+        if (ambienceEventInstance.isValid())
+        {
+            ambienceEventInstance.setParameterByName("Task Level", level);
+        }
+        else
+        {
+            Debug.LogWarning("Ambience event instance is not valid when trying to set Task Level.");
+        }
+    }
 
 }
