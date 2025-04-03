@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using FMODUnity;
+using FMOD.Studio;
+
 /// <summary>
 /// Script to make the basement light flicker and a silhouette appear and slowly sink into the ground once the player hits the trigger.
 /// </summary>
@@ -14,6 +17,7 @@ public class SilhouetteFlickerEvent : MonoBehaviour
     [SerializeField] private float minY = -6f; // final y position
     [SerializeField] private float moveAmount = 0.7f; // final y position
     [SerializeField] private float flickerSpeed = 0.2f;
+    [SerializeField] private EventReference basementStainSFX;
 
     public static event Action<string> SilhouetteDialogueEvent;
     public static event Action EventStart; // this event has started
@@ -34,6 +38,9 @@ public class SilhouetteFlickerEvent : MonoBehaviour
         {
             hasTriggered = true;
             EventStart?.Invoke();
+
+            RuntimeManager.PlayOneShot(basementStainSFX, transform.position);
+
             StartCoroutine(FlickerEffect());
             //BasementDoorDialogueEvent?.Invoke("What the hell is that?");
         }
@@ -46,6 +53,7 @@ public class SilhouetteFlickerEvent : MonoBehaviour
 
     private IEnumerator FlickerEffect()
 {
+
     Vector3 startPos = silhouetteSprite.transform.position;
     Vector3 targetPos = new Vector3(startPos.x, minY, startPos.z);
 
@@ -96,4 +104,5 @@ public class SilhouetteFlickerEvent : MonoBehaviour
             sr.color = color;
         }
     }
+
 }

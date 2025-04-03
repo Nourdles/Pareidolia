@@ -119,6 +119,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &49394639
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2249100408614854772, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.1674423
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249100408614854772, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3383479
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249100408614854772, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.87991774
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249100408614854772, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249100408614854772, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249100408614854772, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249100408614854772, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249100408614854772, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249100408614854772, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249100408614854772, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474763767364141009, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
+      propertyPath: m_Name
+      value: TaskManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 829f3af640c03fc4b8056e23e0986152, type: 3}
 --- !u!1 &72217834
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +430,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6168225579636809906, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1277486079}
   m_SourcePrefab: {fileID: 100100000, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
 --- !u!4 &74044876 stripped
 Transform:
@@ -464,7 +524,7 @@ SpriteRenderer:
   m_Size: {x: 14.88, y: 8.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &162347586
@@ -3319,6 +3379,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186af924b6bc048c5880578f9a341c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambienceEventReference:
+    Guid:
+      Data1: -437008910
+      Data2: 1103835551
+      Data3: -2011505221
+      Data4: 2003917290
+    Path: event:/Ambience/Room Ambience
+  ambienceDreamReference:
+    Guid:
+      Data1: -1083923356
+      Data2: 1309540820
+      Data3: 165709453
+      Data4: 898229366
+    Path: event:/Ambience/Dream Ambience
 --- !u!1 &1014879342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3620,25 +3694,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Dream>k__BackingField:
     Guid:
-      Data1: 363699294
-      Data2: 1132689091
-      Data3: -1233088885
-      Data4: -827135824
-    Path: event:/Ambience/Room (Dream)
-  <ambience1>k__BackingField:
+      Data1: -1083923356
+      Data2: 1309540820
+      Data3: 165709453
+      Data4: 898229366
+    Path: event:/Ambience/Dream Ambience
+  <ambience>k__BackingField:
     Guid:
-      Data1: -1511802359
-      Data2: 1271843365
-      Data3: 504165273
-      Data4: -47887114
-    Path: event:/Ambience/Room
-  <ambience2>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1083923356
+      Data2: 1309540820
+      Data3: 165709453
+      Data4: 898229366
+    Path: event:/Ambience/Dream Ambience
   <playerFootsteps>k__BackingField:
     Guid:
       Data1: 1103128936
@@ -4152,6 +4219,11 @@ Light:
   m_CorrespondingSourceObject: {fileID: 7153576479615631779, guid: 13c4afb036a3e5f4dad4357f3040e698, type: 3}
   m_PrefabInstance: {fileID: 729409811}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1233018752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6168225579636809906, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
+  m_PrefabInstance: {fileID: 74044875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1236141593 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8553483739656843546, guid: 187897f1a58e7674f82b423f1210cb28, type: 3}
@@ -4315,12 +4387,31 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2924139798681538107, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
   m_PrefabInstance: {fileID: 74044875}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1233018752}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1277486079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233018752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d881d16da555b4dc0a06e41857d04799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorEvent:
+    Guid:
+      Data1: -1061094504
+      Data2: 1260388854
+      Data3: -1124827988
+      Data4: 752405581
+    Path: event:/Ambience/Dream Door
 --- !u!1 &1321469301
 GameObject:
   m_ObjectHideFlags: 0
@@ -6747,4 +6838,5 @@ SceneRoots:
   - {fileID: 1495380160}
   - {fileID: 1991593732}
   - {fileID: 1987320109}
+  - {fileID: 49394639}
   - {fileID: 1480924439}
