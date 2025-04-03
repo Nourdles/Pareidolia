@@ -39,4 +39,9 @@ public class ClothingInteraction : ObjectInteraction
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pick up dirty clothes";
     }
+
+    protected override void AssignTask()
+    {
+        task = taskManager.GetComponentInChildren<WashLaundry>();
+    }
 }
