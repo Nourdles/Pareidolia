@@ -52,11 +52,6 @@ public class ShowerInteraction : ObjectInteraction // or tub interaction
         _doneShower = true;
         showerExitInteraction.SetActive(true);
     }
-
-    protected override void AssignTask()
-    {
-        task = taskManager.GetComponentInChildren<ShowerTask>();
-    }
     
     void OnEnable()
     {

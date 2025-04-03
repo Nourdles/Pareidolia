@@ -98,11 +98,6 @@ public class KeurigInteraction : ObjectInteraction
         interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to place mug in the coffee machine";
     }
 
-    protected override void AssignTask()
-    {
-        task = taskManager.GetComponentInChildren<MakeCoffeeTask>();
-    }
-
    void OnEnable()
     {
         CoffeeCupInteraction.CupPickupEvent += HoldingCupInteractText;

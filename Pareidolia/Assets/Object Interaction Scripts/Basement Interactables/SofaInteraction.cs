@@ -43,11 +43,6 @@ public class SofaInteraction : ObjectInteraction
         SceneSwitcher.SetSceneActive("TVWatch");
     }
 
-    protected override void AssignTask()
-    {
-        task = taskManager.GetComponentInChildren<TVTask>();
-    }
-
     protected override void UpdateInteractText()
     {
         interactText = "Press <sprite=\"UISprites\" name=\"" + 

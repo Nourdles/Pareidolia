@@ -119,11 +119,6 @@ public class LaundryMachineInteraction : ObjectInteraction
         }
     }
 
-    protected override void AssignTask()
-    {
-        task = taskManager.GetComponentInChildren<WashLaundry>();
-    }
-
     void OnEnable()
     {
         PlayerInteract.DropItemEvent += ResetInteractionText;

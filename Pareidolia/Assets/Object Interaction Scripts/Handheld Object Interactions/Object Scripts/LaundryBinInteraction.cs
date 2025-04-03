@@ -61,11 +61,6 @@ public class LaundryBinInteraction : HandheldObjectInteraction
         }
     }
 
-    protected override void AssignTask()
-    {
-        task = taskManager.GetComponentInChildren<WashLaundry>();
-    }
-
     void OnEnable()
     {
         ClothingInteraction.ClothingPickUpEvent += pickupClothes;
