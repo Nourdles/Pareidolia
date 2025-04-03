@@ -24,15 +24,12 @@ public class SilhouetteFlickerEvent : MonoBehaviour
     public static event Action EventEnd; // this event has finished
 
     private bool hasTriggered = false;
-    private EventInstance basementStainSFXInstance;
     void Start()
     {
         if (silhouetteSprite != null)
         {
             SetSpriteOpacity(silhouetteSprite, 0f);
         }
-
-        basementStainSFXInstance = RuntimeManager.CreateInstance(basementStainSFX);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,7 +39,7 @@ public class SilhouetteFlickerEvent : MonoBehaviour
             hasTriggered = true;
             EventStart?.Invoke();
 
-            basementStainSFXInstance.start();
+            RuntimeManager.PlayOneShot(basementStainSFX, transform.position);
 
             StartCoroutine(FlickerEffect());
             //BasementDoorDialogueEvent?.Invoke("What the hell is that?");
