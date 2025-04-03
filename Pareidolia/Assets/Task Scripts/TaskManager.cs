@@ -15,17 +15,32 @@ public class TaskManager : MonoBehaviour
         gameStateManager = FindAnyObjectByType<GameStateManager>();
         _currLvl = gameStateManager.GetLevelState();
 
+        StartCoroutine(AssignInitialTaskAfterDelay());
+    }
+
+    private System.Collections.IEnumerator AssignInitialTaskAfterDelay()
+    {
+        yield return new WaitForSeconds(0.2f); // short delay to let everything initialize
+
         if (_currLvl == Levels.Tutorial)
         {
-            currentTask = gameObject.GetComponentInChildren<MakeBedTask>();
+            currentTask = gameObject.GetComponentInChildren<MakeBedTask>(true); // include inactive
         }
         else
         {
-            currentTask = gameObject.GetComponentInChildren<MakeCoffeeTask>();
+            currentTask = gameObject.GetComponentInChildren<MakeCoffeeTask>(true); // include inactive
         }
 
-        currentTask.SetAsCurrent();
-        AudioManager.instance.UpdateTaskLevel(taskLevel);
+        if (currentTask != null)
+        {
+            Debug.Log("[DEBUG] Assigned initial task: " + currentTask.name);
+            currentTask.SetAsCurrent();
+            AudioManager.instance.UpdateTaskLevel(taskLevel);
+        }
+        else
+        {
+            Debug.LogError("[ERROR] Could not assign initial task.");
+        }
     }
 
     private void completeTask()
