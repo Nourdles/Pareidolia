@@ -8,6 +8,7 @@ public class ShowerInteraction : ObjectInteraction // or tub interaction
     [SerializeField] private GameObject _player;
     [SerializeField] private CharacterController cc;
     [SerializeField] private Transform _showerHoldTransform;
+    [SerializeField] private GameObject showerExitInteraction;
     public static event Action GetIntoTubEvent;
     private bool _doneShower = false;
 
@@ -49,6 +50,7 @@ public class ShowerInteraction : ObjectInteraction // or tub interaction
     private void FinishShower()
     {
         _doneShower = true;
+        showerExitInteraction.SetActive(true);
     }
     
     void OnEnable()

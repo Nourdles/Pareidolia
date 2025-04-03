@@ -6,6 +6,7 @@ public class ShowerInstructionsController : MonoBehaviour
 {
     private InputAction interactKey;
     private string inputMasking;
+    private bool activated = false;
     public static event Action<string> ShowerInstructionsEvent;
 
     void Start()
@@ -17,6 +18,10 @@ public class ShowerInstructionsController : MonoBehaviour
     {
         ShowerInstructionsEvent?.Invoke("Hold <sprite=\"UISprites\" name=\"" + 
                 interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to shower");
+        if (!activated)
+        {
+            activated = true;
+        }
     }
 
     private void UpdateControllerScheme(bool usingKBM)
@@ -28,17 +33,28 @@ public class ShowerInstructionsController : MonoBehaviour
         {
             inputMasking = "Gamepad";
         }
+        if (activated)
+        {
+            TriggerShowerInstructions();
+        }
+    }
+
+    private void Deactivate()
+    {
+        Destroy(this);
     }
 
     void OnEnable()
     {
         InputDeviceChecker.UsingKBMEvent += UpdateControllerScheme;
         ShowerInteraction.GetIntoTubEvent += TriggerShowerInstructions;
+        ShowerTask.ShowerComplete += Deactivate;
     }
 
     void OnDisable()
     {
         InputDeviceChecker.UsingKBMEvent -= UpdateControllerScheme;
-        ShowerInteraction.GetIntoTubEvent += TriggerShowerInstructions;
+        ShowerInteraction.GetIntoTubEvent -= TriggerShowerInstructions;
+        ShowerTask.ShowerComplete -= Deactivate;
     }
 }

@@ -23,12 +23,14 @@ public class ShowerWaterController : MonoBehaviour
     {
         Shower.ShowerOnEvent += StartWaterEffect;
         Shower.ShowerOffEvent += StopWaterEffect;
+        ShowerTask.ShowerComplete += StopWaterEffect;
     }
 
     void OnDisable()
     {
         Shower.ShowerOnEvent -= StartWaterEffect;
         Shower.ShowerOffEvent -= StopWaterEffect;
+        ShowerTask.ShowerComplete -= StopWaterEffect;
     }
 
     private void StartWaterEffect()
