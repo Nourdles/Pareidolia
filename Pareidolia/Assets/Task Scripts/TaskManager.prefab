@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTask: {fileID: 0}
+  gameStateManager: {fileID: 0}
 --- !u!1 &8249609666087989725
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   complete: 0
-  next: {fileID: 1431324100755688594}
+  next: {fileID: 4426802300662661107}
   active: 0
 --- !u!114 &6512192977328404584
 MonoBehaviour:
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   complete: 0
-  next: {fileID: 4426802300662661107}
+  next: {fileID: 1431324100755688594}
   active: 0
   _progress: 0
   _isCharging: 0
@@ -159,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   complete: 0
-  next: {fileID: 6512192977328404584}
+  next: {fileID: 0}
   active: 0
 --- !u!114 &4426802300662661107
 MonoBehaviour:
@@ -174,5 +175,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   complete: 0
-  next: {fileID: 0}
+  next: {fileID: 6512192977328404584}
   active: 0
