@@ -16,11 +16,13 @@ public class TVLightingEffect : MonoBehaviour
     void OnEnable()
     {
         SofaInteraction.TVStartEvent += OnTVStarted;
+        TVSceneManager.TVWatchedEvent += OnTVEnded;
     }
 
     void OnDisable()
     {
         SofaInteraction.TVStartEvent -= OnTVStarted;
+        TVSceneManager.TVWatchedEvent -= OnTVEnded;
     }
 
     private void OnTVStarted()
@@ -32,6 +34,12 @@ public class TVLightingEffect : MonoBehaviour
             TVLight.enabled = true;
 
         StartCoroutine(FlickerCeilingLightAfterDelay());
+    }
+
+    private void OnTVEnded()
+    {
+        if (TVLight != null)
+            TVLight.enabled = false;
     }
 
     private IEnumerator FlickerCeilingLightAfterDelay()

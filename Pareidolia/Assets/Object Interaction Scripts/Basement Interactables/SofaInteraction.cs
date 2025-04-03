@@ -16,7 +16,31 @@ public class SofaInteraction : ObjectInteraction
     {
         SetUninteractable();
         TVStartEvent?.Invoke();
+        StartCoroutine(ResetAndLoadTVScene());
+    }
+
+    private System.Collections.IEnumerator ResetAndLoadTVScene()
+    {
+        // Unload the scene if it's already loaded (fix for Unity caching old additive scene)
+        if (UnityEngine.SceneManagement.SceneManager.GetSceneByName("TVWatch").isLoaded)
+        {
+            SceneSwitcher.UnLoadSceneOnTop("TVWatch");
+
+            // Wait until it's fully unloaded before continuing
+            while (UnityEngine.SceneManagement.SceneManager.GetSceneByName("TVWatch").isLoaded)
+            {
+                yield return null;
+            }
+        }
+
+        // Now load and activate the scene
         SceneSwitcher.LoadSceneOnTop("TVWatch");
+
+        // Wait a frame or two to allow proper load
+        yield return null;
+        yield return null;
+
+        SceneSwitcher.SetSceneActive("TVWatch");
     }
 
     protected override void UpdateInteractText()

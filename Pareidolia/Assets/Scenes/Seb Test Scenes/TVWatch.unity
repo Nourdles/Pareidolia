@@ -1210,7 +1210,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: d0b867db76c1c46499d68300321615a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1271,8 +1271,8 @@ Transform:
   m_GameObject: {fileID: 1502738751}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 26.834, y: 21.75, z: -62.191}
-  m_LocalScale: {x: 1.148, y: 0.84000003, z: 2.8}
+  m_LocalPosition: {x: 26.93, y: 21.876, z: -62.127}
+  m_LocalScale: {x: 1.36, y: 0.96, z: 2.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 694742841}
@@ -1285,7 +1285,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502738751}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: d54b95eb340c5094a8705f153f92f600, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: edbc44862f9a8c84eb0fb774b49ae46b, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1728,28 +1728,7 @@ PrefabInstance:
     - {fileID: 5466795558401844151, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4241590656131842012, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2215969203596542729, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 7690185691387756577, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5949477426133563552, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8709234714499185758, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1538579855359083319, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 4725345745410619510, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
 --- !u!114 &321109939135082730 stripped
 MonoBehaviour:
