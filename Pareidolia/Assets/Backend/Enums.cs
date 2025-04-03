@@ -6,9 +6,8 @@ public enum Levels
     MorningCutscene = -1,
     Tutorial = 0,
     Morning = 1,
-    Afternoon = 2,
-    Evening = 3,
-    EndSequence = 4
+    EndingCutscene = 2,
+    Credits = 3
 }
 
 

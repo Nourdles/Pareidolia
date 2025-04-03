@@ -39,6 +39,16 @@ public class MainMenu : MonoBehaviour
         FadeOutCanvas.FadeOutExit();
     }
 
+    public static void StopTitleMusic()
+    {
+        if (titleScreenMusicInstance.isValid())
+        {
+            titleScreenMusicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            titleScreenMusicInstance.release();
+            titleScreenMusicInstance.clearHandle();
+        }
+    }
+
     public void QuitGame()
     {
         Debug.Log("Quit Game");

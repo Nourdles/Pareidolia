@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -63,15 +64,8 @@ public class MenuManager : MonoBehaviour
 
     public void ShowCreditsMenu()
     {
-        mainMenu.SetActive(false);
-        optionsMenu.SetActive(false);
-        creditsMenu.SetActive(true);
-
-        // reset all button text colors
-        ResetAllButtonColors(creditsMenu);
-
-        // first button is always selected
-        StartCoroutine(ForceSelectButton(creditsMenuFirstButton));
+        MainMenu.StopTitleMusic();
+        SceneManager.LoadScene("Credits");
     }
 
     IEnumerator ForceSelectButton(Button button)
