@@ -41,6 +41,6 @@ public class CreditsFadeScene : MonoBehaviour
         }
         // once animation has finished, move to the next level
         yield return new WaitForSeconds(1.0f);
-        SceneManager.LoadScene("TESTESTjvnTestTitleScene 1");
+        SceneManager.LoadScene("TitleScreenScene");
     }
 }
