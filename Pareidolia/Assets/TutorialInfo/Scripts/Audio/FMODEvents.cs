@@ -22,4 +22,10 @@ public class FMODEvents : MonoBehaviour
         }
         instance = this;
     }
+
+    public void UpdateTaskLevel(int taskLevel)
+    {
+        // Update the parameter in FMOD
+        RuntimeManager.StudioSystem.setParameterByName("Task Level", taskLevel);
+    }
 }
