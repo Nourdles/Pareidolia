@@ -32881,9 +32881,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5861229812658429849, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: notepadUI
+      value: 
+      objectReference: {fileID: 1268465076}
+    - target: {fileID: 5861229812658429849, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
       propertyPath: endHallway
       value: 
       objectReference: {fileID: 576221464}
+    - target: {fileID: 5861229812658429849, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: newNotepadImg
+      value: 
+      objectReference: {fileID: 1677115416}
     - target: {fileID: 5861229812658429849, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
       propertyPath: morningFrontDoor
       value: 
@@ -33688,6 +33696,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4221005554001010148, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
   m_PrefabInstance: {fileID: 5524556281714177836}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1677115414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1677115415}
+  - component: {fileID: 1677115417}
+  - component: {fileID: 1677115416}
+  m_Layer: 7
+  m_Name: End Game Notepad IMG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1677115415
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677115414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -4.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 185329317915847529}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.306, y: -0.19}
+  m_SizeDelta: {x: 2.552, y: 0.9279}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1677115416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677115414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cfaad23951637bc4b988b4b4259b4afa, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1677115417
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677115414}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1681180407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42247,7 +42330,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5466795558401844151, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8571339344701861044, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1677115415}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4241590656131842012, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
       insertIndex: -1
@@ -42271,6 +42357,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+--- !u!224 &185329317915847529 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8571339344701861044, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+  m_PrefabInstance: {fileID: 185329317915847528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &321109939135082730 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3620590884641923, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}

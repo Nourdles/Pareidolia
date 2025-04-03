@@ -3,6 +3,7 @@ using TMPro;
 using System;
 using FMODUnity;
 using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class UpdateUI: MonoBehaviour
 {
@@ -87,5 +88,28 @@ public class UpdateUI: MonoBehaviour
             
         }
         TasksUpdatedEvent?.Invoke();
+    }
+
+    /// <summary>
+    /// called by StartEndSequenceEvent at the end of game to change the notepad ui to be spookier
+    /// </summary>
+    public void EnableEndGameNotepad(UnityEngine.UI.Image newNotepadImg)
+    {
+        // change header
+        notepadTextFields[0].text = "Someone is outside.";
+
+        // clear other text fields
+        for (int txtfield = 1; txtfield < notepadTextFields.Length; txtfield++)
+        {
+            notepadTextFields[txtfield].text = "";
+        }
+        updateTaskListSFX();
+
+        // change to image
+        Color color = newNotepadImg.color;
+        color.a = 1f;
+        newNotepadImg.color = color;
+        TasksUpdatedEvent?.Invoke();
+
     }
 }
