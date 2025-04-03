@@ -32,6 +32,17 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadSceneAsync("MorningLevel");
     }
 
+    public static void LoadEndingCutscene()
+    {
+        SceneManager.LoadSceneAsync("EndingCutscene");
+    }
+
+    public static void LoadCredits()
+    {
+        //FadeToLevel();
+        SceneManager.LoadSceneAsync("Credits");
+    }
+
     public static void LoadGameEnd()
     {
         //FadeToLevel();
