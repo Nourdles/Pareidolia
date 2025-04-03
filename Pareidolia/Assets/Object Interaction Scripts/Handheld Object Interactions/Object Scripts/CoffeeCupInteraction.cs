@@ -21,6 +21,11 @@ public class CoffeeCupInteraction : HandheldObjectInteraction
         CupPickupEvent?.Invoke();
     }
 
+    protected override void AssignTask()
+    {
+        task = taskManager.GetComponentInChildren<MakeCoffeeTask>();
+    }
+
     protected override void UpdateInteractText()
     {
         interactText = "Press <sprite=\"UISprites\" name=\"" + 

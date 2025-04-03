@@ -25,4 +25,9 @@ public class MilkInteraction : HandheldObjectInteraction
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup milk";
     }
+
+    protected override void AssignTask()
+    {
+        task = taskManager.GetComponentInChildren<MakeBreakfastTask>();
+    }
 }

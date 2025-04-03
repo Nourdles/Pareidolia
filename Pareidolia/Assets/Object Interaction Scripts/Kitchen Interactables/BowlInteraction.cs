@@ -99,6 +99,11 @@ public class BowlInteraction : ObjectInteraction
         instruction = "\"> to pour milk";
     }
 
+    protected override void AssignTask()
+    {
+        task = taskManager.GetComponentInChildren<MakeBreakfastTask>();
+    }
+
     void OnEnable()
     {
         PlayerInteract.DropItemEvent += ResetInteractionText;

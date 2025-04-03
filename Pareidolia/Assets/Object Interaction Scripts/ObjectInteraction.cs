@@ -7,6 +7,7 @@ public abstract class ObjectInteraction : MonoBehaviour
     protected InputAction interactKey;
     protected Task task = null;
     protected TaskManager taskManager;
+    protected bool taskassigned = false;
     public static event Action<string> DialoguePromptEvent;
     [SerializeField] protected String interactText = "";
     [SerializeField] protected String inputMasking = "Keyboard&Mouse";
@@ -71,8 +72,19 @@ public abstract class ObjectInteraction : MonoBehaviour
         UpdateInteractText();
     }
 
+    protected virtual void AssignTask()
+    {
+        task = null;
+    }
+
     protected bool CheckIfTaskActive()
     {
+        if (!taskassigned)
+        {
+            AssignTask();
+            taskassigned = true;
+        }
+
         if (task != null)
         {
             return task.GetActiveStatus();

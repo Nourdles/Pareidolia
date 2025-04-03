@@ -24,4 +24,9 @@ public class LaundryDetergentInteraction : HandheldObjectInteraction
     {
         PickupDetergentEvent?.Invoke();
     }
+
+    protected override void AssignTask()
+    {
+        task = taskManager.GetComponentInChildren<WashLaundry>();
+    }
 }
