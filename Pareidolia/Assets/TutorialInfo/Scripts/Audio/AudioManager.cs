@@ -4,44 +4,62 @@ using FMOD.Studio;
 
 public class AudioManager : MonoBehaviour
 {
-
     private EventInstance ambienceEventInstance;
 
     [SerializeField] private EventReference ambienceEventReference;
-    
+    [SerializeField] private EventReference ambienceDreamReference;
+
     public static AudioManager instance { get; private set; }
 
     private void Awake()
     {
         if (instance != null)
         {
-            Debug.LogError("Found more than one Audio Manager in the scene");
+            Destroy(gameObject);
+            Debug.LogWarning("Duplicate AudioManager found and destroyed.");
+            return;
         }
-        instance = this;
 
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
+        InitializeAmbience(ambienceDreamReference);
+    }
+
+    private void InitializeAmbience(EventReference ambienceRef)
+    {
+        StopAmbience();
+
+        ambienceEventInstance = CreateEventInstance(ambienceRef);
+        ambienceEventInstance.start();
+    }
+
+    public void StartRoomAmbience()
+    {
         InitializeAmbience(ambienceEventReference);
     }
 
-    public void InitializeAmbience(EventReference ambienceEventReference)
+    public void StartDreamAmbience()
     {
-        // Stop the previous ambience if it's running
+        InitializeAmbience(ambienceDreamReference);
+    }
+
+    public void StopAmbience()
+    {
         if (ambienceEventInstance.isValid())
         {
-            ambienceEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            ambienceEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            ambienceEventInstance.release();
+            ambienceEventInstance.clearHandle();
         }
-
-        ambienceEventInstance = CreateEventInstance(ambienceEventReference);
-        ambienceEventInstance.start();
     }
 
     public EventInstance CreateEventInstance(EventReference eventReference)
     {
-        EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
-        return eventInstance;
+        return RuntimeManager.CreateInstance(eventReference);
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
@@ -49,7 +67,7 @@ public class AudioManager : MonoBehaviour
         RuntimeManager.PlayOneShot(sound, worldPos);
     }
 
-    public void UpdateTaskLevel(int level)
+    public void UpdateTaskLevel(float level)
     {
         if (ambienceEventInstance.isValid())
         {
@@ -60,5 +78,4 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Ambience event instance is not valid when trying to set Task Level.");
         }
     }
-
 }

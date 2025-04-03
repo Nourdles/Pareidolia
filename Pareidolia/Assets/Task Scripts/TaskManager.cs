@@ -8,7 +8,7 @@ public class TaskManager : MonoBehaviour
     public static event Action<int> MoveToNextTask;
     private Levels _currLvl;
 
-    private int taskLevel = 0; // FMOD ambience layer tracking I've defined as "tasklevel"
+    private float taskLevel = 0f;
 
     void Start()
     {
@@ -18,12 +18,13 @@ public class TaskManager : MonoBehaviour
         if (_currLvl == Levels.Tutorial)
         {
             currentTask = gameObject.GetComponentInChildren<MakeBedTask>();
-        } else
+        }
+        else
         {
             currentTask = gameObject.GetComponentInChildren<MakeCoffeeTask>();
         }
-        currentTask.SetAsCurrent();
 
+        currentTask.SetAsCurrent();
         AudioManager.instance.UpdateTaskLevel(taskLevel);
     }
 
@@ -31,36 +32,50 @@ public class TaskManager : MonoBehaviour
     {
         if (currentTask != null)
         {
-            currentTask = currentTask.GetNextTask(); // go to next task
+            if (_currLvl != Levels.Tutorial)
+            {
+                UpdateFMODTaskLevel(currentTask.GetTasknum());
+            }
+
+            currentTask = currentTask.GetNextTask();
             if (currentTask != null)
             {
                 MoveToNextTask?.Invoke(currentTask.GetTasknum());
                 currentTask.SetAsCurrent();
-
-                if (_currLvl != Levels.Tutorial) {
-                    UpdateFMODTaskLevel(currentTask.GetTasknum());
-                }
             }
         }
     }
 
     private void UpdateFMODTaskLevel(int taskNum)
     {
-        if (taskNum == 3) // MakeBreakfast
+        float targetLevel = taskLevel;
+
+        if (taskNum == 2) targetLevel = 1f;     // MakeBreakfast
+        else if (taskNum == 4) targetLevel = 2f; // Shower
+        else if (taskNum == 5) targetLevel = 3f; // WashLaundry
+
+        if (Math.Abs(targetLevel - taskLevel) > 0.01f) // avoid unnecessary coroutine
         {
-            taskLevel = 1;
-            AudioManager.instance.UpdateTaskLevel(taskLevel); // Task Level 1
+            StopAllCoroutines();
+            StartCoroutine(SmoothTaskLevelTransition(targetLevel, 3f));
         }
-        else if (taskNum == 5) // Shower
+    }
+
+    private System.Collections.IEnumerator SmoothTaskLevelTransition(float targetLevel, float duration)
+    {
+        float startLevel = taskLevel;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
         {
-            taskLevel = 2;
-            AudioManager.instance.UpdateTaskLevel(taskLevel); // Task Level 2
+            elapsed += Time.deltaTime;
+            taskLevel = Mathf.Lerp(startLevel, targetLevel, elapsed / duration);
+            AudioManager.instance.UpdateTaskLevel(taskLevel);
+            yield return null;
         }
-        else if (taskNum == 6) // WashLaundry
-        {
-            taskLevel = 3;
-            AudioManager.instance.UpdateTaskLevel(taskLevel); // Task Level 3
-        }
+
+        taskLevel = targetLevel;
+        AudioManager.instance.UpdateTaskLevel(taskLevel);
     }
 
     public Task GetCurrentTask()

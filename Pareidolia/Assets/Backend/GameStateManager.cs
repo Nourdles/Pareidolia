@@ -91,6 +91,8 @@ public class GameStateManager : MonoBehaviour
         Debug.Log("Starting Morning Cutscene");
         levelState = Levels.MorningCutscene;
 
+        AudioManager.instance.StopAmbience();
+
         // load the morning cutscene scene
         LoadScene.LoadMorningCutscene();
         LevelChangeEvent?.Invoke(levelState);
@@ -100,6 +102,8 @@ public class GameStateManager : MonoBehaviour
     {
         Debug.Log("Starting Tutorial");
         levelState = Levels.Tutorial;
+
+        AudioManager.instance.StartRoomAmbience();
 
         // load the tutorial scene
         LoadScene.LoadTutorialScene();
@@ -125,6 +129,8 @@ public class GameStateManager : MonoBehaviour
         Debug.Log("Starting End Sequence");
         levelState = Levels.EndSequence;
 
+        AudioManager.instance.StartDreamAmbience();
+
         // load the end sequence scene
         //LoadScene.LoadIntroSequence();
         LevelChangeEvent?.Invoke(levelState);
@@ -133,6 +139,9 @@ public class GameStateManager : MonoBehaviour
     private static void EndGame()
     {
         Debug.Log("Game End");
+
+        AudioManager.instance.StopAmbience();
+
         // play credits
         LoadScene.LoadGameEnd();
 
