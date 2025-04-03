@@ -114,23 +114,49 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
     public void PreventClipping()
     {
-        //Debug.Log("Preventing Clipping");
         GameObject objectCenter = FindObjectCenter();
-        var clipRange = Vector3.Distance(gameObject.transform.position, playerCam.transform.position * 1.5f); //distance from holdPos/the held object to the camera (offset so the ray doesn't start from inside collider)
 
-        RaycastHit[] rayHits;
-        rayHits = Physics.RaycastAll(playerCam.transform.position, playerCam.transform.TransformDirection(Vector3.forward), clipRange);
-        Debug.Log("Clip Range:" + clipRange);
-        Debug.Log(rayHits);
-        // check if the raycasts have detected another object between the object hold position and camera
-        if (rayHits.Length > 1)
+        Vector3 camForward = playerCam.transform.forward;
+        camForward.y = Mathf.Max(camForward.y, -0.5f);
+        Vector3 dropDir = camForward.normalized;
+
+        Vector3 dropPos = playerCam.transform.position + dropDir * 1.5f + Vector3.down * 0.9f;
+        Vector3 upwardDrop = dropPos + Vector3.up * 0.5f;
+        Vector3 fallbackDrop = playerCam.transform.position + Vector3.down * 0.4f;
+
+        int ignorePlayerAndHandheld = ~(LayerMask.GetMask("Player", "HandheldObjects"));
+
+        // 1. Try front drop
+        if (!Physics.CheckSphere(dropPos, 0.2f, ignorePlayerAndHandheld))
         {
-            Debug.Log("Clipping Detected");
-            Debug.Log("Clip Range:" + clipRange);
-            // move object to be positioned slightly below player camera so it doesn't clip upon dropping
-            objectCenter.transform.position = playerCam.transform.position + new Vector3(0f, -0.1f, 0f);
+            objectCenter.transform.position = dropPos;
+            ResetDropVelocity();
+            return;
+        }
+
+        // 2. Try slightly above
+        if (!Physics.CheckSphere(upwardDrop, 0.2f, ignorePlayerAndHandheld))
+        {
+            objectCenter.transform.position = upwardDrop;
+            ResetDropVelocity();
+            return;
+        }
+
+        // 3. FINAL fallback: drop straight down & kill motion IMMEDIATELY
+        itemRb.linearVelocity = Vector3.zero;
+        itemRb.angularVelocity = Vector3.zero;
+        itemRb.MovePosition(fallbackDrop); // use MovePosition to bypass weird bounce force
+    }
+
+    private void ResetDropVelocity()
+    {
+        if (itemRb != null)
+        {
+            itemRb.linearVelocity = Vector3.zero;
+            itemRb.angularVelocity = Vector3.zero;
         }
     }
+
 
     private void PlayDropSound(Vector3 position)
     {
