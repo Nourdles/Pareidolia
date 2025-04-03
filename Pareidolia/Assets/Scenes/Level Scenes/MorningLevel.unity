@@ -6912,6 +6912,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Picture Munch
       objectReference: {fileID: 0}
+    - target: {fileID: 5067282472656908732, guid: cae16af33c9435441bf940185f8a68b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25292,6 +25296,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186af924b6bc048c5880578f9a341c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ambienceEventReference:
+    Guid:
+      Data1: -437008910
+      Data2: 1103835551
+      Data3: -2011505221
+      Data4: 2003917290
+    Path: event:/Ambience/Room Ambience
+  ambienceDreamReference:
+    Guid:
+      Data1: -437008910
+      Data2: 1103835551
+      Data3: -2011505221
+      Data4: 2003917290
+    Path: event:/Ambience/Room Ambience
 --- !u!1 &1023977243
 GameObject:
   m_ObjectHideFlags: 0
@@ -25506,25 +25524,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Dream>k__BackingField:
     Guid:
-      Data1: 363699294
-      Data2: 1132689091
-      Data3: -1233088885
-      Data4: -827135824
-    Path: event:/Ambience/Room (Dream)
-  <ambience1>k__BackingField:
+      Data1: -1083923356
+      Data2: 1309540820
+      Data3: 165709453
+      Data4: 898229366
+    Path: event:/Ambience/Dream Ambience
+  <ambience>k__BackingField:
     Guid:
-      Data1: -1511802359
-      Data2: 1271843365
-      Data3: 504165273
-      Data4: -47887114
-    Path: event:/Ambience/Room
-  <ambience2>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -437008910
+      Data2: 1103835551
+      Data3: -2011505221
+      Data4: 2003917290
+    Path: event:/Ambience/Room Ambience
   <playerFootsteps>k__BackingField:
     Guid:
       Data1: 1103128936
@@ -33108,6 +33119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb973157bc40a9429a0b46d540d82af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1462997108 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1502374500035379640, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+  m_PrefabInstance: {fileID: 1741159379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1467632261
 GameObject:
   m_ObjectHideFlags: 0
@@ -34499,6 +34515,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3563760237589203832, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1741159385}
+    - targetCorrespondingSourceObject: {fileID: 1502374500035379640, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1741159386}
   m_SourcePrefab: {fileID: 100100000, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
 --- !u!1 &1741159380 stripped
 GameObject:
@@ -34510,7 +34529,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7625949288353427249, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
   m_PrefabInstance: {fileID: 1741159379}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1462997108}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
@@ -34558,6 +34577,25 @@ MonoBehaviour:
   flickerDuration: 0.2
   flickerCooldownMin: 1
   flickerCooldownMax: 5
+--- !u!114 &1741159386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462997108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d881d16da555b4dc0a06e41857d04799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorEvent:
+    Guid:
+      Data1: -1061094504
+      Data2: 1260388854
+      Data3: -1124827988
+      Data4: 752405581
+    Path: event:/Ambience/Dream Door
 --- !u!1 &1745611468
 GameObject:
   m_ObjectHideFlags: 0
@@ -35360,6 +35398,18 @@ PrefabInstance:
     - target: {fileID: 1077805456538128832, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409453161690824296, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409453161690824296, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409453161690824296, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 1497670615640017374, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: playerCamera
@@ -41695,7 +41745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 756085340389413668, guid: ce31a1e785c539447881eda94877d806, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.26001
+      value: 9.271
       objectReference: {fileID: 0}
     - target: {fileID: 756085340389413668, guid: ce31a1e785c539447881eda94877d806, type: 3}
       propertyPath: m_LocalPosition.y
@@ -46070,6 +46120,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 123
       objectReference: {fileID: 0}
+    - target: {fileID: 6549472644078334962, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.083
+      objectReference: {fileID: 0}
     - target: {fileID: 6556286731020600460, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.286
@@ -46154,6 +46208,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 1e6ed0661d38ca04daf90b5492a1494e, type: 2}
+    - target: {fileID: 6752395489107134743, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 6758125420210740380, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 3.7981005
@@ -46689,6 +46747,26 @@ PrefabInstance:
     - target: {fileID: 7753276711939637350, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: playerLayer.m_Bits
       value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753276711939637350, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: basementStainSFX.Path
+      value: event:/SFX/Basement Stain
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753276711939637350, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: basementStainSFX.Guid.Data1
+      value: -1937564468
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753276711939637350, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: basementStainSFX.Guid.Data2
+      value: 1339986345
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753276711939637350, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: basementStainSFX.Guid.Data3
+      value: 1518194825
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753276711939637350, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: basementStainSFX.Guid.Data4
+      value: 1967915068
       objectReference: {fileID: 0}
     - target: {fileID: 7757373358125223699, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -47330,6 +47408,7 @@ PrefabInstance:
     - {fileID: 4243624357197144555, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
     - {fileID: 6960513019991954345, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
     - {fileID: 1855941091640363103, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+    - {fileID: 4378600602711007071, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 139546154275177218, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       insertIndex: 15
@@ -47359,7 +47438,7 @@ PrefabInstance:
       insertIndex: 30
       addedObject: {fileID: 382983562}
     - targetCorrespondingSourceObject: {fileID: 8831393975056422293, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
-      insertIndex: 1
+      insertIndex: 0
       addedObject: {fileID: 1691468986}
     - targetCorrespondingSourceObject: {fileID: 692914536861275276, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       insertIndex: -1
