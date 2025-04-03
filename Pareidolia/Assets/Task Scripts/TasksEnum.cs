@@ -14,5 +14,9 @@ public enum Tasks
     Shower = 4,
     WashLaundry = 5,
     // then replace this with put clothes away
-    LeaveHouse = 6,
+}
+
+public enum FinalTask
+{
+    LeaveHouse = 1,
 }
