@@ -37,9 +37,9 @@ public class UpdateUI: MonoBehaviour
             notepadText[0] = "Morning To-Do List";
             notepadText[1] = "Make coffee";
             notepadText[2] = "Make cereal";
-            notepadText[3] = "Put dirty clothes in the wash";
+            notepadText[3] = "Watch TV";
             notepadText[4] = "Take a shower";
-            notepadText[5] = "Watch TV";
+            notepadText[5] = "Put dirty clothes in the wash";
         }
         updateTasks();
     }
