@@ -83,6 +83,7 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
         // set the object tag as untagged so it can't be interacted with
         gameObject.tag = "Untagged";
+        Debug.Log("object untagged");
         // set the object and its children's layer so that it can be rendered by the pickup camera
         SetLayerRecursively(gameObject, handheldLayer);
         Debug.Log("Layer set");

@@ -17,6 +17,8 @@ public abstract class ObjectInteraction : MonoBehaviour
         interactKey = InputSystem.actions.FindAction("Interact");
         inputMasking = "Keyboard&Mouse";
         taskManager = GameObject.FindWithTag("TaskManager").GetComponent<TaskManager>();
+        Debug.Log("Taskmanager value in object interaction scripts: " + taskManager);
+
     }
 
     public void interact(GameObject objectInHand)

@@ -14,6 +14,7 @@ public class CoffeeCupInteraction : HandheldObjectInteraction
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup coffee mug";
         task = taskManager.GetComponentInChildren<MakeCoffeeTask>();
+        Debug.Log("Task associated with mug is:" +task);
     }
 
     protected override void InvokePickupEvent()
