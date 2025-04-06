@@ -80,6 +80,15 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void ShwoQuitGame()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit(); 
+        #endif
+    }
+
     // have to do this cus the fuckass buttons KEEP GETTING STUCK AS SELECTED HOLY SHIT MAN
     void ResetAllButtonColors(GameObject menu)
     {
