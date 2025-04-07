@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ObjectHoverGlow : MonoBehaviour 
 {
     [SerializeField] private GameObject objectInView;
     public Material highlightMaterial; // Shader Graph-based outline
-    private Material[] originalMaterials;
+    private List<(MeshRenderer renderer, Material[] originalMaterials)> highlightedRenderers = new();
     private GameObject lastHighlightedObject;
 
     public static event Action<GameObject> ViewingObjectEvent;
@@ -16,38 +17,49 @@ public class ObjectHoverGlow : MonoBehaviour
             return;
 
         ClearHighlighted();
+        lastHighlightedObject = gameObject;
+        objectInView = gameObject;
+        ViewingObjectEvent?.Invoke(gameObject);
 
-        MeshRenderer meshRenderer = gameObject.GetComponentInChildren<MeshRenderer>();
-        if (meshRenderer != null)
+        highlightedRenderers.Clear();
+
+        // Highlight the main object if it has a MeshRenderer
+        TryHighlightRenderer(gameObject);
+
+        // Recursively highlight children tagged "InteractChild"
+        foreach (Transform child in gameObject.GetComponentsInChildren<Transform>(true))
         {
-            // save original materials
-            originalMaterials = meshRenderer.materials;
-
-            // append the outline material
-            Material[] newMaterials = new Material[originalMaterials.Length + 1];
-            originalMaterials.CopyTo(newMaterials, 0);
-            newMaterials[^1] = highlightMaterial;
-
-            meshRenderer.materials = newMaterials;
-
-            lastHighlightedObject = gameObject;
-            objectInView = gameObject;
-            ViewingObjectEvent?.Invoke(gameObject);
+            if (child.CompareTag("InteractChild"))
+                TryHighlightRenderer(child.gameObject);
         }
     }
 
+    void TryHighlightRenderer(GameObject obj)
+    {
+        MeshRenderer meshRenderer = obj.GetComponent<MeshRenderer>();
+        if (meshRenderer == null) return;
+
+        Material[] original = meshRenderer.materials;
+        Material[] newMaterials = new Material[original.Length + 1];
+        original.CopyTo(newMaterials, 0);
+        newMaterials[^1] = highlightMaterial;
+
+        meshRenderer.materials = newMaterials;
+        highlightedRenderers.Add((meshRenderer, original));
+    }
+
+
     void ClearHighlighted()
     {
-        if (lastHighlightedObject != null)
+        foreach (var (renderer, original) in highlightedRenderers)
         {
-            MeshRenderer meshRenderer = lastHighlightedObject.GetComponentInChildren<MeshRenderer>();
-            if (meshRenderer != null && originalMaterials != null)
-                meshRenderer.materials = originalMaterials;
-
-            lastHighlightedObject = null;
-            objectInView = null;
+            if (renderer != null)
+                renderer.materials = original;
         }
 
+        highlightedRenderers.Clear();
+        lastHighlightedObject = null;
+        objectInView = null;
         ViewingObjectEvent?.Invoke(null);
     }
 
@@ -81,33 +93,39 @@ public class ObjectHoverGlow : MonoBehaviour
         HighlightObjectInCenterOfCam();
     }
 
-    private void UpdateOrigMaterial(Material newMat) // messy as hell but makes it compatible with highlighting
+    private void UpdateOrigMaterial(Material newMat)
     {
         if (lastHighlightedObject == null) return;
 
-        MeshRenderer mr = lastHighlightedObject.GetComponentInChildren<MeshRenderer>();
-        if (mr == null) return;
-
-        // check if outline is currently applied
-        if (mr.materials.Length > 1 && mr.materials[^1] == highlightMaterial)
+        for (int i = 0; i < highlightedRenderers.Count; i++)
         {
-            // update the base materials (exclude outline)
-            for (int i = 0; i < originalMaterials.Length; i++)
+            var (renderer, originalMats) = highlightedRenderers[i];
+            if (renderer == null) continue;
+
+            // Check if outline is still applied
+            if (renderer.materials.Length > 1 && renderer.materials[^1] == highlightMaterial)
             {
-                originalMaterials[i] = newMat;
-            }
+                // Update base materials (excluding outline)
+                for (int j = 0; j < originalMats.Length; j++)
+                {
+                    originalMats[j] = newMat;
+                }
 
-            // replace materials array in renderer
-            Material[] updated = new Material[originalMaterials.Length + 1];
-            originalMaterials.CopyTo(updated, 0);
-            updated[^1] = highlightMaterial;
-            mr.materials = updated;
-        }
-        else
-        {
-            // update for objects without outline (still need to store new mat)
-            originalMaterials = new Material[] { newMat };
-            mr.materials = originalMaterials;
+                Material[] updated = new Material[originalMats.Length + 1];
+                originalMats.CopyTo(updated, 0);
+                updated[^1] = highlightMaterial;
+                renderer.materials = updated;
+
+                // Update the stored original materials in the list
+                highlightedRenderers[i] = (renderer, originalMats);
+            }
+            else
+            {
+                // If no outline is applied, just replace with the newMat
+                Material[] newOriginal = new Material[] { newMat };
+                renderer.materials = newOriginal;
+                highlightedRenderers[i] = (renderer, newOriginal);
+            }
         }
     }
 

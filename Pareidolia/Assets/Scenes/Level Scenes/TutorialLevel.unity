@@ -842,6 +842,137 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2363707919734292610, guid: f48dc1404f796904ca43dc603200a0fc, type: 3}
   m_PrefabInstance: {fileID: 5227212930753899938}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &810622765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 810622766}
+  - component: {fileID: 810622770}
+  - component: {fileID: 810622769}
+  - component: {fileID: 810622768}
+  - component: {fileID: 810622767}
+  m_Layer: 0
+  m_Name: Pillows.001
+  m_TagString: InteractChild
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &810622766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810622765}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.023727221, y: 0.25330627, z: -0.006214889, w: 0.96707517}
+  m_LocalPosition: {x: 0.0020515837, y: 0.0062135966, z: 0.005877742}
+  m_LocalScale: {x: 0.350883, y: 0.3482887, z: 0.26513278}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1305903524}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &810622767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810622765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8163f03d79f63714dbfd60fbdd8efe09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Press [E] to make bed
+  inputMasking: Keyboard&Mouse
+  bedMakeSound:
+    Guid:
+      Data1: -666292581
+      Data2: 1172150688
+      Data3: 893254278
+      Data4: 481362769
+    Path: event:/SFX/BedMake
+--- !u!64 &810622768
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810622765}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9051511851972731893, guid: f544792a8e8d9944ab1979284ea082e8, type: 3}
+--- !u!23 &810622769
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810622765}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -8409406661585659304, guid: f544792a8e8d9944ab1979284ea082e8, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &810622770
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810622765}
+  m_Mesh: {fileID: 9051511851972731893, guid: f544792a8e8d9944ab1979284ea082e8, type: 3}
 --- !u!1001 &826296378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1027,32 +1158,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &889827362 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3459045548910198786, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
-  m_PrefabInstance: {fileID: 1538877230}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &889827367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889827362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8163f03d79f63714dbfd60fbdd8efe09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: Press [E] to make bed
-  inputMasking: Keyboard&Mouse
-  bedMakeSound:
-    Guid:
-      Data1: -666292581
-      Data2: 1172150688
-      Data3: 893254278
-      Data4: 481362769
-    Path: event:/SFX/BedMake
 --- !u!114 &904245650 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7932603548452182648, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
@@ -1286,6 +1391,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
+--- !u!4 &1305903524 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3109002099483067161, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+  m_PrefabInstance: {fileID: 1538877230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1321469301
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,6 +2954,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4232984683482560662, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.77
+      objectReference: {fileID: 0}
     - target: {fileID: 5048180898682466603, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.1949854
@@ -2909,18 +3023,20 @@ PrefabInstance:
       value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5259417426671720722, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+    - {fileID: 3459045548910198786, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3109002099483067161, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1791691058}
+    - targetCorrespondingSourceObject: {fileID: 3109002099483067161, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 810622766}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 421666421306384987, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1538877233}
-    - targetCorrespondingSourceObject: {fileID: 5259417426671720722, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2010272388}
-    - targetCorrespondingSourceObject: {fileID: 3459045548910198786, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 889827367}
   m_SourcePrefab: {fileID: 100100000, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
 --- !u!4 &1538877231 stripped
 Transform:
@@ -2963,6 +3079,137 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 561360784188997124, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
   m_PrefabInstance: {fileID: 1336785950}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1791691057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1791691058}
+  - component: {fileID: 1791691062}
+  - component: {fileID: 1791691061}
+  - component: {fileID: 1791691060}
+  - component: {fileID: 1791691059}
+  m_Layer: 0
+  m_Name: Pillows
+  m_TagString: InteractChild
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1791691058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791691057}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.024244903, y: -0.15143637, z: 0.0037154753, w: 0.9881627}
+  m_LocalPosition: {x: -0.0024748496, y: 0.006499421, z: 0.0074211396}
+  m_LocalScale: {x: 0.3451706, y: 0.34828863, z: 0.26986912}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1305903524}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1791691059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791691057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8163f03d79f63714dbfd60fbdd8efe09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Press [E] to make bed
+  inputMasking: Keyboard&Mouse
+  bedMakeSound:
+    Guid:
+      Data1: -666292581
+      Data2: 1172150688
+      Data3: 893254278
+      Data4: 481362769
+    Path: event:/SFX/BedMake
+--- !u!64 &1791691060
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791691057}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -511212105506857098, guid: f544792a8e8d9944ab1979284ea082e8, type: 3}
+--- !u!23 &1791691061
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791691057}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -8409406661585659304, guid: f544792a8e8d9944ab1979284ea082e8, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1791691062
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791691057}
+  m_Mesh: {fileID: -511212105506857098, guid: f544792a8e8d9944ab1979284ea082e8, type: 3}
 --- !u!114 &1811572020 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4253523426239970125, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
@@ -2995,32 +3242,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2529744100699905807, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
   m_PrefabInstance: {fileID: 1336785950}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2010272383 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5259417426671720722, guid: 9e34ec7ec2d8f9c4a94e5fbb474bd7a5, type: 3}
-  m_PrefabInstance: {fileID: 1538877230}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2010272388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010272383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8163f03d79f63714dbfd60fbdd8efe09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: Press [E] to make bed
-  inputMasking: Keyboard&Mouse
-  bedMakeSound:
-    Guid:
-      Data1: -666292581
-      Data2: 1172150688
-      Data3: 893254278
-      Data4: 481362769
-    Path: event:/SFX/BedMake
 --- !u!1 &2083205630
 GameObject:
   m_ObjectHideFlags: 0
