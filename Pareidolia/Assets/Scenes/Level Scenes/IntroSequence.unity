@@ -524,7 +524,7 @@ SpriteRenderer:
   m_Size: {x: 14.88, y: 8.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &162347586
@@ -5040,10 +5040,6 @@ PrefabInstance:
     - target: {fileID: 6648046092763331457, guid: 187897f1a58e7674f82b423f1210cb28, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 375
-      objectReference: {fileID: 0}
-    - target: {fileID: 6814786826083370412, guid: 187897f1a58e7674f82b423f1210cb28, type: 3}
-      propertyPath: mouseSens
-      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6814786826083370412, guid: 187897f1a58e7674f82b423f1210cb28, type: 3}
       propertyPath: orientation

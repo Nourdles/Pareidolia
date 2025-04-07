@@ -39,7 +39,7 @@ public class FadeExitScene : MonoBehaviour
             yield return null;
         }
         // once animation has finished, move to the next level
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.1f);
         GameStateManager.MoveToNextLevel();
     }
 }
