@@ -23,11 +23,10 @@ public class ObjectHoverGlow : MonoBehaviour
 
         highlightedRenderers.Clear();
 
-        // Highlight the main object if it has a MeshRenderer
         TryHighlightRenderer(gameObject);
 
-        // Recursively highlight children tagged "InteractChild"
-        foreach (Transform child in gameObject.GetComponentsInChildren<Transform>(true))
+        // check immediate children only
+        foreach (Transform child in gameObject.transform)
         {
             if (child.CompareTag("InteractChild"))
                 TryHighlightRenderer(child.gameObject);
@@ -102,10 +101,8 @@ public class ObjectHoverGlow : MonoBehaviour
             var (renderer, originalMats) = highlightedRenderers[i];
             if (renderer == null) continue;
 
-            // Check if outline is still applied
             if (renderer.materials.Length > 1 && renderer.materials[^1] == highlightMaterial)
             {
-                // Update base materials (excluding outline)
                 for (int j = 0; j < originalMats.Length; j++)
                 {
                     originalMats[j] = newMat;
@@ -116,12 +113,11 @@ public class ObjectHoverGlow : MonoBehaviour
                 updated[^1] = highlightMaterial;
                 renderer.materials = updated;
 
-                // Update the stored original materials in the list
+                // update the stored original materials in the list
                 highlightedRenderers[i] = (renderer, originalMats);
             }
             else
             {
-                // If no outline is applied, just replace with the newMat
                 Material[] newOriginal = new Material[] { newMat };
                 renderer.materials = newOriginal;
                 highlightedRenderers[i] = (renderer, newOriginal);
