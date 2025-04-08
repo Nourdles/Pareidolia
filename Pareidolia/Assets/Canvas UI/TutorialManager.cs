@@ -3,11 +3,13 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
     //Message to display on UI
-    public TextMeshProUGUI message;
+    public Image message;
+    [SerializeField] private Sprite[] tutorialSprites;
     [SerializeField] GameObject textbox;
     public static event Action<string> TutorialDialogueEvent;
     [SerializeField] private GameObject player;
@@ -21,7 +23,6 @@ public class TutorialManager : MonoBehaviour
         INTERACT_HOTKEY,
         NOTEPAD_HOTKEY,
         TASK_COMPLETION,
-        REOPEN_NOTEPAD,
         COMPLETED 
 
     }
@@ -71,8 +72,11 @@ public class TutorialManager : MonoBehaviour
                 TutorialState.INTERACT_HOTKEY,
                 TutorialState.COMPLETED}.Contains(state))
         {
-            this.message.text = "";
+            Color newColor = message.color;
+            newColor.a = 0f;
+            message.color = newColor;
             textbox.SetActive(false);
+
             if (state == TutorialState.COMPLETED)
             {
                 this.enabled = false;
@@ -111,12 +115,6 @@ public class TutorialManager : MonoBehaviour
                     NextState();
                 }
                 return;
-            case TutorialState.REOPEN_NOTEPAD:
-                if (OpenCloseNote.isNoteOpen())
-                {
-                    NextState();
-                }
-                return;
         }
 
     }
@@ -130,26 +128,28 @@ public class TutorialManager : MonoBehaviour
         }
         state++;
         messageTimer = MESSAGE_DURATION_SEC * SEC_TO_CALLS;
+
+        Color visibleColor = message.color;
+        visibleColor.a = 1f;
+        message.color = visibleColor;
+        
         switch (state)
         {
             case TutorialState.INTERACT_HOTKEY:
-                this.message.text = "Press <sprite=\"UISprites\" name=\"E\">/<sprite=\"UISprites\" name=\"A\"> to interact with litup objects";
+                this.message.sprite = tutorialSprites[(int)TutorialState.INTERACT_HOTKEY - 1];
+                message.gameObject.SetActive(true);
                 textbox.SetActive(true);
                 return;
             case TutorialState.NOTEPAD_HOTKEY:
-                this.message.text = "Press <sprite=\"UISprites\" name=\"Tab\">/<sprite=\"UISprites\" name=\"LB\"> to open/close your task list";
+                this.message.sprite = tutorialSprites[(int)TutorialState.NOTEPAD_HOTKEY - 1];
                 textbox.SetActive(true);
                 return;
             case TutorialState.TASK_COMPLETION:
-                this.message.text = "Complete the listed task(s). Remember, you can press <sprite=\"UISprites\" name=\"E\">/<sprite=\"UISprites\" name=\"A\"> to interact with objects";
-                textbox.SetActive(true);
-                return;
-            case TutorialState.REOPEN_NOTEPAD:
-                this.message.text = "Reopen your task list using <sprite=\"UISprites\" name=\"Tab\">/<sprite=\"UISprites\" name=\"LB\">. Tasks will be automatically crossed out.";
+                this.message.sprite = tutorialSprites[(int)TutorialState.TASK_COMPLETION - 1];
                 textbox.SetActive(true);
                 return;
             case TutorialState.COMPLETED:
-                this.message.text = "Tutorial complete. Leave the bedroom when you're ready to start your day.";
+                this.message.sprite = tutorialSprites[(int)TutorialState.COMPLETED - 1];
                 textbox.SetActive(true);
                 return;
             default:

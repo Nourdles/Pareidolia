@@ -26,12 +26,17 @@ public class SanityTracker : MonoBehaviour
     //Note that this script is responsible for null checking accessed stains
     public List<GameObject> stains;
 
+    public DeathManager DeathManager;
+
     //Sanity percentage
-    private float sanity = 100;
+    private float sanity = 50;
 
+    private int lastDamageStainIdx = -1;
+    private Vector3 lastNormal;
 
-    public int stainDamageGracePeriod = 3;
-    public int stainDamageFreq = 15;
+    private int startingSanity = 50;
+    private int stainDamageGracePeriod = 100;
+    private int stainDamageFreq = 100;
 
     private int garbageCollectionPeriod = 20;
 
@@ -66,7 +71,7 @@ public class SanityTracker : MonoBehaviour
         {
             stainInfo.Add(new StainInfo(stainDamageGracePeriod));
         }
-        Debug.Log(stainInfo.ToString());
+
 
         // get the vignette effect from the Global Volume
         if (postProcessingVolume.profile.TryGet<Vignette>(out Vignette v))
@@ -109,6 +114,7 @@ public class SanityTracker : MonoBehaviour
                     } else
                     { //Stain has remained on screen long enough to do damage
                         onStainDamage(stains[i]);
+                        lastDamageStainIdx = i;
                         stainInfo[i].damageCounter = stainDamageFreq;
                     }
                 } else
@@ -154,7 +160,10 @@ public class SanityTracker : MonoBehaviour
     {
         Debug.Log("Game Over");
         // Let player respawn
-        GameStateManager.Respawn();
+
+        //GameStateManager.Respawn();
+        sanity = startingSanity;
+        StartCoroutine(DeathManager.ProcessDeath(stains[lastDamageStainIdx], lastNormal));
     }
 
     private void onStainDamage(GameObject stain)
@@ -198,6 +207,7 @@ public class SanityTracker : MonoBehaviour
         {
             if(hit.collider.gameObject == go)
             {
+                lastNormal = hit.normal;
                 return true;
             }
         }

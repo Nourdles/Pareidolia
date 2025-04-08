@@ -1,33 +1,22 @@
-/*public enum Tasks
-{
-    // Morning Tasks
-    MakeBed = 1,
-    MakeBreakfast = 2,
-    //WashLaundry,
-    Shower = 3,
-    // Afternon Tasks
-    PickupTrash,
-    DryLaundry,
-    CookRamen,
-    WashDishes,
-    WatchTV,
-    // Night Tasks
-}*/
-
-
-
 public enum TutorialTasks
 {
     // Tutorial Tasks
     MakeBed = 1,
 }
 
-public enum MorningTasks
+public enum Tasks
 {
     // Morning Tasks
-    MakeBreakfast = 1,
-    MakeCoffee = 2,
-    Shower = 3,
+    MakeCoffee = 1,
+    MakeBreakfast = 2,
+    WatchTV = 3,
+    // Can put wash laundry here
+    Shower = 4,
+    WashLaundry = 5,
+    // then replace this with put clothes away
 }
 
-
+public enum FinalTask
+{
+    LeaveHouse = 1,
+}

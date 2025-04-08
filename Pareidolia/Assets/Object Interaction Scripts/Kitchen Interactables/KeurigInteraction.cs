@@ -9,7 +9,17 @@ public class KeurigInteraction : ObjectInteraction
     public static event Action CoffeeMadeEvent;
     //public static event Action CoffeeDrankEvent;
     public static event Action CupPutInMachineEvent;
-    public override void interact(GameObject objectInHand)
+    [SerializeField] private ParticleSystem coffeePourEffect;
+    [SerializeField] private GameObject coffeeContent;
+    private bool isPouring = false;
+
+    protected override void Start()
+    {
+        base.Start();
+        task = taskManager.GetComponentInChildren<MakeCoffeeTask>();
+    }
+
+    protected override void interactaction(GameObject objectInHand)
     {
         if (objectInHand != null)
         {
@@ -45,9 +55,32 @@ public class KeurigInteraction : ObjectInteraction
         AudioManager.instance.PlayOneShot(coffeeMachineSFX, transform.position);
         
         // set as interactable again
+        if (coffeePourEffect != null)
+        {
+            coffeePourEffect.Play();
+            isPouring = true;
+            Invoke(nameof(StopPouring), 2f); // stop after 2 seconds
+        }
+
+        // set as interactable again
         cup.tag = "InteractableObject";
         cup.layer = LayerMask.NameToLayer("Default");
         CupPutInMachineEvent?.Invoke();
+    }
+
+    private void StopPouring()
+    {
+        if (isPouring && coffeePourEffect != null)
+        {
+            coffeePourEffect.Stop();
+            isPouring = false;
+        }
+
+        // Show the coffee in the cup
+        if (coffeeContent != null)
+        {
+            coffeeContent.SetActive(true);
+        }
     }
 
     protected override void UpdateInteractText()
@@ -75,5 +108,9 @@ public class KeurigInteraction : ObjectInteraction
     {
         CoffeeCupInteraction.CupPickupEvent -= HoldingCupInteractText;
         PlayerInteract.DropItemEvent -= ResetInteractionText;
+        if (isPouring)
+        {
+            StopPouring();
+        }
     }
 }

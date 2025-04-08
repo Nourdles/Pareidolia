@@ -1,18 +1,20 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 public class CerealInteraction : HandheldObjectInteraction
 {
     public static event Action CerealPickupEvent;
-    [SerializeField] private FMODUnity.EventReference cerealPickupSFX;
+
     protected override void Start()
     {
         base.Start();
         handheld_id = Handhelds.Cereal;
-        pickupSFX = cerealPickupSFX;
+
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup cereal";
+        task = taskManager.GetComponentInChildren<MakeBreakfastTask>();
     }
 
     protected override void InvokePickupEvent()

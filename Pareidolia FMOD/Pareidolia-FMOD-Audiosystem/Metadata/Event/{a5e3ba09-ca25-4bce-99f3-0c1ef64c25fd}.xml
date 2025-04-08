@@ -54,7 +54,7 @@
 			<destination>{78f3e8ee-3edc-4629-8f56-968c01cc45db}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{ad6e1adb-9570-455f-b35f-a7c1d7bd6d70}</destination>
+			<destination>{d47963c0-6164-4dba-8f69-a1c1848ce3cd}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{b5c77eb4-9790-45f0-a10c-02e688366037}" />
@@ -230,10 +230,10 @@
 	</object>
 	<object class="EventMixerGroup" id="{0cdb7eb3-1f1b-4e48-a6a1-53ca0bbd9142}">
 		<property name="volume">
-			<value>10</value>
+			<value>3</value>
 		</property>
 		<property name="name">
-			<value>Audio 2</value>
+			<value>sfx Randomizer</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{0fbb0824-9ecc-4e97-b40d-f926df7e00e4}</destination>

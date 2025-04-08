@@ -1,59 +1,40 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public static bool gamePaused = false;
-    public GameObject pauseMenu;
-    private InputAction interactKey;
+    public GameObject pauseMenuCanvas;
+    public PauseMenuManager pauseMenuManager;
+    public string mainMenuSceneName = "TitleScreenScene";
+    public static PauseManager pauseManager;
 
-    void Start()
+    public void ResumeGame()
     {
-        interactKey = InputSystem.actions.FindAction("Pause");
-    }
+        Debug.Log("Resume Game");
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (interactKey.WasPressedThisFrame())
+        if (pauseManager == null)
         {
-            if (gamePaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+            pauseManager = FindObjectOfType<PauseManager>();
         }
+        pauseManager.ResumeGame();
     }
 
-    void Pause()
+    public void Options()
     {
-        Debug.Log("Game Paused");
-        pauseMenu.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = 0f;
-        gamePaused = true;
+        Debug.Log("Options");
+        pauseMenuManager.ShowPauseOptionsMenu();
     }
 
-    public void Resume()
+    public void MainMenu()
     {
-        Debug.Log("Game Resumed");
-        pauseMenu.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
+        Debug.Log("Main Menu");
         Time.timeScale = 1f;
-        gamePaused = false;
-    }
-
-    public void LoadMainMenu()
-    {
-
+        SceneManager.LoadScene(mainMenuSceneName, LoadSceneMode.Single);
     }
 
     public void QuitGame()
     {
-
+        Debug.Log("Quit Game");
+        Application.Quit();
     }
 }

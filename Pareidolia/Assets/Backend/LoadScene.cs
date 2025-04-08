@@ -9,6 +9,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+    public static void LoadIntroSequence()
+    {
+        SceneManager.LoadSceneAsync("IntroSequence");
+    }
+
     public static void LoadMorningCutscene()
     {
         SceneManager.LoadSceneAsync("MorningCutscene");
@@ -25,6 +30,23 @@ public class LoadScene : MonoBehaviour
     {
         //FadeToLevel();
         SceneManager.LoadSceneAsync("MorningLevel");
+    }
+
+    public static void LoadEndingCutscene()
+    {
+        SceneManager.LoadSceneAsync("EndingCutscene");
+    }
+
+    public static void LoadCredits()
+    {
+        //FadeToLevel();
+        SceneManager.LoadSceneAsync("Credits");
+    }
+
+    public static void LoadGameEnd()
+    {
+        //FadeToLevel();
+        //SceneManager.LoadSceneAsync("MorningLevel");
     }
 
     public static void LoadEndOfDemoScene()

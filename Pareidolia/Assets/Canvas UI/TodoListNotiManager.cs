@@ -24,6 +24,6 @@ public class TodoListNotiManager : MonoBehaviour
     void OnDisable()
     {
         UpdateUI.TasksUpdatedEvent -= EnableNotification;
-        OpenCloseNote.NotepadFirstCheckEvent += DisableNotification;
+        OpenCloseNote.NotepadFirstCheckEvent -= DisableNotification;
     }
 }

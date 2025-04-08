@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -63,15 +64,8 @@ public class MenuManager : MonoBehaviour
 
     public void ShowCreditsMenu()
     {
-        mainMenu.SetActive(false);
-        optionsMenu.SetActive(false);
-        creditsMenu.SetActive(true);
-
-        // reset all button text colors
-        ResetAllButtonColors(creditsMenu);
-
-        // first button is always selected
-        StartCoroutine(ForceSelectButton(creditsMenuFirstButton));
+        MainMenu.StopTitleMusic();
+        SceneManager.LoadScene("Credits");
     }
 
     IEnumerator ForceSelectButton(Button button)
@@ -84,6 +78,15 @@ public class MenuManager : MonoBehaviour
             yield return null;
             EventSystem.current.SetSelectedGameObject(button.gameObject);
         }
+    }
+
+    public void ShwoQuitGame()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit(); 
+        #endif
     }
 
     // have to do this cus the fuckass buttons KEEP GETTING STUCK AS SELECTED HOLY SHIT MAN

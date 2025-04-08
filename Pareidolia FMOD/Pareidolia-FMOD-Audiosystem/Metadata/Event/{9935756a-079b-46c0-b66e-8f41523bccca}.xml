@@ -56,7 +56,7 @@
 			<destination>{a30c103d-790a-4bb5-b275-c51dcdfc4a2e}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{ad6e1adb-9570-455f-b35f-a7c1d7bd6d70}</destination>
+			<destination>{ce5267df-5260-438a-835b-f3b24932f724}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{fad53c05-0845-46c3-856b-85a1534c0b9d}" />
@@ -114,16 +114,19 @@
 	<object class="SpatialiserEffect" id="{3747c118-53b1-4b25-bd29-ea90eaa4fbc9}" />
 	<object class="ThreeEQEffect" id="{bc486c27-5cec-468b-ae62-751706088572}">
 		<property name="lowGain">
-			<value>-27.5</value>
+			<value>-80</value>
 		</property>
 		<property name="midGain">
-			<value>-14</value>
+			<value>-80</value>
 		</property>
 		<property name="highGain">
-			<value>-13</value>
+			<value>-12</value>
+		</property>
+		<property name="lowCrossover">
+			<value>950</value>
 		</property>
 		<property name="highCrossover">
-			<value>1100</value>
+			<value>3200</value>
 		</property>
 	</object>
 </objects>

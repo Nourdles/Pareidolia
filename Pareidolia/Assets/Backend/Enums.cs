@@ -1,12 +1,13 @@
 
 public enum Levels
 {
-    MainMenu = -2,
+    MainMenu = -3,
+    IntroSequence = -2,
     MorningCutscene = -1,
     Tutorial = 0,
     Morning = 1,
-    Afternoon = 2,
-    Evening = 3
+    EndingCutscene = 2,
+    Credits = 3
 }
 
 

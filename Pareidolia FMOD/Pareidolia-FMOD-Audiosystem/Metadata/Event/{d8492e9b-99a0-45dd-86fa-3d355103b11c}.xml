@@ -5,7 +5,7 @@
 			<value>BedMake</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{04d258de-607e-416b-a751-2e9cdd687642}</destination>
@@ -56,7 +56,7 @@
 			<destination>{46cd8f2b-b725-4815-8f7e-cb3eca6abeb6}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{ad6e1adb-9570-455f-b35f-a7c1d7bd6d70}</destination>
+			<destination>{ce5267df-5260-438a-835b-f3b24932f724}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{e24ef83e-8f2c-46a8-b28b-4c022185ada8}" />
@@ -96,6 +96,7 @@
 	<object class="MixerBusEffectChain" id="{8d8c9238-9e8b-4a00-8ea1-06948c0cef8f}">
 		<relationship name="effects">
 			<destination>{48c1f70d-097c-4dfa-bfdc-9a972256e667}</destination>
+			<destination>{fcf649bf-77a2-483c-9826-31a4976f53a8}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{fd340816-4498-4fea-bfc0-4b3a47c69547}" />
@@ -109,4 +110,5 @@
 	</object>
 	<object class="MixerBusFader" id="{39e47292-3f62-4b04-9552-380131bdd6ba}" />
 	<object class="MixerBusFader" id="{48c1f70d-097c-4dfa-bfdc-9a972256e667}" />
+	<object class="SpatialiserEffect" id="{fcf649bf-77a2-483c-9826-31a4976f53a8}" />
 </objects>

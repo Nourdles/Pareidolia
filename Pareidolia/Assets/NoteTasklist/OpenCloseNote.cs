@@ -11,10 +11,16 @@ public class OpenCloseNote : MonoBehaviour
     InputAction tasklistAction;
     Renderer tasklist;
     [SerializeField] private GameObject tasklistcanvas;
-    public EventReference tasklistsfx;
     private bool _firstOpen = true;
     private bool noteOpen = false;
     [SerializeField] private bool notePickedUp = false;
+    // Tasklist SFX for opening
+    [SerializeField] private string tasklistSFXPath = "event:/SFX/Tasklist";
+    // Pickup SFX
+    [SerializeField] private string notepadPickupSFX = "event:/SFX/NotepadPickup";
+    public bool isPaused = false;
+
+
     public static event Action NotepadFirstCheckEvent;
 
     private void Start() 
@@ -26,14 +32,17 @@ public class OpenCloseNote : MonoBehaviour
     private void PickUpNotepad()
     {
         notePickedUp = true;
+        RuntimeManager.PlayOneShot(notepadPickupSFX, transform.position);
     }
 
     private void OpenNote()
     {
         Debug.Log("Opening note");
         // stop player from moving while reading
-        AudioManager.instance.PlayOneShot(tasklistsfx, this.transform.position);
-        // Play sfx whenever the player opens their tasklist
+
+        // Play the FMOD sound here
+        RuntimeManager.PlayOneShot(tasklistSFXPath, transform.position);
+        
         noteOpen = true;
         if (_firstOpen)
         {
@@ -54,12 +63,21 @@ public class OpenCloseNote : MonoBehaviour
     private void Update()
     {
         // change to check if open button if being pressed and that note has been picked up
-        tasklist.enabled = noteOpen;
-        tasklistcanvas.SetActive(noteOpen);
+        if (tasklist != null)
+        {
+            tasklist.enabled = noteOpen;
+        }
+
+        if (tasklistcanvas != null)
+        {
+            tasklistcanvas.SetActive(noteOpen);
+        }
+
         if (notePickedUp)
         {
-            if (tasklistAction.WasPressedThisFrame())
+            if (tasklistAction.WasPressedThisFrame() && !isPaused)
             {
+                Debug.Log("Tasklist button was pressed");
                 if (noteOpen) 
                 {
                     CloseNote();
@@ -72,14 +90,25 @@ public class OpenCloseNote : MonoBehaviour
         }
     }
 
+    private void SetPaused(bool pause)
+    {
+        isPaused = pause;
+    }
+
     private void OnEnable() 
     {
-        NoteInteraction.NotepadPickedUp += PickUpNotepad;    
+        NoteInteraction.NotepadPickedUp += PickUpNotepad;
+        DeathManager.DeathSceneEvent += CloseNote;
+        SofaInteraction.TVStartEvent += CloseNote;
+        PauseManager.PauseGameEvent += SetPaused;
     }
 
     private void OnDisable() 
     {
         NoteInteraction.NotepadPickedUp -= PickUpNotepad;    
+        DeathManager.DeathSceneEvent -= CloseNote;
+        SofaInteraction.TVStartEvent -= CloseNote;
+        PauseManager.PauseGameEvent -= SetPaused;
     }
 
     public bool isNotePickedUp()

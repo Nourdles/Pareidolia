@@ -31,6 +31,8 @@ public class RandomFaceSpawner : MonoBehaviour
     static bool faceSpawnOn = false;
     public bool spawnInFOV = false;
     public float fovAngle = 90f;
+    public float wallSpawnWeight = 0.6f; // likelihood to spawn on walls
+
    /* void Start()
     {
         if (playerCamera == null) return;
@@ -127,7 +129,7 @@ public class RandomFaceSpawner : MonoBehaviour
             GameObject newFace = Instantiate(facePrefab, spawnPosition + (normal * 0.01f), Quaternion.identity);
             newFace.transform.rotation = Quaternion.LookRotation(-normal);
 
-            float randomScale = Random.Range(0.02f, 0.06f); // random size
+            float randomScale = Random.Range(0.4f, 0.6f); // random size
             newFace.transform.localScale = new Vector3(randomScale, randomScale, 1f);
             /*
             SpriteRenderer sr = newFace.GetComponent<SpriteRenderer>();
@@ -164,21 +166,17 @@ public class RandomFaceSpawner : MonoBehaviour
         if (sr == null) yield break;
 
         float alpha = 0f;
-        UnityEngine.ColorUtility.TryParseHtmlString("#C1B89F", out Color color);
-        color.a = 0f;
 
         while (alpha < maxOpacity)
         {
             if (sr == null || sr.gameObject == null) yield break;
             alpha += Time.deltaTime / fadeInTime;
             alpha = Mathf.Clamp01(alpha);
-            color.a = alpha;
-            sr.color = color;
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
             yield return null;
         }
 
-        color.a = maxOpacity;
-        if (sr != null) sr.color = color;
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, maxOpacity);
     }
 
     /*void Update()
@@ -328,7 +326,7 @@ public class RandomFaceSpawner : MonoBehaviour
         }
 
 
-        float randomScale = Random.Range(0.02f, 0.06f); // random size
+        float randomScale = Random.Range(0.06f, 0.09f); // random size
         Sprite sprite = faceSprites[Random.Range(0, faceSprites.Length)]; //Get a sprite
         Vector2 finalSize = sprite.bounds.size * randomScale; 
 
@@ -363,16 +361,36 @@ public class RandomFaceSpawner : MonoBehaviour
             if (totalFaceCount < maxTotalFaces)
             {
                 yield return new WaitForSeconds(Random.Range(0.5f, 3f));
+
                 RaycastHit hit;
-                Vector3 randomDirection = randomDirectionOutsideFOV(playerCamera.transform.forward);
-                if (Physics.Raycast(playerCamera.transform.position, randomDirection, out hit))
+                int attempts = 0;
+                const int maxAttempts = 20;
+
+                while (attempts < maxAttempts)
                 {
-                    if (hit.collider.CompareTag("Wall"))
+                    attempts++;
+                    Vector3 dir = randomDirectionOutsideFOV(playerCamera.transform.forward);
+                    if (Physics.Raycast(playerCamera.transform.position, dir, out hit, 30f))
                     {
-                        StartCoroutine(SpawnFace(hit));
+                        string hitTag = hit.collider.tag;
+
+                        bool isWall = hitTag == "Wall";
+                        bool isCeiling = hitTag == "Ceiling";
+                        bool isFloor = hitTag == "Floor";
+                        bool isTile = hitTag == "Tile";
+                        bool isWood = hitTag == "Wood";
+
+                        float roll = Random.value;
+
+                        // prioritize walls based on weight & allow other tags with remaining chance
+                        if ((isWall && roll <= wallSpawnWeight) ||
+                            (!isWall && roll > wallSpawnWeight && (isCeiling || isWood || isTile)))
+                        {
+                            StartCoroutine(SpawnFace(hit));
+                            break;
+                        }
                     }
                 }
-
             } else
             {
                 yield return new WaitForSeconds(Random.Range(5f, 10f));
@@ -389,7 +407,6 @@ public class RandomFaceSpawner : MonoBehaviour
                     }
                 }
             }
-
         }
     }
 

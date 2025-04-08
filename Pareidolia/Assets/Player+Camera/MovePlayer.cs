@@ -38,8 +38,8 @@ public class MovePlayer : MonoBehaviour
         {
             moveDirection.y = -characterController.stepOffset / Time.deltaTime;
         }
-
-        characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
+        if(characterController.enabled)
+            characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
 
         UpdateSound(horizontalInput, verticalInput);
     }

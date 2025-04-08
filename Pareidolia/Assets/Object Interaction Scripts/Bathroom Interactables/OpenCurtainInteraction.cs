@@ -14,7 +14,7 @@ public class OpenCurtainInteraction : ObjectInteraction
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to close curtain";
     }
-    public override void interact(GameObject objectInHand)
+    protected override void interactaction(GameObject objectInHand)
     {
         AudioManager.instance.PlayOneShot(showerCurtainSfx, this.transform.position);
         InvokeCloseCurtain();
@@ -33,11 +33,11 @@ public class OpenCurtainInteraction : ObjectInteraction
 
     void OnEnable()
     {
-        TubInteraction.GetIntoTubEvent += InvokeCloseCurtain;
+        ShowerInteraction.GetIntoTubEvent += InvokeCloseCurtain;
     }
 
     void OnDisable()
     {
-        TubInteraction.GetIntoTubEvent -= InvokeCloseCurtain;
+        ShowerInteraction.GetIntoTubEvent -= InvokeCloseCurtain;
     }
 }

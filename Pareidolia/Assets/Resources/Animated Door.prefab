@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5699366214366699511}
   m_Layer: 0
   m_Name: Animated Door
-  m_TagString: InteractableObject
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,9 +108,29 @@ PrefabInstance:
       propertyPath: doorAnimator
       value: 
       objectReference: {fileID: 5699366214366699511}
+    - target: {fileID: 2553910310620592625, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+      propertyPath: m_TagString
+      value: InteractChild
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781994397474442675, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+      propertyPath: doorAnimator
+      value: 
+      objectReference: {fileID: 5699366214366699511}
+    - target: {fileID: 2781994397474442675, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+      propertyPath: doorKnobCollider
+      value: 
+      objectReference: {fileID: 2653558915482658790}
+    - target: {fileID: 5439112754763685664, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439112754763685664, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1e6ed0661d38ca04daf90b5492a1494e, type: 2}
     - target: {fileID: 6288385843001495682, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: InteractChild
       objectReference: {fileID: 0}
     - target: {fileID: 6599727246159864634, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       propertyPath: m_TagString
@@ -122,27 +142,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8375195943036519622, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       propertyPath: m_TagString
-      value: InteractableObject
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891782400817170786, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.01e-10
       objectReference: {fileID: 0}
     - target: {fileID: 9183258531561496188, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       propertyPath: m_LocalScale.x
-      value: 141.3
+      value: 141.6
       objectReference: {fileID: 0}
     - target: {fileID: 9183258531561496188, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       propertyPath: m_LocalScale.y
-      value: 21.684155
+      value: 21.62
       objectReference: {fileID: 0}
     - target: {fileID: 9183258531561496188, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       propertyPath: m_LocalScale.z
-      value: 46.797432
+      value: 46.7
       objectReference: {fileID: 0}
     - target: {fileID: 9183258531561496188, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.511
+      value: 0.5108
       objectReference: {fileID: 0}
     - target: {fileID: 9183258531561496188, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -0.504
       objectReference: {fileID: 0}
     - target: {fileID: 9183258531561496188, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       propertyPath: m_LocalPosition.z
@@ -178,60 +202,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9183258531561496188, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 862642832139277167, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8375195943036519622, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2693699967240757072}
-    - targetCorrespondingSourceObject: {fileID: 6599727246159864634, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5921577658639838829}
   m_SourcePrefab: {fileID: 100100000, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
---- !u!1 &6168225579636809906 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6599727246159864634, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
+--- !u!64 &2653558915482658790 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 3088437225122407534, guid: ed01c1101f177e84381018f6299b5c80, type: 3}
   m_PrefabInstance: {fileID: 1013029047869473672}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5921577658639838829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6168225579636809906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnimator: {fileID: 5699366214366699511}
-  doorOpenSound:
-    Guid:
-      Data1: 1354553520
-      Data2: 1158808347
-      Data3: 957051310
-      Data4: -97738646
-    Path: event:/SFX/DoorOpen
-  doorCloseSound:
-    Guid:
-      Data1: -1944904614
-      Data2: 1282215556
-      Data3: 360232589
-      Data4: 608150863
-    Path: event:/SFX/DoorClose
-  doorLockSound:
-    Guid:
-      Data1: -1837889869
-      Data2: 1154181984
-      Data3: 581505212
-      Data4: 685115745
-    Path: event:/SFX/DoorLock
-  locked: 0
 --- !u!4 &8178110828175023604 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9183258531561496188, guid: ed01c1101f177e84381018f6299b5c80, type: 3}

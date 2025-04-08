@@ -5,21 +5,6 @@ public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private GameObject objectInHand = null; // reference to object being held
 
-
-    void OnEnable()
-    {
-        HandheldObjectInteraction.PickUpEvent += pickupObject;
-        PlayerInteract.DropItemEvent += dropObject;
-        KeurigInteraction.CupPutInMachineEvent += dropObject;
-    }
-
-    void OnDisable()
-    {
-        HandheldObjectInteraction.PickUpEvent -= pickupObject;
-        PlayerInteract.DropItemEvent -= dropObject;
-        KeurigInteraction.CupPutInMachineEvent -= dropObject;
-    }
-
     private void pickupObject(GameObject objectToHold)
     {
         objectInHand = objectToHold;
@@ -38,5 +23,50 @@ public class InventoryManager : MonoBehaviour
     public GameObject getHandheld()
     {
         return objectInHand;
+    }
+
+    private void DisableHandheld()
+    {
+        if (objectInHand != null)
+        {
+            objectInHand.SetActive(false);
+        }
+    }
+
+    private void EnableHandheld()
+    {
+        if (objectInHand != null)
+        {
+            objectInHand.SetActive(true);
+        }
+    }  
+
+    private void DropItemOnDeath()
+    {
+        if (objectInHand != null)
+        {
+            objectInHand.GetComponent<HandheldObjectInteraction>().DropObject();
+            dropObject();
+        }
+    }
+
+       void OnEnable()
+    {
+        HandheldObjectInteraction.PickUpEvent += pickupObject;
+        PlayerInteract.DropItemEvent += dropObject;
+        KeurigInteraction.CupPutInMachineEvent += dropObject;
+        DeathManager.DeathSceneEvent += DropItemOnDeath;
+        SofaInteraction.TVStartEvent += DisableHandheld;
+        TVSceneManager.TVWatchedEvent += EnableHandheld;
+    }
+
+    void OnDisable()
+    {
+        HandheldObjectInteraction.PickUpEvent -= pickupObject;
+        PlayerInteract.DropItemEvent -= dropObject;
+        KeurigInteraction.CupPutInMachineEvent -= dropObject;
+        DeathManager.DeathSceneEvent -= DropItemOnDeath;
+        SofaInteraction.TVStartEvent -= DisableHandheld;
+        TVSceneManager.TVWatchedEvent -= EnableHandheld;
     }
 }

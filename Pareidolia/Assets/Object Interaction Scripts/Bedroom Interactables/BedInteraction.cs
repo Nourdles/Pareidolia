@@ -17,7 +17,7 @@ public class BedInteraction: ObjectInteraction
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to make the bed";
     }
 
-    public override void interact(GameObject objectInHand)
+    protected override void interactaction(GameObject objectInHand)
     {
         if (hasNotepad)
         {

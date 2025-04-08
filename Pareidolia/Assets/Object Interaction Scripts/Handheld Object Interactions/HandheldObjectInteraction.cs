@@ -5,50 +5,66 @@ using FMODUnity;
 public abstract class HandheldObjectInteraction : ObjectInteraction
 {
     public static event Action<GameObject> PickUpEvent;
+    
     [SerializeField] protected Handhelds handheld_id;
     [SerializeField] private Rigidbody itemRb;
     
-    // FMOD event for object pickup sounds
+    // FMOD events for pickup & drop sounds
     [SerializeField] protected FMODUnity.EventReference pickupSFX;
+    [SerializeField] protected FMODUnity.EventReference dropSFX;
 
     private int handheldLayer;
     private int defaultLayer;
 
+    private Camera playerCam;
+
     protected override void Start() 
     {
         base.Start();
+        playerCam = GameObject.Find("Player Camera").GetComponent<Camera>(); // get the player camera (used to detect object clipping)
+
         itemRb = gameObject.GetComponentInParent<Rigidbody>();
         handheldLayer = LayerMask.NameToLayer("HandheldObjects");
         defaultLayer = LayerMask.NameToLayer("Default");
+
+        if (itemRb != null)
+        {
+            Debug.Log($"[Physics Debug] Rigidbody found: {itemRb.gameObject.name}");
+            
+            HandheadObjectCollisionListener collisionListener = itemRb.gameObject.AddComponent<HandheadObjectCollisionListener>();
+
+            // Subscribe only to this object's listener
+            collisionListener.OnObjectDropped += PlayDropSound;
+        }
     }
 
-    public override void interact(GameObject objectInHand)
+    protected override void interactaction(GameObject objectInHand)
     {
         if (objectInHand != null)
         {
             InvokeDialoguePromptEvent("My hands are full right now");
-        } else
+        }
+        else
         {
-            AudioManager.instance.PlayOneShot(pickupSFX, this.transform.position); //Trigger the sfx
-
+            AudioManager.instance.PlayOneShot(pickupSFX, this.transform.position);
             PickUpEvent?.Invoke(gameObject);
             InvokePickupEvent();
         }
     }
 
     private GameObject FindObjectCenter()
-{
-   Transform t = gameObject.transform;
-   while (t.parent != null)
-   {
-      if (t.parent.tag == "HandheldCenter")
-      {
-         return t.parent.gameObject;
-      }
-      t = t.parent.transform;
-   }
-   return null; // Could not find a parent with given tag.
-}
+    {
+        Transform t = gameObject.transform;
+        while (t.parent != null)
+        {
+            if (t.parent.tag == "HandheldCenter")
+            {
+                return t.parent.gameObject;
+            }
+            t = t.parent.transform;
+        }
+        return null; 
+    }
 
     public Handhelds getHandheld()
     {
@@ -67,11 +83,21 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
         // set the object tag as untagged so it can't be interacted with
         gameObject.tag = "Untagged";
-        // set the objects layer so that it can be rendered by the pickup camera
-        gameObject.layer = handheldLayer;
+        // set the object and its children's layer so that it can be rendered by the pickup camera
+        SetLayerRecursively(gameObject, handheldLayer);
         Debug.Log("Layer set");
 
     }
+
+    private void SetLayerRecursively(GameObject obj, int newLayer) // recursively apply layer ot gameobject's children
+    {
+        obj.layer = newLayer;
+        foreach (Transform child in obj.transform)
+        {
+            SetLayerRecursively(child.gameObject, newLayer);
+        }
+    }
+
 
     public void DropObject()
     {
@@ -81,9 +107,37 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
         // set as interactable again
         gameObject.tag = "InteractableObject";
 
-        // set the object's layer back to default
-        gameObject.layer = defaultLayer;
+        // revert this object and all children back to the default layer
+        SetLayerRecursively(gameObject, defaultLayer);
+        PreventClipping();
+    }
 
+    public void PreventClipping()
+    {
+        //Debug.Log("Preventing Clipping");
+        GameObject objectCenter = FindObjectCenter();
+        var clipRange = Vector3.Distance(gameObject.transform.position, playerCam.transform.position * 1.5f); //distance from holdPos/the held object to the camera (offset so the ray doesn't start from inside collider)
+
+        RaycastHit[] rayHits;
+        rayHits = Physics.RaycastAll(playerCam.transform.position, playerCam.transform.TransformDirection(Vector3.forward), clipRange);
+        Debug.Log("Clip Range:" + clipRange);
+        Debug.Log(rayHits);
+        // check if the raycasts have detected another object between the object hold position and camera
+        if (rayHits.Length > 1)
+        {
+            Debug.Log("Clipping Detected");
+            Debug.Log("Clip Range:" + clipRange);
+            // move object to be positioned slightly below player camera so it doesn't clip upon dropping
+            objectCenter.transform.position = playerCam.transform.position + new Vector3(0f, -0.1f, 0f);
+        }
+    }
+
+    private void PlayDropSound(Vector3 position)
+    {
+        if (dropSFX.IsNull) {
+            Debug.Log("Drop sound null");
+        }
+        RuntimeManager.PlayOneShot(dropSFX, transform.position);
     }
 
     protected abstract void InvokePickupEvent();

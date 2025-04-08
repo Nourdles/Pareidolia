@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class MakeCoffee : SimpleTask
+public class MakeCoffeeTask : SimpleTask
 {
     protected override void Start()
     {
         base.Start();
-        task = (int) MorningTasks.MakeCoffee;
+        task = (int) Tasks.MakeCoffee;
+        stringrepresentation = "make coffee";
     }
 
     void OnEnable()

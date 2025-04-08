@@ -26,7 +26,14 @@ public class DialogueUIUpdater : MonoBehaviour
         ObjectInteraction.DialoguePromptEvent += UpdateDialogueText;
         TutorialManager.TutorialDialogueEvent += TutorialTextEnable;
         NoteInteraction.NotepadPickedUp += TutorialTextDisable;
+
+        // dialogue for scripted events
+        IntroSequenceDialogueEvent.IntroDialogueEvent += UpdateDialogueText;
         BasementDoorScriptedEvent.BasementDoorDialogueEvent += UpdateDialogueText;
+        SilhouetteFlickerEvent.SilhouetteDialogueEvent += UpdateDialogueText;
+        TVFaceEvent.LivingRoomDialogueEvent += UpdateDialogueText;
+        DeathManager.DeathEvent += UpdateDialogueText;
+        StartEndSequenceEvent.EndDialogueEvent += UpdateDialogueText;
     }
 
     void OnDisable()
@@ -34,7 +41,14 @@ public class DialogueUIUpdater : MonoBehaviour
         ObjectInteraction.DialoguePromptEvent -= UpdateDialogueText;
         TutorialManager.TutorialDialogueEvent -= TutorialTextEnable;
         NoteInteraction.NotepadPickedUp -= TutorialTextDisable;
+
+        IntroSequenceDialogueEvent.IntroDialogueEvent -= UpdateDialogueText;
         BasementDoorScriptedEvent.BasementDoorDialogueEvent -= UpdateDialogueText;
+        SilhouetteFlickerEvent.SilhouetteDialogueEvent -= UpdateDialogueText;
+        TVFaceEvent.LivingRoomDialogueEvent -= UpdateDialogueText;
+        DeathManager.DeathEvent -= UpdateDialogueText;
+        StartEndSequenceEvent.EndDialogueEvent -= UpdateDialogueText;
+
     }
 
     private void UpdateDialogueText(string msg)

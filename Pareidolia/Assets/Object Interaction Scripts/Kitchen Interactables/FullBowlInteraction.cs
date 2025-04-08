@@ -2,13 +2,14 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 public class FullBowlInteraction : ObjectInteraction
 {
     [SerializeField] private int bites = 0;
     [SerializeField] private int max_bites = 5;
     [SerializeField] private GameObject EmptyBowlPrefab;
-    public static event Action EatCerealEvent;
+    [SerializeField] private string cerealEatSFXPath = "event:/SFX/Cereal Eat";
 
     protected override void Start()
     {
@@ -16,15 +17,17 @@ public class FullBowlInteraction : ObjectInteraction
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
         interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to eat cereal";
     }
-    public override void interact(GameObject objectInHand)
+    protected override void interactaction(GameObject objectInHand)
     {
         if (objectInHand != null)
         {
             Handhelds handheld = objectInHand.GetComponent<HandheldObjectInteraction>().getHandheld();
             if (handheld == Handhelds.Spoon)
             {
+                RuntimeManager.PlayOneShot(cerealEatSFXPath, transform.position);
                 bites += 1;
-                EatCerealEvent?.Invoke(); // for eating sfx
+                InvokeDialoguePromptEvent("Yummy!");
+
                 if (bites >= max_bites) // at all the cereal
                 {
                     Instantiate(EmptyBowlPrefab, transform.position, transform.rotation);
