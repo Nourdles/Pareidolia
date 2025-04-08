@@ -29,8 +29,14 @@ public class MovePlayer : MonoBehaviour
 
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = ProControllerInput.IsSwitchProConnected() ?
+            Input.GetAxis("Switch Horizontal") :
+            Input.GetAxis("Horizontal");
+
+        verticalInput = ProControllerInput.IsSwitchProConnected() ?
+            Input.GetAxis("Switch Vertical") :
+            Input.GetAxis("Vertical");
+
 
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 

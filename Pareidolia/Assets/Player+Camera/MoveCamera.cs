@@ -34,8 +34,16 @@ public class MoveCamera : MonoBehaviour
     void Update()
     {
 
-        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * mouseSens;
-        float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSens;
+        float mouseX = Time.deltaTime * mouseSens * (
+        ProControllerInput.IsSwitchProConnected() ? 
+        Input.GetAxis("Switch Mouse X") : 
+        Input.GetAxis("Mouse X")
+        );
+        float mouseY = Time.deltaTime * mouseSens * (
+            ProControllerInput.IsSwitchProConnected() ? 
+            Input.GetAxis("Switch Mouse Y") : 
+            Input.GetAxis("Mouse Y")
+        );
 
         cameraHorizontalRotation += mouseX;
 

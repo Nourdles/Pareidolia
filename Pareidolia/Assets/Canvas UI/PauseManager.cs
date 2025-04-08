@@ -24,7 +24,7 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.JoystickButton9))
         {
             if (isPaused)
                 ResumeGame();
@@ -36,6 +36,15 @@ public class PauseManager : MonoBehaviour
         {
             ResumeGame();
         }
+
+        for (int i = 0; i <= 19; i++)
+        {
+            if (Input.GetKeyDown((KeyCode)Enum.Parse(typeof(KeyCode), "JoystickButton" + i)))
+            {
+                Debug.Log("Pressed: JoystickButton" + i);
+            }
+        }
+
     }
 
     void PauseGame()
