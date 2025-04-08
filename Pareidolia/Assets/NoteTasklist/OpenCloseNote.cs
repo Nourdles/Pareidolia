@@ -91,12 +91,16 @@ public class OpenCloseNote : MonoBehaviour
 
     private void OnEnable() 
     {
-        NoteInteraction.NotepadPickedUp += PickUpNotepad;    
+        NoteInteraction.NotepadPickedUp += PickUpNotepad;
+        DeathManager.DeathSceneEvent += CloseNote;
+        SofaInteraction.TVStartEvent += CloseNote;
     }
 
     private void OnDisable() 
     {
         NoteInteraction.NotepadPickedUp -= PickUpNotepad;    
+        DeathManager.DeathSceneEvent -= CloseNote;
+        SofaInteraction.TVStartEvent -= CloseNote;
     }
 
     public bool isNotePickedUp()

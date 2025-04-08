@@ -24,6 +24,9 @@ public class DeathManager : MonoBehaviour
 
     public GameObject cameraPosition;
 
+    public static event Action RespawnEvent;
+    public static event Action DeathSceneEvent;
+
     [SerializeField] private CharacterController cc;
 
 
@@ -95,6 +98,7 @@ public class DeathManager : MonoBehaviour
 
     public IEnumerator ProcessDeath(GameObject murderingStain, Vector3 normal)
     {
+        DeathSceneEvent?.Invoke();
         DeathEvent?.Invoke("I feel dizzy. What's going on??");
 
         blackScreen();
@@ -138,6 +142,7 @@ public class DeathManager : MonoBehaviour
         cameraMovement.enabled = true;
 
         DeathEvent?.Invoke("What a weird dream");
+        RespawnEvent?.Invoke();
 
     }
 }
