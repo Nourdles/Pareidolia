@@ -10,6 +10,7 @@ public class PauseManager : MonoBehaviour
     private bool isPaused = false;
     private FMOD.Studio.Bus gameBus;
     private FMOD.Studio.Bus uiBus;
+    public static event Action<bool> PauseGameEvent;
 
 
     void Start()
@@ -50,7 +51,7 @@ public class PauseManager : MonoBehaviour
         gameBus.setPaused(true);
         uiBus.setPaused(false);
         // prevent player from being able to open/close the notepad
-        OpenCloseNote.isPaused = true;
+        PauseGameEvent?.Invoke(true);
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -76,7 +77,7 @@ public class PauseManager : MonoBehaviour
         gameBus.setPaused(false);
         uiBus.setPaused(true);
         // enable opening/closing notepad again
-        OpenCloseNote.isPaused = false;
+        PauseGameEvent?.Invoke(false);
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
