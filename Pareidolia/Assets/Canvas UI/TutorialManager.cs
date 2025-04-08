@@ -72,8 +72,11 @@ public class TutorialManager : MonoBehaviour
                 TutorialState.INTERACT_HOTKEY,
                 TutorialState.COMPLETED}.Contains(state))
         {
-            this.message.sprite = null;
+            Color newColor = message.color;
+            newColor.a = 0f;
+            message.color = newColor;
             textbox.SetActive(false);
+
             if (state == TutorialState.COMPLETED)
             {
                 this.enabled = false;
@@ -125,6 +128,11 @@ public class TutorialManager : MonoBehaviour
         }
         state++;
         messageTimer = MESSAGE_DURATION_SEC * SEC_TO_CALLS;
+
+        Color visibleColor = message.color;
+        visibleColor.a = 1f;
+        message.color = visibleColor;
+        
         switch (state)
         {
             case TutorialState.INTERACT_HOTKEY:

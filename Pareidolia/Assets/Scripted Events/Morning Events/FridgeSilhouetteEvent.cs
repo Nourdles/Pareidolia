@@ -4,80 +4,49 @@ using UnityEngine;
 public class FridgeSilhouetteEvent : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer silhouetteSprite;
-    [SerializeField] private float fadeDuration = 1.5f; // Fade in time
     [SerializeField] private float moveSpeed = 4f;
-    [SerializeField] private float targetLocalX = 1.4f; // Where it moves in LOCAL space
+    [SerializeField] private float targetLocalX = 1.4f;
+    [SerializeField] private GameObject silhouetteObject;
+    [SerializeField] private LayerMask playerLayer;
 
-    private bool hasFadedIn = false;
     private bool hasMoved = false;
 
-    void Start()
+    private void Start()
     {
-        // Ensure the silhouette starts fully invisible
         if (silhouetteSprite != null)
         {
             Color color = silhouetteSprite.color;
-            color.a = 0f;
+            color.a = 0.6f;
             silhouetteSprite.color = color;
         }
     }
 
-    void OnEnable()
+    private void OnTriggerEnter(Collider other)
     {
-        FridgeDoorInteraction.OnFirstFridgeOpen += FadeInSilhouette;
-        FridgeDoorInteraction.OnFirstFridgeClose += MoveSilhouette;
-    }
-
-    void OnDisable()
-    {
-        FridgeDoorInteraction.OnFirstFridgeOpen -= FadeInSilhouette;
-        FridgeDoorInteraction.OnFirstFridgeClose -= MoveSilhouette;
-    }
-
-    private void FadeInSilhouette()
-    {
-        if (!hasFadedIn)
-        {
-            hasFadedIn = true;
-            StartCoroutine(FadeIn());
-        }
-    }
-
-    private IEnumerator FadeIn()
-    {
-        float elapsedTime = 0f;
-        Color color = silhouetteSprite.color;
-        float targetAlpha = 0.6f; // opacity
-
-        while (elapsedTime < fadeDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            color.a = Mathf.Lerp(0f, targetAlpha, elapsedTime / fadeDuration);
-            silhouetteSprite.color = color;
-            yield return null;
-        }
-    }
-
-    private void MoveSilhouette()
-    {
-        if (!hasMoved)
+        if (!hasMoved && IsPlayer(other.gameObject))
         {
             hasMoved = true;
             StartCoroutine(MoveToLocalPosition(targetLocalX));
         }
     }
 
+    private bool IsPlayer(GameObject obj)
+    {
+        return (playerLayer.value & (1 << obj.layer)) != 0;
+    }
+
     private IEnumerator MoveToLocalPosition(float xTargetLocal)
     {
-        Vector3 startLocalPosition = transform.localPosition; // Use local position
-        Vector3 targetLocalPosition = new Vector3(xTargetLocal, startLocalPosition.y, startLocalPosition.z); // Keep Y, Z same
+        Transform silhouetteTransform = silhouetteObject.transform;
+        Vector3 startLocalPosition = silhouetteTransform.localPosition;
+        Vector3 targetLocalPosition = new Vector3(xTargetLocal, startLocalPosition.y, startLocalPosition.z);
 
-        while (Mathf.Abs(transform.localPosition.x - xTargetLocal) > 0.01f) // Ensure only X changes
+        while (Mathf.Abs(silhouetteTransform.localPosition.x - xTargetLocal) > 0.01f)
         {
-            transform.localPosition = new Vector3(
-                Mathf.MoveTowards(transform.localPosition.x, xTargetLocal, moveSpeed * Time.deltaTime),
-                startLocalPosition.y,  // Lock Y position
-                startLocalPosition.z   // Lock Z position
+            silhouetteTransform.localPosition = new Vector3(
+                Mathf.MoveTowards(silhouetteTransform.localPosition.x, xTargetLocal, moveSpeed * Time.deltaTime),
+                startLocalPosition.y,
+                startLocalPosition.z
             );
 
             yield return null;
