@@ -64,7 +64,7 @@ public class ObjectHoverGlow : MonoBehaviour
 
     void HighlightObjectInCenterOfCam()
     {
-        float rayDistance = 7.0f;
+        float rayDistance = 5.0f;
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
         if (Physics.Raycast(ray, out RaycastHit hit, rayDistance))
