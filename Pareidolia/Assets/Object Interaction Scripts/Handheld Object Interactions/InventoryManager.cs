@@ -56,8 +56,8 @@ public class InventoryManager : MonoBehaviour
         PlayerInteract.DropItemEvent += dropObject;
         KeurigInteraction.CupPutInMachineEvent += dropObject;
         DeathManager.DeathSceneEvent += DropItemOnDeath;
-        // Add listener to when TV task starts
-        // Add listener to when TV task ends
+        SofaInteraction.TVStartEvent += DisableHandheld;
+        TVSceneManager.TVWatchedEvent += EnableHandheld;
     }
 
     void OnDisable()
@@ -66,5 +66,7 @@ public class InventoryManager : MonoBehaviour
         PlayerInteract.DropItemEvent -= dropObject;
         KeurigInteraction.CupPutInMachineEvent -= dropObject;
         DeathManager.DeathSceneEvent -= DropItemOnDeath;
+        SofaInteraction.TVStartEvent -= DisableHandheld;
+        TVSceneManager.TVWatchedEvent -= EnableHandheld;
     }
 }
