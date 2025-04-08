@@ -21,6 +21,8 @@ public class SofaInteraction : ObjectInteraction
 
     private System.Collections.IEnumerator ResetAndLoadTVScene()
     {
+        yield return null;
+        yield return null;
         // Unload the scene if it's already loaded (fix for Unity caching old additive scene)
         if (UnityEngine.SceneManagement.SceneManager.GetSceneByName("TVWatch").isLoaded)
         {
