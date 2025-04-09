@@ -6755,17 +6755,6 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 25.37, y: 9.3, z: 1}
   m_FadeFactor: 0.472
---- !u!114 &330449246 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8254427653183901587, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
-  m_PrefabInstance: {fileID: 1741159379}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &336147853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35321,7 +35310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36984938f02075a4ea5e4f4e06d68953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hallwayExitDoor: {fileID: 330449246}
+  hallwayExitDoor: {fileID: 1741159388}
   fadeOutCanvas: {fileID: 1867931191}
 --- !u!1 &1741159383 stripped
 GameObject:
@@ -35370,6 +35359,17 @@ MonoBehaviour:
       Data3: -1124827988
       Data4: 752405581
     Path: event:/Ambience/Dream Door
+--- !u!114 &1741159388 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7625949288353427249, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+  m_PrefabInstance: {fileID: 1741159379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462997108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1745611468
 GameObject:
   m_ObjectHideFlags: 0
