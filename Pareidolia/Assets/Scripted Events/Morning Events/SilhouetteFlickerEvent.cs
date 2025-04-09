@@ -96,12 +96,25 @@ public class SilhouetteFlickerEvent : MonoBehaviour
 
     private void SetSpriteOpacity(GameObject spriteObject, float alpha)
     {
+        // apply to parent
         SpriteRenderer sr = spriteObject.GetComponent<SpriteRenderer>();
         if (sr != null)
         {
             Color color = sr.color;
             color.a = alpha;
             sr.color = color;
+        }
+
+        // apply to children
+        SpriteRenderer[] childRenderers = spriteObject.GetComponentsInChildren<SpriteRenderer>(includeInactive: true);
+        foreach (var child in childRenderers)
+        {
+            if (child.gameObject != spriteObject) // skip parent since it's already handled
+            {
+                Color color = child.color;
+                color.a = alpha;
+                child.color = color;
+            }
         }
     }
 

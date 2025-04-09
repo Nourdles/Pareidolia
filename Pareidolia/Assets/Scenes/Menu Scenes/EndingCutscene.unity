@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8413457228316337008, guid: 60425310b2893e843a770e9cbe1da48b, type: 3}
+      propertyPath: BlackPanel
+      value: 
+      objectReference: {fileID: 870181813}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -256,7 +260,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &476187012
 RectTransform:
@@ -389,6 +393,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b121ca08773d4c44b446ca648d2d62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &870181813 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 677697500126554777, guid: dba5bf46f1eeea1419d56d398d82d1ba, type: 3}
+  m_PrefabInstance: {fileID: 651340143}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &879864712
@@ -1302,7 +1317,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865302412}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: ee0e111df5bb53f49af72ca85ebf15ee, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 7606ab9a2212e9a40a8e1a6a9c14da3a, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1497391355}
@@ -1311,7 +1326,7 @@ VideoPlayer:
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 0
-  m_AspectRatio: 2
+  m_AspectRatio: 1
   m_DataSource: 0
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
@@ -1372,8 +1387,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4344f2266f4b3b54985fc9eb26b4135c, type: 3}
-  m_Resource: {fileID: 8300000, guid: 4344f2266f4b3b54985fc9eb26b4135c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1f477f1a514998041a08a35fdb0218cd, type: 3}
+  m_Resource: {fileID: 8300000, guid: 1f477f1a514998041a08a35fdb0218cd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1

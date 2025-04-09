@@ -16,7 +16,7 @@ public class FridgeSilhouetteEvent : MonoBehaviour
         if (silhouetteSprite != null)
         {
             Color color = silhouetteSprite.color;
-            color.a = 0.6f;
+            color.a = 0.5f;
             silhouetteSprite.color = color;
         }
     }
@@ -48,6 +48,14 @@ public class FridgeSilhouetteEvent : MonoBehaviour
                 startLocalPosition.y,
                 startLocalPosition.z
             );
+
+            float distanceMoved = Mathf.Abs(silhouetteTransform.localPosition.x - startLocalPosition.x);
+            float totalDistance = Mathf.Abs(targetLocalPosition.x - startLocalPosition.x);
+            float progress = Mathf.Clamp01(distanceMoved / totalDistance);
+
+            Color c = silhouetteSprite.color;
+            c.a = Mathf.Lerp(0.5f, 0f, progress);
+            silhouetteSprite.color = c;
 
             yield return null;
         }
