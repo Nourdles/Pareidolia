@@ -9,13 +9,13 @@ public abstract class ObjectInteraction : MonoBehaviour
     protected TaskManager taskManager;
     public static event Action<string> DialoguePromptEvent;
     [SerializeField] protected String interactText = "";
-    [SerializeField] protected String inputMasking = "Keyboard&Mouse";
+    [SerializeField] protected String inputMasking = "Gamepad";
     
     protected virtual void Start()
     {
         InputDeviceChecker.UsingKBMEvent += SetDeviceController;
         interactKey = InputSystem.actions.FindAction("Interact");
-        inputMasking = "Keyboard&Mouse";
+        inputMasking = "Gamepad";
         taskManager = GameObject.FindWithTag("TaskManager").GetComponent<TaskManager>();
     }
 
