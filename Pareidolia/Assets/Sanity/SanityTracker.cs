@@ -46,6 +46,7 @@ public class SanityTracker : MonoBehaviour
     private FilmGrain filmGrain;
     private Coroutine filmGrainRoutine; // handle multiple overlapping sanity damage events
     private bool vignetteOnCooldown = false;
+    private DepthOfField depthOfField;
 
 
     class StainInfo
@@ -82,6 +83,12 @@ public class SanityTracker : MonoBehaviour
         if (postProcessingVolume.profile.TryGet<FilmGrain>(out FilmGrain fg))
         {
             filmGrain = fg;
+        }
+        // same for blur
+        if (postProcessingVolume.profile.TryGet<DepthOfField>(out DepthOfField dof))
+        {
+            depthOfField = dof;
+            depthOfField.focusDistance.overrideState = true;
         }
     }
 
@@ -136,8 +143,9 @@ public class SanityTracker : MonoBehaviour
 
         if (vignette != null)
         {
-            float normalizedSanity = Mathf.Clamp01(sanity / 100f); // map sanity to a range of 0 (low) to 1 (high)
-            vignette.intensity.value = Mathf.Lerp(0.2f, 0.5f, 1 - normalizedSanity); // map normalized sanity to vignette intensity (0 to 0.45)
+            float t = Mathf.Clamp01(1f - sanity / 50f); // sanity starts at 50
+            float curveT = Mathf.SmoothStep(0f, 1f, t); // smoother ramp
+            vignette.intensity.value = Mathf.Lerp(0.2f, 0.7f, curveT);
         }
     }
 
@@ -180,11 +188,6 @@ public class SanityTracker : MonoBehaviour
                 StopCoroutine(filmGrainRoutine);
             }
             filmGrainRoutine = StartCoroutine(AnimateFilmGrainIntensity());
-        }
-
-        if (vignette != null && !vignetteOnCooldown)
-        {
-            StartCoroutine(AnimateVignetteIntensity());
         }
     }
 
@@ -231,52 +234,46 @@ public class SanityTracker : MonoBehaviour
 
     private IEnumerator AnimateFilmGrainIntensity()
     {
-        float maxIntensity = 1f; // max intensity when sanity damage occurs
-        float minIntensity = 0.2f; // min intensity after the effect
-        float animationDuration = 1f; // duration of the animation
-        float elapsedTime = 0f;
+        float grainMin = 0.1f;
+        float grainMax = 1f;
+        float dofMin = 0.1f;
+        float dofMax = 10f;
+        float fadeDuration = 0.2f;
+        float holdDuration = 0.8f;
 
-        // spike to max intensity
-        filmGrain.intensity.value = maxIntensity;
+        filmGrain.intensity.overrideState = true;
+        depthOfField.focusDistance.overrideState = true;
 
-        // gradually reduce intensity back to the minimum
-        while (elapsedTime < animationDuration)
+        // fade in
+        float timer = 0f;
+        while (timer < fadeDuration)
         {
-            elapsedTime += Time.deltaTime;
-            float t = elapsedTime / animationDuration;
-            filmGrain.intensity.value = Mathf.Lerp(maxIntensity, minIntensity, t);
+            float t = timer / fadeDuration;
+            filmGrain.intensity.value = Mathf.Lerp(grainMin, grainMax, t);
+            depthOfField.focusDistance.value = Mathf.Lerp(dofMax, dofMin, t);
+            timer += Time.deltaTime;
             yield return null;
         }
 
-        filmGrain.intensity.value = minIntensity;
-    }
+        filmGrain.intensity.value = grainMax;
+        depthOfField.focusDistance.value = dofMin;
 
-    private IEnumerator AnimateVignetteIntensity()
-    {
-        if (vignetteOnCooldown) yield break;
-        vignetteOnCooldown = true;
+        // hold
+        yield return new WaitForSeconds(holdDuration);
 
-        float originalIntensity = vignette.intensity.value; // current intensity
-        float surgedIntensity = 0.4f; 
-        float animationDuration = 2f; 
-        float cooldownDuration = 2f;
-        float elapsedTime = 0f;
-
-        vignette.intensity.value = surgedIntensity;
-
-        // fade back to the original intensity
-        while (elapsedTime < animationDuration)
+        // fade out
+        timer = 0f;
+        while (timer < fadeDuration)
         {
-            elapsedTime += Time.deltaTime;
-            float t = elapsedTime / animationDuration;
-            vignette.intensity.value = Mathf.Lerp(surgedIntensity, originalIntensity, t);
+            float t = timer / fadeDuration;
+            filmGrain.intensity.value = Mathf.Lerp(grainMax, grainMin, t);
+            depthOfField.focusDistance.value = Mathf.Lerp(dofMin, dofMax, t);
+            timer += Time.deltaTime;
             yield return null;
         }
 
-        vignette.intensity.value = originalIntensity;
-
-        yield return new WaitForSeconds(cooldownDuration);
-        vignetteOnCooldown = false; // cooldown
+        filmGrain.intensity.value = grainMin;
+        depthOfField.focusDistance.value = dofMax;
+        filmGrainRoutine = null;
     }
-
 }
