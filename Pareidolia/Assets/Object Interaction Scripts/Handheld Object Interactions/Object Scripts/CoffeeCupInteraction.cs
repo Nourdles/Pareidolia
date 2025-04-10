@@ -6,6 +6,7 @@ using FMODUnity;
 public class CoffeeCupInteraction : HandheldObjectInteraction
 {
     public static event Action CupPickupEvent;
+    private bool coffeMade = false;
 
     protected override void Start()
     {
@@ -25,5 +26,15 @@ public class CoffeeCupInteraction : HandheldObjectInteraction
     {
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
         interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to pickup coffee mug";
+    }
+
+    void OnEnable()
+    {
+        KeurigInteraction.CoffeeMadeEvent += SetUninteractable;
+    }
+
+    void OnDisable()
+    {
+        KeurigInteraction.CoffeeMadeEvent -= SetUninteractable;
     }
 }

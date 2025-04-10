@@ -30,7 +30,6 @@ public class KeurigInteraction : ObjectInteraction
                 // invoke after x seconds (time for coffee to complete)
                 CoffeeMadeEvent?.Invoke();
                 gameObject.tag = "Untagged"; // no longer interactable
-
             } else
             {
                 InvokeDialoguePromptEvent("I need to get my coffee mug for this");
@@ -51,6 +50,7 @@ public class KeurigInteraction : ObjectInteraction
         GameObject cupCenter = cup.transform.parent.gameObject;
         cupCenter.transform.position = cupHoldPointTransform.position;
         cupCenter.transform.rotation = cupHoldPointTransform.rotation;
+        cup.tag = "Untagged";
 
         AudioManager.instance.PlayOneShot(coffeeMachineSFX, transform.position);
         
@@ -62,8 +62,6 @@ public class KeurigInteraction : ObjectInteraction
             Invoke(nameof(StopPouring), 6f); // stop after 6 seconds
         }
 
-        // set as interactable again
-        cup.tag = "InteractableObject";
         cup.layer = LayerMask.NameToLayer("Default");
         CupPutInMachineEvent?.Invoke();
     }
