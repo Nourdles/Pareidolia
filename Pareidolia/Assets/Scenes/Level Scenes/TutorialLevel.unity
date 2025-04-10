@@ -3310,6 +3310,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 599985266495647644, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 644102781991547843, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_Color.b
       value: 0.15294118
@@ -3324,7 +3328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1077805456538128832, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1251442160178462041, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_fontSize
@@ -3433,6 +3437,10 @@ PrefabInstance:
     - target: {fileID: 2050975525512128708, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_Color.r
       value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 2123285672149290933, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2318015261911810728, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: fadeSpeed
@@ -3701,6 +3709,22 @@ PrefabInstance:
     - target: {fileID: 4894799835623865490, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044124105782531781, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ba7938ef49361f409a2305f92806d59, type: 3}
+    - target: {fileID: 5044124105782531781, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044124105782531781, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044124105782531781, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5126825919690326522, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3993,6 +4017,10 @@ PrefabInstance:
     - target: {fileID: 7674964348217733450, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: fadeSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7831642053788252848, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7915456072993740996, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
       propertyPath: m_SizeDelta.x
