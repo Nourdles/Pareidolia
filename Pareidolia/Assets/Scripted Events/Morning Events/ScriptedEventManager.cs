@@ -28,6 +28,7 @@ public class ScriptedEventManager : MonoBehaviour
     [SerializeField] private GameObject fallenFurnitureGroup;
     [SerializeField] private GameObject standingLamp;
     [SerializeField] private GameObject fallenLamp;
+    [SerializeField] private ClockSpin clockSpin;
 
     private bool eventTriggered = false;
 
@@ -112,6 +113,9 @@ public class ScriptedEventManager : MonoBehaviour
         DeteriorateWindows();
         DeteriorateNotepad();
         ActivateFallenFurniture();
+
+        if (clockSpin != null)
+            clockSpin.StartAnimation();
     }
 
     private void DeteriorateNotepad(){

@@ -36,7 +36,7 @@ public class SanityTracker : MonoBehaviour
     private int lastDamageStainIdx = -1;
     private Vector3 lastNormal;
 
-    public int baseSanity = 25;
+    public int baseSanity = 30;
     private int stainDamageGracePeriod = 100;
     private int stainDamageFreq = 100;
 
@@ -151,7 +151,7 @@ public class SanityTracker : MonoBehaviour
 
         if (vignette != null)
         {
-            float t = Mathf.Clamp01(1f - sanity / 50f); // sanity starts at 50
+            float t = Mathf.Clamp01(1f - sanity / 30f); // sanity starts at 30
             float curveT = Mathf.SmoothStep(0f, 1f, t); // smoother ramp
             vignette.intensity.value = Mathf.Lerp(0.2f, 0.7f, curveT);
         }
