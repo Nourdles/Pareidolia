@@ -73,7 +73,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{dc7506b1-d879-4b54-acce-fb9d6456324d}">
 		<property name="volume">
-			<value>-7</value>
+			<value>-12</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{e38775f1-7208-4d1b-a60d-70dd845133d6}</destination>
@@ -103,6 +103,9 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{1583787e-764a-416c-8bbd-e04425cb4e05}">
+		<property name="stereoPan">
+			<value>-68</value>
+		</property>
 		<property name="disabledSpeakers">
 			<value>4</value>
 		</property>
@@ -122,7 +125,7 @@
 	<object class="MixerBusFader" id="{f9395c13-5857-48e9-8560-1eada8230e30}" />
 	<object class="LowpassEffect" id="{941c5843-894d-490d-842b-c434d9ea2a47}">
 		<property name="cutoff">
-			<value>6500</value>
+			<value>7000</value>
 		</property>
 	</object>
 </objects>

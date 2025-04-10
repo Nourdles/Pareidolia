@@ -247,7 +247,17 @@
 			<value>1.14999998</value>
 		</property>
 	</object>
-	<object class="SpatialiserEffect" id="{a58b3ac9-495e-4adc-872e-a1d161119f3c}" />
+	<object class="SpatialiserEffect" id="{a58b3ac9-495e-4adc-872e-a1d161119f3c}">
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="soundSize">
+			<value>1</value>
+		</property>
+		<property name="minimumExtent">
+			<value>120</value>
+		</property>
+	</object>
 	<object class="SFXReverbEffect" id="{c2413104-efdb-4c51-a405-c4b3336a079b}">
 		<property name="decayTime">
 			<value>900</value>
