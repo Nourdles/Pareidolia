@@ -59,7 +59,7 @@ public class KeurigInteraction : ObjectInteraction
         {
             coffeePourEffect.Play();
             isPouring = true;
-            Invoke(nameof(StopPouring), 2f); // stop after 2 seconds
+            Invoke(nameof(StopPouring), 6f); // stop after 6 seconds
         }
 
         // set as interactable again

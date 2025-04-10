@@ -5,7 +5,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuCanvas;
     public PauseMenuManager pauseMenuManager;
-    public string mainMenuSceneName = "jvnTitleScene";
+    public string mainMenuSceneName = "TitleScreenScene";
     public static PauseManager pauseManager;
 
     public void ResumeGame()

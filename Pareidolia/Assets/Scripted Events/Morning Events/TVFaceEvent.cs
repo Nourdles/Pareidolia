@@ -21,7 +21,61 @@ public class TVFaceEvent : MonoBehaviour
     // fade in stains in front of TV and behind couch as player is watching tv
     public void StartEvent()
     {
+        // fading in the TV stain slowly
+        Color tvColor = TVStain.color;
+        tvColor.a = 0f;
+        TVStain.color = tvColor;
         StartCoroutine(FadeInStain(TVStain));
+
+        // fading in all other living room stains faster
+        livingRoomStains.SetActive(true);
+        StartCoroutine(FadeInLivingRoomStains());
+    }
+
+    private IEnumerator FadeInLivingRoomStains()
+    {
+        SpriteRenderer[] stains = livingRoomStains.GetComponentsInChildren<SpriteRenderer>(true);
+
+        foreach (var sr in stains)
+        {
+            Color c = sr.color;
+            c.a = 0f;
+            sr.color = c;
+        }
+
+        float alpha = 0f;
+        float fasterFadeRate = fadeInRate * 2f;
+
+        while (alpha < 1f)
+        {
+            alpha += fasterFadeRate;
+            alpha = Mathf.Clamp01(alpha);
+
+            foreach (var sr in stains)
+            {
+                if (sr != null)
+                {
+                    Color c = sr.color;
+                    c.a = alpha;
+                    sr.color = c;
+                }
+            }
+
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        foreach (var sr in stains)
+        {
+            if (sr != null)
+            {
+                Color c = sr.color;
+                c.a = 1f;
+                sr.color = c;
+            }
+        }
+
+        // Enable sanity interaction once fully faded
+        sanityTracker.registerStain(livingRoomStains);
     }
 
     private IEnumerator FadeInStain(SpriteRenderer stainRenderer)
@@ -38,8 +92,6 @@ public class TVFaceEvent : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        // set the stains behind the couch to active
-        livingRoomStains.SetActive(true);
         // enable face spawning 
         RandomFaceSpawner.EnableFaceSpawning();
         // add stain to sanity tracker so player takes damage when looking

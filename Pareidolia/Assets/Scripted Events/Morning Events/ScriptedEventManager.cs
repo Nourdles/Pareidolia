@@ -21,10 +21,13 @@ public class ScriptedEventManager : MonoBehaviour
     [SerializeField] private GameObject notepad;
     [SerializeField] private Material notepadDeteriorationMat;
     [SerializeField] private GameObject TVOverlayQuad;
-
-    
-
+    [SerializeField] private RandomFaceSpawner morningFaceManager;    
     //[SerializeField] UpdateUI notepadUI;
+
+    //vars below are for moving furniture after deterioration
+    [SerializeField] private GameObject fallenFurnitureGroup;
+    [SerializeField] private GameObject standingLamp;
+    [SerializeField] private GameObject fallenLamp;
 
     private bool eventTriggered = false;
 
@@ -59,7 +62,7 @@ public class ScriptedEventManager : MonoBehaviour
     {
         //SilhouetteFlickerEvent.EventStart -= BasementEventStart;
         //SilhouetteFlickerEvent.EventEnd -= BasementEventEnd;
-        //SofaInteraction.TVStartEvent += TurnOffTVOverlayQuad;
+        SofaInteraction.TVStartEvent += TurnOffTVOverlayQuad;
         SofaInteraction.TVStartEvent += StartTVFaceEvent;
         SofaInteraction.TVStartEvent += DeteriorateUpperFloor;
 
@@ -92,19 +95,23 @@ public class ScriptedEventManager : MonoBehaviour
     }
 
     // KEEP COMMENTED WHILE TV IS BUGGED: keep quad on
-    /*private void TurnOffTVOverlayQuad()
+    private void TurnOffTVOverlayQuad()
     {
         if (TVOverlayQuad != null)
             TVOverlayQuad.SetActive(false);
-    }*/
+    }
 
     // after tv event
     private void DeteriorateUpperFloor()
     {
         upperFloorDecals.SetActive(true);
 
+        if (morningFaceManager != null)
+            morningFaceManager.maxTotalFaces = 12;
+
         DeteriorateWindows();
         DeteriorateNotepad();
+        ActivateFallenFurniture();
     }
 
     private void DeteriorateNotepad(){
@@ -122,8 +129,8 @@ public class ScriptedEventManager : MonoBehaviour
     private void DeteriorateWindows()
     {
         // color change
-        Color emissionColor = new Color(0.82f, 0.0078f, 0f);
-        float intensity = 3.138f;
+        Color emissionColor = new Color(0.749f, 0.0549f, 0f);
+        float intensity = 2.5f;
 
         MaterialPropertyBlock block = new MaterialPropertyBlock();
         Renderer[] renderers = FindObjectsOfType<Renderer>();
@@ -162,9 +169,25 @@ public class ScriptedEventManager : MonoBehaviour
     private void DeteriorateBasement()
     {
         basementDecals.SetActive(true);
+        if (morningFaceManager != null)
+            morningFaceManager.maxTotalFaces = 16;
+
+        if (standingLamp != null)
+            standingLamp.SetActive(false);
+
+        if (fallenLamp != null)
+            fallenLamp.SetActive(true);
     }
 
+    private void ActivateFallenFurniture()
+    {
+        if (fallenFurnitureGroup != null)
+            fallenFurnitureGroup.SetActive(true);
 
-
-
+        GameObject[] originalFurniture = GameObject.FindGameObjectsWithTag("Upstairs Furniture");
+        foreach (GameObject obj in originalFurniture)
+        {
+            obj.SetActive(false);
+        }
+    }
 }

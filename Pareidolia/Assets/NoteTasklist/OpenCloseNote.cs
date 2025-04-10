@@ -18,7 +18,7 @@ public class OpenCloseNote : MonoBehaviour
     [SerializeField] private string tasklistSFXPath = "event:/SFX/Tasklist";
     // Pickup SFX
     [SerializeField] private string notepadPickupSFX = "event:/SFX/NotepadPickup";
-    public static bool isPaused = false;
+    public bool isPaused = false;
 
 
     public static event Action NotepadFirstCheckEvent;
@@ -77,6 +77,7 @@ public class OpenCloseNote : MonoBehaviour
         {
             if (tasklistAction.WasPressedThisFrame() && !isPaused)
             {
+                Debug.Log("Tasklist button was pressed");
                 if (noteOpen) 
                 {
                     CloseNote();
@@ -89,14 +90,25 @@ public class OpenCloseNote : MonoBehaviour
         }
     }
 
+    private void SetPaused(bool pause)
+    {
+        isPaused = pause;
+    }
+
     private void OnEnable() 
     {
-        NoteInteraction.NotepadPickedUp += PickUpNotepad;    
+        NoteInteraction.NotepadPickedUp += PickUpNotepad;
+        DeathManager.DeathSceneEvent += CloseNote;
+        SofaInteraction.TVStartEvent += CloseNote;
+        PauseManager.PauseGameEvent += SetPaused;
     }
 
     private void OnDisable() 
     {
         NoteInteraction.NotepadPickedUp -= PickUpNotepad;    
+        DeathManager.DeathSceneEvent -= CloseNote;
+        SofaInteraction.TVStartEvent -= CloseNote;
+        PauseManager.PauseGameEvent -= SetPaused;
     }
 
     public bool isNotePickedUp()

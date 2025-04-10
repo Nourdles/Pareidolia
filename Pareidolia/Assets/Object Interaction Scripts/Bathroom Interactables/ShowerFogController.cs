@@ -23,15 +23,15 @@ public class ShowerFogController : MonoBehaviour
 
     void OnEnable()
     {
-        TubInteraction.GetIntoTubEvent += EnableFog;
-        TubInteraction.GetIntoTubEvent += MarkShowerStarted;
+        ShowerInteraction.GetIntoTubEvent += EnableFog;
+        ShowerInteraction.GetIntoTubEvent += MarkShowerStarted;
         ShowerTask.ShowerComplete += DisableFog;
     }
 
     void OnDisable()
     {
-        TubInteraction.GetIntoTubEvent -= EnableFog;
-        TubInteraction.GetIntoTubEvent -= MarkShowerStarted;
+        ShowerInteraction.GetIntoTubEvent -= EnableFog;
+        ShowerInteraction.GetIntoTubEvent -= MarkShowerStarted;
         ShowerTask.ShowerComplete -= DisableFog;
     }
 

@@ -29,7 +29,8 @@ public class GameStateManager : MonoBehaviour
         {  
             levelState = Levels.MorningCutscene;
             LevelChangeEvent?.Invoke(levelState);
-        } else if (scene.name == "TutorialLevel")
+        } 
+        else if (scene.name == "TutorialLevel")
         {
             levelState = Levels.Tutorial;
             LevelChangeEvent?.Invoke(levelState);
@@ -38,6 +39,16 @@ public class GameStateManager : MonoBehaviour
         {
             levelState = Levels.Morning;
             RandomFaceSpawner.EnableFaceSpawning();
+            LevelChangeEvent?.Invoke(levelState);
+        }
+        else if (scene.name == "EndingCutscene")
+        {
+            levelState = Levels.EndingCutscene;
+            LevelChangeEvent?.Invoke(levelState);
+        }
+        else if (scene.name == "Credits")
+        {
+            levelState = Levels.Credits;
             LevelChangeEvent?.Invoke(levelState);
         }
     }
@@ -60,13 +71,11 @@ public class GameStateManager : MonoBehaviour
             case Levels.Tutorial:
                 StartMorning();
                 break;
-
             case Levels.Morning:
-                StartEndSequence();
+                StartEndingCutscene();
                 break;
-
-            case Levels.EndSequence:
-                EndGame();
+            case Levels.EndingCutscene:
+                StartCredits();
                 break;
             default:
                 StartTutorial();
@@ -91,6 +100,8 @@ public class GameStateManager : MonoBehaviour
         Debug.Log("Starting Morning Cutscene");
         levelState = Levels.MorningCutscene;
 
+        AudioManager.instance.StopAmbience();
+
         // load the morning cutscene scene
         LoadScene.LoadMorningCutscene();
         LevelChangeEvent?.Invoke(levelState);
@@ -100,6 +111,8 @@ public class GameStateManager : MonoBehaviour
     {
         Debug.Log("Starting Tutorial");
         levelState = Levels.Tutorial;
+
+        AudioManager.instance.StartRoomAmbience();
 
         // load the tutorial scene
         LoadScene.LoadTutorialScene();
@@ -120,19 +133,32 @@ public class GameStateManager : MonoBehaviour
         LevelChangeEvent?.Invoke(levelState);
     }
 
-    private static void StartEndSequence()
+    private static void StartEndingCutscene()
     {
-        Debug.Log("Starting End Sequence");
-        levelState = Levels.EndSequence;
+        Debug.Log("Starting Ending Cutscene");
+        levelState = Levels.EndingCutscene;
 
-        // load the end sequence scene
-        //LoadScene.LoadIntroSequence();
+        AudioManager.instance.StopAmbience();
+
+        LoadScene.LoadEndingCutscene();
+        LevelChangeEvent?.Invoke(levelState);
+    }
+
+    private static void StartCredits()
+    {
+        Debug.Log("Starting Credits");
+        levelState = Levels.Credits;
+
+        LoadScene.LoadCredits();
         LevelChangeEvent?.Invoke(levelState);
     }
 
     private static void EndGame()
     {
         Debug.Log("Game End");
+
+        AudioManager.instance.StopAmbience();
+
         // play credits
         LoadScene.LoadGameEnd();
 
