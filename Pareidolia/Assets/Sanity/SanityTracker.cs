@@ -31,12 +31,12 @@ public class SanityTracker : MonoBehaviour
     public static bool damageEnabled = true;
 
     //Sanity percentage
-    private float sanity = 50;
+    private float sanity;
 
     private int lastDamageStainIdx = -1;
     private Vector3 lastNormal;
 
-    private int startingSanity = 50;
+    public int baseSanity = 25;
     private int stainDamageGracePeriod = 100;
     private int stainDamageFreq = 100;
 
@@ -70,6 +70,7 @@ public class SanityTracker : MonoBehaviour
 
     void Start()
     {
+        sanity = baseSanity;
         for (int i = 0; i < stains.Count; i++)
         {
             stainInfo.Add(new StainInfo(stainDamageGracePeriod));
@@ -177,7 +178,7 @@ public class SanityTracker : MonoBehaviour
         // Let player respawn
 
         //GameStateManager.Respawn();
-        sanity = startingSanity;
+        sanity = baseSanity;
         StartCoroutine(DeathManager.ProcessDeath(stains[lastDamageStainIdx], lastNormal));
     }
 
