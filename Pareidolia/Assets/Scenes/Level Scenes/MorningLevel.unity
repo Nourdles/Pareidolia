@@ -26493,7 +26493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2924139798681538107, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: lockedDialogue
-      value: I can't leave.
+      value: The front door is jammed.
       objectReference: {fileID: 0}
     - target: {fileID: 4499509728809984579, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       propertyPath: locked
@@ -27237,8 +27237,8 @@ Transform:
   m_GameObject: {fileID: 1287802009}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57.19, y: 23.33, z: 28.85}
-  m_LocalScale: {x: 72.7, y: 0.8, z: 31.9}
+  m_LocalPosition: {x: -58.8774, y: 23.33, z: 28.85}
+  m_LocalScale: {x: 76.07327, y: 0.8, z: 31.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5524556281714177842}
@@ -35067,6 +35067,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 244440722622106555, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6387387
+      objectReference: {fileID: 0}
+    - target: {fileID: 244440722622106555, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.5563
+      objectReference: {fileID: 0}
+    - target: {fileID: 244440722622106555, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3443
+      objectReference: {fileID: 0}
+    - target: {fileID: 244440722622106555, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.88
+      objectReference: {fileID: 0}
     - target: {fileID: 487399742760650795, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.18
@@ -35111,6 +35127,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 2b9fe986ad97d964b8dc140865b01e16, type: 2}
+    - target: {fileID: 3197258152469048325, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 7.0462956
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197258152469048325, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -54.1693
+      objectReference: {fileID: 0}
     - target: {fileID: 3260819005993838414, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.98324335
@@ -35170,6 +35194,18 @@ PrefabInstance:
     - target: {fileID: 4615726968916078159, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988585995413530989, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+      propertyPath: m_Color.b
+      value: 0.11986476
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988585995413530989, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+      propertyPath: m_Color.g
+      value: 0.12993012
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988585995413530989, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+      propertyPath: m_Color.r
+      value: 0.13962269
       objectReference: {fileID: 0}
     - target: {fileID: 5094392625044977399, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
       propertyPath: m_LocalPosition.z
