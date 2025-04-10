@@ -28,6 +28,8 @@ public class SanityTracker : MonoBehaviour
 
     public DeathManager DeathManager;
 
+    public static bool damageEnabled = true;
+
     //Sanity percentage
     private float sanity = 50;
 
@@ -96,6 +98,11 @@ public class SanityTracker : MonoBehaviour
     void FixedUpdate()
     {
         var planes = GeometryUtility.CalculateFrustumPlanes(camera);
+
+        if (!SanityTracker.damageEnabled)
+        {
+            return;
+        }
 
         for(int i = 0; i < stains.Count; i++)
         {       
@@ -276,4 +283,5 @@ public class SanityTracker : MonoBehaviour
         depthOfField.focusDistance.value = dofMax;
         filmGrainRoutine = null;
     }
+
 }
