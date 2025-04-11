@@ -10,6 +10,7 @@ public class TVLightingEffect : MonoBehaviour
     [SerializeField] private int flickerCountMax = 4;
     [SerializeField] private float flickerIntervalMin = 0.05f;
     [SerializeField] private float flickerIntervalMax = 0.3f;
+    [SerializeField] private GameObject tvOverlay;
 
     private bool hasStarted = false;
 
@@ -27,6 +28,8 @@ public class TVLightingEffect : MonoBehaviour
 
     private void OnTVStarted()
     {
+        tvOverlay.GetComponent<TvScreenManager>().StopSound();
+
         if (hasStarted) return;
         hasStarted = true;
 

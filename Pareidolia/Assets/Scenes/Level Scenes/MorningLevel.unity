@@ -6417,6 +6417,7 @@ MonoBehaviour:
   flickerCountMax: 4
   flickerIntervalMin: 0.05
   flickerIntervalMax: 0.3
+  tvOverlay: {fileID: 1813694177}
 --- !u!1 &244461137
 GameObject:
   m_ObjectHideFlags: 0
@@ -28353,7 +28354,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6168225579636809906, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2025227052}
+      addedObject: {fileID: 2025227048}
   m_SourcePrefab: {fileID: 100100000, guid: 59ebd7271b32afe4f9b8dce9baef326a, type: 3}
 --- !u!4 &1158731894 stripped
 Transform:
@@ -41909,8 +41910,16 @@ PrefabInstance:
       value: 4.66
       objectReference: {fileID: 0}
     - target: {fileID: 1787466883103646546, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787466883103646546, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250355523919007754, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     - target: {fileID: 2250355523919007754, guid: 648edb30d66a4824785d4c01dfbbb0fa, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -42813,6 +42822,7 @@ GameObject:
   - component: {fileID: 1813694181}
   - component: {fileID: 1813694180}
   - component: {fileID: 1813694179}
+  - component: {fileID: 1813694182}
   m_Layer: 0
   m_Name: TV Screen Overlay
   m_TagString: Untagged
@@ -42910,6 +42920,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813694177}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1813694182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813694177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3309072d3df534f259262468a61014d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -214658301
+      Data2: 1111263368
+      Data3: -745442373
+      Data4: -137926359
+    Path: event:/SFX/TV Static
 --- !u!1 &1828987163
 GameObject:
   m_ObjectHideFlags: 0
@@ -50033,11 +50062,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ccadd48557b16d4c9862aca12fc9a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2025227048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185176996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d881d16da555b4dc0a06e41857d04799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorEvent:
+    Guid:
+      Data1: 848070975
+      Data2: 1213495354
+      Data3: 279661499
+      Data4: 1296740804
+    Path: event:/Ambience/Basement Ambience
 --- !u!4 &2032019559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7193005785614332828, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
   m_PrefabInstance: {fileID: 5524556281714177836}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2032019560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879176572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d881d16da555b4dc0a06e41857d04799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorEvent:
+    Guid:
+      Data1: -214658301
+      Data2: 1111263368
+      Data3: -745442373
+      Data4: -137926359
+    Path: event:/SFX/TV Static
 --- !u!1 &2034748902
 GameObject:
   m_ObjectHideFlags: 0
@@ -56741,6 +56808,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7477191421766646576, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 143822365}
+    - targetCorrespondingSourceObject: {fileID: 5878186188013245252, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 879176573}
+    - targetCorrespondingSourceObject: {fileID: 5878186188013245252, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2032019560}
     - targetCorrespondingSourceObject: {fileID: 8158282958484051408, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 212078374}

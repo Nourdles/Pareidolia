@@ -22,32 +22,37 @@ public class Shower : MonoBehaviour
     void Update()
     {
         if (_inShower)
-        {   
-            showerEventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        {
+            showerEventInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+
             if (interactKey.WasPressedThisFrame())
             {
                 ShowerOnEvent?.Invoke();
 
-                if (showerEventInstance.isValid())
+                if (!_showerStarted)
                 {
-                    if (_showerStarted)
-                    {
-                        showerEventInstance.setPaused(false);
-                    } else
-                    {
                     Debug.Log("Starting shower");
+
+                    showerEventInstance = RuntimeManager.CreateInstance("event:/SFX/Shower");
+                    RuntimeManager.AttachInstanceToGameObject(showerEventInstance, transform, GetComponent<Rigidbody>());
+                    showerEventInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+
                     showerEventInstance.start();
                     _showerStarted = true;
-                    }
                 }
-            } 
+                else if (showerEventInstance.isValid())
+                {
+                    showerEventInstance.setPaused(false);
+                }
+            }
             else if (interactKey.WasReleasedThisFrame())
             {
                 ShowerOffEvent?.Invoke();
 
                 if (showerEventInstance.isValid())
                 {
-                    showerEventInstance.setPaused(true);
+                    showerEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    _showerStarted = false;
                 }
             }
         }
