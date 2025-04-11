@@ -10,7 +10,6 @@ public class UpdateUI: MonoBehaviour
     [SerializeField] private TMP_Text[] notepadTextFields; // size 6
     [SerializeField] private string[] notepadText; // size 6
     [SerializeField] private GameObject[] taskMarkers; //size 5
-    [SerializeField] private GameObject notificationUI;
     [SerializeField] private string tasklistUpdateSFXPath = "event:/SFX/Tasklist Update";
     [SerializeField] private TMP_Text laundryProg;
     private static Color InactiveColor = new Color(.349f, .274f, .211f);

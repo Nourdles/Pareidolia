@@ -33,7 +33,8 @@ public class DialogueUIUpdater : MonoBehaviour
         SilhouetteFlickerEvent.SilhouetteDialogueEvent += UpdateDialogueText;
         TVFaceEvent.LivingRoomDialogueEvent += UpdateDialogueText;
         DeathManager.DeathEvent += UpdateDialogueText;
-        StartEndSequenceEvent.EndDialogueEvent += UpdateDialogueText;
+        //StartEndSequenceEvent.EndDialogueEvent += UpdateDialogueText;
+        EndDialogueTrigger.EndDialogueEvent += UpdateDialogueText;
     }
 
     void OnDisable()
@@ -47,7 +48,8 @@ public class DialogueUIUpdater : MonoBehaviour
         SilhouetteFlickerEvent.SilhouetteDialogueEvent -= UpdateDialogueText;
         TVFaceEvent.LivingRoomDialogueEvent -= UpdateDialogueText;
         DeathManager.DeathEvent -= UpdateDialogueText;
-        StartEndSequenceEvent.EndDialogueEvent -= UpdateDialogueText;
+        //StartEndSequenceEvent.EndDialogueEvent -= UpdateDialogueText;
+        EndDialogueTrigger.EndDialogueEvent -= UpdateDialogueText;
 
     }
 
