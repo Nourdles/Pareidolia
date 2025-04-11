@@ -7,10 +7,12 @@ using UnityEngine.UI;
 
 public class UpdateUI: MonoBehaviour
 {
-    [SerializeField] private TMP_Text[] notepadTextFields; // size 7
-    [SerializeField] private string[] notepadText; // size 7
+    [SerializeField] private TMP_Text[] notepadTextFields; // size 6
+    [SerializeField] private string[] notepadText; // size 6
+    [SerializeField] private GameObject[] taskMarkers; //size 5
     [SerializeField] private GameObject notificationUI;
     [SerializeField] private string tasklistUpdateSFXPath = "event:/SFX/Tasklist Update";
+    [SerializeField] private TMP_Text laundryProg;
     private static Color InactiveColor = new Color(.349f, .274f, .211f);
     private static Color ActiveColor = new Color(0f, 0f, 0f);
     public static event Action TasksUpdatedEvent;
@@ -48,31 +50,54 @@ public class UpdateUI: MonoBehaviour
         NotifyEvent?.Invoke();
     }
 
+    private void UpdateClothingCount(string progress)
+    {
+        Debug.Log("Updating task UI");
+        if (progress == "")
+        {
+            laundryProg.text = "";
+        } else
+        {
+            laundryProg.text = "(Dirty clothes picked up: " + progress + ")";
+        }
+    }
+     private void ActivateClothingCount()
+     {
+        Debug.Log("Activating clothing prog");
+        laundryProg.text = "(Dirty clothes picked up: 0/4)";
+     }
+
     private void OnEnable() 
     {
         Task.CrossOutTaskEvent += completeTask;
-        TaskManager.MoveToNextTask += changeTextColor;
-        //GameStateManager.LevelChangeEvent += changeTasks;
+        TaskManager.MoveToNextTask += moveTaskMarker;
+        LaundryBinInteraction.UpdateClothingCount += UpdateClothingCount;
+        ShowerTask.ShowerComplete += ActivateClothingCount;
     }
 
     private void OnDisable() 
     {
        Task.CrossOutTaskEvent -= completeTask;
-       TaskManager.MoveToNextTask -= changeTextColor;
-       //GameStateManager.LevelChangeEvent -= changeTasks;
+       TaskManager.MoveToNextTask -= moveTaskMarker;
+       LaundryBinInteraction.UpdateClothingCount -= UpdateClothingCount;
+       ShowerTask.ShowerComplete -= ActivateClothingCount;
     }
 
-    private void changeTextColor(int taskNum)
+    private void moveTaskMarker(int taskNum)
     {
-        TMP_Text tasktocomplete = notepadTextFields[taskNum];
-        tasktocomplete.color = ActiveColor;
+        //TMP_Text tasktocomplete = notepadTextFields[taskNum];
+        //tasktocomplete.color = ActiveColor;
+
+        taskMarkers[taskNum-1].SetActive(true);
     }
 
     private void completeTask(int taskNum)
     {
         TMP_Text tasktocomplete = notepadTextFields[taskNum];
         tasktocomplete.fontStyle = FontStyles.Strikethrough;
-        tasktocomplete.color = InactiveColor;
+        //tasktocomplete.color = InactiveColor;
+
+        taskMarkers[taskNum-1].SetActive(false);
     }
 
     private void updateTasks()
@@ -80,6 +105,7 @@ public class UpdateUI: MonoBehaviour
         for (int txtfield = 0; txtfield < notepadTextFields.Length; txtfield++)
         {
             notepadTextFields[txtfield].text = notepadText[txtfield];
+            /*
             if (txtfield == 0 || txtfield == 1)
             {
                 notepadTextFields[txtfield].color = ActiveColor;
@@ -88,6 +114,7 @@ public class UpdateUI: MonoBehaviour
                 Debug.Log("Setting textfield "+ txtfield + " to inactive color");
                 notepadTextFields[txtfield].color = InactiveColor;
             }
+            */
             
         }
         TasksUpdatedEvent?.Invoke();

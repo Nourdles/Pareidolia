@@ -12,6 +12,7 @@ public class LaundryBinInteraction : HandheldObjectInteraction
     private int _numclothes;
     private const int NUM_DIRTY_CLOTHES = 4; // the number of clothes needed to be picked up
     public static event Action PickupBinEvent;
+    public static event Action<string> UpdateClothingCount;
 
     [SerializeField] private FMODUnity.EventReference clothingPickupSFX;
 
@@ -44,9 +45,11 @@ public class LaundryBinInteraction : HandheldObjectInteraction
         {
             _isFull = true;
             InvokeDialoguePromptEvent("That should be the last of my dirty clothes");
+            UpdateClothingCount?.Invoke("");
         } else
         {
-            InvokeDialoguePromptEvent(GetNumMissing() + " clothes picked up");
+            //InvokeDialoguePromptEvent(GetNumMissing() + " clothes picked up");
+            UpdateClothingCount?.Invoke(GetNumMissing());
         }
     }
 

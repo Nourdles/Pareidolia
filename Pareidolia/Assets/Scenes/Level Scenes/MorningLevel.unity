@@ -660,6 +660,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 1cedf2e508beb8d4c828cdc1a6774976, type: 3}
+--- !u!1 &32479252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8611108010628572319, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+  m_PrefabInstance: {fileID: 185329317915847528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &32612257
 GameObject:
   m_ObjectHideFlags: 0
@@ -6474,6 +6479,11 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 3.8, y: 2.6, z: 1}
   m_FadeFactor: 1
+--- !u!1 &253814049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7597131173383447064, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+  m_PrefabInstance: {fileID: 185329317915847528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &267284625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6cf87658b7abfef4798f4db50dc4488c, type: 3}
@@ -25050,6 +25060,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1070300331}
   m_SourcePrefab: {fileID: 100100000, guid: 165bb118a88d98e49af73248076c58ea, type: 3}
+--- !u!1 &717316982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5895462459961465260, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+  m_PrefabInstance: {fileID: 185329317915847528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &719715681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6826961358249457131, guid: 4f44904608c540046b617be08238d2a6, type: 3}
@@ -25332,6 +25347,11 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 15.28, y: 9.35, z: 1}
   m_FadeFactor: 0.336
+--- !u!1 &786169184 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1267237382460909845, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+  m_PrefabInstance: {fileID: 185329317915847528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &786821705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27877,6 +27897,11 @@ MeshCollider:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6704253563388059312, guid: 165bb118a88d98e49af73248076c58ea, type: 3}
   m_PrefabInstance: {fileID: 701019484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1074233370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2082842632418784736, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+  m_PrefabInstance: {fileID: 185329317915847528}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1077561189
 GameObject:
@@ -34621,6 +34646,34 @@ PrefabInstance:
     - target: {fileID: 4023250493300091237, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: laundryProg
+      value: 
+      objectReference: {fileID: 6360957141023339706}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: 'taskMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 786169184}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: 'taskMarkers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 253814049}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: 'taskMarkers.Array.data[2]'
+      value: 
+      objectReference: {fileID: 32479252}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: 'taskMarkers.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1074233370}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: 'taskMarkers.Array.data[4]'
+      value: 
+      objectReference: {fileID: 717316982}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: notepadTextFields.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
       propertyPath: 'notepadTextFields.Array.data[0]'
@@ -51350,6 +51403,10 @@ PrefabInstance:
       value: 91.835
       objectReference: {fileID: 0}
     - target: {fileID: 3094920055587717159, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094920055587717159, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 1bd75cea6815be84fa5dd8c1984d379f, type: 2}
@@ -51396,6 +51453,10 @@ PrefabInstance:
     - target: {fileID: 4725345745410619510, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725345745410619510, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4881060684100401199, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
