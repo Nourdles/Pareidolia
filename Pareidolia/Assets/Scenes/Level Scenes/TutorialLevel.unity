@@ -300,6 +300,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de6970f17fd9f564884c50aecb7218ea, type: 3}
+--- !u!1 &152005889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7597131173383447064, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+  m_PrefabInstance: {fileID: 185329317915847528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &303903627
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +842,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2920233682315760322, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
   m_PrefabInstance: {fileID: 65811946005064877}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &700498153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1267237382460909845, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+  m_PrefabInstance: {fileID: 185329317915847528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &758259420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2363707919734292610, guid: f48dc1404f796904ca43dc603200a0fc, type: 3}
@@ -1296,6 +1306,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e03840940001947ace3857ce1bbb64, type: 3}
+--- !u!1 &1022591898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5895462459961465260, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+  m_PrefabInstance: {fileID: 185329317915847528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1061204849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,6 +1376,11 @@ MonoBehaviour:
       Data3: -1638126160
       Data4: 1489501823
     Path: event:/SFX/PlayerFootsteps
+--- !u!1 &1149935619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8611108010628572319, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+  m_PrefabInstance: {fileID: 185329317915847528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1212585744 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1860980874548454514, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
@@ -2661,6 +2681,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: laundryProg
+      value: 
+      objectReference: {fileID: 6360957141023339706}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: 'taskMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 700498153}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: 'taskMarkers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 152005889}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: 'taskMarkers.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1149935619}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: 'taskMarkers.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1877779562}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: 'taskMarkers.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1022591898}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
       propertyPath: 'notepadTextFields.Array.data[0]'
       value: 
       objectReference: {fileID: 422269544217242598}
@@ -3237,6 +3281,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca0eaf6d64a72a44846a7c47114cbed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1877779562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2082842632418784736, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+  m_PrefabInstance: {fileID: 185329317915847528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1994129502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2529744100699905807, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
@@ -4339,9 +4388,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 1538579855359083319, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 4725345745410619510, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}

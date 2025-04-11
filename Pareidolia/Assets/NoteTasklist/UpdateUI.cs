@@ -9,6 +9,7 @@ public class UpdateUI: MonoBehaviour
 {
     [SerializeField] private TMP_Text[] notepadTextFields; // size 6
     [SerializeField] private string[] notepadText; // size 6
+    [SerializeField] private GameObject[] taskMarkers; //size 5
     [SerializeField] private string tasklistUpdateSFXPath = "event:/SFX/Tasklist Update";
     [SerializeField] private TMP_Text laundryProg;
     private static Color InactiveColor = new Color(.349f, .274f, .211f);
@@ -83,6 +84,8 @@ public class UpdateUI: MonoBehaviour
     {
         TMP_Text tasktocomplete = notepadTextFields[taskNum];
         tasktocomplete.color = ActiveColor;
+
+        taskMarkers[taskNum-1].SetActive(true);
     }
 
     private void completeTask(int taskNum)
@@ -90,6 +93,8 @@ public class UpdateUI: MonoBehaviour
         TMP_Text tasktocomplete = notepadTextFields[taskNum];
         tasktocomplete.fontStyle = FontStyles.Strikethrough;
         tasktocomplete.color = InactiveColor;
+
+        taskMarkers[taskNum-1].SetActive(false);
     }
 
     private void updateTasks()
