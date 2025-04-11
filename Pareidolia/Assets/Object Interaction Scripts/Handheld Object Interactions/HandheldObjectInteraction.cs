@@ -141,26 +141,12 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
             {
                 if (hit.collider != null && !hit.collider.transform.IsChildOf(gameObject.transform))
                 {
-                    Debug.Log("SEB: " + "hit object " + hit.collider.name);
                     foundHit = true;
                     break;
                 }
             }
             if (!foundHit) { return; }
-                //Vector3 moveDirection = hit.normal;  // Surface normal
-                //float moveStep = 0.1f;  // Step size for moving the object
-                //Vector3 newPosition = objectCenter.transform.position + moveDirection * moveStep;
 
-                //// Gradually move the object until you find a clear space
-                //while (Physics.Raycast(newPosition, Vector3.down, 0.5f))  // Check if the new position is still blocked
-                //{
-                //    newPosition += moveDirection * moveStep;  // Keep moving the object
-                //}
-
-                //// Move object to clear position
-                //objectCenter.transform.position = newPosition;
-                //Debug.Log("Moved object to clear space.");
-            //}
             Collider objectCollider = gameObject.GetComponent<MeshCollider>();
             if (objectCollider != null)
             {
