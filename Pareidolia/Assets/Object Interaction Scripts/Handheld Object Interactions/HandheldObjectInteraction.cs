@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using FMODUnity;
+using System.Linq;
+using System.Collections.Generic;
 
 public abstract class HandheldObjectInteraction : ObjectInteraction
 {
@@ -101,6 +103,7 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
     public void DropObject()
     {
+        PreventClipping();
         itemRb.transform.parent = null;
         itemRb.isKinematic = false;
         itemRb.detectCollisions = true;
@@ -109,28 +112,69 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
         // revert this object and all children back to the default layer
         SetLayerRecursively(gameObject, defaultLayer);
-        PreventClipping();
+
     }
 
     public void PreventClipping()
     {
         //Debug.Log("Preventing Clipping");
         GameObject objectCenter = FindObjectCenter();
-        var clipRange = Vector3.Distance(gameObject.transform.position, playerCam.transform.position * 1.5f); //distance from holdPos/the held object to the camera (offset so the ray doesn't start from inside collider)
+        Vector3 rayStart = playerCam.transform.position + playerCam.transform.forward * 0.05f;
 
-        RaycastHit[] rayHits;
-        rayHits = Physics.RaycastAll(playerCam.transform.position, playerCam.transform.TransformDirection(Vector3.forward), clipRange);
-        Debug.Log("Clip Range:" + clipRange);
+        var clipRange = Vector3.Distance(gameObject.transform.position, rayStart) * 1.5f; //distance from holdPos/the held object to the camera (offset so the ray doesn't start from inside collider)
+        Vector3 directionToObject = (gameObject.transform.position - playerCam.transform.position).normalized;
+
+        List<RaycastHit> rayList = new List<RaycastHit>();
+        rayList.AddRange(Physics.RaycastAll(rayStart, playerCam.transform.TransformDirection(Vector3.forward), clipRange));
+        rayList.AddRange(Physics.RaycastAll(playerCam.transform.position, directionToObject, clipRange));
+
+        RaycastHit[] rayHits = rayList.ToArray();
         Debug.Log(rayHits);
+
+
         // check if the raycasts have detected another object between the object hold position and camera
         if (rayHits.Length > 1)
         {
-            Debug.Log("Clipping Detected");
-            Debug.Log("Clip Range:" + clipRange);
-            // move object to be positioned slightly below player camera so it doesn't clip upon dropping
-            objectCenter.transform.position = playerCam.transform.position + new Vector3(0f, -0.1f, 0f);
+            bool foundHit = false;
+            foreach (RaycastHit hit in rayHits)
+            {
+                if (hit.collider != null && !hit.collider.transform.IsChildOf(gameObject.transform))
+                {
+                    Debug.Log("SEB: " + "hit object " + hit.collider.name);
+                    foundHit = true;
+                    break;
+                }
+            }
+            if (!foundHit) { return; }
+                //Vector3 moveDirection = hit.normal;  // Surface normal
+                //float moveStep = 0.1f;  // Step size for moving the object
+                //Vector3 newPosition = objectCenter.transform.position + moveDirection * moveStep;
+
+                //// Gradually move the object until you find a clear space
+                //while (Physics.Raycast(newPosition, Vector3.down, 0.5f))  // Check if the new position is still blocked
+                //{
+                //    newPosition += moveDirection * moveStep;  // Keep moving the object
+                //}
+
+                //// Move object to clear position
+                //objectCenter.transform.position = newPosition;
+                //Debug.Log("Moved object to clear space.");
+            //}
+            Collider objectCollider = gameObject.GetComponent<MeshCollider>();
+            if (objectCollider != null)
+            {
+                Vector3 offset = new Vector3(0f, (-objectCollider.bounds.extents.y), 0f);
+                objectCenter.transform.position = playerCam.transform.position + offset;
+            }
+            else
+            {
+                // move object to be positioned slightly below player camera so it doesn't clip upon dropping
+                objectCenter.transform.position = playerCam.transform.position + new Vector3(0f, -0.1f, 0f);
+            }
+
         }
     }
+        
 
     private void PlayDropSound(Vector3 position)
     {
