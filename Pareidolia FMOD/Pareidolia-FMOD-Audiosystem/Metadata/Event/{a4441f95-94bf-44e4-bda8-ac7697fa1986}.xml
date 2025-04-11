@@ -169,6 +169,7 @@
 	<object class="MixerBusEffectChain" id="{25440cd5-1dd4-4c84-83f0-435d0a35e9d3}">
 		<relationship name="effects">
 			<destination>{42a4aabe-c7c5-4cad-8907-4475e2ab0d66}</destination>
+			<destination>{f57aee98-ef70-4184-a956-1b7920214ace}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{60acee75-a15e-4a66-b1db-48a77756f64a}" />
@@ -238,6 +239,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{fe97c71a-92b2-4e53-900e-84530ae87fb6}" />
 	<object class="MixerBusFader" id="{42a4aabe-c7c5-4cad-8907-4475e2ab0d66}" />
+	<object class="SpatialiserEffect" id="{f57aee98-ef70-4184-a956-1b7920214ace}">
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="minimumExtent">
+			<value>70</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{3e8d0101-1cc6-44cb-83a9-7ad4c1da897d}" />
 	<object class="PitchShifterEffect" id="{229f63ac-750d-4441-a5f6-a5b0d2abacb8}">
 		<property name="bypass">

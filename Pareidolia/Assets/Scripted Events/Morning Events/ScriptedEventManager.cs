@@ -2,6 +2,8 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Linq;
+using FMODUnity;
+using FMOD.Studio;
 
 public class ScriptedEventManager : MonoBehaviour
 {
@@ -29,6 +31,7 @@ public class ScriptedEventManager : MonoBehaviour
     [SerializeField] private GameObject standingLamp;
     [SerializeField] private GameObject fallenLamp;
     [SerializeField] private ClockSpin clockSpin;
+    [SerializeField] private EventReference windowRainEvent;
 
     private bool eventTriggered = false;
 
@@ -149,7 +152,7 @@ public class ScriptedEventManager : MonoBehaviour
             }
         }
 
-        // enable rain
+        // enable rain + audio
         GameObject[] allWindows = GameObject.FindGameObjectsWithTag("Window");
 
         foreach (GameObject window in allWindows)
@@ -164,6 +167,15 @@ public class ScriptedEventManager : MonoBehaviour
                 {
                     rainSystem.gameObject.SetActive(true);
                     rainSystem.Play();
+
+                    // fmod audio
+                    if (!windowRainEvent.IsNull)
+                    {
+                        EventInstance rainSound = RuntimeManager.CreateInstance(windowRainEvent);
+                        RuntimeManager.AttachInstanceToGameObject(rainSound, window.transform, window.GetComponent<Rigidbody>());
+                        rainSound.start();
+                        rainSound.release();
+                    }
                 }
             }
         }
