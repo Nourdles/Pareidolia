@@ -56,9 +56,9 @@ public class BasementDoorScriptedEvent : MonoBehaviour
             doorOpenEvent.release();
 
             // lock bedroom door (so player has to go into basement)
-            bedroomDoorInteraction.LockDoor();
+            // bedroomDoorInteraction.LockDoor();
             // set the dialogue for the player attempting to enter the bedroom
-            bedroomDoorInteraction.SetLockedDialogue("...I should check out the basement first.");
+            // bedroomDoorInteraction.SetLockedDialogue("...I should check out the basement first.");
 
 
         }
