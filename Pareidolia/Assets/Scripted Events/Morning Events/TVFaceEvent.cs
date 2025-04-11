@@ -1,13 +1,18 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using System.Linq;
+using NUnit.Framework.Constraints;
 public class TVFaceEvent : MonoBehaviour
 {
     [SerializeField] GameObject livingRoomStains;
     //[SerializeField] RandomFaceSpawner faceSpawner;
     [SerializeField] SpriteRenderer TVStain;
+    [SerializeField] SpriteRenderer EyeStain;
     public static event Action<string> LivingRoomDialogueEvent;
-    [SerializeField] float fadeInRate = 0.01f;
+    [SerializeField] float FadeInDelay = 3f;
+    [SerializeField] float TVFadeInRate = 0.002f;
+    [SerializeField] float EyeFadeInRate = 0.0015f;
     [SerializeField] new Camera camera;
     [SerializeField] SanityTracker sanityTracker;
 
@@ -25,7 +30,12 @@ public class TVFaceEvent : MonoBehaviour
         Color tvColor = TVStain.color;
         tvColor.a = 0f;
         TVStain.color = tvColor;
-        StartCoroutine(FadeInStain(TVStain));
+        StartCoroutine(FadeInStain(TVStain, TVFadeInRate));
+        // fade in eye stain as well
+        Color EyeColor = EyeStain.color;
+        EyeColor.a = 0f;
+        EyeStain.color = EyeColor;
+        StartCoroutine(FadeInStain(EyeStain, EyeFadeInRate));
 
         // fading in all other living room stains faster
         livingRoomStains.SetActive(true);
@@ -34,6 +44,7 @@ public class TVFaceEvent : MonoBehaviour
 
     private IEnumerator FadeInLivingRoomStains()
     {
+        yield return new WaitForSeconds(FadeInDelay);
         SpriteRenderer[] stains = livingRoomStains.GetComponentsInChildren<SpriteRenderer>(true);
 
         foreach (var sr in stains)
@@ -44,7 +55,7 @@ public class TVFaceEvent : MonoBehaviour
         }
 
         float alpha = 0f;
-        float fasterFadeRate = fadeInRate * 2f;
+        float fasterFadeRate = TVFadeInRate * 1f; 
 
         while (alpha < 1f)
         {
@@ -78,8 +89,10 @@ public class TVFaceEvent : MonoBehaviour
         sanityTracker.registerStain(livingRoomStains);
     }
 
-    private IEnumerator FadeInStain(SpriteRenderer stainRenderer)
+    private IEnumerator FadeInStain(SpriteRenderer stainRenderer, float fadeInRate)
     {
+        // wait a bit before starting to fade in stains
+        yield return new WaitForSeconds(FadeInDelay);
         float stainAlpha = stainRenderer.color.a;
         Color temp = stainRenderer.color;
 
@@ -93,9 +106,9 @@ public class TVFaceEvent : MonoBehaviour
         }
 
         // enable face spawning 
-        RandomFaceSpawner.EnableFaceSpawning();
+        //RandomFaceSpawner.EnableFaceSpawning();
         // add stain to sanity tracker so player takes damage when looking
-        sanityTracker.registerStain(livingRoomStains);
+        //sanityTracker.registerStain(livingRoomStains);
     }
 
 

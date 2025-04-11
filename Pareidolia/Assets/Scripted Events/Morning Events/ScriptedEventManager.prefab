@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -3898744318029160640}
   - component: {fileID: 6800651081598985165}
   - component: {fileID: 5861229812658429849}
+  - component: {fileID: 1667149438800695806}
   m_Layer: 0
   m_Name: ScriptedEventManager
   m_TagString: Untagged
@@ -70,6 +71,11 @@ MonoBehaviour:
   notepad: {fileID: 0}
   notepadDeteriorationMat: {fileID: 0}
   TVOverlayQuad: {fileID: 0}
+  morningFaceManager: {fileID: 0}
+  fallenFurnitureGroup: {fileID: 0}
+  standingLamp: {fileID: 0}
+  fallenLamp: {fileID: 0}
+  clockSpin: {fileID: 0}
 --- !u!114 &6800651081598985165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +90,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   livingRoomStains: {fileID: 0}
   TVStain: {fileID: 0}
-  fadeInRate: 0.005
+  EyeStain: {fileID: 0}
+  FadeInDelay: 10
+  TVFadeInRate: 0.002
+  EyeFadeInRate: 0.0015
   camera: {fileID: 0}
   sanityTracker: {fileID: 0}
 --- !u!114 &5861229812658429849
@@ -101,3 +110,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   morningFrontDoor: {fileID: 0}
   endHallway: {fileID: 0}
+  newNotepadImg: {fileID: 0}
+  notepadUI: {fileID: 0}
+--- !u!114 &1667149438800695806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140027499513869234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f3887d6765e90419042b92e58af245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bathroomEventStains: {fileID: 0}
