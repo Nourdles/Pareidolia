@@ -11,12 +11,20 @@ public class SofaInteraction : ObjectInteraction
         interactText = "Press <sprite=\"UISprites\" name=\"" + 
             interactKey.GetBindingDisplayString(InputBinding.MaskByGroup(inputMasking)) + "\"> to watch TV";
         task = taskManager.GetComponentInChildren<TVTask>();
+        TVTask.CrossOutTaskEvent += EnableStainDamage;
     }
     protected override void interactaction(GameObject objectInHand)
     {
+        SanityTracker.damageEnabled = false; //Turning off stain damage until scene done
         SetUninteractable();
         TVStartEvent?.Invoke();
         StartCoroutine(ResetAndLoadTVScene());
+    }
+
+    private void EnableStainDamage(int _)
+    {
+
+        SanityTracker.damageEnabled = true;
     }
 
     private System.Collections.IEnumerator ResetAndLoadTVScene()

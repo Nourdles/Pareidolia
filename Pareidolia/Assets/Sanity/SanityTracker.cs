@@ -28,13 +28,15 @@ public class SanityTracker : MonoBehaviour
 
     public DeathManager DeathManager;
 
+    public static bool damageEnabled = true;
+
     //Sanity percentage
-    private float sanity = 50;
+    private float sanity;
 
     private int lastDamageStainIdx = -1;
     private Vector3 lastNormal;
 
-    private int startingSanity = 50;
+    public int baseSanity = 30;
     private int stainDamageGracePeriod = 100;
     private int stainDamageFreq = 100;
 
@@ -68,6 +70,7 @@ public class SanityTracker : MonoBehaviour
 
     void Start()
     {
+        sanity = baseSanity;
         for (int i = 0; i < stains.Count; i++)
         {
             stainInfo.Add(new StainInfo(stainDamageGracePeriod));
@@ -96,6 +99,11 @@ public class SanityTracker : MonoBehaviour
     void FixedUpdate()
     {
         var planes = GeometryUtility.CalculateFrustumPlanes(camera);
+
+        if (!SanityTracker.damageEnabled)
+        {
+            return;
+        }
 
         for(int i = 0; i < stains.Count; i++)
         {       
@@ -143,7 +151,7 @@ public class SanityTracker : MonoBehaviour
 
         if (vignette != null)
         {
-            float t = Mathf.Clamp01(1f - sanity / 50f); // sanity starts at 50
+            float t = Mathf.Clamp01(1f - sanity / 30f); // sanity starts at 30
             float curveT = Mathf.SmoothStep(0f, 1f, t); // smoother ramp
             vignette.intensity.value = Mathf.Lerp(0.2f, 0.7f, curveT);
         }
@@ -170,7 +178,7 @@ public class SanityTracker : MonoBehaviour
         // Let player respawn
 
         //GameStateManager.Respawn();
-        sanity = startingSanity;
+        sanity = baseSanity;
         StartCoroutine(DeathManager.ProcessDeath(stains[lastDamageStainIdx], lastNormal));
     }
 
@@ -276,4 +284,5 @@ public class SanityTracker : MonoBehaviour
         depthOfField.focusDistance.value = dofMax;
         filmGrainRoutine = null;
     }
+
 }

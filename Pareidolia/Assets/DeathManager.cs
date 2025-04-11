@@ -100,7 +100,7 @@ public class DeathManager : MonoBehaviour
     {
         DeathSceneEvent?.Invoke();
         DeathEvent?.Invoke("I feel dizzy. What's going on??");
-
+        SanityTracker.damageEnabled = false;
         blackScreen();
 
 
@@ -138,6 +138,7 @@ public class DeathManager : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         disableBlackScreen();
+        SanityTracker.damageEnabled = true;
         cc.enabled = true;
         cameraMovement.enabled = true;
 
