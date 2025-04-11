@@ -15,6 +15,7 @@ public class UpdateUI: MonoBehaviour
     private static Color InactiveColor = new Color(.349f, .274f, .211f);
     private static Color ActiveColor = new Color(0f, 0f, 0f);
     public static event Action TasksUpdatedEvent;
+    public static event Action NotifyEvent;
 
     private void updateTaskListSFX()
     {
@@ -45,6 +46,7 @@ public class UpdateUI: MonoBehaviour
             notepadText[5] = "Put dirty clothes in the wash";
         }
         updateTasks();
+        NotifyEvent?.Invoke();
     }
 
     private void UpdateClothingCount(string progress)
@@ -137,6 +139,9 @@ public class UpdateUI: MonoBehaviour
         color.a = 1f;
         newNotepadImg.color = color;
         TasksUpdatedEvent?.Invoke();
+
+        // enable notification pop up
+        NotifyEvent?.Invoke();
 
     }
 }
