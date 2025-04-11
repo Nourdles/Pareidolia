@@ -24995,6 +24995,11 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 8.9, y: 5.45, z: 1}
   m_FadeFactor: 0.691
+--- !u!1 &672032118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4777930053170640161, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+  m_PrefabInstance: {fileID: 1441108396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &691088908 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3688344847946467516, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
@@ -41025,6 +41030,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4777930053170640161, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5861229812658429849, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
       propertyPath: notepadUI
       value: 
@@ -41045,6 +41054,10 @@ PrefabInstance:
       propertyPath: notepadUI
       value: 
       objectReference: {fileID: 1268465076}
+    - target: {fileID: 6686033488946288320, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: basementDoorStain
+      value: 
+      objectReference: {fileID: 672032118}
     - target: {fileID: 6686033488946288320, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
       propertyPath: bedroomDoorInteraction
       value: 
@@ -41073,6 +41086,10 @@ PrefabInstance:
       propertyPath: livingRoomStains
       value: 
       objectReference: {fileID: 1070300329}
+    - target: {fileID: 6973590036573084606, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

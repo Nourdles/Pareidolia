@@ -10,7 +10,7 @@ public class BasementDoorScriptedEvent : MonoBehaviour
     private TaskManager taskManager;
     [SerializeField] DoorInteraction basementDoorInteraction;
     [SerializeField] DoorInteraction bedroomDoorInteraction;
-    [SerializeField] UpdateUI notepadUI;
+    [SerializeField] GameObject basementDoorStain;
     private bool eventTriggered = false;
     public static event Action<string> BasementDoorDialogueEvent;
     public string doorOpenBasementSFX = "event:/SFX/DoorOpenBasement";
@@ -18,6 +18,7 @@ public class BasementDoorScriptedEvent : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        basementDoorStain.SetActive(false);
         taskManager = UnityEngine.Object.FindFirstObjectByType<TaskManager>();
 
         /*basementDoorInteraction = GetComponent<DoorInteraction>();
@@ -55,6 +56,10 @@ public class BasementDoorScriptedEvent : MonoBehaviour
             doorOpenEvent.start();
             doorOpenEvent.release();
 
+            // show stain beside basement door to lead player towards it
+            basementDoorStain.SetActive(true);
+
+            // 
             // lock bedroom door (so player has to go into basement)
             // bedroomDoorInteraction.LockDoor();
             // set the dialogue for the player attempting to enter the bedroom
