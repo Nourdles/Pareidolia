@@ -67,7 +67,7 @@ public class UpdateUI: MonoBehaviour
     private void OnEnable() 
     {
         Task.CrossOutTaskEvent += completeTask;
-        TaskManager.MoveToNextTask += changeTextColor;
+        TaskManager.MoveToNextTask += moveTaskMarker;
         LaundryBinInteraction.UpdateClothingCount += UpdateClothingCount;
         ShowerTask.ShowerComplete += ActivateClothingCount;
     }
@@ -75,15 +75,15 @@ public class UpdateUI: MonoBehaviour
     private void OnDisable() 
     {
        Task.CrossOutTaskEvent -= completeTask;
-       TaskManager.MoveToNextTask -= changeTextColor;
+       TaskManager.MoveToNextTask -= moveTaskMarker;
        LaundryBinInteraction.UpdateClothingCount -= UpdateClothingCount;
        ShowerTask.ShowerComplete -= ActivateClothingCount;
     }
 
-    private void changeTextColor(int taskNum)
+    private void moveTaskMarker(int taskNum)
     {
-        TMP_Text tasktocomplete = notepadTextFields[taskNum];
-        tasktocomplete.color = ActiveColor;
+        //TMP_Text tasktocomplete = notepadTextFields[taskNum];
+        //tasktocomplete.color = ActiveColor;
 
         taskMarkers[taskNum-1].SetActive(true);
     }
@@ -92,7 +92,7 @@ public class UpdateUI: MonoBehaviour
     {
         TMP_Text tasktocomplete = notepadTextFields[taskNum];
         tasktocomplete.fontStyle = FontStyles.Strikethrough;
-        tasktocomplete.color = InactiveColor;
+        //tasktocomplete.color = InactiveColor;
 
         taskMarkers[taskNum-1].SetActive(false);
     }
@@ -102,6 +102,7 @@ public class UpdateUI: MonoBehaviour
         for (int txtfield = 0; txtfield < notepadTextFields.Length; txtfield++)
         {
             notepadTextFields[txtfield].text = notepadText[txtfield];
+            /*
             if (txtfield == 0 || txtfield == 1)
             {
                 notepadTextFields[txtfield].color = ActiveColor;
@@ -110,6 +111,7 @@ public class UpdateUI: MonoBehaviour
                 Debug.Log("Setting textfield "+ txtfield + " to inactive color");
                 notepadTextFields[txtfield].color = InactiveColor;
             }
+            */
             
         }
         TasksUpdatedEvent?.Invoke();
