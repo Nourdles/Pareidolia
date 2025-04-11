@@ -103,10 +103,11 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
 
     public void DropObject()
     {
+        itemRb.detectCollisions = true;
         PreventClipping();
         itemRb.transform.parent = null;
         itemRb.isKinematic = false;
-        itemRb.detectCollisions = true;
+
         // set as interactable again
         gameObject.tag = "InteractableObject";
 
@@ -119,9 +120,9 @@ public abstract class HandheldObjectInteraction : ObjectInteraction
     {
         //Debug.Log("Preventing Clipping");
         GameObject objectCenter = FindObjectCenter();
-        Vector3 rayStart = playerCam.transform.position + playerCam.transform.forward * 0.05f;
+        Vector3 rayStart = playerCam.transform.position + playerCam.transform.forward * 0.03f;
 
-        var clipRange = Vector3.Distance(gameObject.transform.position, rayStart) * 1.5f; //distance from holdPos/the held object to the camera (offset so the ray doesn't start from inside collider)
+        var clipRange = Vector3.Distance(gameObject.transform.position, rayStart) * 1.3f; //distance from holdPos/the held object to the camera (offset so the ray doesn't start from inside collider)
         Vector3 directionToObject = (gameObject.transform.position - playerCam.transform.position).normalized;
 
         List<RaycastHit> rayList = new List<RaycastHit>();
