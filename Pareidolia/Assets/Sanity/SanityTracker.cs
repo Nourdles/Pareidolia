@@ -151,7 +151,7 @@ public class SanityTracker : MonoBehaviour
 
         if (vignette != null)
         {
-            float t = Mathf.Clamp01(1f - sanity / 30f); // sanity starts at 30
+            float t = Mathf.Clamp01(1f - sanity / baseSanity); // sanity starts at 30
             float curveT = Mathf.SmoothStep(0f, 1f, t); // smoother ramp
             vignette.intensity.value = Mathf.Lerp(0.2f, 0.7f, curveT);
         }
