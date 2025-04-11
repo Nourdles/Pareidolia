@@ -13,7 +13,7 @@ public class EndDialogueTrigger : MonoBehaviour
         {
             //if (dialogueTriggerNum == 1)
             //{
-                EndDialogueEvent?.Invoke("Whose there?");
+                //EndDialogueEvent?.Invoke("Who's there?");
                 // enable wall that blocks player from going back
                 wallBlocker.SetActive(true);
                 // disable trigger so it cant be triggered again
