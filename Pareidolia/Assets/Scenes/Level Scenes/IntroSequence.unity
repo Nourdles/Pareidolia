@@ -523,8 +523,8 @@ Transform:
   m_GameObject: {fileID: 81777815}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.89, y: 3.0517, z: -0.6303}
-  m_LocalScale: {x: 0.58971125, y: 0.60182995, z: 1.9146622}
+  m_LocalPosition: {x: 4.89, y: 2.6146, z: -0.6303}
+  m_LocalScale: {x: 0.58971125, y: 0.706428, z: 1.9146622}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1361524106}
@@ -581,7 +581,7 @@ SpriteRenderer:
   m_Size: {x: 14.88, y: 8.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &162347586
@@ -6896,9 +6896,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 1538579855359083319, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 4725345745410619510, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
