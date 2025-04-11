@@ -50086,25 +50086,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7193005785614332828, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
   m_PrefabInstance: {fileID: 5524556281714177836}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2032019560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879176572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d881d16da555b4dc0a06e41857d04799, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorEvent:
-    Guid:
-      Data1: -214658301
-      Data2: 1111263368
-      Data3: -745442373
-      Data4: -137926359
-    Path: event:/SFX/TV Static
 --- !u!1 &2034748902
 GameObject:
   m_ObjectHideFlags: 0
@@ -56811,9 +56792,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5878186188013245252, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 879176573}
-    - targetCorrespondingSourceObject: {fileID: 5878186188013245252, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2032019560}
     - targetCorrespondingSourceObject: {fileID: 8158282958484051408, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 212078374}
