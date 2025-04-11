@@ -7801,6 +7801,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 368519312}
   m_CullTransparentMesh: 1
+--- !u!212 &369477481 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4418044433623602480, guid: 165bb118a88d98e49af73248076c58ea, type: 3}
+  m_PrefabInstance: {fileID: 701019484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &372919914
 GameObject:
   m_ObjectHideFlags: 0
@@ -28562,6 +28567,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8792261052398437847, guid: e272706fd09599e45bb5321214a086cc, type: 3}
   m_PrefabInstance: {fileID: 6250100203206058351}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1191752192 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8770899404385238289, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+  m_PrefabInstance: {fileID: 7219881240268402091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1204566226
 GameObject:
   m_ObjectHideFlags: 0
@@ -40392,6 +40402,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScriptedEventManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1667149438800695806, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: bathroomEventStains
+      value: 
+      objectReference: {fileID: 2120361303}
+    - target: {fileID: 2816036224066066047, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: SinkStain
+      value: 
+      objectReference: {fileID: 1805734320}
+    - target: {fileID: 2816036224066066047, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: FloorStain
+      value: 
+      objectReference: {fileID: 1191752192}
+    - target: {fileID: 2816036224066066047, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: BedroomStain
+      value: 
+      objectReference: {fileID: 2016477043}
     - target: {fileID: 3232387197609061696, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.195227
@@ -40468,6 +40494,10 @@ PrefabInstance:
       propertyPath: TVStain
       value: 
       objectReference: {fileID: 1640869227}
+    - target: {fileID: 6800651081598985165, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: EyeStain
+      value: 
+      objectReference: {fileID: 369477481}
     - target: {fileID: 6800651081598985165, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
       propertyPath: sanityTracker
       value: 
@@ -42865,6 +42895,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!212 &1805734320 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5853206563045312468, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+  m_PrefabInstance: {fileID: 7219881240268402091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1813694177
 GameObject:
   m_ObjectHideFlags: 0
@@ -44765,6 +44800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b232639756e9034d8e8ae11c775ab98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bobbingAmplitude: 0.05
+  bobbingFrequency: 2
 --- !u!95 &1904194535
 Animator:
   serializedVersion: 7
@@ -45399,6 +45436,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 0459e8ff0fa04394fa08eaca6b8a02d1, type: 3}
+--- !u!212 &2016477043 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4164540416724603740, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+  m_PrefabInstance: {fileID: 7219881240268402091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2024924977
 GameObject:
   m_ObjectHideFlags: 0
@@ -50751,6 +50793,16 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 9.5, y: 7.2, z: 1}
   m_FadeFactor: 0.472
+--- !u!1 &2120361303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5091949046874992484, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+  m_PrefabInstance: {fileID: 7219881240268402091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2120361304 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8990814573417806142, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+  m_PrefabInstance: {fileID: 7219881240268402091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2127789575
 GameObject:
   m_ObjectHideFlags: 0
@@ -51877,7 +51929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 239693225356459273, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_Range
-      value: 3.05
+      value: 3.1145778
       objectReference: {fileID: 0}
     - target: {fileID: 239693225356459273, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_Color.b
@@ -51896,12 +51948,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 239693225356459273, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: m_Intensity
+      value: 7.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 239693225356459273, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      propertyPath: m_SpotAngle
+      value: 132.77235
+      objectReference: {fileID: 0}
+    - target: {fileID: 239693225356459273, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_Lightmapping
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 239693225356459273, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_InnerSpotAngle
-      value: 65.798676
+      value: 113.66365
       objectReference: {fileID: 0}
     - target: {fileID: 241984480567601779, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -54909,7 +54969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5926884914247087697, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.174
+      value: 23.531
       objectReference: {fileID: 0}
     - target: {fileID: 5926884914247087697, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -56845,6 +56905,9 @@ PrefabInstance:
       insertIndex: 8
       addedObject: {fileID: 454132114}
     - targetCorrespondingSourceObject: {fileID: 7892002470871275525, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
+      insertIndex: 9
+      addedObject: {fileID: 2120361304}
+    - targetCorrespondingSourceObject: {fileID: 7892002470871275525, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 934566943}
     - targetCorrespondingSourceObject: {fileID: 4747615054138274191, guid: a9fba0b3ce0d8e947b13c7b8d5155e2e, type: 3}
@@ -57644,6 +57707,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &7219881240268402091
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 309952706}
+    m_Modifications:
+    - target: {fileID: 5091949046874992484, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+      propertyPath: m_Name
+      value: BathroomEventStains
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091949046874992484, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990814573417806142, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.991089
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990814573417806142, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.636444
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990814573417806142, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.647827
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990814573417806142, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990814573417806142, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990814573417806142, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990814573417806142, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990814573417806142, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990814573417806142, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990814573417806142, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1971210de32aeb7419134b0dbe8d9d66, type: 3}
 --- !u!114 &7932603549232412902 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7932603548452182648, guid: 9b73f810c360ef547b1852d8ddfdf323, type: 3}
