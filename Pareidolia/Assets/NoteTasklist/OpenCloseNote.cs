@@ -22,6 +22,7 @@ public class OpenCloseNote : MonoBehaviour
 
 
     public static event Action NotepadFirstCheckEvent;
+    public static event Action NoteOpenedEvent;
 
     private void Start() 
     {
@@ -47,7 +48,12 @@ public class OpenCloseNote : MonoBehaviour
         if (_firstOpen)
         {
             NotepadFirstCheckEvent?.Invoke();
+            NoteOpenedEvent?.Invoke();
             _firstOpen = false;
+        }
+        else
+        {
+            NoteOpenedEvent?.Invoke();
         }
     }
 

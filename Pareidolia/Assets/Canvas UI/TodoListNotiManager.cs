@@ -7,7 +7,7 @@ public class TodoListNotiManager : MonoBehaviour
     private void DisableNotification()
     {
         notification.SetActive(false);
-        Destroy(this);
+        //Destroy(this);
     }
     
     private void EnableNotification()
@@ -17,13 +17,17 @@ public class TodoListNotiManager : MonoBehaviour
 
     void OnEnable()
     {
-        UpdateUI.TasksUpdatedEvent += EnableNotification;
-        OpenCloseNote.NotepadFirstCheckEvent += DisableNotification;
+        //UpdateUI.TasksUpdatedEvent += EnableNotification;
+        UpdateUI.NotifyEvent += EnableNotification;
+        //OpenCloseNote.NotepadFirstCheckEvent += DisableNotification;
+        OpenCloseNote.NoteOpenedEvent += DisableNotification;
     }
 
     void OnDisable()
     {
-        UpdateUI.TasksUpdatedEvent -= EnableNotification;
-        OpenCloseNote.NotepadFirstCheckEvent -= DisableNotification;
+        //UpdateUI.TasksUpdatedEvent -= EnableNotification;
+        UpdateUI.NotifyEvent -= EnableNotification;
+        //OpenCloseNote.NotepadFirstCheckEvent -= DisableNotification;
+        OpenCloseNote.NoteOpenedEvent -= DisableNotification;
     }
 }

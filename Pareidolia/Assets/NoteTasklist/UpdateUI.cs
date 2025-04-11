@@ -9,10 +9,12 @@ public class UpdateUI: MonoBehaviour
 {
     [SerializeField] private TMP_Text[] notepadTextFields; // size 7
     [SerializeField] private string[] notepadText; // size 7
+    [SerializeField] private GameObject notificationUI;
     [SerializeField] private string tasklistUpdateSFXPath = "event:/SFX/Tasklist Update";
     private static Color InactiveColor = new Color(.349f, .274f, .211f);
     private static Color ActiveColor = new Color(0f, 0f, 0f);
     public static event Action TasksUpdatedEvent;
+    public static event Action NotifyEvent;
 
     private void updateTaskListSFX()
     {
@@ -43,6 +45,7 @@ public class UpdateUI: MonoBehaviour
             notepadText[5] = "Put dirty clothes in the wash";
         }
         updateTasks();
+        NotifyEvent?.Invoke();
     }
 
     private void OnEnable() 
@@ -110,6 +113,9 @@ public class UpdateUI: MonoBehaviour
         color.a = 1f;
         newNotepadImg.color = color;
         TasksUpdatedEvent?.Invoke();
+
+        // enable notification pop up
+        NotifyEvent?.Invoke();
 
     }
 }
