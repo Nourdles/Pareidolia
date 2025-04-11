@@ -5,7 +5,7 @@
 			<value>Basement Ambience</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{13ffd6bc-e005-4ff6-84b9-98a0d68f64de}</destination>
@@ -158,6 +158,8 @@
 	<object class="MixerBusEffectChain" id="{4272faf7-2eca-4460-a4c2-f61a4b9aa817}">
 		<relationship name="effects">
 			<destination>{04c2528b-98ee-4fa1-8082-4f835fe3d70a}</destination>
+			<destination>{f0450f2b-6508-4d76-9883-30db7e127fbc}</destination>
+			<destination>{1f020c46-7e98-4e24-aa05-e4844a239f41}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2ef072a7-b15e-4427-b727-44e850579c82}" />
@@ -177,6 +179,12 @@
 	</object>
 	<object class="MixerBusPanner" id="{99d3a31c-7a94-4bc3-a744-6191db9dd77b}" />
 	<object class="MixerBusFader" id="{04c2528b-98ee-4fa1-8082-4f835fe3d70a}" />
+	<object class="SpatialiserEffect" id="{f0450f2b-6508-4d76-9883-30db7e127fbc}" />
+	<object class="ThreeEQEffect" id="{1f020c46-7e98-4e24-aa05-e4844a239f41}">
+		<property name="lowGain">
+			<value>-7</value>
+		</property>
+	</object>
 	<object class="AutomationCurve" id="{a00acecd-65b2-491f-b684-9a90eb7bc3ff}">
 		<relationship name="parameter">
 			<destination>{22da1ba4-01b7-4d20-8ab6-7c7e6aa14e3f}</destination>
@@ -193,7 +201,7 @@
 			<value>0.80000000000000004</value>
 		</property>
 		<property name="value">
-			<value>-80</value>
+			<value>0</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{9071184c-e0df-4fc3-9d60-8b6792935157}">
@@ -201,7 +209,7 @@
 			<value>0.99997916666666664</value>
 		</property>
 		<property name="value">
-			<value>-1</value>
+			<value>10</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{941600aa-c7a7-48a2-aec1-3e8c9e7d8d60}">
@@ -209,7 +217,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>10</value>
 		</property>
 	</object>
 </objects>
