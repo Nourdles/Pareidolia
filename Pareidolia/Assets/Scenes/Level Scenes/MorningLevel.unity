@@ -34623,6 +34623,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: laundryProg
+      value: 
+      objectReference: {fileID: 6360957141023339706}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
+      propertyPath: notepadTextFields.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358838317589068178, guid: 3e9153fa910f31741b6640c95480ae7d, type: 3}
       propertyPath: 'notepadTextFields.Array.data[0]'
       value: 
       objectReference: {fileID: 422269544217242598}
@@ -51350,6 +51358,10 @@ PrefabInstance:
       value: 91.835
       objectReference: {fileID: 0}
     - target: {fileID: 3094920055587717159, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3094920055587717159, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 1bd75cea6815be84fa5dd8c1984d379f, type: 2}
@@ -51396,6 +51408,10 @@ PrefabInstance:
     - target: {fileID: 4725345745410619510, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725345745410619510, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4881060684100401199, guid: f7cef058b1d88d14f8fa2ef8647aaeec, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

@@ -7,9 +7,10 @@ using UnityEngine.UI;
 
 public class UpdateUI: MonoBehaviour
 {
-    [SerializeField] private TMP_Text[] notepadTextFields; // size 7
-    [SerializeField] private string[] notepadText; // size 7
+    [SerializeField] private TMP_Text[] notepadTextFields; // size 6
+    [SerializeField] private string[] notepadText; // size 6
     [SerializeField] private string tasklistUpdateSFXPath = "event:/SFX/Tasklist Update";
+    [SerializeField] private TMP_Text laundryProg;
     private static Color InactiveColor = new Color(.349f, .274f, .211f);
     private static Color ActiveColor = new Color(0f, 0f, 0f);
     public static event Action TasksUpdatedEvent;
@@ -45,18 +46,37 @@ public class UpdateUI: MonoBehaviour
         updateTasks();
     }
 
+    private void UpdateClothingCount(string progress)
+    {
+        Debug.Log("Updating task UI");
+        if (progress == "")
+        {
+            laundryProg.text = "";
+        } else
+        {
+            laundryProg.text = "(Dirty clothes picked up: " + progress + ")";
+        }
+    }
+     private void ActivateClothingCount()
+     {
+        Debug.Log("Activating clothing prog");
+        laundryProg.text = "(Dirty clothes picked up: 0/4)";
+     }
+
     private void OnEnable() 
     {
         Task.CrossOutTaskEvent += completeTask;
         TaskManager.MoveToNextTask += changeTextColor;
-        //GameStateManager.LevelChangeEvent += changeTasks;
+        LaundryBinInteraction.UpdateClothingCount += UpdateClothingCount;
+        ShowerTask.ShowerComplete += ActivateClothingCount;
     }
 
     private void OnDisable() 
     {
        Task.CrossOutTaskEvent -= completeTask;
        TaskManager.MoveToNextTask -= changeTextColor;
-       //GameStateManager.LevelChangeEvent -= changeTasks;
+       LaundryBinInteraction.UpdateClothingCount -= UpdateClothingCount;
+       ShowerTask.ShowerComplete -= ActivateClothingCount;
     }
 
     private void changeTextColor(int taskNum)
