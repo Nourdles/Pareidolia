@@ -40448,9 +40448,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6209689180188569239}
     - target: {fileID: -3898744318029160640, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: windowRainEvent.Path
+      value: event:/Ambience/Rain
+      objectReference: {fileID: 0}
+    - target: {fileID: -3898744318029160640, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
       propertyPath: notepadDeteriorationMat
       value: 
       objectReference: {fileID: 2100000, guid: b75496e62f6557941a37699abf1a9a74, type: 2}
+    - target: {fileID: -3898744318029160640, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: windowRainEvent.Guid.Data1
+      value: -908418615
+      objectReference: {fileID: 0}
+    - target: {fileID: -3898744318029160640, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: windowRainEvent.Guid.Data2
+      value: 1290252275
+      objectReference: {fileID: 0}
+    - target: {fileID: -3898744318029160640, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: windowRainEvent.Guid.Data3
+      value: 811892662
+      objectReference: {fileID: 0}
+    - target: {fileID: -3898744318029160640, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
+      propertyPath: windowRainEvent.Guid.Data4
+      value: -1877743565
+      objectReference: {fileID: 0}
     - target: {fileID: 1140027499513869234, guid: 7e5fa49df0fddb24a87a91958089ee3b, type: 3}
       propertyPath: m_Name
       value: ScriptedEventManager
