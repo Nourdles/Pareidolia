@@ -59,7 +59,7 @@ public class KeurigInteraction : ObjectInteraction
         {
             coffeePourEffect.Play();
             isPouring = true;
-            Invoke(nameof(StopPouring), 6f); // stop after 6 seconds
+            Invoke(nameof(StopPouring), 14f); // stop after 6 seconds
         }
 
         cup.layer = LayerMask.NameToLayer("Default");

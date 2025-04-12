@@ -68,8 +68,8 @@ public class IntroSequenceDialogueEvent : MonoBehaviour
         float grainMax = 1f;
         float dofMin = 0.1f;
         float dofMax = 10f;
-        float fadeDuration = 0.2f;
-        float holdDuration = 0.8f;
+        float fadeDuration = 0.4f;
+        float holdDuration = 1.5f;
 
         // fade in
         float timer = 0f;
